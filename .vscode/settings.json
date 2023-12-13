@@ -1,0 +1,16 @@
+{
+    "githubIssues.queries": [
+        {
+            "label": "Мои вопросы",
+            "query": "default"
+        },
+        {
+            "label": "Созданные проблемы",
+            "query": "author:${user} state:open repo:${owner}/${repository} sort:created-desc"
+        },
+        {
+            "label": "Недавние проблемы",
+            "query": "state:open repo:${owner}/${repository} sort:updated-desc"
+        }
+    ]
+}
