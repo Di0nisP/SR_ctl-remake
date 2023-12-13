@@ -1,7 +1,7 @@
 ﻿/**
  * @file alg_ADC.cpp
  * @author Di0nisP ()
- * @brief Алгоритм, 
+ * @brief Алгоритм,
  * @version 0.1
  * @date 2023-12-13
  * 
