@@ -1,4 +1,4 @@
-#include "config_SR.h"
+п»ї#include "config_SR.h"
 #include "alg_base.h"
 
 #include <string>
@@ -18,12 +18,12 @@ using namespace std;
 int read_float(string* p_in, const char* tag, float* p_result)
 {
 //	string* p_in = (string*)p_in_string;
-	int	start_pos = (*p_in).find(tag,0);								if(start_pos==string::npos)				return -1;	//найден тэг 
+	int	start_pos = (*p_in).find(tag,0);								if(start_pos==string::npos)				return -1;	//РЅР°Р№РґРµРЅ С‚СЌРі 
 		start_pos+=	strlen(tag);
-		start_pos = (*p_in).find_first_not_of( "	 ", start_pos);		if(start_pos==string::npos)				return -1;	//найден первый символ
-																		if(start_pos==((*p_in).length()-1))	return -1;	//первый найденный символ - последний символ строки 
+		start_pos = (*p_in).find_first_not_of( "	 ", start_pos);		if(start_pos==string::npos)				return -1;	//РЅР°Р№РґРµРЅ РїРµСЂРІС‹Р№ СЃРёРјРІРѕР»
+																		if(start_pos==((*p_in).length()-1))	return -1;	//РїРµСЂРІС‹Р№ РЅР°Р№РґРµРЅРЅС‹Р№ СЃРёРјРІРѕР» - РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР» СЃС‚СЂРѕРєРё 
 	int stop_pos  = (*p_in).find_first_of    ( "	 ,;", start_pos);
-	if(stop_pos==string::npos)	stop_pos = (*p_in).length();	//не найден последний символ	
+	if(stop_pos==string::npos)	stop_pos = (*p_in).length();	//РЅРµ РЅР°Р№РґРµРЅ РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР»	
 
 	string result_str;
 	result_str.assign((*p_in),start_pos,(stop_pos-start_pos));
@@ -38,12 +38,12 @@ int read_float(string* p_in, const char* tag, float* p_result)
 int read_str(string* p_in, const char* tag, string* p_result)
 {
 //	string* p_in = (string*)p_in_string;
-	int	start_pos = (*p_in).find(tag,0);								if(start_pos==string::npos)				return -1;	//найден тэг 
+	int	start_pos = (*p_in).find(tag,0);								if(start_pos==string::npos)				return -1;	//РЅР°Р№РґРµРЅ С‚СЌРі 
 		start_pos+=	strlen(tag);
-		start_pos = (*p_in).find_first_not_of( "	 ", start_pos);		if(start_pos==string::npos)				return -1;	//найден первый символ
-																		if(start_pos==((*p_in).length()-1))	return -1;	//первый найденный символ - последний символ строки 
+		start_pos = (*p_in).find_first_not_of( "	 ", start_pos);		if(start_pos==string::npos)				return -1;	//РЅР°Р№РґРµРЅ РїРµСЂРІС‹Р№ СЃРёРјРІРѕР»
+																		if(start_pos==((*p_in).length()-1))	return -1;	//РїРµСЂРІС‹Р№ РЅР°Р№РґРµРЅРЅС‹Р№ СЃРёРјРІРѕР» - РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР» СЃС‚СЂРѕРєРё 
 	int stop_pos  = (*p_in).find_first_of    ( "	 ,", start_pos);
-	if(stop_pos==string::npos)	stop_pos = (*p_in).length()-1;	//не найден последний символ
+	if(stop_pos==string::npos)	stop_pos = (*p_in).length()-1;	//РЅРµ РЅР°Р№РґРµРЅ РїРѕСЃР»РµРґРЅРёР№ СЃРёРјРІРѕР»
 //	string result_str;
 //	result_str.assign((*p_in),start_pos,(stop_pos-start_pos));
 	p_result->assign((*p_in),start_pos,(stop_pos-start_pos));
@@ -90,12 +90,12 @@ void SR_calc_proc::make_const(float** pp_val, const char* var_name, float init_v
 {
 	float* p_val = new float;	*p_val=init_val;
 	*pp_val = p_val;
-	vector<const char*> *p_const_name		= (vector<const char*> *)	const_name_list;	(*p_const_name).push_back(var_name);	//имя выхода 
+	vector<const char*> *p_const_name		= (vector<const char*> *)	const_name_list;	(*p_const_name).push_back(var_name);	//РёРјСЏ РІС‹С…РѕРґР° 
 	vector<float*>      *p_const_val_ptr	= (vector<float*> *)		const_val_ptr_list;	(*p_const_val_ptr).push_back(p_val);	
 }
 void SR_calc_proc::make_in(float** pp_val,const char* var_name)
 {
-	//	Лучше сделать push_back(NULL)?
+	//	Р›СѓС‡С€Рµ СЃРґРµР»Р°С‚СЊ push_back(NULL)?
 	*pp_val=NULL;	
 	vector<const char*> *p_in_name		= (vector<const char*> *)	in_name_list;	(*p_in_name).push_back(var_name);
 	vector<float**>      *p_in_val_p	= (vector<float**> *)		in_val_pp_list;	(*p_in_val_p).push_back(pp_val);	
@@ -111,7 +111,7 @@ void SR_calc_proc::make_in(float** pp_val,const char* var_name_part1,const char*
 void SR_calc_proc::make_out(float** pp_val,const char* var_name)
 {
 	*pp_val=NULL;
-	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//имя выхода 
+	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//РёРјСЏ РІС‹С…РѕРґР° 
 	vector<float**>      *p_out_val_p	= (vector<float**> *)		out_val_pp_list;	(*p_out_val_p).push_back(pp_val);
 }
 void SR_calc_proc::make_out(float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3)
@@ -119,7 +119,7 @@ void SR_calc_proc::make_out(float** pp_val,const char* var_name_part1,const char
 	string* p_var_str = new string("");	*p_var_str+=var_name_part1;	*p_var_str+=var_name_part2;	*p_var_str+=var_name_part3;
 	const char* var_name=(*p_var_str).c_str();
 	*pp_val=NULL;
-	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//имя выхода 
+	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//РёРјСЏ РІС‹С…РѕРґР° 
 	vector<float**>      *p_out_val_p	= (vector<float**> *)		out_val_pp_list;	(*p_out_val_p).push_back(pp_val);	
 }
 void SR_calc_proc::make_out(float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3,const char* var_name_part4)
@@ -127,25 +127,25 @@ void SR_calc_proc::make_out(float** pp_val,const char* var_name_part1,const char
 	string* p_var_str = new string("");	*p_var_str+=var_name_part1;	*p_var_str+=var_name_part2;	*p_var_str+=var_name_part3;	*p_var_str+=var_name_part4;
 	const char* var_name=(*p_var_str).c_str();
 	*pp_val=NULL;	
-	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//имя выхода 
+	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//РёРјСЏ РІС‹С…РѕРґР° 
 	vector<float**>      *p_out_val_p	= (vector<float**> *)		out_val_pp_list;	(*p_out_val_p).push_back(pp_val);	
 }
 
-//	Число входных переменных алгоритма
+//	Р§РёСЃР»Рѕ РІС…РѕРґРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С… Р°Р»РіРѕСЂРёС‚РјР°
 int SR_calc_proc::Get_in_val_num()
 {
 	vector<const char*> *p_in_name		= (vector<const char*> *)	in_name_list;
 	return	(*p_in_name).size();
 }
 
-// Число выходных  переменных алгоритма
+// Р§РёСЃР»Рѕ РІС‹С…РѕРґРЅС‹С…  РїРµСЂРµРјРµРЅРЅС‹С… Р°Р»РіРѕСЂРёС‚РјР°
 int SR_calc_proc::Get_out_val_num()
 {
 	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;
 	return	(*p_out_name).size();
 }
 
-//	Выдаёт значение по номеру выхода
+//	Р’С‹РґР°С‘С‚ Р·РЅР°С‡РµРЅРёРµ РїРѕ РЅРѕРјРµСЂСѓ РІС‹С…РѕРґР°
 float SR_calc_proc::Get_out_val(int idx)
 {
 	vector<float**>     * p_out_val_pp = (vector<float**>*)out_val_pp_list;
@@ -249,7 +249,7 @@ int SR_calc_proc::Init_consts()
 //	*/
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-// Предназначен для регистрации переменных (входных и выходных) и их инициализации на основе данных из INI-файла
+// РџСЂРµРґРЅР°Р·РЅР°С‡РµРЅ РґР»СЏ СЂРµРіРёСЃС‚СЂР°С†РёРё РїРµСЂРµРјРµРЅРЅС‹С… (РІС…РѕРґРЅС‹С… Рё РІС‹С…РѕРґРЅС‹С…) Рё РёС… РёРЅРёС†РёР°Р»РёР·Р°С†РёРё РЅР° РѕСЃРЅРѕРІРµ РґР°РЅРЅС‹С… РёР· INI-С„Р°Р№Р»Р°
 int SR_calc_proc::Reg_vars(void* vars_of_block)
 {
 	//----------------------------------------------------------
@@ -257,15 +257,15 @@ int SR_calc_proc::Reg_vars(void* vars_of_block)
 //	if( (* ((vector<const char*>*)const_name_list) ).empty() ||
 //		(* ((vector<float*>*)const_val_ptr_list)   ).empty()	)	return -1;
 	
-	// Проверяется, пусты ли списки имен констант и указателей на значения констант,
-	// чтобы определить, нужно ли читать константы из INI-файла.
+	// РџСЂРѕРІРµСЂСЏРµС‚СЃСЏ, РїСѓСЃС‚С‹ Р»Рё СЃРїРёСЃРєРё РёРјРµРЅ РєРѕРЅСЃС‚Р°РЅС‚ Рё СѓРєР°Р·Р°С‚РµР»РµР№ РЅР° Р·РЅР°С‡РµРЅРёСЏ РєРѕРЅСЃС‚Р°РЅС‚,
+	// С‡С‚РѕР±С‹ РѕРїСЂРµРґРµР»РёС‚СЊ, РЅСѓР¶РЅРѕ Р»Рё С‡РёС‚Р°С‚СЊ РєРѕРЅСЃС‚Р°РЅС‚С‹ РёР· INI-С„Р°Р№Р»Р°.
 	bool const_empty = (* ((vector<const char*>*)const_name_list) ).empty() ||
 					   (* ((vector<float*>*)const_val_ptr_list)   ).empty();
 	
-	// Открытие INI-файла с именем `file_name`
+	// РћС‚РєСЂС‹С‚РёРµ INI-С„Р°Р№Р»Р° СЃ РёРјРµРЅРµРј `file_name`
 	ifstream cfg_file;		cfg_file.open(file_name);
 
-	// Переменные для дальнейшего определения местанахождения в INI-файле
+	// РџРµСЂРµРјРµРЅРЅС‹Рµ РґР»СЏ РґР°Р»СЊРЅРµР№С€РµРіРѕ РѕРїСЂРµРґРµР»РµРЅРёСЏ РјРµСЃС‚Р°РЅР°С…РѕР¶РґРµРЅРёСЏ РІ INI-С„Р°Р№Р»Рµ
 	string str;
 	bool const_section = false;
 	bool    in_section = false;
@@ -276,22 +276,22 @@ int SR_calc_proc::Reg_vars(void* vars_of_block)
 	vector<const char*>::iterator     out_iter_name = (*((vector<const char*>*)out_name_list)).begin();
 	vector<const char*>::iterator end_out_iter_name = (*((vector<const char*>*)out_name_list)).end();
 	
-	//	Читаем INI-файл с именами входов, выходов и уставок алгоритма
+	//	Р§РёС‚Р°РµРј INI-С„Р°Р№Р» СЃ РёРјРµРЅР°РјРё РІС…РѕРґРѕРІ, РІС‹С…РѕРґРѕРІ Рё СѓСЃС‚Р°РІРѕРє Р°Р»РіРѕСЂРёС‚РјР°
 	if (cfg_file)
 	{
 		while(getline(cfg_file, str))
 		 {
-			// Снекция входов
+			// РЎРЅРµРєС†РёСЏ РІС…РѕРґРѕРІ
 			if(in_section && in_iter_name < end_in_iter_name)
 			{
-				// Вычисляется длина строки str с добавлением 1 для учета символа завершения строки
+				// Р’С‹С‡РёСЃР»СЏРµС‚СЃСЏ РґР»РёРЅР° СЃС‚СЂРѕРєРё str СЃ РґРѕР±Р°РІР»РµРЅРёРµРј 1 РґР»СЏ СѓС‡РµС‚Р° СЃРёРјРІРѕР»Р° Р·Р°РІРµСЂС€РµРЅРёСЏ СЃС‚СЂРѕРєРё
 				char* load_str = new char [str.length() + 1]; 
 				strcpy (load_str, str.c_str());				
 				
 				*in_iter_name = load_str;		in_iter_name++;
 			}
 			
-			// Секция выходов
+			// РЎРµРєС†РёСЏ РІС‹С…РѕРґРѕРІ
 			if(out_section && out_iter_name < end_out_iter_name)
 			{
 				char* load_str = new char [str.length() + 1];
@@ -300,10 +300,10 @@ int SR_calc_proc::Reg_vars(void* vars_of_block)
 				*out_iter_name = load_str;	out_iter_name++;
 			}
 			
-			// Если мы находимся в секции констант и константы существуют, то...
+			// Р•СЃР»Рё РјС‹ РЅР°С…РѕРґРёРјСЃСЏ РІ СЃРµРєС†РёРё РєРѕРЅСЃС‚Р°РЅС‚ Рё РєРѕРЅСЃС‚Р°РЅС‚С‹ СЃСѓС‰РµСЃС‚РІСѓСЋС‚, С‚Рѕ...
 			if(const_section && !const_empty)
 			{
-				// ...мы парсим строки и инициализируем соответствующие значения констант из файла.
+				// ...РјС‹ РїР°СЂСЃРёРј СЃС‚СЂРѕРєРё Рё РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµРј СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓСЋС‰РёРµ Р·РЅР°С‡РµРЅРёСЏ РєРѕРЅСЃС‚Р°РЅС‚ РёР· С„Р°Р№Р»Р°.
 				vector<const char*>::iterator	  iter_name = (*((vector<const char*>*)const_name_list)).begin();
 				vector<const char*>::iterator end_iter_name = (*((vector<const char*>*)const_name_list)).end();
 				vector<float*>::iterator     iter_p_val = (*((vector<float*>*)const_val_ptr_list)).begin();
@@ -322,29 +322,29 @@ int SR_calc_proc::Reg_vars(void* vars_of_block)
 		}
 		cfg_file.close ();
 	}
-	// Если нет INI-файла, то записываем его по умолчанию
+	// Р•СЃР»Рё РЅРµС‚ INI-С„Р°Р№Р»Р°, С‚Рѕ Р·Р°РїРёСЃС‹РІР°РµРј РµРіРѕ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	else 
 	{
-		// Можно вкл./выкл. выполнение `printf`
-		#if defined (ALG_PRINTF) // Если определён ALG_PRINTF, то печатаем
-		printf("not found ini: <%s> => use defsult settings\n", file_name); // Имя файла с добавлением "./" (см. `find_alg`)
+		// РњРѕР¶РЅРѕ РІРєР»./РІС‹РєР». РІС‹РїРѕР»РЅРµРЅРёРµ `printf`
+		#if defined (ALG_PRINTF) // Р•СЃР»Рё РѕРїСЂРµРґРµР»С‘РЅ ALG_PRINTF, С‚Рѕ РїРµС‡Р°С‚Р°РµРј
+		printf("not found ini: <%s> => use defsult settings\n", file_name); // РРјСЏ С„Р°Р№Р»Р° СЃ РґРѕР±Р°РІР»РµРЅРёРµРј "./" (СЃРј. `find_alg`)
 		#endif
 	//	ofstream new_cfg_file;	new_cfg_file.open (file_name, ios::out, ios::app);
 		ofstream new_cfg_file;	new_cfg_file.open (file_name, ios::out);		
 		//----------------------------------------------------------
-		// Входы
+		// Р’С…РѕРґС‹
 		new_cfg_file << "In Vars:" << endl;
 		for ( ; in_iter_name < end_in_iter_name; in_iter_name++)
 		{
 			new_cfg_file << *in_iter_name << endl;
 		}
-		// Выходы
+		// Р’С‹С…РѕРґС‹
 		new_cfg_file << "Out Vars:" << endl;
 		for ( ; out_iter_name < end_out_iter_name; out_iter_name++)
 		{
 			new_cfg_file << *out_iter_name << endl;	
 		}			
-		// Константы (уставки)
+		// РљРѕРЅСЃС‚Р°РЅС‚С‹ (СѓСЃС‚Р°РІРєРё)
 		if(!const_empty)
 		{
 			new_cfg_file << "Const Vars:" << endl;
@@ -374,14 +374,14 @@ int SR_calc_proc::Reg_vars(void* vars_of_block)
 		iter_name++;	iter_p_val++;
 	}	
 	
-	// Регистрируем входы и выходы		
+	// Р РµРіРёСЃС‚СЂРёСЂСѓРµРј РІС…РѕРґС‹ Рё РІС‹С…РѕРґС‹		
 	SR_var_list* All_vars_of_block = (SR_var_list*)vars_of_block;
 	vector<const char*>  *in_name =	(vector<const char*>*) in_name_list;
 	vector<const char*> *out_name =	(vector<const char*>*)out_name_list;	
 	vector<float**>  *in_pp = (vector<float**>*) in_val_pp_list; 
 	vector<float**> *out_pp = (vector<float**>*)out_val_pp_list;
-	// "Говорит" системе, что есть такие-то входы и выходы
-	for(int in = 0; in < (*in_pp).size(); in++)	// Как определяется размер `(*in_pp).size()` ???
+	// "Р“РѕРІРѕСЂРёС‚" СЃРёСЃС‚РµРјРµ, С‡С‚Рѕ РµСЃС‚СЊ С‚Р°РєРёРµ-С‚Рѕ РІС…РѕРґС‹ Рё РІС‹С…РѕРґС‹
+	for(int in = 0; in < (*in_pp).size(); in++)	// РљР°Рє РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ СЂР°Р·РјРµСЂ `(*in_pp).size()` ???
 		(*All_vars_of_block).reg_in_var (proc_name, (*in_name)[in], (*in_pp)[in]);
 	for(int out = 0; out < (*out_pp).size(); out++)	
 		(*All_vars_of_block).reg_out_var(proc_name, (*out_name)[out], (*out_pp)[out]);
@@ -389,7 +389,7 @@ int SR_calc_proc::Reg_vars(void* vars_of_block)
 	return 0;	
 }
 
-//	Функция позволяет увидеть, сколько входов подключено
+//	Р¤СѓРЅРєС†РёСЏ РїРѕР·РІРѕР»СЏРµС‚ СѓРІРёРґРµС‚СЊ, СЃРєРѕР»СЊРєРѕ РІС…РѕРґРѕРІ РїРѕРґРєР»СЋС‡РµРЅРѕ
 int SR_calc_proc::Get_ready()
 {
 	if(ready_proc) return 0;
@@ -401,7 +401,7 @@ int SR_calc_proc::Get_ready()
 //	int ok_in=0;
 //	int ok_out=0;
 		
-	//	Считаем количество готовых переменных входов-выходов
+	//	РЎС‡РёС‚Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ РіРѕС‚РѕРІС‹С… РїРµСЂРµРјРµРЅРЅС‹С… РІС…РѕРґРѕРІ-РІС‹С…РѕРґРѕРІ
 	long ok_in = 0, ok_out = 0;
 	for (int  in = 0;  in < (* in_pp).size();  in++) { if ((*(* in_pp)[ in]) != NULL)  ok_in++; }
 	for (int out = 0; out < (*out_pp).size(); out++) { if ((*(*out_pp)[out]) != NULL) ok_out++; }
@@ -422,7 +422,7 @@ int SR_calc_proc::Get_ready()
 		#endif
 	//	printf("%s: not ready!\n",proc_name);
 	}
-	// Если не все входные и выходные переменные готовы, метод возвращает `-1`, 
-	// обозначая, что рассчетный процесс не готов
+	// Р•СЃР»Рё РЅРµ РІСЃРµ РІС…РѕРґРЅС‹Рµ Рё РІС‹С…РѕРґРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ РіРѕС‚РѕРІС‹, РјРµС‚РѕРґ РІРѕР·РІСЂР°С‰Р°РµС‚ `-1`, 
+	// РѕР±РѕР·РЅР°С‡Р°СЏ, С‡С‚Рѕ СЂР°СЃСЃС‡РµС‚РЅС‹Р№ РїСЂРѕС†РµСЃСЃ РЅРµ РіРѕС‚РѕРІ
 	return ret;
 }

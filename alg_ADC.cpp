@@ -1,12 +1,12 @@
 ﻿/**
  * @file alg_ADC.cpp
  * @author Di0nisP ()
- * @brief Алгоритм,
+ * @brief Алгоритм, эмулирующий рбаоту АЦП
  * @version 0.1
  * @date 2023-12-13
  * 
  * @copyright Copyright (c) 2023
- * +
+ * 
  */
 
 #include "alg_base.h"

@@ -1,4 +1,4 @@
-#ifndef CONFIG_SR
+п»ї#ifndef CONFIG_SR
 #define CONFIG_SR
 
 #include <stdio.h>
@@ -33,24 +33,24 @@
 
 
 //----------------------------------------
-#define DEV_ID_ACL   0x19				//LSM303DLHC акселерометр
-#define DEV_ID_MG    0x1e				//LSM303DLHC компас
-#define DEV_ID_GYRO  0x6b				//L3GD20 гироскоп
-#define DEV_ID_PRESS 0x5d				//датчик давления
+#define DEV_ID_ACL   0x19				//LSM303DLHC Р°РєСЃРµР»РµСЂРѕРјРµС‚СЂ
+#define DEV_ID_MG    0x1e				//LSM303DLHC РєРѕРјРїР°СЃ
+#define DEV_ID_GYRO  0x6b				//L3GD20 РіРёСЂРѕСЃРєРѕРї
+#define DEV_ID_PRESS 0x5d				//РґР°С‚С‡РёРє РґР°РІР»РµРЅРёв‚¬
 #define DEV_ID_Wii   0x52
 //----------------------------------------
-//тип устройства
-#define UNKNOWN_CTL       0 //неизвестное устройство
-#define KITE_CTL_V1       101 //управление куполом (версия 1)
-#define BOARD_UP_CTL_V1   102 //управление доской - верхняя часть (версия 1)
-#define BOARD_DOWN_CTL_V1 103 //управление доской - нижняя  часть (версия 1)
-#define SR_CTL_V1         200 //управление  (версия 1)
+//С‚РёРї СѓСЃС‚СЂРѕР№СЃС‚РІР°
+#define UNKNOWN_CTL       0 //РЅРµРёР·РІРµСЃС‚РЅРѕРµ СѓСЃС‚СЂРѕР№СЃС‚РІРѕ
+#define KITE_CTL_V1       101 //СѓРїСЂР°РІР»РµРЅРёРµ РєСѓРїРѕР»РѕРј (РІРµСЂСЃРёв‚¬ 1)
+#define BOARD_UP_CTL_V1   102 //СѓРїСЂР°РІР»РµРЅРёРµ РґРѕСЃРєРѕР№ - РІРµСЂС…РЅв‚¬в‚¬ С‡Р°СЃС‚СЊ (РІРµСЂСЃРёв‚¬ 1)
+#define BOARD_DOWN_CTL_V1 103 //СѓРїСЂР°РІР»РµРЅРёРµ РґРѕСЃРєРѕР№ - РЅРёР¶РЅв‚¬в‚¬  С‡Р°СЃС‚СЊ (РІРµСЂСЃРёв‚¬ 1)
+#define SR_CTL_V1         200 //СѓРїСЂР°РІР»РµРЅРёРµ  (РІРµСЂСЃРёв‚¬ 1)
 //----------------------------------------
-//шины
-#define BUS_ID_I2C1			10//1-я шина I2C
-#define BUS_ID_I2C2			11//2-я шина I2C
+//С€РёРЅС‹
+#define BUS_ID_I2C1			10//1-в‚¬ С€РёРЅР° I2C
+#define BUS_ID_I2C2			11//2-в‚¬ С€РёРЅР° I2C
 //----------------------------------------
-//команды управления
+//РєРѕРјР°РЅРґС‹ СѓРїСЂР°РІР»РµРЅРёв‚¬
 #define CMD_STOP 10
 #define CMD_KITE 11
 #define CMD_BOARD      12
@@ -58,7 +58,7 @@
 #define CMD_BOARD_DIR  14
  
 //----------------------------------------
-#define STOP_TIMEOUT 300		//время останова мс
+#define STOP_TIMEOUT 300		//РІСЂРµРјв‚¬ РѕСЃС‚Р°РЅРѕРІР° РјСЃ
 
 
 //#define MAX_MOTOR_SPEED 3200
@@ -70,11 +70,11 @@
 #define MOTOR_MIN_SPEED 50
 //	*/
  
-//#define MEMS_PERIOD 50			//период опроса датчиков мс
-//#define PRINT_PERIOD 1000	//1000	//период отображения мс
+//#define MEMS_PERIOD 50			//РїРµСЂРёРѕРґ РѕРїСЂРѕСЃР° РґР°С‚С‡РёРєРѕРІ РјСЃ
+//#define PRINT_PERIOD 1000	//1000	//РїРµСЂРёРѕРґ РѕС‚РѕР±СЂР°Р¶РµРЅРёв‚¬ РјСЃ
 
-///#define LIFE_PERIOD 3600*1000	//период работы программы мс
-#define LIFE_PERIOD 7200*1000	//период работы программы мс
+///#define LIFE_PERIOD 3600*1000	//РїРµСЂРёРѕРґ СЂР°Р±РѕС‚С‹ РїСЂРѕРіСЂР°РјРјС‹ РјСЃ
+#define LIFE_PERIOD 7200*1000	//РїРµСЂРёРѕРґ СЂР°Р±РѕС‚С‹ РїСЂРѕРіСЂР°РјРјС‹ РјСЃ
 
 
 //#define RSV_BUFF_SZ 512
@@ -173,22 +173,22 @@ struct SR_Config
 //	*/
 
 	/*
-struct SR_data_src	//источник данных
+struct SR_data_src	//РёСЃС‚РѕС‡РЅРёРє РґР°РЅРЅС‹С…
 {
 	int ID;			//ID
-	int bus;		//шина
-	int type;		//тип
-	int chan;		//число каналов
-	int chan_flt;	//число каналов с фильтрацией
-//	int block;	//блок	
+	int bus;		//С€РёРЅР°
+	int type;		//С‚РёРї
+	int chan;		//С‡РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ
+	int chan_flt;	//С‡РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ СЃ С„РёР»СЊС‚СЂР°С†РёРµР№
+//	int block;	//Р±Р»РѕРє	
 };
-struct SR_sensor_init_inf	//информация по датчику
+struct SR_sensor_init_inf	//РёРЅС„РѕСЂРјР°С†Рёв‚¬ РїРѕ РґР°С‚С‡РёРєСѓ
 {
-	const char* name;	//имя
-	const char* bus;	//шина
-	int type;			//тип
-	int chan;		//число каналов
-	int chan_flt;	//число каналов с фильтрацией	
+	const char* name;	//РёРјв‚¬
+	const char* bus;	//С€РёРЅР°
+	int type;			//С‚РёРї
+	int chan;		//С‡РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ
+	int chan_flt;	//С‡РёСЃР»Рѕ РєР°РЅР°Р»РѕРІ СЃ С„РёР»СЊС‚СЂР°С†РёРµР№	
 };
 struct SR_sensors_init_struct
 {	
@@ -203,7 +203,7 @@ int init_SR_data();
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	/*
-//работа со строками .cfg файла
+//СЂР°Р±РѕС‚Р° СЃРѕ СЃС‚СЂРѕРєР°РјРё .cfg С„Р°Р№Р»Р°
 int Check_tag (void* p_line_str,  void* p_tag_str);
 int get_str	(void* p_in_string, const char* tag, char* data_str);
 int get_int	(void* p_in_string, const char* tag, int*  p_result, int radix);
@@ -256,45 +256,45 @@ struct link_var_discriptor
 {
 	int buff_idx;
 //	float* p_var_in_buff;
-	float* p_var_in_calc; // “казатель на входную локальную переменную
+	float* p_var_in_calc; // РЈРєР°Р·Р°С‚РµР»СЊ РЅР° РІС…РѕРґРЅСѓСЋ Р»РѕРєР°Р»СЊРЅСѓСЋ РїРµСЂРµРјРµРЅРЅСѓСЋ
 };
 
 class Link_MPI
 {
 private:
-	int node; // Номер узла
-	void* send_list; // Список на передачу
-	void* recv_list; // Спсиок на приём
+	int node; // РЊРѕРјРµСЂ СѓР·Р»Р°
+	void* send_list; // вЂ”РїРёСЃРѕРє РЅР° РїРµСЂРµРґР°С‡Сѓ
+	void* recv_list; // вЂ”РїСЃРёРѕРє РЅР° РїСЂРёР„Рј
 //	int shift_recv_buff;
 public:
-// Списки на выдачу и на приём содержат в себе имена переменных
-	int send_sz; // Размер буфера на передачу
-	int recv_sz; // На приём
-	float* send_buff; // Указатель на буфер на передачу
-	float* recv_buff; // На приём
+// вЂ”РїРёСЃРєРё РЅР° РІС‹РґР°С‡Сѓ Рё РЅР° РїСЂРёР„Рј СЃРѕРґРµСЂР¶Р°С‚ РІ СЃРµР±Рµ РёРјРµРЅР° РїРµСЂРµРјРµРЅРЅС‹С…
+	int send_sz; // вЂ“Р°Р·РјРµСЂ Р±СѓС„РµСЂР° РЅР° РїРµСЂРµРґР°С‡Сѓ
+	int recv_sz; // РЊР° РїСЂРёР„Рј
+	float* send_buff; // вЂќРєР°Р·Р°С‚РµР»СЊ РЅР° Р±СѓС„РµСЂ РЅР° РїРµСЂРµРґР°С‡Сѓ
+	float* recv_buff; // РЊР° РїСЂРёР„Рј
 //	bool shifted;	
 
 public:
 	 Link_MPI(int node_num);
 	~Link_MPI();
 //	void set_shift_recv_buff(int shift_bytes);
-	int get_node_num(); // Получить номер (ID) узла внутри сети устройств
+	int get_node_num(); // С•РѕР»СѓС‡РёС‚СЊ РЅРѕРјРµСЂ (ID) СѓР·Р»Р° РІРЅСѓС‚СЂРё СЃРµС‚Рё СѓСЃС‚СЂРѕР№СЃС‚РІ
 	
 //	void add_send_var(float* p_var_in_buff,float* p_var_in_calc);
 //	void add_recv_var(float* p_var_in_buff,float* p_var_in_calc);
 
-	// Добавление переменной:
-	// float* p_var_in_calc -- указатель на переменную;
-	// int buff_idx -- индекс внутри буфера (на приЮм или передачу)
+	// Ж’РѕР±Р°РІР»РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№:
+	// float* p_var_in_calc -- СѓРєР°Р·Р°С‚РµР»СЊ РЅР° РїРµСЂРµРјРµРЅРЅСѓСЋ;
+	// int buff_idx -- РёРЅРґРµРєСЃ РІРЅСѓС‚СЂРё Р±СѓС„РµСЂР° (РЅР° РїСЂРёС‘Рј РёР»Рё РїРµСЂРµРґР°С‡Сѓ)
 	void add_send_var(float* p_var_in_calc,int buff_idx);
 	void add_recv_var(float* p_var_in_calc,int buff_idx);	
 	void set_local_send_buff_order();
 	
-	// Љопирование из буфера send или recv в буфер со внешними переменными
+	// РљРѕРїРёСЂРѕРІР°РЅРёРµ РёР· Р±СѓС„РµСЂР° send РёР»Рё recv РІ Р±СѓС„РµСЂ СЃРѕ РІРЅРµС€РЅРёРјРё РїРµСЂРµРјРµРЅРЅС‹РјРё
 	void copy_send_vars();
 	void copy_recv_vars();
 
-	// ‚ыделение буферов длЯ MPI
+	// Р’С‹РґРµР»РµРЅРёРµ Р±СѓС„РµСЂРѕРІ РґР»СЏ MPI
 	void set_send_buff(int sz);
 	void set_recv_buff(int sz);
 	
@@ -306,21 +306,21 @@ public:
 
 struct SR_var_discriptor
 {
-	const char* var_name; // Имя переменной
-	const char* calc_proc_name; // Имя вычислительной процедуры (алгоритма)
-	float** pp_val_calc; // Указатель на значение переменной
-	int use_cnt; // Индекс ссылок на переменную (может не работать)
+	const char* var_name; // В»Рјв‚¬ РїРµСЂРµРјРµРЅРЅРѕР№
+	const char* calc_proc_name; // В»Рјв‚¬ РІС‹С‡РёСЃР»РёС‚РµР»СЊРЅРѕР№ РїСЂРѕС†РµРґСѓСЂС‹ (Р°Р»РіРѕСЂРёС‚РјР°)
+	float** pp_val_calc; // вЂќРєР°Р·Р°С‚РµР»СЊ РЅР° Р·РЅР°С‡РµРЅРёРµ РїРµСЂРµРјРµРЅРЅРѕР№
+	int use_cnt; // В»РЅРґРµРєСЃ СЃСЃС‹Р»РѕРє РЅР° РїРµСЂРµРјРµРЅРЅСѓСЋ (РјРѕР¶РµС‚ РЅРµ СЂР°Р±РѕС‚Р°С‚СЊ)
 	//---------------
 	int out_num; // ?
-	int idx; // Индекс
-	int in_cnt; // (может не работать)
-	//-------------------ТОЛЬКО ДЛЯ ОТЛАДКИ ТАК НЕЛЬЗЯ!!!
+	int idx; // В»РЅРґРµРєСЃ
+	int in_cnt; // (РјРѕР¶РµС‚ РЅРµ СЂР°Р±РѕС‚Р°С‚СЊ)
+	//-------------------вЂњСњР‹в„–В Сњ Ж’Р‹СЏ СњвЂњР‹СЖ’В В» вЂњСВ  РЊв‰€Р‹в„–В«СЏ!!!
 	float* p_val;
-	//-------------------ТОЛЬКО ДЛЯ ОТЛАДКИ ТАК НЕЛЬЗЯ!!!
+	//-------------------вЂњСњР‹в„–В Сњ Ж’Р‹СЏ СњвЂњР‹СЖ’В В» вЂњСВ  РЊв‰€Р‹в„–В«СЏ!!!
 
 };
 
-// Љласс длЯ работы с переменными, с которыми работает алгоритм
+// РљР»Р°СЃСЃ РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РїРµСЂРµРјРµРЅРЅС‹РјРё, СЃ РєРѕС‚РѕСЂС‹РјРё СЂР°Р±РѕС‚Р°РµС‚ Р°Р»РіРѕСЂРёС‚Рј
 class SR_var_list
 {
 protected:
@@ -339,23 +339,23 @@ public:
 public:
 	 SR_var_list(const char* in_name);
 	~SR_var_list();
-	void init_var(const char* var_name); // “становка переменных
-	SR_var_discriptor* get(const char* Name); // ‚ызов переменной по имени (медленно)
-	void  printf_list(); // Џеречисление имЮн всех переменных
-	int sz_list(); // Љоличество переменных
-	const char* get_name_from_list(int idx); // €мЯ по индексу массива имЮн
+	void init_var(const char* var_name); // РЈСЃС‚Р°РЅРѕРІРєР° РїРµСЂРµРјРµРЅРЅС‹С…
+	SR_var_discriptor* get(const char* Name); // Р’С‹Р·РѕРІ РїРµСЂРµРјРµРЅРЅРѕР№ РїРѕ РёРјРµРЅРё (РјРµРґР»РµРЅРЅРѕ)
+	void  printf_list(); // РџРµСЂРµС‡РёСЃР»РµРЅРёРµ РёРјС‘РЅ РІСЃРµС… РїРµСЂРµРјРµРЅРЅС‹С…
+	int sz_list(); // РљРѕР»РёС‡РµСЃС‚РІРѕ РїРµСЂРµРјРµРЅРЅС‹С…
+	const char* get_name_from_list(int idx); // РРјСЏ РїРѕ РёРЅРґРµРєСЃСѓ РјР°СЃСЃРёРІР° РёРјС‘РЅ
 	
-	// ђазмеры списков
-	int sz_out_list(); // выходных переменных
-	int sz_in_list(); // входных локальных
-	int sz_rem_list(); // входных удалЮнных
+	// Р Р°Р·РјРµСЂС‹ СЃРїРёСЃРєРѕРІ
+	int sz_out_list(); // РІС‹С…РѕРґРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
+	int sz_in_list(); // РІС…РѕРґРЅС‹С… Р»РѕРєР°Р»СЊРЅС‹С…
+	int sz_rem_list(); // РІС…РѕРґРЅС‹С… СѓРґР°Р»С‘РЅРЅС‹С…
 	SR_var_discriptor* get_out_by_idx(int idx);
 	SR_var_discriptor* get_in_by_idx(int idx);
 	SR_var_discriptor* get_rem_by_idx(int idx);	
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	void reg_in_var (const char* proc_name,const char* var_name,float** pp_val_calc_func);
 	void reg_out_var(const char* proc_name,const char* var_name,float** pp_val_calc_func);
-	void make_out_vars(); // ‚ыделение памЯти под выходные переменные
+	void make_out_vars(); // Р’С‹РґРµР»РµРЅРёРµ РїР°РјСЏС‚Рё РїРѕРґ РІС‹С…РѕРґРЅС‹Рµ РїРµСЂРµРјРµРЅРЅС‹Рµ
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 };
 
@@ -470,9 +470,9 @@ private:
 //	void* p_Link_list;	
 	
 public:
-	SR_var_list* All_local_vars;//список локальных переменных
+	SR_var_list* All_local_vars;//СЃРїРёСЃРѕРє Р»РѕРєР°Р»СЊРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…
 	
-	SR_var_list** All_dist_vars;//список удаленных переменных	
+	SR_var_list** All_dist_vars;//СЃРїРёСЃРѕРє СѓРґР°Р»РµРЅРЅС‹С… РїРµСЂРµРјРµРЅРЅС‹С…	
 //	SR_var_list*		vars_tab;
 
 		/*
@@ -512,7 +512,7 @@ public:
 	
 ///	SR_Block_data* Get_Block(const char* name,const char* IP,int num,int type);
 	
-	// Џоиск so-файлов в указанной папке
+	// РџРѕРёСЃРє so-С„Р°Р№Р»РѕРІ РІ СѓРєР°Р·Р°РЅРЅРѕР№ РїР°РїРєРµ
 	int find_algs(SR_calc_proc*** p_calc_proc_array);
 	
 ///	int find_links(SR_UDP_link*** p_link_array);

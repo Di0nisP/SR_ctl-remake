@@ -1,12 +1,12 @@
-#ifndef ALG_BASE_SR
+п»ї#ifndef ALG_BASE_SR
 #define ALG_BASE_SR
 #include <math.h>
 
 #include <stdio.h>
 #include <string.h>
 
-#define MEMS_PERIOD 50			//период опроса датчиков мс
-#define PRINT_PERIOD 500		//период отображения мс
+#define MEMS_PERIOD   5		// РџРµСЂРёРѕРґ РѕРїСЂРѕСЃР° РґР°С‚С‡РёРєРѕРІ, РјСЃ
+#define PRINT_PERIOD 20		// РџРµСЂРёРѕРґ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ, РјСЃ
 
 //----------------------------------------------------------------------------------
 #define CMD_STOP_PROG 123456789
@@ -27,11 +27,11 @@
 #define CMD_INC_PRINT_VAR 105
 #define CMD_DEC_PRINT_VAR 106
 
-//темы печати
+//С‚РµРјС‹ РїРµС‡Р°С‚Рё
 #define TOPIC_ALG_VARS 1
 #define TOPIC_ALG_MSGS 2
 //----------------------------------------------------------------------------------
-//управление двигателЯми
+//СѓРїСЂР°РІР»РµРЅРёРµ РґРІРёРіР°С‚РµР»СЏРјРё
 #define CMD_MANUAL_KITE_RIGHT_POS	0b00000000000000000000000000000001
 #define CMD_MANUAL_KITE_RIGHT_NEG	0b00000000000000000000000000000010
 #define CMD_MANUAL_KITE_LEFT_POS	0b00000000000000000000000000000100
@@ -72,13 +72,13 @@
 	#endif
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
-		#define ALG_PRINTF	//выдавть сообщения в консоль
+		#define ALG_PRINTF	//РІС‹РґР°РІС‚СЊ СЃРѕРѕР±С‰РµРЅРёв‚¬ РІ РєРѕРЅСЃРѕР»СЊ
 	
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//---------------------УБРАТЬ!!! ОШИБКА
+//---------------------вЂќР…вЂ“СвЂњв„–!!! СњРЋВ»Р…В С
 static char Module_Name[256];
-//---------------------УБРАТЬ!!! ОШИБКА
+//---------------------вЂќР…вЂ“СвЂњв„–!!! СњРЋВ»Р…В С
 struct SR_3D_vect
 {
 	float x;
@@ -96,10 +96,10 @@ protected:
 	//float* 	ctl_var;
 	//~~~~~~~~~~~~~~~~~~~
 public:
-	int calc_period;	   // Период обсчета функции в мс
-	bool ready_proc;       // Переменная готовности алгоритма (см. alg_example)
-	const char* proc_name; // Указатель на имя функции
-	char file_name[256];   // Имя файла
+	int calc_period;	   // С•РµСЂРёРѕРґ РѕР±СЃС‡РµС‚Р° С„СѓРЅРєС†РёРё РІ РјСЃ
+	bool ready_proc;       // С•РµСЂРµРјРµРЅРЅР°в‚¬ РіРѕС‚РѕРІРЅРѕСЃС‚Рё Р°Р»РіРѕСЂРёС‚РјР° (СЃРј. alg_example)
+	const char* proc_name; // вЂќРєР°Р·Р°С‚РµР»СЊ РЅР° РёРјв‚¬ С„СѓРЅРєС†РёРё
+	char file_name[256];   // В»Рјв‚¬ С„Р°Р№Р»Р°
 protected:	
 //	void make_const(float* p_val  ,const char* var_name,float init_val);
 	void make_const(float** pp_val,const char* var_name,float init_val);	
@@ -109,7 +109,7 @@ protected:
 	
 	void make_out  (float** pp_val,const char* var_name);
 	
-	// ђасширенный (не реализованный) функционал, предполагающий возможность использованиЯ составных имЮн
+	// Р Р°СЃС€РёСЂРµРЅРЅС‹Р№ (РЅРµ СЂРµР°Р»РёР·РѕРІР°РЅРЅС‹Р№) С„СѓРЅРєС†РёРѕРЅР°Р», РїСЂРµРґРїРѕР»Р°РіР°СЋС‰РёР№ РІРѕР·РјРѕР¶РЅРѕСЃС‚СЊ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ СЃРѕСЃС‚Р°РІРЅС‹С… РёРјС‘РЅ
 	void make_out  (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
 	void make_out  (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3,const char* var_name_part4);	
 
@@ -118,7 +118,7 @@ public:
 	~SR_calc_proc();
 //	int Init_consts();
 	int Get_ready();	//	?
-	int Reg_vars(void* vars_of_block);	//	‚ажнаЯ функциЯ -- создание переменных
+	int Reg_vars(void* vars_of_block);	//	Р’Р°Р¶РЅР°СЏ С„СѓРЅРєС†РёСЏ -- СЃРѕР·РґР°РЅРёРµ РїРµСЂРµРјРµРЅРЅС‹С…
 	int   Get_out_val_num();
 	int   Get_in_val_num();	
 	float Get_out_val(int idx);	
@@ -126,7 +126,7 @@ public:
 	const char* Get_out_name(int idx);
 	const char* Get_in_name(int idx);	
 	
-	virtual void calc()=0; // Ќе имеет реализации в одноимЮнном cpp-файле
+	virtual void calc()=0; // РќРµ РёРјРµРµС‚ СЂРµР°Р»РёР·Р°С†РёРё РІ РѕРґРЅРѕРёРјС‘РЅРЅРѕРј cpp-С„Р°Р№Р»Рµ
 };
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //extern "C" int GetCalcClasses(SR_calc_proc** p_Classes,const char* block_name);
@@ -145,5 +145,5 @@ public:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//	…сли данный файл уже подключЮн -- игнорируем (в свЯзке с ifndef)
+//	Р•СЃР»Рё РґР°РЅРЅС‹Р№ С„Р°Р№Р» СѓР¶Рµ РїРѕРґРєР»СЋС‡С‘РЅ -- РёРіРЅРѕСЂРёСЂСѓРµРј (РІ СЃРІСЏР·РєРµ СЃ ifndef)
 #endif
