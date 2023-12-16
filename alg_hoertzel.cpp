@@ -1,11 +1,16 @@
-﻿#include "alg_base.h"
-using namespace std;
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/*float hoertzel(double *X, int N, int k, double sin_w, double cos_w, complex<double> *Y)
-{
-	double u0, u1 = 0.0, u2 = 0.0; // Начальные приближения
+﻿
+#include "alg_base.h"
+#include <complex>
 
-	for (int n = 0; n < N; n++) 
+using namespace std;
+
+complex<float> hoertzel(float* X, unsigned char N, unsigned char k, float sin_w, float cos_w)
+{
+	float u0, u1 = 0.0, u2 = 0.0; // Начальные приближения
+
+	complex<float> Y;
+
+	for (unsigned char n = 0; n < N; n++) 
 	{
 		u0 = X[n] + 2.0 * cos_w * u1 - u2;
 	 	u2 = u1;
@@ -13,10 +18,12 @@ using namespace std;
 	}
 
 	if (k == 0) 
-		*Y = (cos_w * u1 - u2) / (float)N + 1i * ((sin_w * u1) / (float)N);
-	else 
-		*Y = -2.0 * (sin_w * u1) / (float)N + 1i * (2.0 * (cos_w * u1 - u2) / (float)N);
-}*/
+		Y = complex<float>((cos_w * u1 - u2) / static_cast<float>(N), (sin_w * u1) / static_cast<float>(N));
+	else
+		Y = complex<float>(-2.0f * (sin_w * u1) / static_cast<float>(N), (2.0f * (cos_w * u1 - u2) / static_cast<float>(N)));
+	
+	return Y;
+}
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 class SR_auto_ctl: public SR_calc_proc
@@ -49,7 +56,7 @@ public:
 SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл входного аргумента ???
 {
 	proc_name = "hoertzel_alg";	// Имя алгоритма (дальше это имя и видно в системе)
-	calc_period = 40;	// Период обсчета функции в миллисекундах (PRINT_PERIOD - алгорим редко обсчитывается)
+	calc_period = MEMS_PERIOD;	// Период обсчета функции в миллисекундах (PRINT_PERIOD - алгорим редко обсчитывается)
 	
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// Место для выделения пользовательских переменных алгоритма (по именам, указанным в кавычках, переменные видны вне алгоритма).
@@ -86,15 +93,15 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//место длЯ пользовательского кода алгоритма
 	//1-я выходная переменная является примером суммирования трех входных прерменных в теле функции calc 
-	*out_val_1 = *in_val_1 * 10.0;
+	*out_val_1 = abs(hoertzel(in_val_1, 80, 1, sin(M_2_PI / 80), cos(M_2_PI / 80)));
 	//2-я выходная переменная является примером суммирования трех настроечных переменных в теле функции calc 
-	*out_val_2 = *in_val_2 * 10.0;	
+	*out_val_2 = abs(hoertzel(in_val_2, 80, 1, sin(M_2_PI / 80), cos(M_2_PI / 80)));	
 	//3-я выходная переменная является примером	перемнsetting_val_3ожения трех входных прерменных в выделенной функции function_example()
-	*out_val_3 = *in_val_3 * 10.0;
+	*out_val_3 = abs(hoertzel(in_val_3, 80, 1, sin(M_2_PI / 80), cos(M_2_PI / 80)));
 	//
 	//	‘угубо длЯ отладки (не видно с других машин)
-	printf("alg_hoertzel in-values : %7.2f; %7.2f; %7.2f\n",  *in_val_1,  *in_val_2,  *in_val_3);
-	printf("alg_hoertzel settings  : %7.2f; %7.2f; %7.2f\n",  *setting_val_1,  *setting_val_2,  *setting_val_3);	
+	//printf("alg_hoertzel in-values : %7.2f; %7.2f; %7.2f\n",  *in_val_1,  *in_val_2,  *in_val_3);
+	//printf("alg_hoertzel settings  : %7.2f; %7.2f; %7.2f\n",  *setting_val_1,  *setting_val_2,  *setting_val_3);	
 	printf("alg_hoertzel out-values: %7.2f; %7.2f; %7.2f\n\n",  *out_val_1,  *out_val_2,  *out_val_3);
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

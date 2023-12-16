@@ -1,5 +1,5 @@
 ﻿# Список алгоритмов (добавьте новые алгоритмы сюда)
-ALGORITHMS = alg_ADC alg_hoertzel
+ALGORITHMS = alg_DMA alg_hoertzel
 
 # Главная цель по умолчанию
 all: $(ALGORITHMS) SR_ctl
