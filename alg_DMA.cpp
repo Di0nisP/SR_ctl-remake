@@ -1,15 +1,4 @@
-﻿/**
- * @file alg_DMA.cpp
- * @author Di0nisP ()
- * @brief 
- * @version 0.1
- * @date 2023-12-16
- * 
- * @copyright Copyright (c) 2023
- * 
- */
-
-#include "alg_base.h"
+﻿#include "alg_base.h"
 
 #define PHASE_A 0.0f
 #define PHASE_B ( 2.0943951023931954923084289221863f)
@@ -21,23 +10,28 @@ using namespace std;
 /**
  * @brief Функция формирования сигнала
  * 
- * @param time Время
+ * Данная функция позволяет получить синусоидальный сигнал,
+ * сдвинутый по фазе, с изменением амлитуды в момент времени аварии.
+ * 
  * @param fault_time Время аварии
- * @param phase фаза сигнала
- * @return float* 
+ * @param phase Фаза сигнала
+ * @return float* Указатель на массив значений на такте
  */
-float* function_opmode_example(float time, float fault_time, float phase)
+inline float* function_opmode_example(float fault_time, float phase)
 {
-	float* out_array;
+	alg_uchar HBuffSize = 20;
+	float* out_array = new float[HBuffSize] {};
 	float Fd = 50.0f;
-	unsigned char HBuffSize = 20;
-
-	for (unsigned char i = 0; i < HBuffSize; i++)
+	static float time = 0.0f; 
+	
+	for (alg_uchar i = 0; i < HBuffSize; i++)
 	{
 		if (time < fault_time)
 			out_array[i] = sin(M_2_PI * Fd * time + phase);
 		else
 			out_array[i] = 5.0f * sin(M_2_PI * Fd * time + phase);
+		
+		time += 0.00025f; // Fs = 4000
 	}
 
 	return out_array;
@@ -56,6 +50,7 @@ private:
 	float*  out_val_1;
 	float*  out_val_2;
 	float*  out_val_3;
+	float*  out_val[3];
 	// Объявление настроек (уставки, используемые внутри этого алгоритма)
 	float*  setting_val_1;
 	float*  setting_val_2;
@@ -63,7 +58,8 @@ private:
 	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	// Объявляение вспомогательных переменных алгоритма
 	static float time;
-	float* array_in_val;
+	float* array_in_val[3];
+	float* A_test;
 public:
 	/// @brief Consructor 
 	SR_auto_ctl(const char* block_name);
@@ -80,7 +76,7 @@ public:
 	void calc();
 };
 
-float SR_auto_ctl::time {0.01};
+float SR_auto_ctl::time {0};
 
 SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл входного аргумента ???
 {
@@ -89,25 +85,26 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл вхо�
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// Место для выделения пользовательских переменных алгоритма (по именам, указанным в кавычках, переменные видны вне алгоритма).
 	// Выделяется память
-	out_val_1 = new float[80] {};
-	out_val_2 = new float[80] {};
-	out_val_3 = new float[80] {};
-	make_out(&out_val_1, "I_A");	
-	make_out(&out_val_2, "I_B");
-	make_out(&out_val_3, "I_C");
+	A_test = new float[80] {};
+	//make_out(&out_val_1, "I_A");	
+	//make_out(&out_val_2, "I_B");
+	//make_out(&out_val_3, "I_C");
+	make_out(&(out_val[0]), "I_A");	
+	make_out(&(out_val[1]), "I_B");
+	make_out(&(out_val[2]), "I_C");
 	// Выделение входных переменных (алгорим запросит входные переменные у других алгоримов по именам, указанным в кавычках)	
 	//make_in(&in_val_1, "in_val_1");
 	//make_in(&in_val_2, "in_val_2");
 	//make_in(&in_val_3, "in_val_3");
-	in_val_1 = new float[80] {};
-	in_val_2 = new float[80] {};
-	in_val_3 = new float[80] {};
+	//in_val_1 = new float[80] {};
+	//in_val_2 = new float[80] {};
+	//in_val_3 = new float[80] {};
 
 	//выделение настроечных переменных (по именам, указанным в кавычках значения вычитываются из файла настроек, цифрой задается значение по умолчанию, если такого файла нет)		
 	//	‘игнатура: имЯ внутри алгоритма - внешнее имЯ - уставка по умолчанию (пользовательскаЯ задаЮтсЯ в INI-файле)
 	make_const(&setting_val_1, "setting_val_1", 1.0);
-	make_const(&setting_val_2, "setting_val_1", 2.0);	
-	make_const(&setting_val_3, "setting_val_1", 3.0);		
+	make_const(&setting_val_2, "setting_val_2", 2.0);	
+	make_const(&setting_val_3, "setting_val_3", 3.0);		
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
 
@@ -122,24 +119,40 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	// Место для пользовательского кода алгоритма
-	for (unsigned char i = 0; i < 80; i++)
+	for (alg_uchar j = 0; j < 60; j++)
 	{
-		out_val_1[i] = out_val_1[i+1];
-		out_val_2[i] = out_val_2[i+1];
-		out_val_3[i] = out_val_3[i+1];
+		//array_in_val[0][j] = array_in_val[0][j+20];
+		A_test[j] = A_test[j+20];
+		//array_in_val[1][j] = array_in_val[1][j+20];
+		//array_in_val[2][j] = array_in_val[2][j+20];
 	}
-	for (unsigned char i = 60; i < 80; i++)
+	float* A = function_opmode_example(FAULT_TIME, PHASE_A);
+
+	for (alg_uchar j = 0; j < 20; j++)
 	{
-		out_val_1[i] = (function_opmode_example(time, FAULT_TIME, PHASE_A))[i-60];
-		out_val_2[i] = (function_opmode_example(time, FAULT_TIME, PHASE_B))[i-60];	
-		out_val_3[i] = (function_opmode_example(time, FAULT_TIME, PHASE_C))[i-60];
+		//array_in_val[0][j+60] = A[j];
+		A_test[j+60] = A[j];
+		//array_in_val[1][j+60] = (function_opmode_example(time, FAULT_TIME, PHASE_B))[j];
+		//array_in_val[2][j+60] = (function_opmode_example(time, FAULT_TIME, PHASE_C))[j];
 	}
-	SR_auto_ctl::time += 0.00025f;
-	printf("time: %.5f -> %.5f\n", SR_auto_ctl::time - 0.00025f, SR_auto_ctl::time);
+
+	/*for (uchar i = 0; i < 80; i++)
+	{
+		out_val_1[i] = array_in_val[0][i];
+		//out_val_2[i] = array_in_val[1][i];	
+		//out_val_3[i] = array_in_val[2][i];
+	}*/
+//	*out_val_1 = 123;
+//	*out_val_2 = 459;
+//	*out_val_3 = 789;
+	*(out_val[0]) = 123;
+	*(out_val[1]) = 459;
+	*(out_val[2]) = 789;
 	//	Cугубо для отладки (не видно с других машин)
 	//printf("ADC_alg in-values : %7.2f; %7.2f; %7.2f\n",  *in_val_1,  *in_val_2,  *in_val_3);
 	//printf("ADC_alg settings  : %7.2f; %7.2f; %7.2f\n",  *setting_val_1,  *setting_val_2,  *setting_val_3);		
 	//printf("ADC_alg out-values: %7.5f; %7.2f; %7.2f\n\n",  *out_val_1,  *out_val_2,  *out_val_3);
+	printf("ADC_alg out-values: %7.5f; %7.2f; %7.2f\n\n",  *(out_val[0]),  *(out_val[1]),  *(out_val[2]));
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 }
