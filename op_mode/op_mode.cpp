@@ -51,9 +51,9 @@ int main()
         array_Ia[T + i] = mag_I_avar * sin(wd * t + ph_I_avar);   // Аварийный режим
     }
     t = 0;
-    ofstream data_Ia("data_Ia.txt");
+    ofstream data_Ia("data_Ia.cfg");
     for (int i = 0; i < sizeof(array_Ia) / sizeof(array_Ia[0]); i++, t += 1/fs) {
-        data_Ia << t << " " << array_Ia[i] << endl;
+        data_Ia << t << ";" << array_Ia[i] << endl;
     }
     data_Ia.close();
     
@@ -65,9 +65,9 @@ int main()
         array_Ib[T + i] = mag_I_avar * sin(wd * t + (ph_I_avar - arg_a));
     }
     t = 0;                                             
-    ofstream data_Ib("data_Ib.txt");
+    ofstream data_Ib("data_Ib.cfg");
     for (int i = 0; i < sizeof(array_Ia) / sizeof(array_Ia[0]); i++, t += 1/fs) {
-        data_Ib << t << " " << array_Ib[i] << endl;
+        data_Ib << t << ";" << array_Ib[i] << endl;
     }
     data_Ib.close();
     
@@ -78,10 +78,10 @@ int main()
         array_Ic[i] =     mag_I      * sin(wd * t + (ph_I      + arg_a));
         array_Ic[T + i] = mag_I_avar * sin(wd * t + (ph_I_avar + arg_a));
     }
-    ofstream data_Ic("data_Ic.txt");
+    ofstream data_Ic("data_Ic.cfg");
     t = 0;
     for (int i = 0; i < sizeof(array_Ia) / sizeof(array_Ia[0]); i++, t += 1/fs) {
-        data_Ic << t << " " << array_Ic[i] << endl;
+        data_Ic << t << ";" << array_Ic[i] << endl;
     }
     data_Ic.close();
 }

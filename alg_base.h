@@ -1,11 +1,22 @@
-﻿#ifndef ALG_BASE_SR
+﻿/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef ALG_BASE_SR
 #define ALG_BASE_SR
-#include <math.h>
 
+/* Includes ------------------------------------------------------------------*/
+#include <math.h>
 #include <stdio.h>
 #include <string.h>
+#include <string>
 
-#define MEMS_PERIOD   5		// Период опроса датчиков, мс
+/* Exported types ------------------------------------------------------------*/
+typedef unsigned char 	alg_uchar;    	// UCHAR_MAX ==        255
+typedef unsigned short 	alg_ushort;  	// USHRT_MAX ==      65535
+typedef unsigned long 	alg_ulong;      // UINT_MAX  == 4294967295
+
+
+/* Exported constants --------------------------------------------------------*/
+/* USER CODE BEGIN EC */
+#define MEMS_PERIOD  5		// Период опроса датчиков, мс
 #define PRINT_PERIOD 20		// Период отображения, мс
 
 //----------------------------------------------------------------------------------
@@ -47,32 +58,33 @@
 
 #define CMD_WII_CTL					0b10000000000000000000000000000000
 #define CMD_RADIO_CTL				0b01000000000000000000000000000000
+/* USER CODE END EC */
 
 //----------------------------------------------------------------------------------
 
-	#if defined (_MSC_VER)
-		#ifdef __cplusplus
-			#define LIB_EXPORT extern "C" __declspec(dllexport)
-		#else
-			#define LIB_EXPORT __declspec(dllexport)
-		#endif
-	#elif defined (__GNUC__)
-		#ifdef __cplusplus
-			#define LIB_EXPORT extern "C" __attribute__((visibility("default")))
-		#else
-			#define LIB_EXPORT __attribute__((visibility("default")))
-			#endif
+#if defined (_MSC_VER)
+	#ifdef __cplusplus
+		#define LIB_EXPORT extern "C" __declspec(dllexport)
 	#else
-		#warning Unknown dynamic link semantics
-		#ifdef __cplusplus
-			#define LIB_EXPORT extern "C" 
-		#else
-			#define LIB_EXPORT 
-		#endif
+		#define LIB_EXPORT __declspec(dllexport)
 	#endif
+#elif defined (__GNUC__)
+	#ifdef __cplusplus
+		#define LIB_EXPORT extern "C" __attribute__((visibility("default")))
+	#else
+		#define LIB_EXPORT __attribute__((visibility("default")))
+		#endif
+#else
+	#warning Unknown dynamic link semantics
+	#ifdef __cplusplus
+		#define LIB_EXPORT extern "C" 
+	#else
+		#define LIB_EXPORT 
+	#endif
+#endif
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
-		#define ALG_PRINTF	//выдавть сообщени€ в консоль
+#define ALG_PRINTF	//выдавть сообщени€ в консоль
 	
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,10 +108,10 @@ protected:
 	//float* 	ctl_var;
 	//~~~~~~~~~~~~~~~~~~~
 public:
-	int calc_period;	   // ѕериод обсчета функции в мс
-	bool ready_proc;       // ѕеременна€ готовности алгоритма (см. alg_example)
-	const char* proc_name; // ”казатель на им€ функции
-	char file_name[256];   // »м€ файла
+	int calc_period;	   ///< Период обсчета функции в мс
+	bool ready_proc;       ///< Переменная готовности алгоритма (см. alg_example)
+	const char* proc_name; ///< Указатель на имя функции
+	char file_name[256];   ///< Имя файла
 protected:	
 //	void make_const(float* p_val  ,const char* var_name,float init_val);
 	void make_const(float** pp_val,const char* var_name,float init_val);	
