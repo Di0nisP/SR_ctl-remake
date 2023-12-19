@@ -324,32 +324,7 @@ Out vars list (14 vars):
 <hoertzel_alg>.mag_I_A => UNLINKED 
 <hoertzel_alg>.mag_I_B => UNLINKED 
 <hoertzel_alg>.mag_I_C => UNLINKED 
-<example_alg>.out_val_1 => UNLINKED 
-<example_alg>.out_val_2 => UNLINKED 
-<example_alg>.out_val_3 => UNLINKED 
-<ADC_alg>.I_A => linked   
-<ADC_alg>.I_B => linked   
-<ADC_alg>.I_C => linked   
-<ctl>.local_ctl => UNLINKED 
-<ctl>.ctl0 => UNLINKED 
-<ctl>.ctl1 => UNLINKED 
-<ctl>.ctl2 => UNLINKED 
-<ctl>.ctl3 => UNLINKED 
- 
-In vars list (13 vars):
-<hoertzel_alg>.I_A => linked   
-<hoertzel_alg>.I_B => linked   
-<hoertzel_alg>.I_C => linked   
-<example_alg>.in_val_1 => UNLINKED 
-<example_alg>.in_val_2 => UNLINKED 
-<example_alg>.in_val_3 => UNLINKED 
-<ADC_alg>.in_val_1 => UNLINKED 
-<ADC_alg>.in_val_2 => UNLINKED 
-<ADC_alg>.in_val_3 => UNLINKED 
-<ctl>.wii_ctl0 => UNLINKED 
-<ctl>.wii_ctl1 => UNLINKED 
-<ctl>.wii_ctl2 => UNLINKED 
-<ctl>.wii_ctl3 => UNLINKED 
+<example_alg>.out_val_1 => UNLINKED https://chat.openai.com/share/2f77a703-55b8-43dc-83b2-7b8752f02ac9
 
 	VARIABLES LIST
 
