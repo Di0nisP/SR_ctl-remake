@@ -2924,3 +2924,3179 @@ In vars list (24 vars):
 <ctl>.wii_ctl1 => UNLINKED 
 <ctl>.wii_ctl2 => UNLINKED 
 <ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (45 vars):
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.out_5 => UNLINKED 
+<hoertzel_alg>.out_6 => UNLINKED 
+<hoertzel_alg>.out_7 => UNLINKED 
+<hoertzel_alg>.out_8 => UNLINKED 
+<hoertzel_alg>.out_9 => UNLINKED 
+<hoertzel_alg>.out_10 => UNLINKED 
+<hoertzel_alg>.out_11 => UNLINKED 
+<hoertzel_alg>.out_12 => UNLINKED 
+<hoertzel_alg>.out_13 => UNLINKED 
+<hoertzel_alg>.out_14 => UNLINKED 
+<hoertzel_alg>.out_15 => UNLINKED 
+<hoertzel_alg>.out_16 => UNLINKED 
+<hoertzel_alg>.out_17 => UNLINKED 
+<hoertzel_alg>.out_18 => UNLINKED 
+<hoertzel_alg>.out_19 => UNLINKED 
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => linked   
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => linked   
+<hoertzel_alg>.HBuffSize	20 => linked   
+<hoertzel_alg>.F	50 => linked   
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 
+
+	VARIABLES LIST
+
+Registration of vars from .so:
+hoertzel_alg: 
+ADC_alg: 
+
+Out vars list (25 vars):
+<ADC_alg>.I_A => linked   
+<ADC_alg>.I_B => linked   
+<ADC_alg>.I_C => linked   
+<ADC_alg>.Const Vars: => linked   
+<ADC_alg>.setting_val_1	1 => UNLINKED 
+<ADC_alg>.setting_val_2	2 => UNLINKED 
+<ADC_alg>.setting_val_3	3 => UNLINKED 
+<ADC_alg>.s_7 => UNLINKED 
+<ADC_alg>.s_8 => UNLINKED 
+<ADC_alg>.s_9 => linked   
+<ADC_alg>.s_10 => linked   
+<ADC_alg>.s_11 => linked   
+<ADC_alg>.s_12 => linked   
+<ADC_alg>.s_13 => linked   
+<ADC_alg>.s_14 => linked   
+<ADC_alg>.s_15 => linked   
+<ADC_alg>.s_16 => linked   
+<ADC_alg>.s_17 => linked   
+<ADC_alg>.s_18 => linked   
+<ADC_alg>.s_19 => linked   
+<ctl>.local_ctl => UNLINKED 
+<ctl>.ctl0 => UNLINKED 
+<ctl>.ctl1 => UNLINKED 
+<ctl>.ctl2 => UNLINKED 
+<ctl>.ctl3 => UNLINKED 
+ 
+In vars list (24 vars):
+<hoertzel_alg>.I_A => linked   
+<hoertzel_alg>.I_B => linked   
+<hoertzel_alg>.I_C => linked   
+<hoertzel_alg>.Out Vars: => UNLINKED 
+<hoertzel_alg>.mag_I_A => UNLINKED 
+<hoertzel_alg>.Const Vars: => linked   
+<hoertzel_alg>.Fs	4000 => UNLINKED 
+<hoertzel_alg>.HBuffSize	20 => UNLINKED 
+<hoertzel_alg>.F	50 => UNLINKED 
+<hoertzel_alg>.s_9 => linked   
+<hoertzel_alg>.s_10 => linked   
+<hoertzel_alg>.s_11 => linked   
+<hoertzel_alg>.s_12 => linked   
+<hoertzel_alg>.s_13 => linked   
+<hoertzel_alg>.s_14 => linked   
+<hoertzel_alg>.s_15 => linked   
+<hoertzel_alg>.s_16 => linked   
+<hoertzel_alg>.s_17 => linked   
+<hoertzel_alg>.s_18 => linked   
+<hoertzel_alg>.s_19 => linked   
+<ctl>.wii_ctl0 => UNLINKED 
+<ctl>.wii_ctl1 => UNLINKED 
+<ctl>.wii_ctl2 => UNLINKED 
+<ctl>.wii_ctl3 => UNLINKED 

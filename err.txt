@@ -47,15 +47,377 @@ alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’
       |                                 |                                                               |
       |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
       |                                %ld
-alg_DMA.cpp:48:77: error: default argument missing for parameter 3 of ‘void read_file(const string&, char, alg_uchar, float**)’
-   48 | void read_file(const std::string& filename, char delimiter = ';', alg_uchar HBuffSize, float** value)
-      |                                                                   ~~~~~~~~~~^~~~~~~~~
-alg_DMA.cpp:48:50: note: ...following parameter 2 which has a default argument
-   48 | void read_file(const std::string& filename, char delimiter = ';', alg_uchar HBuffSize, float** value)
-      |                                             ~~~~~^~~~~~~~~~~~~~~
-alg_DMA.cpp:48:96: error: default argument missing for parameter 4 of ‘void read_file(const string&, char, alg_uchar, float**)’
-   48 | void read_file(const std::string& filename, char delimiter = ';', alg_uchar HBuffSize, float** value)
-      |                                                                                        ~~~~~~~~^~~~~
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_hoertzel.cpp: In member function ‘virtual void SR_auto_ctl::calc()’:
+alg_hoertzel.cpp:131:31: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+  131 |  printf("abs = %.3f\targ = %.3f", abs(result), 3);
+      |                            ~~~^                ~
+      |                               |                |
+      |                               double           int
+      |                            %.3d
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_hoertzel.cpp: In member function ‘virtual void SR_auto_ctl::calc()’:
+alg_hoertzel.cpp:131:31: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+  131 |  printf("abs = %.3f\targ = %.3f", abs(result), 3);
+      |                            ~~~^                ~
+      |                               |                |
+      |                               double           int
+      |                            %.3d
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_hoertzel.cpp: In member function ‘virtual void SR_auto_ctl::calc()’:
+alg_hoertzel.cpp:131:31: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+  131 |  printf("abs = %.3f\targ = %.3f", abs(result), 3);
+      |                            ~~~^                ~
+      |                               |                |
+      |                               double           int
+      |                            %.3d
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_hoertzel.cpp: In member function ‘virtual void SR_auto_ctl::calc()’:
+alg_hoertzel.cpp:131:31: warning: format ‘%f’ expects argument of type ‘double’, but argument 3 has type ‘int’ [-Wformat=]
+  131 |  printf("abs = %.3f\targ = %.3f", abs(result), 3);
+      |                            ~~~^                ~
+      |                               |                |
+      |                               double           int
+      |                            %.3d
 alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
 alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
   413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
@@ -2212,515 +2574,6 @@ alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’
       |                                 |                                                               |
       |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
       |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
-alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
-alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                   ~^                              ~~~~~~
-      |                    |                              |
-      |                    int                            long int
-      |                   %ld
-alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                      ~^                                   ~~~~~~~~~~~~~~~~
-      |                       |                                                 |
-      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
-      |                      %ld
-alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                             ~^                                              ~~~~~
-      |                              |                                              |
-      |                              int                                            long int
-      |                             %ld
-alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
-  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
-      |                                ~^                                                  ~~~~~~~~~~~~~~~
-      |                                 |                                                               |
-      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
-      |                                %ld
-In file included from config_SR.h:20,
-                 from alg_base.cpp:1:
-alg_base.h:13:24: error: conflicting declaration ‘typedef long unsigned int uint’
-   13 | typedef unsigned long  uint;       // UINT_MAX  == 4294967295
-      |                        ^~~~
-In file included from /usr/include/stdlib.h:394,
-                 from /usr/include/c++/9/cstdlib:75,
-                 from /usr/include/c++/9/stdlib.h:36,
-                 from config_SR.h:5,
-                 from alg_base.cpp:1:
-/usr/include/x86_64-linux-gnu/sys/types.h:150:22: note: previous declaration as ‘typedef unsigned int uint’
-  150 | typedef unsigned int uint;
-      |                      ^~~~
 alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
 alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
   413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
@@ -3211,6 +3064,601 @@ alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’
       |                                 |                                                               |
       |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
       |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
+alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:413:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:413:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:413:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_base.cpp:420:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                   ~^                              ~~~~~~
+      |                    |                              |
+      |                    int                            long int
+      |                   %ld
+alg_base.cpp:420:23: warning: format ‘%d’ expects argument of type ‘int’, but argument 4 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                      ~^                                   ~~~~~~~~~~~~~~~~
+      |                       |                                                 |
+      |                       int                                               std::vector<float**>::size_type {aka long unsigned int}
+      |                      %ld
+alg_base.cpp:420:30: warning: format ‘%d’ expects argument of type ‘int’, but argument 5 has type ‘long int’ [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                             ~^                                              ~~~~~
+      |                              |                                              |
+      |                              int                                            long int
+      |                             %ld
+alg_base.cpp:420:33: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘std::vector<float**>::size_type’ {aka ‘long unsigned int’} [-Wformat=]
+  420 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
+      |                                ~^                                                  ~~~~~~~~~~~~~~~
+      |                                 |                                                               |
+      |                                 int                                                             std::vector<float**>::size_type {aka long unsigned int}
+      |                                %ld
+alg_DMA.cpp: In function ‘float* function_opmode_example(float, float)’:
+alg_DMA.cpp:46:9: warning: address of local variable ‘out_array’ returned [-Wreturn-local-addr]
+   46 |  return out_array;
+      |         ^~~~~~~~~
+alg_DMA.cpp:32:8: note: declared here
+   32 |  float out_array[20] = {};
+      |        ^~~~~~~~~
 alg_base.cpp: In member function ‘int SR_calc_proc::Get_ready()’:
 alg_base.cpp:413:20: warning: format ‘%d’ expects argument of type ‘int’, but argument 3 has type ‘long int’ [-Wformat=]
   413 |   printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, (*out_pp).size(), ok_in, (*in_pp).size());
