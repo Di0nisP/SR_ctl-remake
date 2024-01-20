@@ -134,6 +134,28 @@ private:
 	float* in_val[HBuffSize]; 	///< Указатели на входы алгоритма
 	// Объявление выходов (должны подключаться на входы другого алгоритма)	
 	float* out_val[HBuffSize];	///< Указатели на выходы алгоритма
+
+	float* sig_1;
+	float* sig_2;
+	float* sig_3;
+	float* sig_4;
+	float* sig_5;
+	float* sig_6;
+	float* sig_7;
+	float* sig_8;
+	float* sig_9;
+	float* sig_10;
+	float* sig_11;
+	float* sig_12;
+	float* sig_13;
+	float* sig_14;
+	float* sig_15;
+	float* sig_16;
+	float* sig_17;
+	float* sig_18;
+	float* sig_19;
+	float* sig_20;
+
 	string out_name[HBuffSize]; ///< Массив имён выходов алгоритма
 	// Объявление настроек (уставки, используемые внутри этого алгоритма)
 	float* setting_val_1;
@@ -170,6 +192,28 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл вхо�
 		out_name[i] = "s_" + to_string(i);
 		make_out(&(out_val[i]), out_name[i].c_str());
 	}
+
+	make_out(&sig_1, "sig_1");
+	make_out(&sig_2, "sig_2");
+	make_out(&sig_3, "sig_3");
+	make_out(&sig_4, "sig_4");
+	make_out(&sig_5, "sig_5");
+	make_out(&sig_6, "sig_6");
+	make_out(&sig_7, "sig_7");
+	make_out(&sig_8, "sig_8");
+	make_out(&sig_9, "sig_9");
+	make_out(&sig_10, "sig_10");
+	make_out(&sig_11, "sig_11");
+	make_out(&sig_12, "sig_12");
+	make_out(&sig_13, "sig_13");
+	make_out(&sig_14, "sig_14");
+	make_out(&sig_15, "sig_15");
+	make_out(&sig_16, "sig_16");
+	make_out(&sig_17, "sig_17");
+	make_out(&sig_18, "sig_18");
+	make_out(&sig_19, "sig_19");
+	make_out(&sig_20, "sig_20");
+
 	// Выделение входных переменных (алгорим запросит входные переменные у других алгоримов по именам, указанным в кавычках)	
 
 	//выделение настроечных переменных (по именам, указанным в кавычках значения вычитываются из файла настроек, цифрой задается значение по умолчанию, если такого файла нет)		
@@ -199,9 +243,31 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 	for (alg_uchar i = 0; i < HBuffSize; i++)
 	{
 		*(out_val[i]) = (float)A[i];
-		printf("%6.3f ",  *(out_val[i]));
+	//	printf("%s = %6.3f ", out_name[i].c_str(), *(out_val[i]));
+		printf("%6.3f ", *(out_val[i]));
 	}
 	printf("\n\n");
+
+	*sig_1 = A[0];
+	*sig_2 = A[1];
+	*sig_3 = A[2];
+	*sig_4 = A[3];
+	*sig_5 = A[4];
+	*sig_6 = A[5];
+	*sig_7 = A[6];
+	*sig_8 = A[7];
+	*sig_9 = A[8];
+	*sig_10 = A[9];
+	*sig_11 = A[10];
+	*sig_12 = A[11];
+	*sig_13 = A[12];
+	*sig_14 = A[13];
+	*sig_15 = A[14];
+	*sig_16 = A[15];
+	*sig_17 = A[16];
+	*sig_18 = A[17];
+	*sig_19 = A[18];
+	*sig_20 = A[19];
 
 //	read_file("op_mode/data_Ia.cfg", HBuffSize, out_val);
 

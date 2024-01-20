@@ -51,6 +51,28 @@ private:
 	float* arg;
 	float* out_val[20]; // Для теста
 	string out_name[20];
+
+	float* sig_1;
+	float* sig_2;
+	float* sig_3;
+	float* sig_4;
+	float* sig_5;
+	float* sig_6;
+	float* sig_7;
+	float* sig_8;
+	float* sig_9;
+	float* sig_10;
+	float* sig_11;
+	float* sig_12;
+	float* sig_13;
+	float* sig_14;
+	float* sig_15;
+	float* sig_16;
+	float* sig_17;
+	float* sig_18;
+	float* sig_19;
+	float* sig_20;
+
 	// ЋбъЯвление настроек (уставки, используемые внутри этого алгоритма)
 	float*  setting_val_1; 
 	float*  setting_val_2;
@@ -84,6 +106,28 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл вхо�
 		in_name[i] = "s_" + to_string(i);
 		make_in(&(in_val[i]), in_name[i].c_str());
 	}
+
+	make_in(&sig_1, "sig_1");
+	make_in(&sig_2, "sig_2");
+	make_in(&sig_3, "sig_3");
+	make_in(&sig_4, "sig_4");
+	make_in(&sig_5, "sig_5");
+	make_in(&sig_6, "sig_6");
+	make_in(&sig_7, "sig_7");
+	make_in(&sig_8, "sig_8");
+	make_in(&sig_9, "sig_9");
+	make_in(&sig_10, "sig_10");
+	make_in(&sig_11, "sig_11");
+	make_in(&sig_12, "sig_12");
+	make_in(&sig_13, "sig_13");
+	make_in(&sig_14, "sig_14");
+	make_in(&sig_15, "sig_15");
+	make_in(&sig_16, "sig_16");
+	make_in(&sig_17, "sig_17");
+	make_in(&sig_18, "sig_18");
+	make_in(&sig_19, "sig_19");
+	make_in(&sig_20, "sig_20");
+
 	// Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек
 	// Цифрой задается значение по умолчанию, если такого файла нет		
 	// Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле)
@@ -111,8 +155,33 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 		printf("%7.2f\n",  in_val_1[i]);
 	} */
 	printf("alg_hoertzel in-values:\n");
-	for (uint8_t i = 0; i < 20; i++)
-		printf("%6.3f ", *(in_val[i]));
+//	for (uint8_t i = 0; i < 20; i++)
+//	{
+	//	printf("%s = %6.3f ", in_name[i].c_str(), *(in_val[i]));
+//		printf("%6.3f ", *(in_val[i]));
+//	}
+
+	printf("%6.3f ", *sig_1);
+	printf("%6.3f ", *sig_2);
+	printf("%6.3f ", *sig_3);
+	printf("%6.3f ", *sig_4);
+	printf("%6.3f ", *sig_5);
+	printf("%6.3f ", *sig_6);
+	printf("%6.3f ", *sig_7);
+	printf("%6.3f ", *sig_8);
+	printf("%6.3f ", *sig_9);
+	printf("%6.3f ", *sig_10);
+	printf("%6.3f ", *sig_11);
+	printf("%6.3f ", *sig_12);
+	printf("%6.3f ", *sig_13);
+	printf("%6.3f ", *sig_14);
+	printf("%6.3f ", *sig_15);
+	printf("%6.3f ", *sig_16);
+	printf("%6.3f ", *sig_17);
+	printf("%6.3f ", *sig_18);
+	printf("%6.3f ", *sig_19);
+	printf("%6.3f ", *sig_20);
+
 	printf("\n");
 //	for (alg_uchar i = 0; i < 20; i++)
 //	{
