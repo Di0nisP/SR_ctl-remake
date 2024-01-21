@@ -3,6 +3,8 @@
 #include <sstream>
 #include <complex>
 
+const uint8_t HBuffSize = 20; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
+
 using namespace std;
 
 /**
@@ -40,46 +42,29 @@ complex<float> hoertzel(float* X, uint8_t N, uint8_t k, float sin_w, float cos_w
 class SR_auto_ctl: public SR_calc_proc
 {
 private:
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	// ОбъЯвление переменных
-	// ЋбъЯвление входов (данные, пришедшие извне)
-	float* in_val[20];
-	string in_name[20];
-	// ЋбъЯвление выходов	
-	float* module; 
-	float* arg;
-	float* out_val[20]; // Для теста
-	string out_name[20];
+	///*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
+	//! Объявление входов (данные, пришедшие извне)
+	float* in_val_I[3][HBuffSize];
+	string in_name_I[3][HBuffSize];
 
-	//? Костыль
-/*	float* sig_1;
-	float* sig_2;
-	float* sig_3;
-	float* sig_4;
-	float* sig_5;
-	float* sig_6;
-	float* sig_7;
-	float* sig_8;
-	float* sig_9;
-	float* sig_10;
-	float* sig_11;
-	float* sig_12;
-	float* sig_13;
-	float* sig_14;
-	float* sig_15;
-	float* sig_16;
-	float* sig_17;
-	float* sig_18;
-	float* sig_19;
-	float* sig_20; //*/
+	//! Объявление выходов (должны подключаться на входы другого алгоритма!)
+	// Переменные
+	float *out_val_re_I [3], 	*out_val_re_U [3];
+	float *out_val_im_I [3], 	*out_val_im_U [3];
+	float *out_val_abs_I[3], 	*out_val_abs_U[3];
+	float *out_val_arg_I[3], 	*out_val_arg_U[3];
+	// Имена переменных
+	string out_name_re_I [3], 	out_name_re_U [3];
+	string out_name_im_I [3], 	out_name_im_U [3];
+	string out_name_abs_I[3], 	out_name_abs_U[3];
+	string out_name_arg_I[3], 	out_name_arg_U[3];
 
-	// ЋбъЯвление настроек (уставки, используемые внутри этого алгоритма)
+	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
 	float*  setting_val_1; 
 	float*  setting_val_2;
 	float*  setting_val_3;	
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
 	float* data; 
 public:
 	 SR_auto_ctl(const char* block_name);
@@ -98,68 +83,35 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл вхо�
 
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
 	//? Перспективное выделение
-/*	for (uint8_t i = 0; i < 20; i++) // 20 - число точек на шаге
+	for (uint8_t i = 0; i < 3; i++) // 20 - число точек на шаге
 	{
-		out_name[i] = "out_" + to_string(i);
-		make_out(&(out_val[i]), out_name[i].c_str());
+		out_name_abs_I[i] = "abs_I_" + to_string(i);
+		make_out(&(out_val_abs_I[i]), out_name_abs_I[i].c_str());
+
+		out_name_arg_I[i] = "arg_I_" + to_string(i);
+		make_out(&(out_val_arg_I[i]), out_name_arg_I[i].c_str());
 	} //*/
 
 	//! Входные переменные: алгорим запросит входные переменные у других алгоримов по именам, указанным в кавычках
 	//? Перспективное  выделение
 	for (uint8_t i = 0; i < 20; i++)
 	{
-		in_name[i] = "s_" + to_string(i);
-		make_in(&(in_val[i]), in_name[i].c_str());
+		in_name_I[0][i] = "iA(" + std::to_string(i) + ")";
+		make_in(&(in_val_I[0][i]), in_name_I[0][i].c_str());
+
+		in_name_I[1][i] = "iB(" + std::to_string(i) + ")";
+		make_in(&(in_val_I[1][i]), in_name_I[1][i].c_str());
+
+		in_name_I[2][i] = "iC(" + std::to_string(i) + ")";
+		make_in(&(in_val_I[2][i]), in_name_I[2][i].c_str());	
 	} //*/
-	//? Костыльное выделение -- если не работает, то чистить ini
-/*	make_in(&in_val[0], "sig_1");
-	make_in(&in_val[1], "sig_2");
-	make_in(&in_val[2], "sig_3");
-	make_in(&in_val[3], "sig_4");
-	make_in(&in_val[4], "sig_5");
-	make_in(&in_val[5], "sig_6");
-	make_in(&in_val[6], "sig_7");
-	make_in(&in_val[7], "sig_8");
-	make_in(&in_val[8], "sig_9");
-	make_in(&in_val[9], "sig_10");
-	make_in(&in_val[10], "sig_11");
-	make_in(&in_val[11], "sig_12");
-	make_in(&in_val[12], "sig_13");
-	make_in(&in_val[13], "sig_14");
-	make_in(&in_val[14], "sig_15");
-	make_in(&in_val[15], "sig_16");
-	make_in(&in_val[16], "sig_17");
-	make_in(&in_val[17], "sig_18");
-	make_in(&in_val[18], "sig_19");
-	make_in(&in_val[19], "sig_20"); //*/
-	//? Костыльное выделение -- работает
-/*	make_in(&sig_1, "sig_1");
-	make_in(&sig_2, "sig_2");
-	make_in(&sig_3, "sig_3");
-	make_in(&sig_4, "sig_4");
-	make_in(&sig_5, "sig_5");
-	make_in(&sig_6, "sig_6");
-	make_in(&sig_7, "sig_7");
-	make_in(&sig_8, "sig_8");
-	make_in(&sig_9, "sig_9");
-	make_in(&sig_10, "sig_10");
-	make_in(&sig_11, "sig_11");
-	make_in(&sig_12, "sig_12");
-	make_in(&sig_13, "sig_13");
-	make_in(&sig_14, "sig_14");
-	make_in(&sig_15, "sig_15");
-	make_in(&sig_16, "sig_16");
-	make_in(&sig_17, "sig_17");
-	make_in(&sig_18, "sig_18");
-	make_in(&sig_19, "sig_19");
-	make_in(&sig_20, "sig_20"); //*/
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	//(Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
 	
 	make_const(&setting_val_1, "Fs", 4000.0);
 	make_const(&setting_val_2, "HBuffSize", 20.0);	
-	make_const(&setting_val_3, "F", 50.0);		
+	make_const(&setting_val_3, "F", 50.0);
 	
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -182,32 +134,7 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 		printf("%7.2f\n",  in_val_1[i]);
 	} */
 
-	printf("\n\thoertzel_alg in-values:\n");
-	for (uint8_t i = 0; i < 20; i++)
-	{
-	//	printf("%s = %6.3f ", in_name[i].c_str(), *(in_val[i]));
-		printf("%6.3f ", *(in_val[i]));
-	}
-/*	printf("%6.3f ", *sig_1);
-	printf("%6.3f ", *sig_2);
-	printf("%6.3f ", *sig_3);
-	printf("%6.3f ", *sig_4);
-	printf("%6.3f ", *sig_5);
-	printf("%6.3f ", *sig_6);
-	printf("%6.3f ", *sig_7);
-	printf("%6.3f ", *sig_8);
-	printf("%6.3f ", *sig_9);
-	printf("%6.3f ", *sig_10);
-	printf("%6.3f ", *sig_11);
-	printf("%6.3f ", *sig_12);
-	printf("%6.3f ", *sig_13);
-	printf("%6.3f ", *sig_14);
-	printf("%6.3f ", *sig_15);
-	printf("%6.3f ", *sig_16);
-	printf("%6.3f ", *sig_17);
-	printf("%6.3f ", *sig_18);
-	printf("%6.3f ", *sig_19);
-	printf("%6.3f ", *sig_20); //*/
+
 
 //	for (alg_uchar i = 0; i < 20; i++)
 //	{
@@ -215,7 +142,14 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 //		printf("%f ", *(out_val[i]));
 //	}
 //	printf("\n");
-	printf("\n\talg_hoertzel out-values:\n");
+	printf("\n\thoertzel_alg in-values:\n");
+
+//	for (uint8_t i = 0; i < 20; i++)
+//	{
+	//	printf("%s = %6.3f ", in_name[i].c_str(), *(in_val[i]));
+//		printf("%6.3f ", *(in_val_I[0][i]));
+//	}
+
 	// FIFO-цикл
 	for (uint8_t i = 0; i < 60; i++)
 	{
@@ -224,43 +158,23 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 	// Добавление новых данных в расчётный пакет
 	for (uint8_t i = 60; i < 80; i++)
 	{
-		data[i] = *(in_val[i - 60]);
+		data[i] = *(in_val_I[0][i - 60]);
 	} //*/
-/*	data[60] = *sig_1;
-	data[61] = *sig_2;
-	data[62] = *sig_3;
-	data[63] = *sig_4;
-	data[64] = *sig_5;
-	data[65] = *sig_6;
-	data[66] = *sig_7;
-	data[67] = *sig_8;
-	data[68] = *sig_9;
-	data[69] = *sig_10;
-	data[70] = *sig_11;
-	data[71] = *sig_12;
-	data[72] = *sig_13;
-	data[73] = *sig_14;
-	data[74] = *sig_15;
-	data[75] = *sig_16;
-	data[76] = *sig_17;
-	data[77] = *sig_18;
-	data[78] = *sig_19;
-	data[79] = *sig_20; //*/
 
-	float sin_w = sin(2.0f * M_PI * 1.0f / 80.0f);
-	float cos_w = cos(2.0f * M_PI * 1.0f / 80.0f);
+	uint8_t k = 0;
+	float sin_w = sin(2.0f * M_PI * k / 80.0f);
+	float cos_w = cos(2.0f * M_PI * k / 80.0f);
 
 	static float time = 0.0f;
 //	for (uint16_t i = 0; i < 80; i++)
 //	{
-//		data[i] = 123.0f * sin(2.0f * M_PI * 50.0f * t);
-//		t += 1.0f / 4000.0f;
+//		data[i] = 123.0f * sin(2.0f * M_PI * 50.0f * time);
+//		time += 1.0f / 4000.0f;
 //	}
-//	for (uint8_t i = 0; i < 80; i++)
-//		printf("%.4f;", data[i]);
-//	printf("\n");
-
-	complex<float> result = hoertzel(data, 80, 1, sin_w, cos_w);
+	for (uint8_t i = 0; i < 80; i++)
+		printf("%.4f ", data[i]);
+	printf("\n\thoertzel_alg out-values:\n");
+	complex<float> result = hoertzel(data, 80, k, sin_w, cos_w);
 	printf("abs = %.5f\targ = %.5f", std::abs(result), std::arg(result) * 180.0f / M_PI);
 	printf("\n");
 	printf("time = %.5f", time);
