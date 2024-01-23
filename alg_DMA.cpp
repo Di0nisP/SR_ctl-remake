@@ -28,11 +28,12 @@ public:
 	{
 		out_array = new float[HBuffSize] {};
 	};
+
 	~Opmode() {};
 
-	float* function_opmode_example(float fault_time, float phase)
+	float* function_opmode_example(uint8_t HBuffSize, float fault_time, float phase)
 	{
-		for (alg_uchar i = 0; i < HBuffSize; i++)
+		for (uint8_t i = 0; i < HBuffSize; i++)
 		{
 			if (time < fault_time)
 				//out_array[i] = 10.0f * sin(2.0f * M_PI * Fn * time + phase);
@@ -63,7 +64,7 @@ float* function_opmode_example(float fault_time, float phase)
 	float Fd = 50.0f;
 	static float time = 0.0f; 
 	
-	for (alg_uchar i = 0; i < HBuffSize; i++)
+	for (uint8_t i = 0; i < HBuffSize; i++)
 	{
 		if (time < fault_time)
 			//out_array[i] = 10.0f * sin(2.0f * M_PI * Fd * time + phase);
@@ -77,7 +78,7 @@ float* function_opmode_example(float fault_time, float phase)
 	return out_array;
 }
 
-void read_file(const std::string& filename, alg_uchar HBuffSize, float** value, char delimiter = ';') 
+void read_file(const std::string& filename, uint8_t HBuffSize, float** value, char delimiter = ';') 
 {
 	std::ifstream file(filename);
 
@@ -88,14 +89,14 @@ void read_file(const std::string& filename, alg_uchar HBuffSize, float** value, 
 	
 	if (file.is_open())
 	{
-		for (alg_uchar i = 0; i < HBuffSize; i++)
+		for (uint8_t i = 0; i < HBuffSize; i++)
 		{
 			if (getline(file, line))
 			{
 				istringstream iss(line);
             	string token;
 
-				alg_uchar column = 0;
+				uint8_t column = 0;
 
 				while (getline(iss, token, delimiter))
 				{
@@ -259,9 +260,9 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 //	B = function_opmode_example(FAULT_TIME, PHASE_B); // фаза B
 //	C = function_opmode_example(FAULT_TIME, PHASE_C); // фаза C
 
-	a = A->function_opmode_example(FAULT_TIME, PHASE_A);
-	b = B->function_opmode_example(FAULT_TIME, PHASE_B);
-	c = C->function_opmode_example(FAULT_TIME, PHASE_B);
+	a = A->function_opmode_example(HBuffSize, FAULT_TIME, PHASE_A);
+	b = B->function_opmode_example(HBuffSize, FAULT_TIME, PHASE_B);
+	c = C->function_opmode_example(HBuffSize, FAULT_TIME, PHASE_B);
 
 	// Отладка (не видно с других машин)
 	printf("\n\tADC_alg out-values:\n");

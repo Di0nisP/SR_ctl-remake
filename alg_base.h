@@ -9,9 +9,9 @@
 #include <string>
 
 /* Exported types ------------------------------------------------------------*/
-typedef unsigned char 	alg_uchar;    	// UCHAR_MAX ==        255
-typedef unsigned short 	alg_ushort;  	// USHRT_MAX ==      65535
-typedef unsigned long 	alg_ulong;      // UINT_MAX  == 4294967295
+//typedef unsigned char 	alg_uchar;    	// UCHAR_MAX ==        255
+//typedef unsigned short 	alg_ushort;  	// USHRT_MAX ==      65535
+//typedef unsigned long 	alg_ulong;      // UINT_MAX  == 4294967295
 
 
 /* Exported constants --------------------------------------------------------*/
