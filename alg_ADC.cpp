@@ -36,8 +36,8 @@ public:
 		for (uint8_t i = 0; i < HBuffSize; i++)
 		{
 			if (time < fault_time)
-				//out_array[i] = 10.0f * sin(2.0f * M_PI * Fn * time + phase);
-				out_array[i] = 10.0f + time < 11.0f ? 10.0f + time : 11.0f;
+				out_array[i] = 10.0f * sin(2.0f * M_PI * Fn * time + phase);
+			////	out_array[i] = 10.0f + time < 11.0f ? 10.0f + time : 11.0f;
 			else
 				out_array[i] = 100.0f * sin(2.0f * M_PI * Fn * time + phase);
 			

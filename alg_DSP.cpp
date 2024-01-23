@@ -75,7 +75,7 @@ public:
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл входного аргумента ???
 {
-	proc_name = "hoertzel_alg";	// Имя алгоритма (дальше это имя и видно в системе)
+	proc_name = "DSP_alg";	// Имя алгоритма (дальше это имя и видно в системе)
 	calc_period = MEMS_PERIOD;	// Период обсчета функции в миллисекундах (PRINT_PERIOD - алгорим редко обсчитывается)
 	
 	//*++++++++++++++++++++++++++ Выделение памяти ++++++++++++++++++++++++++
@@ -142,7 +142,7 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 //		printf("%f ", *(out_val[i]));
 //	}
 //	printf("\n");
-	printf("\n\thoertzel_alg in-values:\n");
+	printf("\n\tDSP_alg (Hoertzel) in-values:\n");
 
 //	for (uint8_t i = 0; i < 20; i++)
 //	{
@@ -161,7 +161,7 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 		data[i] = *(in_val_I[0][i - 60]);
 	} //*/
 
-	uint8_t k = 0;
+	uint8_t k = 1;
 	float sin_w = sin(2.0f * M_PI * k / 80.0f);
 	float cos_w = cos(2.0f * M_PI * k / 80.0f);
 
@@ -173,7 +173,7 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 //	}
 	for (uint8_t i = 0; i < 80; i++)
 		printf("%.4f ", data[i]);
-	printf("\n\thoertzel_alg out-values:\n");
+	printf("\n\tDSP_alg (Hoertzel) out-values:\n");
 	complex<float> result = hoertzel(data, 80, k, sin_w, cos_w);
 	printf("abs = %.5f\targ = %.5f", std::abs(result), std::arg(result) * 180.0f / M_PI);
 	printf("\n");

@@ -1,5 +1,5 @@
 ﻿# Список алгоритмов (добавьте новые алгоритмы сюда)
-ALGORITHMS = alg_hoertzel alg_DMA
+ALGORITHMS = alg_DSP alg_ADC
 
 # Главная цель по умолчанию
 all: $(ALGORITHMS) SR_ctl
@@ -16,7 +16,7 @@ endef
 # Создание правил компиляции для каждого алгоритма
 $(foreach alg,$(ALGORITHMS),$(eval $(call compile_alg,$(alg))))
 
-# Компиляция SR_ctl с использованием библиотеки boost_mpi
+# Компиляция и сборка SR_ctl с использованием библиотеки boost_mpi
 SR_ctl: SR_ctl.cpp alg_base.cpp config_SR.cpp alg_base.h config_SR.h SR_ctl.h
 	gcc -c -shared -o alg_base.o alg_base.cpp 2>>err.txt
 	gcc -c -shared -o config_SR.o config_SR.cpp 2>>err.txt
