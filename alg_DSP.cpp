@@ -8,14 +8,14 @@ const uint8_t HBuffSize = 20; 	///< Число точек на такте рас
 using namespace std;
 
 /**
- * @brief 
+ * @brief Алгоритм Гёртцеля
  * 
- * @param X 
- * @param N 
- * @param k 
- * @param sin_w 
- * @param cos_w 
- * @return complex<float> 
+ * @param X Указатель на выборку (массив) дискретных значений
+ * @param N Размер выборки
+ * @param k Спектральный отсчёт (искомая гармоническая составляющая сигнала)
+ * @param sin_w Коэффициент Im(W)
+ * @param cos_w Коэффициент Re(W)
+ * @return complex<float> Число в комплексной ортогональной форме
  */
 complex<float> hoertzel(float* X, uint8_t N, uint8_t k, float sin_w, float cos_w)
 {
@@ -38,8 +38,11 @@ complex<float> hoertzel(float* X, uint8_t N, uint8_t k, float sin_w, float cos_w
 	return Y / static_cast<float>(N);
 }//*/
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-class SR_auto_ctl: public SR_calc_proc
+/**
+ * @brief 
+ * 
+ */
+class SR_auto_ctl : public SR_calc_proc
 {
 private:
 	///*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
@@ -172,10 +175,10 @@ void SR_auto_ctl::calc() //функция, вызываемая на шаге р
 //		time += 1.0f / 4000.0f;
 //	}
 	for (uint8_t i = 0; i < 80; i++)
-		printf("%.4f ", data[i]);
+		printf("%.3f ", data[i]);
 	printf("\n\tDSP_alg (Hoertzel) out-values:\n");
 	complex<float> result = hoertzel(data, 80, k, sin_w, cos_w);
-	printf("abs = %.5f\targ = %.5f", std::abs(result), std::arg(result) * 180.0f / M_PI);
+	printf("abs = %.3f\targ = %.3f", std::abs(result), std::arg(result) * 180.0f / M_PI);
 	printf("\n");
 	printf("time = %.5f", time);
 	time += 1.0f / 200.0f;
