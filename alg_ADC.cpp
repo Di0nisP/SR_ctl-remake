@@ -3,6 +3,7 @@
 #include <sstream>
 #include <vector>
 
+/* Private constants ------------------------------------------------------------------------------*/
 // Параметры входного сигнала
 #define FREQ_S 			4000.0f ///< Частота дискретизации АЦП
 #define FREQ_N 			50.0f 	///< Номинальная частота сети
@@ -12,9 +13,11 @@
 #define PHASE_C 	   -2.0943951023931954923084289221863
 #define FAULT_TIME 		2.0f	///< Время изменения режима, с
 
-const uint8_t HBuffSize = 20; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
+const uint8_t HBuffSize = FREQ_S / FREQ_N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
+/*-------------------------------------------------------------------------------------------------*/
 
 using namespace std;
+
 /**
  * @brief Класс для формирования синусоиды
  * 
@@ -24,9 +27,9 @@ using namespace std;
 class Opmode
 {
 private:
-	const float Fs = FREQ_S;
-	const float Fn = FREQ_N;
-	float time;
+	const double Fs = FREQ_S;
+	const double Fn = FREQ_N;
+	double time;
 	float* out_array;
 public:	
 	Opmode(uint8_t HBuffSize) : time(0.0f) 
@@ -104,64 +107,14 @@ void read_file(const std::string& filename, uint8_t HBuffSize, float** value, ch
 	last_pos = file.tellg();
 }
 
-/*
-void read_file(const std::string& filename, char delimiter, int numRows, const std::vector<int>& selectedColumns) 
-{
-    std::ifstream file(filename);
-
-    // Чтение заголовков столбцов
-    std::string header;
-    std::getline(file, header);
-
-    // Разделение заголовков столбцов
-    std::istringstream header_stream(header);
-    std::string column_name;
-    std::vector<std::string> column_names;
-    while (std::getline(header_stream, column_name, delimiter)) {
-        column_names.push_back(column_name);
-    }
-
-    // Перемещение курсора в начало файла после чтения заголовка
-    file.seekg(0, std::ios::beg);
-
-    // Пропуск заголовка
-    std::getline(file, header);
-
-    // Чтение данных из выбранных столбцов и строк
-    for (int row = 0; row < numRows; row++) {
-        std::string line;
-
-        std::istringstream line_stream(line);
-        std::string token;
-        int column_index= 0;
-
-        while (std::getline(line_stream, token, delimiter)) {
-            if (std::find(selectedColumns.begin(), selectedColumns.end(), column_index) != selectedColumns.end()) {
-                // Столбец находится в списке выбранных столбцов
-                std::cout << column_names[column_index] << ": " << token << " ";
-            }
-            ++columnIndex;
-        }
-    }
-
-    file.close();
-}
-*/
-
 class SR_auto_ctl: public SR_calc_proc
 {
 private:
 	//*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
 	//! Объявление входов (данные, пришедшие извне)
-		
-	//! Объявление выходов (должны подключаться на входы другого алгоритма!)	
-////float* out_val_I_A[HBuffSize];		///< Ток фазы A
-////float* out_val_I_B[HBuffSize];		///< Ток фазы B
-////float* out_val_I_C[HBuffSize];		///< Ток фазы C
-////float* out_val_U_A[HBuffSize];		///< Напряжение фазы A
-////float* out_val_U_B[HBuffSize];		///< Напряжение фазы B
-////float* out_val_U_C[HBuffSize];		///< Напряжение фазы C
+	//? Входы отсутствуют
 
+	//! Объявление выходов (должны подключаться на входы другого алгоритма!)	
 	float* out_val_I[3][HBuffSize];		///< Массивы указателей на токовые выходы
 	string out_name_I[3][HBuffSize]; 	///< Массивы имён токовых выходов алгоритма
 
@@ -176,12 +129,9 @@ private:
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 	//* Объявляение вспомогательных переменных алгоритма
-	
-	float *a, *b, *c; 			Opmode *A, *B, *C;
+	float *I_data[3], *U_data[3];		// Буферы для хранения точек режима
+	Opmode *I[3], *U[3];				// Объекты формируемого сигнала
 
-	float *I_data[3], *U_data[3];		// Буферы для хранения точек
-	Opmode *I[3], *U[3];
-	
 public:
 	/// @brief Consructor 
 	SR_auto_ctl(const char* block_name);
@@ -192,21 +142,19 @@ public:
 	/**
 	 * @brief Основной метод алгоритма
 	 * 
-	 * Вызывается при вызове алгоритма
+	 * Функция, вызываемая на шаге работы SR_ctl с периодичностью, 
+	 * определяемой переменной calc_period (в миллисекундах).
 	 * 
 	 */
 	void calc();
 };
 
-SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл входного аргумента ???
+SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл входного аргумента ???
 {
-	proc_name = "ADC_alg";		// Имя алгоритма (дальше это имя и видно в системе)
+	proc_name = "alg_ADC";		// Имя алгоритма (дальше это имя и видно в системе)
 	calc_period = MEMS_PERIOD;	// Период обсчета функции в миллисекундах (MEMS_PERIOD - алгорим обсчитывается часто)
-	
-	a = new float[HBuffSize] {};	b = new float[HBuffSize] {};	c = new float[HBuffSize] {};
-	A = new Opmode(HBuffSize);		B =new Opmode(HBuffSize);		C = new Opmode(HBuffSize);
 
-	// Выделение памяти
+	//* Выделение памяти вспомогательных переменных
 	for (uint8_t i = 0; i < 3; i++)
 	{
 		I_data[i] = new float[HBuffSize] {};	U_data[i] = new float[HBuffSize] {};
@@ -218,17 +166,14 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл вхо�
 	// (Место для выделения пользовательских переменных алгоритма)
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
 	//? Если не работает - чистить INI-файлы
-	for (uint8_t i = 0; i < HBuffSize; i++)
-	{	
-		out_name_I[0][i] = "iA(" + std::to_string(i) + ")";
-		make_out(&(out_val_I[0][i]), out_name_I[0][i].c_str());	
-
-		out_name_I[1][i] = "iB(" + std::to_string(i) + ")";
-		make_out(&(out_val_I[1][i]), out_name_I[1][i].c_str());	
-
-		out_name_I[2][i] = "iC(" + std::to_string(i) + ")";
-		make_out(&(out_val_I[2][i]), out_name_I[2][i].c_str());	
-	}
+	for (uint8_t i = 0; i < 3; i++) 	// По фазам
+		for (uint8_t j = 0; j < HBuffSize; j++)	// По точкам
+		{
+			string suffix = string(1, static_cast<char>('A' + i));
+			
+			out_name_I[i][j] = "i" + suffix + "(" + std::to_string(j) + ")";		make_out(&(out_val_I[i][j]), out_name_I[i][j].c_str());
+			out_name_U[i][j] = "u" + suffix + "(" + std::to_string(j) + ")";		make_out(&(out_val_U[i][j]), out_name_U[i][j].c_str());
+		}
 
 	//! Входные переменные: алгорим запросит входные переменные у других алгоримов по именам, указанным в кавычках
 
@@ -242,38 +187,40 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) // В чём смысл вхо�
 }
 
 // По-хорошему нужен для динамического изменения ПО (заглушка)
-SR_auto_ctl::~SR_auto_ctl(){}
+SR_auto_ctl::~SR_auto_ctl() {}
 
-void SR_auto_ctl::calc() //функция, вызываемая на шаге работы SR_ctl с периодичностью, определяемой переменной calc_period (в миллисекундах)
+void SR_auto_ctl::calc()
 {
 	//! Алгоритмы не работают, если нет полного подключения выходы-входы
 	if(!ready_proc)	return; // `ready_proc` говорит о том, что все выходы подцеплены ко всем входам
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
-	// Формирование выходных значений
-	a = A->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
-	b = B->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
-	c = C->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
-	
+	//! Формирование выходных значений
+	//TODO Чтение режима из файла
+//	read_file("op_mode/data_Ia.cfg", HBuffSize, out_val);
+
 	I_data[0] = I[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
+	I_data[1] = I[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
+	I_data[2] = I[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
+
+	U_data[0] = U[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
+	U_data[1] = U[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
+	U_data[2] = U[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
+
+	// Запись значений на выходы алгоритма
+	for (uint8_t i = 0; i < 3; i++) 	// По фазам
+		for (uint8_t j = 0; j < HBuffSize; j++)
+		{
+			*(out_val_I[i][j]) = I_data[i][j];		
+			*(out_val_U[i][j]) = U_data[i][j];	
+		}
 
 	// Отладка (не видно с других машин)
-	printf("\n\tADC_alg out-values:\n");
-	for (uint8_t i = 0; i < HBuffSize; i++)
-	{
-	//	printf("%6.3f ", A[i]);
-		//*(out_val_I[0][i]) = a[i];
-		*(out_val_I[0][i]) = I_data[0][i];
-		printf("%6.3f ", *(out_val_I[0][i]));
+	printf("\n\t%s out-values:\n", proc_name);		
+	for (uint8_t j = 0; j < HBuffSize; j++)
+		printf("%6.3f ", *(out_val_I[0][j]));
+	
 
-		*(out_val_I[1][i]) = b[i];
-	//	printf("%6.3f ", *(out_val_I[1][i]));
-
-		*(out_val_I[2][i]) = c[i];
-	//	printf("%6.3f ", *(out_val_I[2][i]));	
-	} //*/
-
-//	read_file("op_mode/data_Ia.cfg", HBuffSize, out_val);
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
