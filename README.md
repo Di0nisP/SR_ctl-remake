@@ -1,4 +1,5 @@
 # SR_ctl
+## Description
 Distributed control system framework for robotics
 
 SR_ctl is framework for distributed control system for robotics.
@@ -11,3 +12,5 @@ Different .so algorithms are linked by variables transmission. Each algorithm ha
 Output value form one algorithm transmits to another algorithm input if names of the input and output correspond one to each other.
 
 Algorithms work with constant period on each device. Algorithms work one after other.
+## Решение возможных проблем
+В случае возникновения "непонятных" ошибок следует удалить INI-файлы. 
