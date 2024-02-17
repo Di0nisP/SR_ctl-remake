@@ -243,30 +243,36 @@ void SR_auto_ctl::calc()
 			U_data[i][j] = *(in_val_U[i][j - j0]);
 		}
 	}
-	// Запись выходов
-	complex<double> result_I, result_U;
+	// Запись токовых и напряженческих выходов
+	complex<double> result_I1[3] {}, result_U1[3] {};
 	static uint8_t step = 0u;
-	for (uint8_t i = 0; i < 3u; i++) //TODO Можно ввести настройку
+	for (uint8_t i = 0; i < 3u; i++) //TODO Можно ввести настройку для NUM_CYCLE
 	{
-		result_I = hoertzel(I_data[i], sin_w, cos_w, step, NUM_CYCLE, N, k); // k = 1
-		*(out_val_re_I1 [i]) = static_cast<float>(result_I.real());
-		*(out_val_im_I1 [i]) = static_cast<float>(result_I.imag());
-		*(out_val_abs_I1[i]) = static_cast<float>(abs(result_I));	
-		*(out_val_arg_I1[i]) = static_cast<float>(arg(result_I));
+		result_I1[i] = hoertzel(I_data[i], sin_w, cos_w, step, NUM_CYCLE, N, k); // k = 1
+		*(out_val_re_I1 [i]) = static_cast<float>(result_I1[i].real());
+		*(out_val_im_I1 [i]) = static_cast<float>(result_I1[i].imag());
+		*(out_val_abs_I1[i]) = static_cast<float>(abs(result_I1[i]));	
+		*(out_val_arg_I1[i]) = static_cast<float>(arg(result_I1[i]));
 		
-		result_U = hoertzel(U_data[i], sin_w, cos_w, step, NUM_CYCLE, N, k); // k = 1
-		*(out_val_re_U1 [i]) = static_cast<float>(result_U.real());
-		*(out_val_im_U1 [i]) = static_cast<float>(result_U.imag());
-		*(out_val_abs_U1[i]) = static_cast<float>(abs(result_U));	
-		*(out_val_arg_U1[i]) = static_cast<float>(arg(result_U));
+		result_U1[i] = hoertzel(U_data[i], sin_w, cos_w, step, NUM_CYCLE, N, k); // k = 1
+		*(out_val_re_U1 [i]) = static_cast<float>(result_U1[i].real());
+		*(out_val_im_U1 [i]) = static_cast<float>(result_U1[i].imag());
+		*(out_val_abs_U1[i]) = static_cast<float>(abs(result_U1[i]));	
+		*(out_val_arg_U1[i]) = static_cast<float>(arg(result_U1[i]));
+	}
+	// Запись выходов мощности
+	complex<double> result_S1, result_S0;
+	for (uint8_t i = 0; i < 3u; i++)
+	{
+		result_S1 = power(result_I1[i], result_U1[(i+1)%3], result_U1[(i+2)%3]);
+		*(out_val_re_S1 [i]) = static_cast<float>(result_S1.real());
+		*(out_val_im_S1 [i]) = static_cast<float>(result_S1.imag());
+		*(out_val_abs_S1[i]) = static_cast<float>(abs(result_S1));	
+		*(out_val_arg_S1[i]) = static_cast<float>(arg(result_S1));
 	}
 		
-	
-	// Отладка (не видно с других машин)
+	//! Отладка (не видно с других машин)
 	static float time = 0.0f;
-//	printf("\n\t%s (Hoertzel) in-values:\n", proc_name); 	
-//	for (uint8_t i = 0; i < N; i++)
-//		printf("%.3f ", I_data[2][i]);
 	printf("\n\t%s (Hoertzel) out-values:\n", proc_name);
 	for (uint8_t i = 0; i < 3u; i++)
 	{
