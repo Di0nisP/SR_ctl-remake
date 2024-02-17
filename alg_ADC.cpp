@@ -81,125 +81,101 @@ public:
 	}
 };
 
-/**
- * @brief Читает данные из файла и записывает их в массив.
- * 
- * @tparam T Тип элементов массива result.
- * @tparam HBuffSize Размер массива result.
- * @param filename Имя файла для чтения.
- * @param column_name Имя столбца, из которого нужно получить данные.
- * @param result Массив, в который будут записаны считанные данные.
- * @param n Шаг между читаемыми строками.
- * @param delimiter Разделитель столбцов в файле.
- * @return int16_t Возвращает -1, если столбец не найден в заголовке файла,
- * возвращает количество недочитанных строк, если файл закончился до достижения HBuffSize,
- * возвращает 0 в случае успешного чтения всех строк.
- */
 template <typename T, const uint8_t HBuffSize>
-int16_t read_file(const std::string& filename, const std::string& column_name, 
-                  T *result, 
-                  const uint8_t n = 1u, const char delimiter = ';') 
-{
-    static std::streampos last_pos {}; ///< Переменная для хранения последней позиции чтения файла
-    static std::string last_column_name {}; ///< Переменная для хранения предыдущего значения column_name
-    static std::string last_filename {}; ///< Переменная для хранения предыдущего имени файла
-    static uint8_t column_index = 0; ///< Индекс текущего столбца
-    static uint16_t line_count = 0; ///< Счётчик линии (для выполнения шага n)
+class FileReader {
+private:
+    std::streampos last_pos {};
+    std::string last_column_name {};
+    std::string last_filename {};
+    uint8_t column_index = 0;
+    uint16_t line_count = 0;
 
-    std::ifstream file(filename); ///< Открытие файла для чтения
-    std::string line; ///< Переменная для хранения текущей строки файла
+public:
+	/**
+	 * @brief Читает данные из файла и записывает их в массив.
+	 * 
+	 * @tparam T Тип элементов массива result.
+	 * @tparam HBuffSize Размер массива result.
+	 * @param filename Имя файла для чтения.
+	 * @param column_name Имя столбца, из которого нужно получить данные.
+	 * @param result Массив, в который будут записаны считанные данные.
+	 * @param n Шаг между читаемыми строками.
+	 * @param delimiter Разделитель столбцов в файле.
+	 * @return int16_t Возвращает -1, если столбец не найден в заголовке файла,
+	 * возвращает количество недочитанных строк, если файл закончился до достижения HBuffSize,
+	 * возвращает 0 в случае успешного чтения всех строк.
+	 */
+    int16_t read(const std::string& filename, const std::string& column_name, T *result, const uint8_t n = 1u, const char delimiter = ';') {
+        std::ifstream file(filename);
+        std::string line;
 
-    if (file.is_open()) ///< Проверка, открыт ли файл
-    { 
-        std::cout << "File is open.\n"; ///< Сообщение для отладки
+        if (file.is_open()) {
 
-        if (last_filename != filename)
-        {
-            last_column_name = "\0";
-            last_filename = filename;
-            last_pos = 0; ///< Сбрасываем last_pos, чтобы начать чтение файла сначала
-            column_index = 0; ///< Сбрасываем column_index
-            line_count = 0;
-        }
-        else if (last_column_name != column_name) 
-        {
-            last_column_name = column_name; ///< Обновляем значение last_column_name
-            last_filename = filename;
-            last_pos = 0; ///< Сбрасываем last_pos, чтобы начать чтение файла сначала
-            column_index = 0; ///< Сбрасываем column_index
-            line_count = 0;
-        }
+            if (last_filename != filename) {
+                last_column_name = "\0";
+                last_filename = filename;
+                last_pos = 0;
+                column_index = 0;
+                line_count = 0;
+            } else if (last_column_name != column_name) {
+                last_column_name = column_name;
+                last_filename = filename;
+                last_pos = 0;
+                column_index = 0;
+                line_count = 0;
+            }
 
-        // Чтение заголовков столбцов, если last_pos == 0
-        if (last_pos == 0) 
-        {
-            if (getline(file, line)) 
-            {
-                std::istringstream header_stream(line); ///< Создание потока для чтения заголовков столбцов
-                std::string token; ///< Переменная для хранения текущего токена (имени столбца)
-                bool found = false; ///< Переменная для отслеживания найденного столбца
-                // Проход по каждому токену (имени столбца) в заголовке
-                while (getline(header_stream, token, delimiter)) ///< Разделение заголовка на токены с использованием разделителя
-                { 
-                    if (column_name == token) ///< Проверка, совпадает ли текущий токен с именем столбца
-                    { 
-                        // Если да, то зафиксируем индекс столбца и завершим цикл
-                        last_column_name = column_name;
-                        found = true;
-                        // Запоминаем позицию после чтения заголовка
-                        last_pos = file.tellg();
-                    ////    std::cout << "Column " << column_name << " found.\n"; ///< Сообщение для отладки
-                        break;
+            if (last_pos == 0) {
+                if (getline(file, line)) {
+                    std::istringstream header_stream(line);
+                    std::string token;
+                    bool found = false;
+                    while (getline(header_stream, token, delimiter)) {
+                        if (column_name == token) {
+                            last_column_name = column_name;
+                            found = true;
+                            last_pos = file.tellg();
+                            break;
+                        }
+                        column_index++;
                     }
-                    column_index++; ///< Увеличение индекса текущего столбца
-                }
-                if (!found) { ///< Если нужный столбец не найден, выводим сообщение об ошибке и завершаем функцию
-                ////    std::cerr << "Column " << column_name << " not found in the file header.\n";
-                    return -1;
+                    if (!found) {
+                        return -1;
+                    }
                 }
             }
+
+            file.seekg(last_pos);
+            for (uint8_t i = 0; i < HBuffSize;) {
+                if (getline(file, line)) {
+                    if (line_count++ % n != 0)
+                        continue;
+
+                    std::istringstream iss(line);
+                    std::string token;
+                    for (uint8_t j = 0; j <= column_index; j++)
+                        getline(iss, token, delimiter);
+
+                    double value = std::atof(token.c_str());
+                    result[i] = 1000 * value; //TODO Убрать 1000 или заменить на коэф. трансформации
+                    ++i;
+                } else {
+                    last_pos = file.tellg();
+                    file.close();
+                    return HBuffSize - i;
+                    break;
+                }
+            }
+        } else {
+            return -1;
         }
 
-        file.seekg(last_pos); ///< Перемещает указатель чтения файла на последнюю позицию, с которой было прочитано в предыдущий раз
-        for (uint8_t i = 0; i < HBuffSize;) ///< Цикл, который выполняется HBuffSize раз, для чтения HBuffSize строк из файла
-        { 
-            if (getline(file, line)) ///< Если удалось прочитать строку из файла
-            {
-                if (line_count++ % n != 0)
-                    continue;
-
-                std::istringstream iss(line); ///< Создается строковый поток для обработки текущей строки
-                std::string token; ///< Переменная для хранения текущего токена (значения столбца)
-
-                for (uint8_t j = 0; j <= column_index; j++) ///< Цикл для считывания значений до нужного столбца
-                    getline(iss, token, delimiter); ///< Считывает значение до разделителя
-					
-                double value = std::atof(token.c_str()); ///< Преобразует строковое значение в тип double
-
-            ////    std::cout << "Read value: " << value << "\n"; ///< Выводит считанное значение для отладки
-
-                result[i] = value; ///< Записывает считанное значение в массив result
-                ++i;
-            }
-            else  ///< Если не удалось прочитать строку из файла
-            {
-                last_pos = file.tellg(); ///< Запоминает текущую позицию чтения в файле
-                file.close(); ///< Закрывает файл
-            ////    std::cout << "Function read_file finished.\n"; ///< Выводит сообщение о завершении функции
-                return HBuffSize - i; ///< Возвращает количество недочитанных строк
-                break; ///< Прерывает выполнение цикла
-            }
-        }
-    } else {
-    ////    std::cerr << "Error: Unable to open file " << filename << ".\n"; ///< Вывод сообщения об ошибке открытия файла
-		return -1;
+        last_pos = file.tellg();
+        file.close();
+        return 0;
     }
+};
 
-    last_pos = file.tellg();
-    file.close();
-////    std::cout << "Function read_file finished.\n"; ///< Вывод сообщения о завершении функции
-    return 0; ///< В случае успешного чтения всех строк
-}
 
 class SR_auto_ctl: public SR_calc_proc
 {
@@ -224,7 +200,8 @@ private:
 	
 	//* Объявляение вспомогательных переменных алгоритма
 	float *I_data[3], *U_data[3];		// Буферы для хранения точек режима
-	Opmode *I[3], *U[3];				// Объекты формируемого сигнала
+	Opmode *gI[3], *gU[3];				// Объекты формируемого сигнала
+	FileReader<float, HBuffSize> rI[3], rU[3];
 
 public:
 	/// @brief Consructor 
@@ -251,9 +228,8 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	//* Выделение памяти вспомогательных переменных
 	for (uint8_t i = 0; i < 3; i++)
 	{
-		I_data[i] = new float[HBuffSize] {};	U_data[i] = new float[HBuffSize] {};
-		//TODO Следующие строки нужны при получении режима с помощью класса Opmode. Удалить при чтении из файла.
-		I[i] = new Opmode(HBuffSize);			U[i] = new Opmode(HBuffSize);
+		I_data[i] = new float[HBuffSize] {};		U_data[i] = new float[HBuffSize] {};
+		gI[i] = new Opmode(HBuffSize);				gU[i] = new Opmode(HBuffSize); //TODO Cтроки нужны при получении режима с помощью класса Opmode.
 	}
 
 	//*++++++++++++++++++++++++++ Выделение памяти входов-выходов и настроек ++++++++++++++++++++++++++
@@ -291,22 +267,23 @@ void SR_auto_ctl::calc()
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
 	//? Генерация режима вручную
-	I_data[0] = I[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
-	I_data[1] = I[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
-	I_data[2] = I[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
+/*	I_data[0] = gI[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
+	I_data[1] = gI[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
+	I_data[2] = gI[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
 
-	U_data[0] = U[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
-	U_data[1] = U[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
-	U_data[2] = U[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
+	U_data[0] = gU[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
+	U_data[1] = gU[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
+	U_data[2] = gU[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C); //*/
 
 	//? Чтение режима из файла
 	std::string file_path = "../test_file_read/fault_1.csv";
-	read_file<float, HBuffSize>(file_path, "Ia", I_data[0], 1, ',');
-	read_file<float, HBuffSize>(file_path, "Ib", I_data[1], 1, ',');
-	read_file<float, HBuffSize>(file_path, "Ic", I_data[2], 1, ',');
-	read_file<float, HBuffSize>(file_path, "Ua", U_data[0], 1, ',');
-	read_file<float, HBuffSize>(file_path, "Ub", U_data[1], 1, ',');
-	read_file<float, HBuffSize>(file_path, "Uc", U_data[2], 1, ',');
+	//TODO Возможно, стоит добавить в сигнатуру коэффициент трансформации
+	rI[0].read(file_path, "Ia", I_data[0], 1, ',');
+	rI[1].read(file_path, "Ib", I_data[1], 1, ',');
+	rI[2].read(file_path, "Ic", I_data[2], 1, ',');
+	rU[0].read(file_path, "Ua", U_data[0], 1, ',');
+	rU[1].read(file_path, "Ub", U_data[1], 1, ',');
+	rU[2].read(file_path, "Uc", U_data[2], 1, ',');
 
 	// Запись значений на выходы алгоритма
 	for (uint8_t i = 0; i < 3; i++) 	// По фазам
