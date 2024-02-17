@@ -64,12 +64,12 @@ private:
 	float *in_val_re_S1 [3], 	*in_val_im_S1 [3];
 	float *in_val_abs_S1[3], 	*in_val_arg_S1[3];
 
-	std::string *in_name_re_I1 [3], 	*in_name_im_I1 [3];
-	std::string *in_name_abs_I1[3], 	*in_name_arg_I1[3];
-	std::string *in_name_re_U1 [3], 	*in_name_im_U1 [3];
-	std::string *in_name_abs_U1[3], 	*in_name_arg_U1[3];
-	std::string *in_name_re_S1 [3], 	*in_name_im_S1 [3];
-	std::string *in_name_abs_S1[3], 	*in_name_arg_S1[3];
+	std::string in_name_re_I1 [3], 	in_name_im_I1 [3];
+	std::string in_name_abs_I1[3], 	in_name_arg_I1[3];
+	std::string in_name_re_U1 [3], 	in_name_im_U1 [3];
+	std::string in_name_abs_U1[3], 	in_name_arg_U1[3];
+	std::string in_name_re_S1 [3], 	in_name_im_S1 [3];
+	std::string in_name_abs_S1[3], 	in_name_arg_S1[3];
 	//! Объявление выходов (должны подключаться на входы другого алгоритма!)	
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
@@ -104,8 +104,26 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	//*++++++++++++++++++++++++++ Выделение памяти входов-выходов и настроек ++++++++++++++++++++++++++
 	// (Место для выделения пользовательских переменных алгоритма)
 	//! Входные переменные: алгорим запросит входные переменные у других алгоримов по именам, указанным в кавычках
-	
-	
+	for (uint8_t i = 0; i < 3; i++)
+	{
+		string suffix = string(1, static_cast<char>('A' + i));
+
+		in_name_re_I1 [i] = "re_I1_"  + suffix;		make_in(&(in_val_re_I1 [i]), in_name_re_I1 [i].c_str());
+		in_name_im_I1 [i] = "im_I1_"  + suffix;		make_in(&(in_val_im_I1 [i]), in_name_im_I1 [i].c_str());
+		in_name_abs_I1[i] = "abs_I1_" + suffix;		make_in(&(in_val_abs_I1[i]), in_name_abs_I1[i].c_str());
+		in_name_arg_I1[i] = "arg_I1_" + suffix;		make_in(&(in_val_arg_I1[i]), in_name_arg_I1[i].c_str());
+
+		in_name_re_U1 [i] = "re_U1_"  + suffix;		make_in(&(in_val_re_U1 [i]), in_name_re_U1 [i].c_str());
+		in_name_im_U1 [i] = "im_U1_"  + suffix;		make_in(&(in_val_im_U1 [i]), in_name_im_U1 [i].c_str());
+		in_name_abs_U1[i] = "abs_U1_" + suffix;		make_in(&(in_val_abs_U1[i]), in_name_abs_U1[i].c_str());
+		in_name_arg_U1[i] = "arg_U1_" + suffix;		make_in(&(in_val_arg_U1[i]), in_name_arg_U1[i].c_str());
+
+		in_name_re_S1 [i] = "re_S1_"  + suffix;		make_in(&(in_val_re_S1 [i]), in_name_re_S1 [i].c_str());
+		in_name_im_S1 [i] = "im_S1_"  + suffix;		make_in(&(in_val_im_S1 [i]), in_name_im_S1 [i].c_str());
+		in_name_abs_S1[i] = "abs_S1_" + suffix;		make_in(&(in_val_abs_S1[i]), in_name_abs_S1[i].c_str());
+		in_name_arg_S1[i] = "arg_S1_" + suffix;		make_in(&(in_val_arg_S1[i]), in_name_arg_S1[i].c_str());
+	} 
+
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
@@ -126,6 +144,10 @@ void SR_auto_ctl::calc()
 	if(!ready_proc)	return; // `ready_proc` говорит о том, что все выходы подцеплены ко всем входам
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
+	
+	
+	//! Отладка (не видно с других машин)
+	//printf("result PTOC_A: ")
 
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }

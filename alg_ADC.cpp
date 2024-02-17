@@ -111,7 +111,7 @@ int16_t read_file(const std::string& filename, const std::string& column_name,
 
     if (file.is_open()) ///< Проверка, открыт ли файл
     { 
-    ////    std::cout << "File is open.\n"; ///< Сообщение для отладки
+        std::cout << "File is open.\n"; ///< Сообщение для отладки
 
         if (last_filename != filename)
         {
@@ -290,9 +290,6 @@ void SR_auto_ctl::calc()
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
-	//? Чтение режима из файла
-//	read_file<float, HBuffSize>("./op_mode/data_Ia.csv", "Ia", I_data[0]);
-	
 	//? Генерация режима вручную
 	I_data[0] = I[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
 	I_data[1] = I[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
@@ -301,6 +298,15 @@ void SR_auto_ctl::calc()
 	U_data[0] = U[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
 	U_data[1] = U[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
 	U_data[2] = U[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
+
+	//? Чтение режима из файла
+	std::string file_path = "../test_file_read/fault_1.csv";
+	read_file<float, HBuffSize>(file_path, "Ia", I_data[0], 1, ',');
+	read_file<float, HBuffSize>(file_path, "Ib", I_data[1], 1, ',');
+	read_file<float, HBuffSize>(file_path, "Ic", I_data[2], 1, ',');
+	read_file<float, HBuffSize>(file_path, "Ua", U_data[0], 1, ',');
+	read_file<float, HBuffSize>(file_path, "Ub", U_data[1], 1, ',');
+	read_file<float, HBuffSize>(file_path, "Uc", U_data[2], 1, ',');
 
 	// Запись значений на выходы алгоритма
 	for (uint8_t i = 0; i < 3; i++) 	// По фазам
