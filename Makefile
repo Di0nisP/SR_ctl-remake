@@ -1,5 +1,9 @@
-﻿# Список алгоритмов (добавьте новые алгоритмы сюда)
-ALGORITHMS = alg_DSP alg_ADC
+﻿# Получение списка имен файлов алгоритмов, начинающихся с alg_*
+ALGORITHM_FILES := $(filter-out alg_base.cpp alg_example.cpp, $(wildcard alg_*.cpp))
+
+# Преобразование списка имен файлов в имена алгоритмов (удаление расширения .cpp)
+##ALGORITHMS := $(patsubst %.cpp,%,$(ALGORITHM_FILES))
+ALGORITHMS := $(ALGORITHM_FILES:%.cpp=%)
 
 # Главная цель по умолчанию
 all: $(ALGORITHMS) SR_ctl
