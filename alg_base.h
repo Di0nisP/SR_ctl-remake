@@ -3,19 +3,24 @@
 #define ALG_BASE_SR
 
 /* Includes ------------------------------------------------------------------*/
-#include <math.h>
+#include <math.h> // Содержит математические константы и функции
+#include <complex> // Набор функций для работы с коплексными числами
 #include <stdio.h>
 #include <string.h>
 #include <string>
+#include <fstream>
+#include <sstream>
+#include <filesystem>
+#include <vector>
 
-/* Exported types ------------------------------------------------------------*/
+//* Exported types ------------------------------------------------------------*/
 //typedef unsigned char 	alg_uchar;    	// UCHAR_MAX ==        255
 //typedef unsigned short 	alg_ushort;  	// USHRT_MAX ==      65535
 //typedef unsigned long 	alg_ulong;      // UINT_MAX  == 4294967295
 
 
-/* Exported constants --------------------------------------------------------*/
-/* USER CODE BEGIN EC */
+//* Exported constants --------------------------------------------------------*/
+//* USER CODE BEGIN EC */
 #define MEMS_PERIOD  5		// Период опроса датчиков, мс
 #define PRINT_PERIOD 20		// Период отображения, мс
 
@@ -58,7 +63,7 @@
 
 #define CMD_WII_CTL					0b10000000000000000000000000000000
 #define CMD_RADIO_CTL				0b01000000000000000000000000000000
-/* USER CODE END EC */
+//* USER CODE END EC */
 
 //----------------------------------------------------------------------------------
 
