@@ -1,32 +1,26 @@
-﻿#define PROC0_FLAG 0b00000001
+﻿//* Includes begin ----------------------------------------------------------------------
+#include <mpi.h>
+#include "SR_ctl.h"
+//* Includes end ------------------------------------------------------------------------
+
+//* Defines begin -----------------------------------------------------------------------
+#define PROC0_FLAG 0b00000001
 #define PROC1_FLAG 0b00000010
 #define PROC2_FLAG 0b00000100
-
 #define PROC_PRINT 0b00000111	//бит показывает какой процесс отображает данные
-
-//+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-#include <mpi.h>
-//+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#include "SR_ctl.h"
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #define NUM_STEP_TO_STOP 1000
+//* Defines end -------------------------------------------------------------------------
 
+SR_ctl_type::SR_ctl_type()	{}
+SR_ctl_type::~SR_ctl_type()	{}
 
-//////////////////////////////////////////////////////////////////////////
-SR_ctl_type::SR_ctl_type()	{ }
-SR_ctl_type::~SR_ctl_type()	{ }
-//////////////////////////////////////////////////////////////////////////
-void SR_ctl_type::Init_cfg() { }
+void SR_ctl_type::Init_cfg() {}
 
-/// <summary>
-/// Инициализация всех алгоритмов
-/// </summary>
 void SR_ctl_type::Init_local_calc()
 {
 	FILE *fp; 
-	fp = fopen("local_vars.txt", "a");	// Запись ведётся в конец файла (файл не пересоздаётся)
-	fprintf(fp,"\n\tVARIABLES LIST\n");
+	fp = fopen("local_vars.txt", "a");	// Запись в файл ведётся в режиме добавления (append)
+	fprintf(fp,"\n\tVARIABLES LIST\n");	// Запись строки в файл
 	
 	calc_proc_cnt = Settings->find_algs(&calc_proc); // Количество загруженных расчётных процедур (алгоритмов)
 	// После `find_algs` имеем список алгоритмов в `calc_proc`
@@ -48,24 +42,20 @@ void SR_ctl_type::Init_local_calc()
 		calc_proc[i]->Reg_vars(Settings->All_local_vars);
 ///		calc_proc[i]->Init_consts();		
 	}
-	//------------------------------------------------------------------------------------
-    // /* Временный блок. Для удаления данного функционала требуется также исключить упоминания из метода `Work`.
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	//*------------------------------------------------------------------------------------
+    // Временный блок. Для удаления данного функционала требуется также исключить упоминания из метода `Work`.
 	Settings->All_local_vars->reg_out_var("ctl", "local_ctl", &local_ctl_var);
 	
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	Settings->All_local_vars->reg_out_var("ctl", "ctl0", &out_ctl_var[0]);
 	Settings->All_local_vars->reg_out_var("ctl", "ctl1", &out_ctl_var[1]);	
 	Settings->All_local_vars->reg_out_var("ctl", "ctl2", &out_ctl_var[2]);
 	Settings->All_local_vars->reg_out_var("ctl", "ctl3", &out_ctl_var[3]);
 	
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 	Settings->All_local_vars->reg_in_var("ctl", "wii_ctl0", &wii_ctl_var[0]);
 	Settings->All_local_vars->reg_in_var("ctl", "wii_ctl1", &wii_ctl_var[1]);	
 	Settings->All_local_vars->reg_in_var("ctl", "wii_ctl2", &wii_ctl_var[2]);
 	Settings->All_local_vars->reg_in_var("ctl", "wii_ctl3", &wii_ctl_var[3]);
-	// */
-	//------------------------------------------------------------------------------------	
+	//*/------------------------------------------------------------------------------------	
 	if (proc_rank_flag & PROC_PRINT) 	
 	{
 		printf("[%d]: ", proc_rank_num);							
@@ -106,9 +96,8 @@ void SR_ctl_type::Init_local_calc()
 		printf("[%d]: ",proc_rank_num);							
 		printf("=========================================\n");
 	}
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
-	/// Инициализация и настройка взаимодействия между процессами при использовании библиотеки MPI
+	//! Инициализация и настройка взаимодействия между процессами при использовании библиотеки MPI
 	// Get the number of processes
 	int world_size; // Количество машин в коммуникаторе MPI
 	MPI_Comm_size(MPI_COMM_WORLD, &world_size);
@@ -207,9 +196,8 @@ void SR_ctl_type::Init_local_calc()
 	int mpi_delay_timer = MPI_SR_TIMEOUT;
 	int remote_vars_idx = -1;
 	
-	/// <summary>
-	/// Обмен данными между процессами MPI с использованием функции `MPI_Sendrecv`
-	/// </summary>
+
+	//! Обмен данными между процессами MPI с использованием функции `MPI_Sendrecv`
 	for (int link_num = 0; link_num < (world_size-1); link_num++)
 	{
 		int dist_node_num = p_MPI_link[link_num]->get_node_num();	//номер удаленного узла
@@ -238,7 +226,7 @@ void SR_ctl_type::Init_local_calc()
 		if (proc_rank_flag&PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("node[%d] declares %d outs and asks for %d ins\n", dist_node_num, dist_sz[0], dist_sz[1]); }
 		fprintf(fp," \n node[%d] declares %d outs and asks for %d ins \n \n", dist_node_num,dist_sz[0],dist_sz[1]);
 
-		/// Отправка 
+		//! Отправка 
 		for (int loc_idx = 0; loc_idx < local_sz[0]; loc_idx++)//отправка выдаваемых переменных
 		{
 			SR_var_discriptor* local_var_ptr = Settings->All_local_vars->get_out_by_idx(loc_idx);
@@ -266,7 +254,7 @@ void SR_ctl_type::Init_local_calc()
 		}
 		fprintf(fp," \n");
 		
-		/// Прием
+		//! Прием
 		//данные в приемном массиве (recv_buff) хранятся в порядке, задаваемом удаленным отправителем
 		int cnt_recv_buff = 0;	//счетчик в буффере
 		for (int dist_idx = 0; dist_idx < dist_sz[0]; dist_idx++) //прием удаленных выдаваемых переменных
@@ -357,17 +345,14 @@ void SR_ctl_type::Init_local_calc()
 	fclose(fp);
 }
 
-/// <summary>
-/// Главная функция инициализации (не RT-процесс)
-/// </summary>
 void SR_ctl_type::Init()
 {
-		radio_ctl=false;// управление по радиоканалу отключено при старте (управлене с локального джойстика)
+		radio_ctl = false;// управление по радиоканалу отключено при старте (управлене с локального джойстика)
 		//печать в консоль
-		print_topic=0;
-		print_block=0;
-		print_alg=0;
-		print_var=0;
+		print_topic = 0;
+		print_block = 0;
+		print_alg = 0;
+		print_var = 0;
 		//		чтение настроек
 		// Это важно
 		Settings = new SR_Settings();	Settings->Init();	
@@ -389,9 +374,6 @@ void SR_ctl_type::Init()
 		usleep(100 * 1000);											//задержка
 }
 
-/// <summary>
-/// Главный метод запуска в работу
-/// </summary>
 void SR_ctl_type::Work()
 { 
 	// Get the number of processes
@@ -422,11 +404,10 @@ void SR_ctl_type::Work()
 		///	!!!!!Временно!!!!!
 		for(int i = 0; i < 4; i++)	*out_ctl_var[i] = *wii_ctl_var[i];	
 		///	!!!!!Временно!!!!!
-			
-		//	/*
-		//Цикл по связям
-		// Нужно добавить проверки: dist_node_num != world_rank
-		// send_sz > 0 & send_buff != NULL
+
+		//* Цикл по связям 
+		//TODO Нужно добавить проверки: dist_node_num != world_rank
+		//TODO send_sz > 0 & send_buff != NULL
 		for(int link_num = 0; link_num < (world_size - 1); link_num++)
 		{
 			int dist_node_num = p_MPI_link[link_num]->get_node_num();	//номер удаленного узла
@@ -450,16 +431,16 @@ void SR_ctl_type::Work()
 		}
 		//	*/
 			
-		// calc_proc_cnt - число локальных алгоритмов
+		// `calc_proc_cnt` - число локальных алгоритмов
 		for (int i = 0; i < calc_proc_cnt; i++)
 		{	// `calc_period` расчётной процедуры определяется в самой расчётной процедуре
 			if (MEMS_PERIOD <= calc_proc[i]->calc_period && calc_proc[i]->calc_period < PRINT_PERIOD)
 			{		
 				if (print_topic == TOPIC_ALG_MSGS && print_block == proc_rank_num && print_alg == i)
 				{
-					*local_ctl_var= -1; // Устаревшее (возможно)
+					*local_ctl_var= -1; 	// Устаревшее (возможно)
 					printf("[%d]:alg[%d]<%s>msg: ", proc_rank_num, i, calc_proc[i]->proc_name);
-					calc_proc[i]->calc(); // Запуск алгоритма
+					calc_proc[i]->calc(); 	// Запуск алгоритма
 					printf("\n");
 				}
 				else
@@ -471,7 +452,7 @@ void SR_ctl_type::Work()
 		}		
 		//▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲		
 		
-		if (print_cnt > PRINT_PERIOD) // Почему не "=>" ???
+		if (print_cnt >= PRINT_PERIOD) //? Изначально было `>`
 		{	
 			if (*out_ctl_var[0] == CMD_STOP_PROG) // Старое
 			printf("CMD_STOP_PROG\n");
@@ -538,9 +519,6 @@ void SR_ctl_type::Work()
 
 }
 
-/// <summary>
-/// Печать в консоль
-/// </summary>
 void SR_ctl_type::print_func()
 {
 	//-------------------------------------------------------------------------------------------	

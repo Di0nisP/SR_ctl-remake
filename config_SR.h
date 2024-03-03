@@ -470,9 +470,8 @@ private:
 //	void* p_Link_list;	
 	
 public:
-	SR_var_list* All_local_vars;//список локальных переменных
-	
-	SR_var_list** All_dist_vars;//список удаленных переменных	
+	SR_var_list*  All_local_vars;	///< Cписок локальных переменных
+	SR_var_list** All_dist_vars;	///< Список удалённых переменных	
 //	SR_var_list*		vars_tab;
 
 		/*
@@ -503,6 +502,12 @@ public:
 	const char* Block_name;
 ///	int	Block_ID;
 public:
+	/**
+	 * @brief Construct a new sr settings object
+	 * 
+	 * Создаётся список локальных переменных.
+	 * 
+	 */
 	SR_Settings();
 	~SR_Settings();
 	int Init();
@@ -513,6 +518,16 @@ public:
 ///	SR_Block_data* Get_Block(const char* name,const char* IP,int num,int type);
 	
 	// Поиск so-файлов в указанной папке
+	/**
+	 * @brief Метод для поиска локальных алгоритмов
+	 * 
+	 * Поиск динамических библиотек. 
+	 * В корневой папке выполняется поиск so-файлов с алгоритмами --
+	 * метод должен пробегаться по алгоритмам и экспортировать их функции.
+	 * 
+	 * @param p_calc_proc_array 
+	 * @return int Количество найденных локальных алгоритмов
+	 */
 	int find_algs(SR_calc_proc*** p_calc_proc_array);
 	
 ///	int find_links(SR_UDP_link*** p_link_array);

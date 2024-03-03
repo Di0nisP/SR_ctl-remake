@@ -381,9 +381,9 @@ int SR_calc_proc::Reg_vars(void* vars_of_block)
 	vector<float**>  *in_pp = (vector<float**>*) in_val_pp_list; 
 	vector<float**> *out_pp = (vector<float**>*)out_val_pp_list;
 	// "Говорит" системе, что есть такие-то входы и выходы
-	for(int in = 0; in < (*in_pp).size(); in++)	// Как определяется размер `(*in_pp).size()` ???
+	for (int in = 0; in < (*in_pp).size(); in++)
 		(*All_vars_of_block).reg_in_var (proc_name, (*in_name)[in], (*in_pp)[in]);
-	for(int out = 0; out < (*out_pp).size(); out++)	
+	for (int out = 0; out < (*out_pp).size(); out++)	
 		(*All_vars_of_block).reg_out_var(proc_name, (*out_name)[out], (*out_pp)[out]);
 	
 	return 0;	

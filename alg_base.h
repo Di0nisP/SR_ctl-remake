@@ -134,7 +134,7 @@ public:
 	 SR_calc_proc();
 	~SR_calc_proc();
 //	int Init_consts();
-	int Get_ready();	//	?
+	int Get_ready();	//?
 	int Reg_vars(void* vars_of_block);	//	Важная функция -- создание переменных
 	int   Get_out_val_num();
 	int   Get_in_val_num();	
@@ -143,7 +143,7 @@ public:
 	const char* Get_out_name(int idx);
 	const char* Get_in_name(int idx);	
 	
-	virtual void calc()=0; // Не имеет реализации в одноимённом cpp-файле
+	virtual void calc() = 0; // Не имеет реализации в одноимённом cpp-файле
 };
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 //extern "C" int GetCalcClasses(SR_calc_proc** p_Classes,const char* block_name);

@@ -27,7 +27,7 @@ const uint8_t HBuffSize = FREQ_S / FREQ_N / NUM_CYCLE; 	///< Число точе
 //* Private constants end --------------------------------------------------------------------------
 
 //* Functions begin --------------------------------------------------------------------------------
-void overcurrent_protection_trigger(complex<double> Sph1, complex<double> Sph2, complex<double> Sph3,
+bool overcurrent_protection_trigger(complex<double> Sph1, complex<double> Sph2, complex<double> Sph3,
 complex<double> Iph1, complex<double> Iph2, complex<double> Iph3, 
 float current_start, float current_return) {
 	static bool status = false; ///< Состояние пускового органа
@@ -38,14 +38,14 @@ float current_start, float current_return) {
             	abs(Iph2) < current_return && 
             	abs(Iph3) < current_return)
 				status = false;
-            return;
+            return status;
         case false:
             if ((Sph1.real() > 0 && abs(Iph1) > current_start) || 
             	(Sph2.real() > 0 && abs(Iph2) > current_start) || 
             	(Sph3.real() > 0 && abs(Iph3) > current_start))
                 status = true;
-            return;
-        default: status = false; return;
+            return status;
+        default: status = false; return status;
     }
 }
 
@@ -146,8 +146,16 @@ void SR_auto_ctl::calc()
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	
 	
+	bool PTOC_A = overcurrent_protection_trigger(complex<double>(*in_val_re_S1[0],*in_val_im_S1[0]),
+	complex<double>(*in_val_re_S1[1],*in_val_im_S1[1]),
+	complex<double>(*in_val_re_S1[2],*in_val_im_S1[2]),
+	complex<double>(*in_val_re_I1[0],*in_val_im_I1[0]),
+	complex<double>(*in_val_re_I1[1],*in_val_im_I1[1]),
+	complex<double>(*in_val_re_I1[2],*in_val_im_I1[2]),
+	1000.0f, 500.0f);
 	//! Отладка (не видно с других машин)
-	//printf("result PTOC_A: ")
+	printf("\n\t%s out-values:\n", proc_name);
+	printf("result PTOC_A: %d\n", PTOC_A);
 
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }

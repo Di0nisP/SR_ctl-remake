@@ -14,7 +14,7 @@
 
 #include "alg_base.h"
 
-/* Private constants ------------------------------------------------------------------------------*/
+//* Private constants begin ------------------------------------------------------------------------
 // Параметры входного сигнала
 #define FREQ_S 			4000.0f ///< Частота дискретизации АЦП
 #define FREQ_N 			50.0f 	///< Номинальная частота сети
@@ -25,7 +25,7 @@
 #define FAULT_TIME 		2.0f	///< Время изменения режима, с
 
 const uint8_t HBuffSize = FREQ_S / FREQ_N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
-/*-------------------------------------------------------------------------------------------------*/
+//* Private constants end ---------------------------------------------------------------------------
 
 using namespace std;
 
@@ -69,18 +69,24 @@ public:
 		for (uint8_t i = 0; i < HBuffSize; i++)
 		{
 			if (time < fault_time)
-				out_array[i] = magnitude_1 * sin(2.0f * M_PI * F * time + phase_1);
+				out_array[i] = magnitude_1 * sin(2.0 * M_PI * F * time + phase_1);
 			////	out_array[i] = 10.0f + time < 11.0f ? 10.0f + time : 11.0f;
 			else
-				out_array[i] = magnitude_2 * sin(2.0f * M_PI * F * time + phase_2);
+				out_array[i] = magnitude_2 * sin(2.0 * M_PI * F * time + phase_2);
 			
-			time += 1.0f / Fs; // Fs = 4000
+			time += 1.0 / Fs; // Fs = 4000
 		}
 
 		return out_array;
 	}
 };
 
+/**
+ * @brief Класс для хранения параметров состояния чтения из файла
+ * 
+ * @tparam T Типа выходного массива функции чтения файла
+ * @tparam HBuffSize количество читаемых позиций файла
+ */
 template <typename T, const uint8_t HBuffSize>
 class FileReader {
 private:
@@ -266,7 +272,7 @@ void SR_auto_ctl::calc()
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
-	//? Генерация режима вручную
+	// Генерация режима вручную
 /*	I_data[0] = gI[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
 	I_data[1] = gI[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
 	I_data[2] = gI[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
@@ -275,8 +281,9 @@ void SR_auto_ctl::calc()
 	U_data[1] = gU[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
 	U_data[2] = gU[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C); //*/
 
-	//? Чтение режима из файла
-	std::string file_path = "../test_file_read/fault_1.csv";
+	// Чтение режима из файла
+	std::string file_path = "../test_file_read/fault_1.csv"; //TODO Убрать 1000 или заменить на коэф. трансформации
+//	std::string file_path = "../test_file_read/folder/data_Ia.csv";
 	//TODO Возможно, стоит добавить в сигнатуру коэффициент трансформации
 	rI[0].read(file_path, "Ia", I_data[0], 1, ',');
 	rI[1].read(file_path, "Ib", I_data[1], 1, ',');
@@ -293,12 +300,11 @@ void SR_auto_ctl::calc()
 			*(out_val_U[i][j]) = U_data[i][j];	
 		}
 
-	// Отладка (не видно с других машин)
+	//! Отладка (не видно с других машин)
 	printf("\n\t%s out-values:\n", proc_name);		
 	for (uint8_t j = 0; j < HBuffSize; j++)
 		printf("%6.3f ", *(out_val_I[0][j]));
-	
-
+	printf("\n");
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
@@ -312,7 +318,7 @@ LIB_EXPORT	SR_calc_proc* GetCalcClass(const char* block_name,char* file_name)
 	SR_calc_proc*	p_Class = (SR_calc_proc*)(new SR_auto_ctl(block_name));
 	// Убирает тип (.so) из имени файла
 	int ext_index = (int)(strstr(file_name, ".so") - file_name); // Сохранение позиции подстроки ".so" (если таковая найдена)
-	p_Class->file_name[0] = 0; // Первый символ строки `file_name` устанавливается `0`, то указывает на конец троки в C/C++,
+	p_Class->file_name[0] = 0; // Первый символ строки `file_name` устанавливается `0`, что указывает на конец троки в C/C++,
 	// т.о. выполняется очистка `p_Class->file_name` (подстраховка)
 	strncat(p_Class->file_name, file_name, ext_index); // Запись имени файла без типа (.so) в `p_Class->file_name`
 	strcat(p_Class->file_name, ".ini"); // Добавление ".ini" с конца строки `p_Class->file_name`

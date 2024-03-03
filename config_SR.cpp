@@ -1,9 +1,8 @@
-﻿//-----------------------------------------------------------
+﻿//* Includes begin ----------------------------------------------------------------------
 #include <dirent.h>
-//-----------------------------------------------------------
 #include <dlfcn.h>
 #include <link.h>
-//-------------------------------
+
 #include <string>
 #include <list>
 #include <iterator>
@@ -12,58 +11,59 @@
 #include <algorithm>
 
 #include "config_SR.h"	
+//* Includes end ------------------------------------------------------------------------
 
 using namespace std;
-//------------------------------------------------------------------------------------
+
 int init_SR_data()
 {
 	return 0;
 }
-//------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// ‘озадЮм список новых локальных переменных
+
 SR_Settings::SR_Settings()
 {
-	
-	Block_name="unknown";
-	All_local_vars	= new SR_var_list("All_local_vars");//локальный список переменных
+	Block_name = "unknown";
+	All_local_vars = new SR_var_list("All_local_vars");
 	All_dist_vars = NULL;
 }
-SR_Settings::~SR_Settings()	{ }
+
+SR_Settings::~SR_Settings()	{}
+
 int SR_Settings::Init()
 {
-	return -1; // ???
+	return -1; //?
 }
 
-/// Метод поиска so-файлов с алгоритмами
 int SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array)
-// В корневой папке находятся so-файлы с алгоритмами --
-// метод должен пробегатьсЯ по алгоритмам и экспортировать их функции
-// (поиск динамических библиотек)
 {
 	// Указатель на вектор указателей на SR_calc_proc -- класс вычислительной процедуры (есть в каждом so-файле)
 	vector<SR_calc_proc*> * p_calc_class = new vector<SR_calc_proc*>; // Выделяется на куче -- сохраняется при выходе из функции
-	#if defined (ALG_PRINTF)
+	
+#if defined (ALG_PRINTF)
 	printf("alg files:\n");
-	#endif
-	int calc_proc_cnt=0;
+#endif
+	
+	int calc_proc_cnt = 0;
 	struct dirent **namelist; // Указатель на указатель на структуру dirent, т.е. массив указателей на dirent
 	int n; // Количество файлов в директории
 	// Сканируем текущую (рабочую) директорию (`"."`) без фильтрации (`0` - все файлы),
 	// результаты сканирования (указатели на структуру dirent) помещается в массив указателей namelist
 	n = scandir(".", &namelist, 0, alphasort); 
-	if (n <= 0)	printf("No files in current dir\n"); // Если есть ошибки или в директории нет файлов
+	if (n <= 0)	printf("Error: No files in current dir.\n"); // Если есть ошибки или в директории нет файлов
 	else {
-		while (n--) {
-			if (strstr(namelist[n]->d_name, ".so") != NULL) {
-				#if defined (ALG_PRINTF)
-				printf("%s\n", namelist[n]->d_name); // Печать найденных so-файлов
-				#endif
+		for (int i = 0; i < n; i++) {
+			if (strstr(namelist[i]->d_name, ".so") != NULL) {
+
+#if defined (ALG_PRINTF)
+				printf("%s\n", namelist[i]->d_name); // Печать найденных so-файлов
+#endif
+				
 				// Формирование консольного обращения к найденному so-файлу
 				char name_str[256];
 				strcpy(name_str, "./");
-				strcat(name_str, namelist[n]->d_name);
+				strcat(name_str, namelist[i]->d_name);
 				
-				SR_calc_proc** tmp_ptr; // Отсутствующий функционал (???)
+////				SR_calc_proc** tmp_ptr; // Отсутствующий функционал (???)
 
 				// Открываем разделяемую библиотеку для "ленивой" динамической загрузки функций
 				void *handle = dlopen(name_str, RTLD_LAZY); // Возврат указателя на дескриптор
@@ -83,7 +83,7 @@ int SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array)
 				else printf("Couldn't load library: %s\n", name_str);
 				//----------------------------------------------------------------------------------------------------------------------------------				
 			}
-			free(namelist[n]);
+			free(namelist[i]);
 		}
 		free(namelist);
 	}
@@ -93,17 +93,23 @@ int SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array)
 	calc_proc = new SR_calc_proc*[total_num]; 
 	*p_calc_proc_array = calc_proc; // Входной аргумент функции `find_alg`
 
-	vector<SR_calc_proc*>::iterator iter	 = (*p_calc_class).begin(); // C точки зрения итератора -- указатель на первый элемент
-	vector<SR_calc_proc*>::iterator end_iter = (*p_calc_class).end();	
+	vector<SR_calc_proc*>::iterator iter = (*p_calc_class).begin(); // C точки зрения итератора -- указатель на первый элемент
+	
+	for (int i = 0; iter != (*p_calc_class).end(); iter++, i++) // `iter++` -- вызываем метод, который выдаст нам указатель на следующий элемент
+		calc_proc[i] = (*iter); // Заполняется указателями на экспортированные рассчётные процедуры  из тех so-файлов, которые были найдены
+
+	// Старая реализация:
+/*	vector<SR_calc_proc*>::iterator end_iter = (*p_calc_class).end();
+
 	int i = 0;
 	while(iter != end_iter)
 	{
 		calc_proc[i] = (*iter); // Заполняется указателями на экспортированные рассчётные процедуры  из тех so-файлов, которые были найдены
 		//printf("ALG: %s\n", calc_proc[i]->proc_name);
 		iter++; i++;			// `iter++` -- вызываем метод, который выдаст нам указатель на следующий элемент
-	}
+	} //*/
 	
-	// Вектор p_calc_class должен быть удалён ???
+	// Вектор p_calc_class должен быть удалён ??? 
 	
 	return	total_num;
 }
@@ -115,8 +121,8 @@ int SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array)
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 SR_var_list::SR_var_list(const char* in_name)
 {
-	var_num=0;
-	list_name=in_name;
+	var_num = 0;
+	list_name = in_name;
 	vector<SR_var_discriptor> * p_vars = new vector<SR_var_discriptor>;
 	var_list = (void*)p_vars;
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -139,10 +145,10 @@ void SR_var_list::reg_in_var(const char* proc_name,const char* var_name,float** 
 	SR_var_discriptor tmp; // ЛокальнаЯ переменная	
 	tmp.calc_proc_name = proc_name; 
 	tmp.var_name = var_name;	
-	tmp.pp_val_calc=pp_val_calc_func;  
+	tmp.pp_val_calc = pp_val_calc_func;  
 	tmp.use_cnt=0;	//tmp.p_val = NULL;
 	// Далее данные копируются из локальной памяти (со стека) скорее всего на кучу
-	(* (vector<SR_var_discriptor> *)in_var_list  ).push_back(tmp); // push_back() выделяет память
+	(*(vector<SR_var_discriptor>*)in_var_list).push_back(tmp); // push_back() выделяет память
 	#if defined (ALG_PRINTF)
 	printf("%s.%s - registrated in\n",proc_name,var_name);		
 	#endif
@@ -155,7 +161,7 @@ void SR_var_list::reg_out_var(const char* proc_name,const char* var_name,float**
 	tmp.pp_val_calc = pp_val_calc_func; 
 	tmp.use_cnt = 0;	//tmp.p_val = NULL;
 	// После того, как поля структуры проинициализированы, она добавляется в лист выходных переменных
-	(* (vector<SR_var_discriptor> *)out_var_list ).push_back(tmp);
+	(*(vector<SR_var_discriptor>*)out_var_list).push_back(tmp);
 	#if defined (ALG_PRINTF)
 	printf("%s.%s - registrated out\n",proc_name,var_name);		
 	#endif

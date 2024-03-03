@@ -274,6 +274,7 @@ void SR_auto_ctl::calc()
 	//! Отладка (не видно с других машин)
 	static float time = 0.0f;
 	printf("\n\t%s (Hoertzel) out-values:\n", proc_name);
+	printf("time = %.5f\tstep = %d\n", time, step);
 	for (uint8_t i = 0; i < 3u; i++)
 	{
 		string print_name = "I_" + string(1, static_cast<char>('A' + i));
@@ -288,11 +289,8 @@ void SR_auto_ctl::calc()
 		*(out_val_re_U1 [i]), *(out_val_im_U1 [i]), 
 		*(out_val_abs_U1[i]), *(out_val_arg_U1[i]) * 180.0f * M_1_PI);
 	}
-	printf("\n");
-	printf("time = %.5f\tstep = %d", time, step);
 	time += 1 / (NUM_CYCLE * FREQ_N);
 	++step %= NUM_CYCLE;
-	printf("\n"); 
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
