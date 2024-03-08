@@ -111,31 +111,44 @@ private:
 	///*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
 	//! Объявление входов (данные, пришедшие извне)
 	// Токи
-	float* in_val_I[3][HBuffSize];
+	float *in_val_I	[3][HBuffSize];
 	string in_name_I[3][HBuffSize];
 	// Напряжения
-	float* in_val_U[3][HBuffSize];	
+	float *in_val_U	[3][HBuffSize];	
 	string in_name_U[3][HBuffSize];
 
 	//! Объявление выходов (должны подключаться на входы другого алгоритма!)
+	//* Прямая последовательность
 	// Ортогональные составляющие тока и напряжения прямой последовательности
-	float *out_val_re_I1 [3], 	*out_val_im_I1 [3];
-	float *out_val_re_U1 [3], 	*out_val_im_U1 [3];
+	float *out_val_re_I1  [3], 	*out_val_im_I1  [3];
+	float *out_val_re_U1  [3], 	*out_val_im_U1  [3];
 	// Модуль и аргумент тока и напряжения прямой последовательности
-	float *out_val_abs_I1[3], 	*out_val_arg_I1[3];
-	float *out_val_abs_U1[3], 	*out_val_arg_U1[3];
+	float *out_val_abs_I1 [3], 	*out_val_arg_I1 [3];
+	float *out_val_abs_U1 [3], 	*out_val_arg_U1 [3];
 	// Ортогональные составляющие мощности прямой последовательности
-	float *out_val_re_S1 [3], 	*out_val_im_S1 [3];
+	float *out_val_re_S1  [3], 	*out_val_im_S1  [3];
 	// Модуль и аргумент мощности прямой последовательности
-	float *out_val_abs_S1[3], 	*out_val_arg_S1[3];
-
+	float *out_val_abs_S1 [3], 	*out_val_arg_S1 [3];
 	// Имена переменных
-	string out_name_re_I1 [3], 	out_name_im_I1 [3];
-	string out_name_re_U1 [3], 	out_name_im_U1 [3];
-	string out_name_re_S1 [3], 	out_name_im_S1 [3];
-	string out_name_abs_I1[3], 	out_name_arg_I1[3];
-	string out_name_abs_U1[3], 	out_name_arg_U1[3];
-	string out_name_abs_S1[3], 	out_name_arg_S1[3];
+	string out_name_re_I1 [3], 	 out_name_im_I1 [3];
+	string out_name_re_U1 [3], 	 out_name_im_U1 [3];
+	string out_name_re_S1 [3], 	 out_name_im_S1 [3];
+	string out_name_abs_I1[3], 	 out_name_arg_I1[3];
+	string out_name_abs_U1[3], 	 out_name_arg_U1[3];
+	string out_name_abs_S1[3], 	 out_name_arg_S1[3];
+
+	//* Нулевая последовательность
+	// Ортогональные составляющие тока и напряжения нулевой последовательности
+	float *out_val_re_3I0, 		*out_val_im_3I0;
+	float *out_val_re_3U0, 		*out_val_im_3U0;
+	// Модуль и аргумент тока и напряжения прямой последовательности
+	float *out_val_abs_3I0, 	*out_val_arg_3I0;
+	float *out_val_abs_3U0, 	*out_val_arg_3U0;
+	// Имена переменных
+	string out_name_re_3I0,	 	 out_name_im_3I0;
+	string out_name_re_3U0,	 	 out_name_im_3U0;
+	string out_name_abs_3I0,  	 out_name_arg_3I0;
+	string out_name_abs_3U0,  	 out_name_arg_3U0;
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
 	float* set_val_Fn; 			///< Номинальная частота сети, Гц
@@ -206,7 +219,10 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 		out_name_im_S1 [i] = "im_S1_"  + suffix;		make_out(&(out_val_im_S1 [i]), out_name_im_S1 [i].c_str());
 		out_name_abs_S1[i] = "abs_S1_" + suffix;		make_out(&(out_val_abs_S1[i]), out_name_abs_S1[i].c_str());
 		out_name_arg_S1[i] = "arg_S1_" + suffix;		make_out(&(out_val_arg_S1[i]), out_name_arg_S1[i].c_str());
-	} 
+	}
+
+
+
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	//(Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
@@ -217,7 +233,14 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
-SR_auto_ctl::~SR_auto_ctl() {}
+SR_auto_ctl::~SR_auto_ctl() 
+{
+	//TODO Проверить правильность
+	for (auto ptr : I_data)
+		delete ptr;
+	for (auto ptr : U_data)
+		delete ptr;
+}
 
 void SR_auto_ctl::calc()
 {

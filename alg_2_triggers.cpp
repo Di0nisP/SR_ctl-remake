@@ -22,7 +22,6 @@ using namespace std;
 #define PHASE_B  		2.0943951023931954923084289221863
 #define PHASE_C 	   -2.0943951023931954923084289221863
 #define FAULT_TIME 		2.0f	///< Время изменения режима, с
-
 const uint8_t HBuffSize = FREQ_S / FREQ_N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
 //* Private constants end --------------------------------------------------------------------------
 
@@ -48,12 +47,119 @@ float current_start, float current_return) {
         default: status = false; return status;
     }
 }
-
-
 //* Functions end ----------------------------------------------------------------------------------
 
-class SR_auto_ctl: public SR_calc_proc
+class Timers {
+private:
+    uint16_t 	time;    		///< Счетчик времени, мс
+    uint8_t 	calc_period;    ///< Шаг таймера, мс
+    bool   		t_Q;     		///< Выходное значение таймера
+    bool   		t_CC;    		///< Входное значение таймера на прошлом шаге
+    bool   		t_QQ;    		///< Показатель фронта
+public:
+
+    /// @brief Конструктор класса
+    Timers(uint8_t calc_period = MEMS_PERIOD) : time(0), calc_period(calc_period)
+    {
+		t_Q  = false;
+		t_CC = false;
+		t_QQ = false;
+	}
+
+    /// @brief Деструктор класса
+    ~Timers() {}	
+
+	/**
+	 * @brief Таймер задержки фронта
+	 * 
+	 * @param S Управляющий сигнал таймера, инициирующий отсчёт выдержки времени
+	 * @param dT Уставка по времени, мс
+	 */
+    void ton(bool S, uint16_t dT) 
+	{
+        if ( (S == true) && (t_Q == false) )	// Если входной сигнал true, то считаем выдержку времени
+		{
+            time += calc_period;
+            if (time > dT)
+                t_Q = true;
+        }
+        else 	// Если же входной сигнал false, то обнуляем выдержку времени
+			time = 0;
+
+        if ( t_CC ) 	// Срабатывание на следующем такте после окончания выдержки времени
+        {
+            t_Q = true;
+            t_CC = false;
+        }
+
+        if ( (time > dT) && (S == true) ) 	// Фиксация окончания выдержки времени
+        {
+            t_CC = true;
+        }
+
+        if( S == false )	// Сброс выходного сигнала после пропадания входного
+        {
+            t_Q = false;
+        }
+    }
+
+    /// @brief Метод для получения значения выхода
+    bool get_Q() const { return t_Q; }
+
+    /// @brief Метод для получения текущего времени (в рамках отсчёта уставки)
+    uint16_t get_time() const { return time; }
+};
+
+class Triggers 
 {
+private:
+	Timers *timer;
+	bool status;
+	bool status_ph[3];
+
+public:
+
+    /// @brief Конструктор класса
+    Triggers() {
+		timer = new Timers();
+		status = false;
+		for (bool flag : status_ph)
+			flag = false;
+	}
+
+    /// @brief Деструктор класса
+    ~Triggers() {
+		delete timer; // Композиция
+	}
+
+	void overcurrent_protection(float re_Sph1, float re_Sph2, float re_Sph3,
+								float abs_Iph1, float abs_Iph2, float abs_Iph3, 
+								float current_start, float current_return, uint16_t time_start) 
+	{
+		switch (status)
+		{
+			case true:
+				if (abs_Iph1 < current_return &&
+					abs_Iph2 < current_return && 
+					abs_Iph3 < current_return)
+					status = false;
+				timer->ton(status, time_start);
+				return;
+			case false:
+				if ((re_Sph1 > 0 && abs_Iph1 > current_start) || 
+					(re_Sph2 > 0 && abs_Iph2 > current_start) || 
+					(re_Sph3 > 0 && abs_Iph3 > current_start))
+					status = true;
+				timer->ton(status, time_start);
+				status = status && timer->get_Q();
+				return;
+			default: status = false; return;
+		}
+	}
+
+};
+
+class SR_auto_ctl: public SR_calc_proc {
 private:
 	//*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
 	//! Объявление входов (данные, пришедшие извне)
@@ -78,6 +184,10 @@ private:
 	float* set_val_NumCycle;			///< Число тактов устройства на периоде номинальной частоты (50 Гц)
 	
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	Timers *timer;
+
+	complex<double*> a;
 
 public:
 	/// @brief Consructor 
