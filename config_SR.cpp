@@ -15,11 +15,6 @@
 
 using namespace std;
 
-int init_SR_data()
-{
-	return 0;
-}
-
 SR_Settings::SR_Settings()
 {
 	Block_name = "unknown";
@@ -27,7 +22,10 @@ SR_Settings::SR_Settings()
 	All_dist_vars = NULL;
 }
 
-SR_Settings::~SR_Settings()	{}
+SR_Settings::~SR_Settings()	
+{
+	delete All_local_vars; // Композиция
+}
 
 int SR_Settings::Init()
 {

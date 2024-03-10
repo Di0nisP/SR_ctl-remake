@@ -60,26 +60,7 @@
 //----------------------------------------
 #define STOP_TIMEOUT 300		//врем€ останова мс
 
-
-//#define MAX_MOTOR_SPEED 3200
-
-	/*
-#define REAL_MAX_MOTOR_SPEED 3200
-#define MAX_MOTOR_SPEED REAL_MAX_MOTOR_SPEED/2
-
-#define MOTOR_MIN_SPEED 50
-//	*/
- 
-//#define MEMS_PERIOD 50			//период опроса датчиков мс
-//#define PRINT_PERIOD 1000	//1000	//период отображени€ мс
-
-///#define LIFE_PERIOD 3600*1000	//период работы программы мс
 #define LIFE_PERIOD 7200*1000	//период работы программы мс
-
-
-//#define RSV_BUFF_SZ 512
-
-
 
 #define NET_ACC  001
 #define NET_GYRO 002
@@ -98,160 +79,14 @@
 #define NET_CMD_STAB2 025
 
 #define TYPE_SZ 0
-#define MACRO_inc(in) in=in+1
 
-struct multy_float_var_type
+/*struct multy_float_var_type
 {
 	const char* name;
 	int sz;	
 	int ID;
-};
+};*/
 
-/*
-const multy_float_var_type var_types[] =
-{	 {"none"					,0,MACRO_inc(TYPE_SZ)}
-
-	,{"kite_press_front"		,1,MACRO_inc(TYPE_SZ)}
-	,{"kite_press_down"			,1,MACRO_inc(TYPE_SZ)}
-	,{"kite_temp"				,1,MACRO_inc(TYPE_SZ)}
-	
-	,{"kite_acc"				,3,MACRO_inc(TYPE_SZ)}
-	,{"kite_mg"					,3,MACRO_inc(TYPE_SZ)}
-	,{"kite_gyro"				,3,MACRO_inc(TYPE_SZ)}
-	
-	,{"line_acc"				,3,MACRO_inc(TYPE_SZ)}
-	,{"line_mg"					,3,MACRO_inc(TYPE_SZ)}
-	,{"line_gyro"				,3,MACRO_inc(TYPE_SZ)}
-	
-	
-	,{"board_up_acc"			,3,MACRO_inc(TYPE_SZ)}
-	,{"board_up_mg"				,3,MACRO_inc(TYPE_SZ)}
-	,{"board_up_gyro"			,3,MACRO_inc(TYPE_SZ)}	
-	
-	,{"board_down_acc"			,3,MACRO_inc(TYPE_SZ)}
-	,{"board_down_mg"			,3,MACRO_inc(TYPE_SZ)}
-	,{"board_down_gyro"			,3,MACRO_inc(TYPE_SZ)}	
-	
-	,{"kite_roll_pitch"			,2,MACRO_inc(TYPE_SZ)}
-	,{"kite_mg_azimuth"			,1,MACRO_inc(TYPE_SZ)}
-	,{"kite_flow_vect"			,2,MACRO_inc(TYPE_SZ)}		
-	,{"kite_open"				,1,MACRO_inc(TYPE_SZ)}
-	
-	,{"line_elevation_ang"		,1,MACRO_inc(TYPE_SZ)}
-	,{"line_mg_azimuth"			,1,MACRO_inc(TYPE_SZ)}
-	
-	,{"board_up_roll_pitch"		,2,MACRO_inc(TYPE_SZ)}		
-	,{"board_down_roll_pitch"	,2,MACRO_inc(TYPE_SZ)}	
-	
-	,{"board_mg_azimuth"		,1,MACRO_inc(TYPE_SZ)}	
-	,{"kite_F"					,2,MACRO_inc(TYPE_SZ)}		
-	,{"kite_Va"					,2,MACRO_inc(TYPE_SZ)}
-};
-//	*/
-
-	/*
-struct SR_Block_data
-{	
-	char name[TXT_SZ];
-	char   IP[TXT_SZ];
-	int  cmd_port;
-	int data_port;
-	int unit_type; 
-};
-//	*/
-
-	/*
-struct SR_Config
-{
-//-------------------------------------------------------------
-	char  other_part_IP[TXT_SZ];
-	char  main_ctl_IP1 [TXT_SZ];
-	char  main_ctl_IP2 [TXT_SZ];
-	int unit_type; 
-//-------------------------------------------------------------	
-};
-//	*/
-
-	/*
-struct SR_data_src	//источник данных
-{
-	int ID;			//ID
-	int bus;		//шина
-	int type;		//тип
-	int chan;		//число каналов
-	int chan_flt;	//число каналов с фильтрацией
-//	int block;	//блок	
-};
-struct SR_sensor_init_inf	//информаци€ по датчику
-{
-	const char* name;	//им€
-	const char* bus;	//шина
-	int type;			//тип
-	int chan;		//число каналов
-	int chan_flt;	//число каналов с фильтрацией	
-};
-struct SR_sensors_init_struct
-{	
-	SR_sensor_init_inf* sensor_inf_array;
-	int sensor_inf_array_sz;
-};
-//	*/
-
-int init_SR_data();
-
-///void* Get_SR_Config_data_ptr();
-
-//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	/*
-//работа со строками .cfg файла
-int Check_tag (void* p_line_str,  void* p_tag_str);
-int get_str	(void* p_in_string, const char* tag, char* data_str);
-int get_int	(void* p_in_string, const char* tag, int*  p_result, int radix);
-//	*/
-//==================================================================================
-//==================================================================================
-	/*
-class SR_table
-{
-protected:
-	void* Names_List;
-	int SR_Read(const char* file_name,const char* tag,int radix);
-public:
-	SR_table();
-	~SR_table();
-	const char* Name(int ID);
-	int ID(const char* Name);
-	int get_ID(void* p_string, const char* tag);
-};
-//	*/
-//-----------------------------------------------------------------------------------------------------------------
-	/*
-class SR_ID_table: public SR_table
-{
-public:
-	SR_ID_table();
-	~SR_ID_table();
-};
-class SR_sensor_table: public SR_table
-{
-public:
-	SR_sensor_table();
-	~SR_sensor_table();
-};
-
-class SR_block_table: public SR_table
-{
-public:
-	SR_block_table();
-	~SR_block_table();
-};
-class SR_Bus_table: public SR_table
-{
-public:
-	SR_Bus_table();
-	~SR_Bus_table();
-};
-//	*/
 struct link_var_discriptor
 {
 	int buff_idx;
@@ -359,107 +194,6 @@ public:
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 };
 
-//-----------------------------------------------------------------------------------------------------------------
-/*
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-class SR_calc_proc
-{
-protected:
-	int ready_in;
-	int ready_out;
-	
-	void* out_name_list;
-	void*  in_name_list	;
-	void* out_val_list;
-	void* out_val_ptr_list;
-	void*  in_val_ptr_list;
-public:
-	const char* proc_name;
-protected:	
-	float* make_in (const char* var_name);
-	float* make_in (const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
-	
-	float* make_out(const char* var_name);
-	float* make_out(const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
-	
-	float* set_out(float* p_out,const char* var_name);
-	float* set_out(float* p_out,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3,const char* var_name_part4);
-//	float* make_in (const char* var_names, ...);
-//	float* make_out(const char* var_names, ...);
-//	float* set_out(float* p_out,const char* var_names, ...);
-//	float* make_in (const char* var_name);
-//	float* make_out(const char* var_name);	
-public:
-	 SR_calc_proc();
-	~SR_calc_proc();
-	int Init_inputs (void* vars_of_block);
-	int Init_outputs(void* vars_of_block);	
-//	void calc();
-	virtual void calc()=0;
-//	virtual float get_out_val(int out_num);
-};
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	*/
-	/*
-class SR_default_proc: public SR_calc_proc
-{
-public:
-	 SR_default_proc();
-	~SR_default_proc();
-	void calc();	
-};
-//	*/
-	/*
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-class SR_kite_state_proc: public SR_calc_proc
-{
-private:
-	float* kite_open		;		
-	float* kite_flow_front	;
-	float* kite_flow_down	;
-
-	float* kite_acc_x		;	
-	float* kite_acc_y		;			
-	float* kite_acc_z 		;	
-
-	float* line_acc_x 		;
-	float* line_acc_y 		;	
-	float* line_acc_z 		;
-	
-	float* kite_press_front	;
-	float* kite_press_down	;
-	float* kite_temp		;
-	
-public:
-	 SR_kite_state_proc();
-	~SR_kite_state_proc();
-	void calc();
-};
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-class SR_pitch_roll: public SR_calc_proc
-{
-private:
-	float* PitchAng	;	
-	float* RollAng		;
-
-	float* acc_x	;
-	float* acc_y	;
-	float* acc_z 	;
-
-public:
-	 SR_pitch_roll(const char* block_name);
-	~SR_pitch_roll();
-	void calc();
-};
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//	*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-//-----------------------------------------------------------------------------------------------------------------
 class SR_Settings
 {
 private:
@@ -472,35 +206,9 @@ private:
 public:
 	SR_var_list*  All_local_vars;	///< Cписок локальных переменных
 	SR_var_list** All_dist_vars;	///< Список удалённых переменных	
-//	SR_var_list*		vars_tab;
 
-		/*
-	SR_ID_table*		ID_tab;
-	SR_sensor_table*	Sens_tab;
-	SR_block_table*		Blk_tab;
-	SR_Bus_table*		Bus_tab;
-	//	*/
-//	SR_Tag_table*		Tag_tab;	
- 
-	/*
-	SR_kite_state_proc*  kite_state_proc;
-	SR_pitch_roll*	pitch_roll_proc;
-	//	*/
-	
-	//====================================================
-	//SR_sensor_init_inf* local_sensor_cfg;
-	//int local_sensor_num;
-///	SR_sensors_init_struct local_sensor_cfg;
-	//====================================================	
-	//const char* Block_name;	
-	
-	//====================================================	
-	
-//	SR_Block_data Block_ctl[NUM_BLOCKS];
-	//SR_Block_data* Block_ctl;
-///	int	Block_idx;
 	const char* Block_name;
-///	int	Block_ID;
+
 public:
 	/**
 	 * @brief Construct a new sr settings object
@@ -509,13 +217,10 @@ public:
 	 * 
 	 */
 	SR_Settings();
+
 	~SR_Settings();
+
 	int Init();
-	
-///	void find_local_IP();
-///	bool is_block_IP(const char* block_IP);
-	
-///	SR_Block_data* Get_Block(const char* name,const char* IP,int num,int type);
 	
 	// Поиск so-файлов в указанной папке
 	/**
@@ -528,39 +233,7 @@ public:
 	 * @param p_calc_proc_array 
 	 * @return int Количество найденных локальных алгоритмов
 	 */
-	int find_algs(SR_calc_proc*** p_calc_proc_array);
-	
-///	int find_links(SR_UDP_link*** p_link_array);
-
-	
-//	int find_algs(SR_calc_proc** calc_proc);
-//	int set_algs(char* so_file_name, SR_calc_proc** calc_proc);
-	//int set_algs(const char* so_file_name, SR_calc_proc** calc_proc);	
-//	int Get_Sensor_ID(int bus,int type,int block);
-	
-	
-	/*		
-private:
-	int Check_tag (void* p_line_str,  void* p_tag_str);
-
-	int get_str	(void* p_in_string, const char* tag, char* data_str);
-	int get_int	(void* p_in_string, const char* tag, int*  p_result, int radix);
-	//	*/
-	
-//	int get_str   (void* p_in_string, void* p_out_string, const char* tag);	
-//	void Close ();	
+	int find_algs(SR_calc_proc*** p_calc_proc_array);	
 };
 
-/*
-class SR_data_src
-{
-
-public:
-	SR_data_src();
-	~SR_data_src();
-	
-};
-*/
-//==================================================================================
-//==================================================================================
-#endif
+#endif // CONFIG_SR

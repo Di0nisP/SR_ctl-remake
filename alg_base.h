@@ -1,8 +1,8 @@
-﻿/* Define to prevent recursive inclusion -------------------------------------*/
+﻿//* Define to prevent recursive inclusion -------------------------------------
 #ifndef ALG_BASE_SR
 #define ALG_BASE_SR
 
-/* Includes ------------------------------------------------------------------*/
+//* Includes begin ------------------------------------------------------------
 #include <math.h> // Содержит математические константы и функции
 #include <complex> // Набор функций для работы с коплексными числами
 #include <stdio.h>
@@ -13,16 +13,9 @@
 #include <filesystem>
 #include <vector>
 
-//* Exported types ------------------------------------------------------------*/
-//typedef unsigned char 	alg_uchar;    	// UCHAR_MAX ==        255
-//typedef unsigned short 	alg_ushort;  	// USHRT_MAX ==      65535
-//typedef unsigned long 	alg_ulong;      // UINT_MAX  == 4294967295
-
-
-//* Exported constants --------------------------------------------------------*/
-//* USER CODE BEGIN EC */
-#define MEMS_PERIOD  5		// Период опроса датчиков, мс
-#define PRINT_PERIOD 20		// Период отображения, мс
+//* Exported constants --------------------------------------------------------
+#define MEMS_PERIOD  5u		// Период опроса датчиков, мс
+#define PRINT_PERIOD 20u		// Период отображения, мс
 
 //----------------------------------------------------------------------------------
 #define CMD_STOP_PROG 123456789
@@ -46,26 +39,6 @@
 //темы печати
 #define TOPIC_ALG_VARS 1
 #define TOPIC_ALG_MSGS 2
-//----------------------------------------------------------------------------------
-//управление двигателями
-#define CMD_MANUAL_KITE_RIGHT_POS	0b00000000000000000000000000000001
-#define CMD_MANUAL_KITE_RIGHT_NEG	0b00000000000000000000000000000010
-#define CMD_MANUAL_KITE_LEFT_POS	0b00000000000000000000000000000100
-#define CMD_MANUAL_KITE_LEFT_NEG	0b00000000000000000000000000001000
-#define CMD_MANUAL_BOARD_RIGHT_POS	0b00000000000000000000000000010000
-#define CMD_MANUAL_BOARD_RIGHT_NEG	0b00000000000000000000000000100000
-#define CMD_MANUAL_BOARD_LEFT_POS	0b00000000000000000000000001000000
-#define CMD_MANUAL_BOARD_LEFT_NEG	0b00000000000000000000000010000000
-#define CMD_MANUAL_CENTRAL_POS		0b00000000000000000000000100000000
-#define CMD_MANUAL_CENTRAL_NEG		0b00000000000000000000001000000000
-#define CMD_MANUAL_CTL_RESET		0b00000000000000000000010000000000
-#define CMD_IDLE_MANUAL_CTL			0b00000000000000000000100000000000
-
-#define CMD_WII_CTL					0b10000000000000000000000000000000
-#define CMD_RADIO_CTL				0b01000000000000000000000000000000
-//* USER CODE END EC */
-
-//----------------------------------------------------------------------------------
 
 #if defined (_MSC_VER)
 	#ifdef __cplusplus
@@ -89,42 +62,68 @@
 #endif
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	
-#define ALG_PRINTF	//выдавть сообщени€ в консоль
+#define ALG_PRINTF	// Переменная для активации вывода в консоль
 	
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//---------------------”Ѕ–ј“№!!! ќЎ»Ѕ ј
-static char Module_Name[256];
-//---------------------”Ѕ–ј“№!!! ќЎ»Ѕ ј
-struct SR_3D_vect
-{
-	float x;
-	float y;
-	float z;
-};
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/**
+ * @brief Класс-продукт
+ * 
+ * Определяет общий функционал объектов, которые может произвести создатель и его подклассы.
+ * 
+ */
 class SR_calc_proc
 {
 protected:
-	void* const_name_list;	void* const_val_ptr_list;	
-	void* out_name_list;	void* out_val_pp_list;
-	void*  in_name_list;	void*  in_val_pp_list;	
-	//~~~~~~~~~~~~~~~~~~~
-	//float* 	ctl_var;
-	//~~~~~~~~~~~~~~~~~~~
-public:
-	int calc_period;	   ///< Период обсчета функции в мс
-	bool ready_proc;       ///< Переменная готовности алгоритма (см. alg_example)
-	const char* proc_name; ///< Указатель на имя функции
-	char file_name[256];   ///< Имя файла
-protected:	
-//	void make_const(float* p_val  ,const char* var_name,float init_val);
-	void make_const(float** pp_val,const char* var_name,float init_val);	
+	void* const_name_list;		///< Указатель на область памяти, связанной с хранимыми именами констант алгоритма
+	void* const_val_ptr_list;	///< Указатель на область памяти, связанной с хранимыми значениями констант алгоритма
 	
-	void make_in   (float** pp_val,const char* var_name);
+	void* out_name_list;		///< Указатель на область памяти, связанной с хранимыми именами выходов алгоритма
+	void* out_val_pp_list;		///< Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма
+	
+	void* in_name_list;			///< Указатель на область памяти, связанной с хранимыми именами входов алгоритма
+	void* in_val_pp_list;		///< Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма
+
+public:
+	int calc_period;	   		///< Период обсчета функции в мс
+	bool ready_proc;       		///< Переменная готовности алгоритма
+	const char* proc_name; 		///< Указатель на имя функции
+	char file_name[256];   		///< Имя файла
+
+protected:
+	/**
+	 * @brief Метод добавления информации о константах (или настройках) алгоритма
+	 * 
+	 * Константы используются внутри алгоритма.
+	 * Константы могут быть заданы в INI-файле алгоритма. Если INI-файл отсутствует, то
+	 * значение константы соответствует тому, которым она инициализирована.
+	 * 
+	 * @param pp_val Адрес указателя на значение
+	 * @param var_name Указатель на имя константы
+	 * @param init_val Начальное значение константы
+	 */
+	void make_const(float** pp_val, const char* var_name, float init_val);	
+	
+	/**
+	 * @brief Метод добавления информации о входах алгоритма
+	 * 
+	 * Если имена выхода одного алгоритма и входа другого совпадают, 
+	 * то указатели созданных выхода и входа указывают на общую память.
+	 * 
+	 * @param pp_val Адрес указателя на значение
+	 * @param var_name Указатель на имя входа
+	 */
+	void make_in   (float** pp_val, const char* var_name);
 	void make_in   (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
 	
-	void make_out  (float** pp_val,const char* var_name);
+	/**
+	 * @brief Метод добавления информации о выходах алгоритма
+	 * 
+	 * Если имена выхода одного алгоритма и входа другого совпадают, 
+	 * то указатели созданных выхода и входа указывают на общую память.
+	 * 
+	 * @param pp_val Адрес указателя на значение
+	 * @param var_name Указатель на имя выхода
+	 */
+	void make_out  (float** pp_val, const char* var_name);
 	
 	// Расширенный (не реализованный) функционал, предполагающий возможность использования составных имён
 	void make_out  (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
@@ -133,11 +132,26 @@ protected:
 public:
 	 SR_calc_proc();
 	~SR_calc_proc();
-//	int Init_consts();
-	int Get_ready();	//?
-	int Reg_vars(void* vars_of_block);	//	Важная функция -- создание переменных
-	int   Get_out_val_num();
-	int   Get_in_val_num();	
+
+	/**
+	 * @brief 
+	 * 
+	 * @return int 
+	 */
+	int Get_ready();
+
+	/**
+	 * @brief Метод регистрации переменных алгоритма
+	 * 
+	 * Метод предназначен для регистрации переменных (входов, выходов и констант) 
+	 * и их инициализации на основе данных из INI-файла.
+	 * 
+	 * @param vars_of_block Указатель на область памяти, куда будет сохранена информация о связях типа входы-выходы
+	 * @return int 
+	 */
+	int Reg_vars(void* vars_of_block);
+	int Get_out_val_num();
+	int Get_in_val_num();	
 	float Get_out_val(int idx);	
 	float Get_in_val(int idx);		
 	const char* Get_out_name(int idx);
@@ -145,22 +159,5 @@ public:
 	
 	virtual void calc() = 0; // Не имеет реализации в одноимённом cpp-файле
 };
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//extern "C" int GetCalcClasses(SR_calc_proc** p_Classes,const char* block_name);
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-/*
-class SR_module
-{
-protected:		
-	char Module_Name[256];
-	int num_class;
-	SR_calc_proc** Classes;
-public:	
-	extern "C" __attribute__((visibility("default")))	int GetCalcClasses(SR_calc_proc*** p_Classes,const char* block_name,char* file_name)	
-}
-//	*/
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-//	Если данный файл уже подключён -- игнорируем (в связке с ifndef)
-#endif
+#endif // ALG_BASE_SR

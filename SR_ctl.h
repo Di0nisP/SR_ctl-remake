@@ -24,7 +24,6 @@
 char proc_rank_flag;
 char proc_rank_num;
 
-
 class Motor_drive
 {
 public:
@@ -42,15 +41,20 @@ public:
 	void Close();
 };
 
-//класс
+/**
+ * @brief Класс-создатель
+ * 
+ * Класс отвечает за инициализацию и запуск в работу всех алгоритмов локальных алгоритмов.
+ * 
+ */
 class SR_ctl_type
 {
-//переменные
 private:
 	Link_MPI** p_MPI_link;
 
-	double step_time;//время цикла
+	double step_time; ///< Время шага расчёта
 	
+	//? ----------------------------------------
 	bool radio_ctl; // Признак управления по радиоканалу (возможно не нужен)
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	float* local_ctl_var; //(возможно не нужно)
@@ -58,8 +62,9 @@ private:
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	float*  wii_ctl_var[4];
 	float* out_ctl_var[4];
+	//? ----------------------------------------
 	
-	// Переменные, говорящие, печатать ли в консоль (флаг печати)
+	// Флаги печати. Управлют выводом информации о локальном процессе в консоль.
 	int print_topic;
 	int print_block;
 	int print_alg;
@@ -101,30 +106,6 @@ private:
 	Motor_drive* motor_kite_Left;	
 	Motor_drive* motor_kite_Right;	
 	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
-//методы
-public:
-	/**
-	 * @brief Construct a new sr ctl type object
-	 * 
-	 */
-	SR_ctl_type();
-	/**
-	 * @brief Destroy the sr ctl type object
-	 * 
-	 */
-	~SR_ctl_type();
-	/**
-	 * @brief Главный метод инициализации
-	 * 
-	 * Не является RT-процессом.
-	 * 
-	 */
-	void Init();
-	/**
-	 * @brief Главный метод запуска в работу
-	 * 
-	 */
-	void Work();	
 private:
 	/**
 	 * @brief Метод вывода информации о работе алгоритма
@@ -139,7 +120,23 @@ private:
 	 * 
 	 */
 	void Init_local_calc();
-	void Init_cfg();		// Общий конфигурационный файл (старый)
-	void Init_GPS();	// Старое
-	void Init_motors(); // Старое
+
+public:
+	SR_ctl_type();
+
+	~SR_ctl_type();
+
+	/**
+	 * @brief Главный метод инициализации
+	 * 
+	 * Не является RT-процессом.
+	 * 
+	 */
+	void Init();
+
+	/**
+	 * @brief Главный метод запуска в работу
+	 * 
+	 */
+	void Work();	
 };

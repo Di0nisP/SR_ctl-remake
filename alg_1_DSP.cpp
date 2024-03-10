@@ -221,8 +221,15 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 		out_name_arg_S1[i] = "arg_S1_" + suffix;		make_out(&(out_val_arg_S1[i]), out_name_arg_S1[i].c_str());
 	}
 
+	out_name_re_3I0  = "re_3I0";		make_out(&out_val_re_3I0, out_name_re_3I0.c_str());
+	out_name_im_3I0  = "im_3I0";		make_out(&out_val_im_3I0, out_name_im_3I0.c_str());
+	out_name_abs_3I0 = "abs_3I0";		make_out(&out_val_abs_3I0, out_name_abs_3I0.c_str());
+	out_name_arg_3I0 = "arg_3I0";		make_out(&out_val_arg_3I0, out_name_arg_3I0.c_str());
 
-
+	out_name_re_3U0  = "re_3U0";		make_out(&out_val_re_3U0, out_name_re_3U0.c_str());
+	out_name_im_3U0  = "im_3U0";		make_out(&out_val_im_3U0, out_name_im_3U0.c_str());
+	out_name_abs_3U0 = "abs_3U0";		make_out(&out_val_abs_3U0, out_name_abs_3U0.c_str());
+	out_name_arg_3U0 = "arg_3U0";		make_out(&out_val_arg_3U0, out_name_arg_3U0.c_str());
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	//(Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))

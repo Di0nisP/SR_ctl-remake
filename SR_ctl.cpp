@@ -14,8 +14,6 @@
 SR_ctl_type::SR_ctl_type()	{}
 SR_ctl_type::~SR_ctl_type()	{}
 
-void SR_ctl_type::Init_cfg() {}
-
 void SR_ctl_type::Init_local_calc()
 {
 	FILE *fp; 
@@ -42,7 +40,7 @@ void SR_ctl_type::Init_local_calc()
 		calc_proc[i]->Reg_vars(Settings->All_local_vars);
 ///		calc_proc[i]->Init_consts();		
 	}
-	//*------------------------------------------------------------------------------------
+	/*------------------------------------------------------------------------------------
     // Временный блок. Для удаления данного функционала требуется также исключить упоминания из метода `Work`.
 	Settings->All_local_vars->reg_out_var("ctl", "local_ctl", &local_ctl_var);
 	
@@ -402,7 +400,7 @@ void SR_ctl_type::Work()
 		//▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
 		
 		///	!!!!!Временно!!!!!
-		for(int i = 0; i < 4; i++)	*out_ctl_var[i] = *wii_ctl_var[i];	
+//		for(int i = 0; i < 4; i++)	*out_ctl_var[i] = *wii_ctl_var[i];	
 		///	!!!!!Временно!!!!!
 
 		//* Цикл по связям 
@@ -503,16 +501,16 @@ void SR_ctl_type::Work()
 			
 		print_func();
 			
-		step_time = (MPI_Wtime() - HP_start_time) * 1000; //время цикла в мс
+		step_time = (MPI_Wtime() - HP_start_time) * 1000000; // Время цикла в мкс
 			
-		int idle_time = MEMS_PERIOD - (int)step_time; // время до окончания такта
+		int idle_time = MEMS_PERIOD * 1000 - static_cast<int>(step_time); // Время до окончания такта
 		if (idle_time < 0)
 		{
 			printf("[%d]: ", proc_rank_num); 
-			printf ("Worning: step time overlimits MEMS_PERIOD!\n");
+			printf ("Warning: Step time exceeds MEMS_PERIOD by %d us!\n", -idle_time);
 			idle_time = 0;
-		}	
-		usleep(idle_time);
+		}
+		usleep(idle_time); // Функция принимает микросекунды
     }
 	
 	if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("final\n"); }		
