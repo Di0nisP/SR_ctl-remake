@@ -1,9 +1,9 @@
 {
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++ сборка активного файла",
-            "command": "/usr/bin/g++",
+            "type": "shell",
+            "label": "C/C++: mpic++ сборка активного файла",
+            "command": "/usr/bin/mpic++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",

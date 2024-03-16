@@ -110,13 +110,9 @@ public:
     uint16_t get_time() const { return time; }
 };
 
-class Triggers 
+class StartingElements 
 {
-private:
-	Timers *timer;
-	bool status;
-	bool status_ph[3];
-
+protected:
 	static float **in_val_re_I1 , 	**in_val_im_I1 ;
 	static float **in_val_abs_I1, 	**in_val_arg_I1;
 	static float **in_val_re_U1 , 	**in_val_im_U1 ;
@@ -124,10 +120,18 @@ private:
 	static float **in_val_re_S1 , 	**in_val_im_S1 ;
 	static float **in_val_abs_S1, 	**in_val_arg_S1;
 
-	static float **in_val_re_3I0, 	**in_val_im_3I0;
+	static float **in_val_re_3I0 , 	**in_val_im_3I0 ;
 	static float **in_val_abs_3I0, 	**in_val_arg_3I0;
-	static float **in_val_re_3U0, 	**in_val_im_3U0;
+	static float **in_val_re_3U0 , 	**in_val_im_3U0 ;
 	static float **in_val_abs_3U0, 	**in_val_arg_3U0;
+	static float **in_val_re_S0  , 	**in_val_im_S0  ;
+	static float **in_val_abs_S0 , 	**in_val_arg_S0 ;
+
+	bool status;
+	bool status_ph[3];
+
+public:
+	const string name;
 
 public:
 	static void init_inputs(float** in_val_re_I1,  float** in_val_im_I1, 
@@ -137,32 +141,38 @@ public:
 			 				float** in_val_re_S1,  float** in_val_im_S1,
 			 				float** in_val_abs_S1, float** in_val_arg_S1,
 							float** in_val_re_3I0, float** in_val_im_3I0,
-							float** in_val_abs_3I0,float** in_val_arg_3I0) 
+							float** in_val_abs_3I0,float** in_val_arg_3I0,
+							float** in_val_re_3U0, float** in_val_im_3U0,
+							float** in_val_abs_3U0,float** in_val_arg_3U0,
+							float** in_val_re_S0,  float** in_val_im_S0,
+			 				float** in_val_abs_S0, float** in_val_arg_S0) 
 	{
-		Triggers::in_val_re_I1   = in_val_re_I1;	Triggers::in_val_im_I1   = in_val_im_I1;
-		Triggers::in_val_abs_I1  = in_val_abs_I1;	Triggers::in_val_arg_I1  = in_val_arg_I1;
-		Triggers::in_val_re_U1   = in_val_re_U1;	Triggers::in_val_im_U1   = in_val_im_U1;
-		Triggers::in_val_abs_U1  = in_val_abs_U1;	Triggers::in_val_arg_U1  = in_val_arg_U1;
-		Triggers::in_val_re_S1   = in_val_re_S1;	Triggers::in_val_im_S1   = in_val_im_S1;
-		Triggers::in_val_abs_S1  = in_val_abs_S1;	Triggers::in_val_arg_S1  = in_val_arg_S1;
-		Triggers::in_val_re_3I0  = in_val_re_3I0;	Triggers::in_val_im_3I0  = in_val_im_3I0;
-		Triggers::in_val_abs_3I0 = in_val_abs_3I0;	Triggers::in_val_arg_3I0 = in_val_arg_3I0; //*/
+		StartingElements::in_val_re_I1   = in_val_re_I1;	StartingElements::in_val_im_I1   = in_val_im_I1;
+		StartingElements::in_val_abs_I1  = in_val_abs_I1;	StartingElements::in_val_arg_I1  = in_val_arg_I1;
+		StartingElements::in_val_re_U1   = in_val_re_U1;	StartingElements::in_val_im_U1   = in_val_im_U1;
+		StartingElements::in_val_abs_U1  = in_val_abs_U1;	StartingElements::in_val_arg_U1  = in_val_arg_U1;
+		StartingElements::in_val_re_S1   = in_val_re_S1;	StartingElements::in_val_im_S1   = in_val_im_S1;
+		StartingElements::in_val_abs_S1  = in_val_abs_S1;	StartingElements::in_val_arg_S1  = in_val_arg_S1;
+		StartingElements::in_val_re_3I0  = in_val_re_3I0;	StartingElements::in_val_im_3I0  = in_val_im_3I0;
+		StartingElements::in_val_abs_3I0 = in_val_abs_3I0;	StartingElements::in_val_arg_3I0 = in_val_arg_3I0; 
+		StartingElements::in_val_re_3U0  = in_val_re_3U0;	StartingElements::in_val_im_3U0  = in_val_im_3U0;
+		StartingElements::in_val_abs_3U0 = in_val_abs_3U0;	StartingElements::in_val_arg_3U0 = in_val_arg_3U0; 
+		StartingElements::in_val_re_S0   = in_val_re_S0;	StartingElements::in_val_im_S0   = in_val_im_S0;
+		StartingElements::in_val_abs_S0  = in_val_abs_S0;	StartingElements::in_val_arg_S0  = in_val_arg_S0; //*/
 	}
 
 	/// @brief Конструктор класса
-	Triggers() {
-		timer = new Timers();
+	StartingElements(std::string name) : name(name)
+	{
 		status = false;
 		for (bool& i : status_ph)
 			i = false;
 	}
 
     /// @brief Деструктор класса
-    ~Triggers() {
-		delete timer; // Композиция
-	}
+    ~StartingElements() {}
 
-	void overcurrent_protection(float c_start, float c_return, uint16_t t_start, bool dir = false) 
+	/*void overcurrent_protection(float c_start, float c_return, uint16_t t_start, bool dir = false) 
 	{
 		switch (static_cast<uint8_t>(status))
 		{
@@ -192,6 +202,51 @@ public:
 		{
 		case 1:
 			// Условие возврата по уровню
+			if (**in_val_abs_3I0 < c_return)
+				status = false;
+			timer->ton(status, t_start);
+			return;
+		case 0:
+			if ((**in_val_re_S0 > 0 || !dir) && **in_val_abs_3I0 > c_start)
+				status = true;
+			timer->ton(status, t_start);
+			status = status && timer->get_Q();
+			return;
+		default: status = false; return;
+		}
+	}*/
+
+    bool get_status() const { return status; }
+
+	bool get_status_ph(uint8_t ph_idx) const { return status_ph[ph_idx]; }
+
+	virtual void detect() = 0;
+};
+
+class OvercurrentProtection : public StartingElements {
+private: 
+	float c_start; 
+	float c_return;
+	uint16_t t_start; 
+	bool dir;
+	Timers *timer;
+
+public:
+	OvercurrentProtection(std::string name, float c_start, float c_return, uint16_t t_start, bool dir = false, uint16_t step_width = MEMS_PERIOD) :
+		StartingElements(name), c_start(c_start), c_return(c_return), t_start(t_start), dir(dir)
+	{
+		timer = new Timers(step_width);
+	}
+
+	~OvercurrentProtection() {
+		delete timer; // Композиция
+	}
+
+	void detect() {
+		switch (static_cast<uint8_t>(status))
+		{
+		case 1:
+			// Условие возврата по уровню
 			if (*in_val_abs_I1[0] < c_return &&
 				*in_val_abs_I1[1] < c_return && 
 				*in_val_abs_I1[2] < c_return)
@@ -209,29 +264,72 @@ public:
 		default: status = false; return;
 		}
 	}
-
-    bool get_status() const { return status; }
-
-	bool get_status_ph(uint8_t ph_idx) const { return status_ph[ph_idx]; }
 };
 
-// Инициализация статических указателей класса Triggers
-float **Triggers::in_val_re_I1   = nullptr;
-float **Triggers::in_val_im_I1   = nullptr;
-float **Triggers::in_val_abs_I1  = nullptr;
-float **Triggers::in_val_arg_I1  = nullptr;
-float **Triggers::in_val_re_U1   = nullptr;
-float **Triggers::in_val_im_U1   = nullptr;
-float **Triggers::in_val_abs_U1  = nullptr;
-float **Triggers::in_val_arg_U1  = nullptr;
-float **Triggers::in_val_re_S1   = nullptr;
-float **Triggers::in_val_im_S1   = nullptr;
-float **Triggers::in_val_abs_S1  = nullptr;
-float **Triggers::in_val_arg_S1  = nullptr;
-float **Triggers::in_val_re_3I0  = nullptr;
-float **Triggers::in_val_im_3I0  = nullptr;
-float **Triggers::in_val_abs_3I0 = nullptr;
-float **Triggers::in_val_arg_3I0 = nullptr;//*/
+class ZSCurrentProtection : public StartingElements {
+	private: 
+	float c_start; 
+	float c_return;
+	uint16_t t_start; 
+	bool dir;
+	Timers *timer;
+
+public:
+	ZSCurrentProtection(std::string name, float c_start, float c_return, uint16_t t_start, bool dir = false, uint16_t step_width = MEMS_PERIOD) :
+		StartingElements(name), c_start(c_start), c_return(c_return), t_start(t_start), dir(dir)
+	{
+		timer = new Timers(step_width);
+	}
+
+	~ZSCurrentProtection() {
+		delete timer; // Композиция
+	}
+
+	void detect() {
+		switch (static_cast<uint8_t>(status))
+		{
+		case 1:
+			// Условие возврата по уровню
+			if (**in_val_abs_3I0 < c_return)
+				status = false;
+			timer->ton(status, t_start);
+			return;
+		case 0:
+			if ((**in_val_re_S0 > 0 || !dir) && **in_val_abs_3I0 > c_start)
+				status = true;
+			timer->ton(status, t_start);
+			status = status && timer->get_Q();
+			return;
+		default: status = false; return;
+		}
+	}
+};
+
+// Инициализация статических указателей класса StartingElements
+float **StartingElements::in_val_re_I1   = nullptr;
+float **StartingElements::in_val_im_I1   = nullptr;
+float **StartingElements::in_val_abs_I1  = nullptr;
+float **StartingElements::in_val_arg_I1  = nullptr;
+float **StartingElements::in_val_re_U1   = nullptr;
+float **StartingElements::in_val_im_U1   = nullptr;
+float **StartingElements::in_val_abs_U1  = nullptr;
+float **StartingElements::in_val_arg_U1  = nullptr;
+float **StartingElements::in_val_re_S1   = nullptr;
+float **StartingElements::in_val_im_S1   = nullptr;
+float **StartingElements::in_val_abs_S1  = nullptr;
+float **StartingElements::in_val_arg_S1  = nullptr;
+float **StartingElements::in_val_re_3I0  = nullptr;
+float **StartingElements::in_val_im_3I0  = nullptr;
+float **StartingElements::in_val_abs_3I0 = nullptr;
+float **StartingElements::in_val_arg_3I0 = nullptr;
+float **StartingElements::in_val_re_3U0  = nullptr;
+float **StartingElements::in_val_im_3U0  = nullptr;
+float **StartingElements::in_val_abs_3U0 = nullptr;
+float **StartingElements::in_val_arg_3U0 = nullptr;
+float **StartingElements::in_val_re_S0   = nullptr;
+float **StartingElements::in_val_im_S0   = nullptr;
+float **StartingElements::in_val_abs_S0  = nullptr;
+float **StartingElements::in_val_arg_S0  = nullptr;//*/
 
 class SR_auto_ctl: public SR_calc_proc {
 private:
@@ -255,14 +353,20 @@ private:
 	//* Нулевая последовательность
 	float *in_val_re_3I0, 		*in_val_im_3I0;
 	float *in_val_re_3U0, 		*in_val_im_3U0;
+	float *in_val_re_S0, 		*in_val_im_S0;
 	float *in_val_abs_3I0, 		*in_val_arg_3I0;
 	float *in_val_abs_3U0, 		*in_val_arg_3U0;
+	float *in_val_abs_S0, 		*in_val_arg_S0;
 
 	string in_name_re_3I0,	 	 in_name_im_3I0;
 	string in_name_re_3U0,	 	 in_name_im_3U0;
+	string in_name_re_S0, 	 	 in_name_im_S0;
 	string in_name_abs_3I0,  	 in_name_arg_3I0;
 	string in_name_abs_3U0,  	 in_name_arg_3U0;
-	//! Объявление выходов (должны подключаться на входы другого алгоритма!)	
+	string in_name_abs_S0, 	 	 in_name_arg_S0;
+	//! Объявление выходов (должны подключаться на входы другого алгоритма!)
+	float *out_val_start;
+	string out_name_start;
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
 	float* set_val_Fn; 					///< Номинальная частота сети, Гц
@@ -271,7 +375,9 @@ private:
 	
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	Triggers *ovcp[2]; // Ступени МТЗ
+	std::vector<StartingElements*> protection_triggers;
+	StartingElements *ovcp[2]; // Ступени МТЗ
+	StartingElements *zscp[2]; // Ступени ТЗНП
 
 public:
 	/// @brief Consructor 
@@ -328,7 +434,13 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	in_name_abs_3U0 = "abs_3U0";	make_in(&in_val_abs_3U0, in_name_abs_3U0.c_str());
 	in_name_arg_3U0 = "arg_3U0";	make_in(&in_val_arg_3U0, in_name_arg_3U0.c_str());
 
+	in_name_re_S0  = "re_S0";		make_in(&in_val_re_S0, in_name_re_S0.c_str());
+	in_name_im_S0  = "im_S0";		make_in(&in_val_im_S0, in_name_im_S0.c_str());
+	in_name_abs_S0 = "abs_S0";		make_in(&in_val_abs_S0, in_name_abs_S0.c_str());
+	in_name_arg_S0 = "arg_S0";		make_in(&in_val_arg_S0, in_name_arg_S0.c_str());
+
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
+	out_name_start = "start";	make_out(&out_val_start, out_name_start.c_str());
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	// (Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
@@ -337,23 +449,32 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	make_const(&set_val_NumCycle, "NumCycle", NUM_CYCLE);		
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	Triggers::init_inputs( in_val_re_I1,   in_val_im_I1,
-						   in_val_abs_I1,  in_val_arg_I1,
-						   in_val_re_U1,   in_val_im_U1,
-						   in_val_abs_U1,  in_val_arg_U1,
-						   in_val_re_S1,   in_val_im_S1,
-						   in_val_abs_S1,  in_val_arg_S1,
-						  &in_val_re_3I0, &in_val_im_3I0,
-						  &in_val_abs_3I0,&in_val_arg_3I0); //*/
+	StartingElements::init_inputs( 
+		in_val_re_I1,   in_val_im_I1,
+		in_val_abs_I1,  in_val_arg_I1,
+		in_val_re_U1,   in_val_im_U1,
+		in_val_abs_U1,  in_val_arg_U1,
+		in_val_re_S1,   in_val_im_S1,
+		in_val_abs_S1,  in_val_arg_S1,
+		&in_val_re_3I0, &in_val_im_3I0,
+		&in_val_abs_3I0,&in_val_arg_3I0,
+		&in_val_re_3U0, &in_val_im_3U0,
+		&in_val_abs_3U0,&in_val_arg_3U0,
+		&in_val_re_S0,  &in_val_im_S0,
+		&in_val_abs_S0, &in_val_arg_S0); //*/
 	
-	for (auto& trigger : ovcp)
-		trigger = new Triggers(); //*/
-
-	//ovcp[0] = new Triggers();
+	protection_triggers.push_back(new OvercurrentProtection("ovcp(1)", 4.0f, 3.0f,   0u));
+	protection_triggers.push_back(new OvercurrentProtection("ovcp(2)", 4.0f, 3.0f, 200u));
+	protection_triggers.push_back(new ZSCurrentProtection  ("zccp(1)", 2.0f, 0.5f,   0u));
+	protection_triggers.push_back(new ZSCurrentProtection  ("zccp(2)", 2.0f, 0.5f, 200u));
 }
 
 // По-хорошему нужен для динамического изменения ПО (заглушка)
-SR_auto_ctl::~SR_auto_ctl() {}
+SR_auto_ctl::~SR_auto_ctl() 
+{
+	for (auto obj : protection_triggers)
+		delete obj;
+}
 
 void SR_auto_ctl::calc()
 {
@@ -369,12 +490,18 @@ void SR_auto_ctl::calc()
 	complex<double>(*in_val_re_I1[1],*in_val_im_I1[1]),
 	complex<double>(*in_val_re_I1[2],*in_val_im_I1[2]),
 	1000.0f, 500.0f);*/
-//	ovcp[0]->overcurrent_protection(1000.0f, 500.0f, 0);
-	bool status_ovcp0 = ovcp[0]->get_status();
+//	ovcp[0]->overcurrent_protection(3.0f, 2.0f, 0);
+//	bool status_ovcp0 = ovcp[0]->get_status();
+
+	for (auto obj : protection_triggers)
+		obj->detect();
+	
+	*out_val_start = protection_triggers[0]->get_status();
+	
 	//! Отладка (не видно с других машин)
-	printf("\n\t%s out-values:\n", proc_name);
-//	printf("result PTOC: %d\n",  PTOC);
-	printf("result ovcp[0]: %d\n", status_ovcp0);
+	printf("\n\t%s in-values:\n", proc_name);
+	for (auto obj : protection_triggers)
+		printf("result %s: %d\n", (obj->name).c_str(),  obj->get_status());
 
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }

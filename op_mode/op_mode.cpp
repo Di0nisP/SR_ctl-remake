@@ -1,6 +1,6 @@
 #include "op_mode.h"
 
-#define NUMBER_OF_PERIODS (3.0) 
+#define NUMBER_OF_PERIODS 20 
 
 using namespace std;
 using namespace std::complex_literals;
@@ -21,13 +21,15 @@ int main()
     const double fd = 50.0, fs = 4000.0;
     double wd = 2.0 * M_PI * fd;            // Угловая синхронная частота
     double t;                               // Параметр времени
-    int N = (int)(fs/fd);                   // Число точек на преиод fd
+    int N = static_cast<int>(fs/fd);                   // Число точек на преиод fd
     int T = static_cast<int>(NUMBER_OF_PERIODS * N);
     double arg_a = 120.0 * (M_PI/180.0);    // Аргумент поворотного множителя
     
     // Нормальный режим
-    const double mag_I = 0.2, 
-                 ph_I = -15.0 * (M_PI/180.0);
+	const double mag_U = 100, 
+                 ph_U = 0 * (M_PI / 180.0);
+	const double mag_I = 0.5, 
+                 ph_I = ph_U + (-15.0 * (M_PI / 180.0));
 
     // Режим:
     /*
@@ -40,12 +42,14 @@ int main()
     */
 
     // 3ф КЗ
-    double mag_I_avar = 10.0 * mag_I,
-           ph_I_avar = -70.0 * (M_PI/180.0);
+	const double mag_U_avar = 0.1 * mag_U,
+           ph_U_avar = 0 * (M_PI/180.0);
+    const double mag_I_avar = 10.0 * mag_I,
+           ph_I_avar = ph_U_avar + (-70.0 * (M_PI/180.0));
     
     // Массив точек замера Ia
     /*t = 0;*/
-    double array_Ia[2 * T] {};
+/*    double array_Ia[2 * T] {};
     for (int i = 0; t < T * (1.0/fs); t += 1/fs, i++) {
         array_Ia[i] =     mag_I      * sin(wd * t + ph_I);        // Доаварийный режим
         array_Ia[T + i] = mag_I_avar * sin(wd * t + ph_I_avar);   // Аварийный режим
@@ -83,5 +87,94 @@ int main()
     for (int i = 0; i < sizeof(array_Ia) / sizeof(array_Ia[0]); i++, t += 1/fs) {
         data_Ic << t << ";" << array_Ic[i] << endl;
     }
-    data_Ic.close();
+    data_Ic.close(); //*/
+	
+	char delimiter = ',';
+	double array_Ua[2 * T] {};
+	double array_Ub[2 * T] {};
+	double array_Uc[2 * T] {};
+	double array_Ia[2 * T] {};
+	double array_Ib[2 * T] {};
+	double array_Ic[2 * T] {};
+	
+	//* К3
+/*	t = 0;
+	for (int i = 0; t < T * (1/fs); t += 1/fs, i++) {
+		array_Ua[i] =     mag_U      * sin(wd * t + (ph_U     ));
+        array_Ua[T + i] = mag_U_avar * sin(wd * t + (ph_U_avar));
+		array_Ub[i] =     mag_U      * sin(wd * t + (ph_U      - arg_a));
+        array_Ub[T + i] = mag_U_avar * sin(wd * t + (ph_U_avar - arg_a));
+        array_Uc[i] =     mag_U      * sin(wd * t + (ph_U      + arg_a));
+        array_Uc[T + i] = mag_U_avar * sin(wd * t + (ph_U_avar + arg_a));
+		array_Ia[i] =     mag_I      * sin(wd * t + (ph_I     ));
+        array_Ia[T + i] = mag_I_avar * sin(wd * t + (ph_I_avar));
+		array_Ib[i] =     mag_I      * sin(wd * t + (ph_I      - arg_a));
+        array_Ib[T + i] = mag_I_avar * sin(wd * t + (ph_I_avar - arg_a));
+        array_Ic[i] =     mag_I      * sin(wd * t + (ph_I      + arg_a));
+        array_Ic[T + i] = mag_I_avar * sin(wd * t + (ph_I_avar + arg_a));
+    }
+	ofstream data("data_K3.csv");
+	// Имена данных
+	data << "step" << delimiter
+		 << "time" << delimiter
+		 << "Ua"   << delimiter
+		 << "Ub"   << delimiter
+		 << "Uc"   << delimiter
+		 << "Ia"   << delimiter
+		 << "Ib"   << delimiter
+		 << "Ic"   << endl;
+	t = 0;
+	for (uint16_t i = 0; i < sizeof(array_Ia) / sizeof(array_Ia[0]); i++, t += 1/fs) {
+        data << i << delimiter
+			 << t << delimiter
+			 << array_Ua[i] << delimiter
+			 << array_Ub[i] << delimiter
+			 << array_Uc[i] << delimiter
+			 << array_Ia[i] << delimiter
+			 << array_Ib[i] << delimiter
+			 << array_Ic[i] << endl;
+    }
+	data.clear();
+	data.close(); //*/
+	
+	//* К1
+	t = 0;
+	for (int i = 0; t < T * (1/fs); t += 1/fs, i++) {
+		array_Ua[i] =     mag_U      * sin(wd * t + (ph_U     ));
+        array_Ua[T + i] = 0;
+		array_Ub[i] =     mag_U      * sin(wd * t + (ph_U      - arg_a));
+        array_Ub[T + i] = mag_U_avar * sin(wd * t + (ph_U_avar - arg_a));
+        array_Uc[i] =     mag_U      * sin(wd * t + (ph_U      + arg_a));
+        array_Uc[T + i] = mag_U_avar * sin(wd * t + (ph_U_avar + arg_a));
+		array_Ia[i] =     mag_I      * sin(wd * t + (ph_I     ));
+        array_Ia[T + i] = mag_I_avar * sin(wd * t + (ph_I_avar));
+		array_Ib[i] =     mag_I      * sin(wd * t + (ph_I      - arg_a));
+        array_Ib[T + i] = 0;
+        array_Ic[i] =     mag_I      * sin(wd * t + (ph_I      + arg_a));
+        array_Ic[T + i] = 0;
+    }
+	ofstream data("data_K1.csv");
+	// Имена данных
+	data << "step" << delimiter
+		 << "time" << delimiter
+		 << "Ua"   << delimiter
+		 << "Ub"   << delimiter
+		 << "Uc"   << delimiter
+		 << "Ia"   << delimiter
+		 << "Ib"   << delimiter
+		 << "Ic"   << endl;
+	t = 0;
+	for (uint16_t i = 0; i < sizeof(array_Ia) / sizeof(array_Ia[0]); i++, t += 1/fs) {
+        data << i << delimiter
+			 << t << delimiter
+			 << array_Ua[i] << delimiter
+			 << array_Ub[i] << delimiter
+			 << array_Uc[i] << delimiter
+			 << array_Ia[i] << delimiter
+			 << array_Ib[i] << delimiter
+			 << array_Ic[i] << endl;
+    }
+	data.clear();
+	data.close();
+
 }

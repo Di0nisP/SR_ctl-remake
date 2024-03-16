@@ -60,8 +60,11 @@ complex<double> hoertzel(double* X, double sin_w, double cos_w, uint8_t step, ui
 		Y = complex<double>((cos_w * u1 - u2), (sin_w * u1));
 	else
 		Y = complex<double>(-2.0 * (sin_w * u1), 2.0 * (cos_w * u1 - u2));
+
+	Y /= static_cast<double>(N);
+	Y *= std::exp(-1.0i * M_PI * 2.0 * static_cast<double>(step) / static_cast<double>(num_cycle));
 	
-	return Y / static_cast<double>(N) * std::exp(-1.0i * M_PI * 2.0 * static_cast<double>(step) / static_cast<double>(num_cycle));
+	return Y;
 }
 
 /**
@@ -149,6 +152,11 @@ private:
 	string out_name_re_3U0,	 	 out_name_im_3U0;
 	string out_name_abs_3I0,  	 out_name_arg_3I0;
 	string out_name_abs_3U0,  	 out_name_arg_3U0;
+	// Мощность нулевой последовательности
+	float *out_val_re_S0, 		*out_val_im_S0;
+	float *out_val_abs_S0, 		*out_val_arg_S0;
+	string out_name_re_S0, 	 	 out_name_im_S0;
+	string out_name_abs_S0, 	 out_name_arg_S0;
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
 	float* set_val_Fn; 			///< Номинальная частота сети, Гц
@@ -231,6 +239,11 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	out_name_abs_3U0 = "abs_3U0";		make_out(&out_val_abs_3U0, out_name_abs_3U0.c_str());
 	out_name_arg_3U0 = "arg_3U0";		make_out(&out_val_arg_3U0, out_name_arg_3U0.c_str());
 
+	out_name_re_S0  = "re_S0";			make_out(&out_val_re_S0, out_name_re_S0.c_str());
+	out_name_im_S0  = "im_S0";			make_out(&out_val_im_S0, out_name_im_S0.c_str());
+	out_name_abs_S0 = "abs_S0";			make_out(&out_val_abs_S0, out_name_abs_S0.c_str());
+	out_name_arg_S0 = "arg_S0";			make_out(&out_val_arg_S0, out_name_arg_S0.c_str());
+
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	//(Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
 	make_const(&set_val_Fn, "Fn", FREQ_N);
@@ -290,6 +303,20 @@ void SR_auto_ctl::calc()
 		*(out_val_abs_U1[i]) = static_cast<float>(abs(result_U1[i]));	
 		*(out_val_arg_U1[i]) = static_cast<float>(arg(result_U1[i]));
 	}
+	complex<double> result_3I0 {}, result_3U0 {};
+	for (auto i : result_I1)
+		result_3I0 += i;
+	*(out_val_re_3I0)  = static_cast<float>(result_3I0.real());
+	*(out_val_im_3I0)  = static_cast<float>(result_3I0.imag());
+	*(out_val_abs_3I0) = static_cast<float>(abs(result_3I0));	
+	*(out_val_arg_3I0) = static_cast<float>(arg(result_3I0));
+	for (auto u : result_U1)
+		result_3U0 += u;
+	*(out_val_re_3U0)  = static_cast<float>(result_3U0.real());
+	*(out_val_im_3U0)  = static_cast<float>(result_3U0.imag());
+	*(out_val_abs_3U0) = static_cast<float>(abs(result_3U0));	
+	*(out_val_arg_3U0) = static_cast<float>(arg(result_3U0));
+	
 	// Запись выходов мощности
 	complex<double> result_S1, result_S0;
 	for (uint8_t i = 0; i < 3u; i++)
@@ -300,24 +327,48 @@ void SR_auto_ctl::calc()
 		*(out_val_abs_S1[i]) = static_cast<float>(abs(result_S1));	
 		*(out_val_arg_S1[i]) = static_cast<float>(arg(result_S1));
 	}
+	result_S0 = power(result_3I0 / 3.0, result_3U0 / 3.0);
+	*(out_val_re_S0)  = static_cast<float>(result_S0.real());
+	*(out_val_im_S0)  = static_cast<float>(result_S0.imag());
+	*(out_val_abs_S0) = static_cast<float>(abs(result_S0));	
+	*(out_val_arg_S0) = static_cast<float>(arg(result_S0));
 		
 	//! Отладка (не видно с других машин)
 	static float time = 0.0f;
-	printf("\n\t%s (Hoertzel) out-values:\n", proc_name);
+	printf("\n\t%s out-values:\n", proc_name);
 	printf("time = %.5f\tstep = %d\n", time, step);
 	for (uint8_t i = 0; i < 3u; i++)
 	{
-		string print_name = "I_" + string(1, static_cast<char>('A' + i));
-		printf("%s = %.3f + %.3fj = %.3f|_%.3f\n", print_name.c_str(),
-		*(out_val_re_I1 [i]), *(out_val_im_I1 [i]), 
-		*(out_val_abs_I1[i]), *(out_val_arg_I1[i]) * 180.0f * M_1_PI);
+		string print_name = "U_" + string(1, static_cast<char>('A' + i));
+		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		*(out_val_re_U1 [i]), *(out_val_im_U1 [i]), 
+		*(out_val_abs_U1[i]), *(out_val_arg_U1[i]) * 180.0f * M_1_PI);
 	}
 	for (uint8_t i = 0; i < 3u; i++)
 	{
-		string print_name = "U_" + string(1, static_cast<char>('A' + i));
-		printf("%s = %.3f + %.3fj = %.3f|_%.3f\n", print_name.c_str(),
-		*(out_val_re_U1 [i]), *(out_val_im_U1 [i]), 
-		*(out_val_abs_U1[i]), *(out_val_arg_U1[i]) * 180.0f * M_1_PI);
+		string print_name = "I_" + string(1, static_cast<char>('A' + i));
+		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		*(out_val_re_I1 [i]), *(out_val_im_I1 [i]), 
+		*(out_val_abs_I1[i]), *(out_val_arg_I1[i]) * 180.0f * M_1_PI);
+		
+	}
+	{ //3U0
+		string print_name = "3U0";
+		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		*(out_val_re_3U0), *(out_val_im_3U0), 
+		*(out_val_abs_3U0), *(out_val_arg_3U0) * 180.0f * M_1_PI);
+	}
+	{ //3I0
+		string print_name = "3I0";
+		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		*(out_val_re_3I0), *(out_val_im_3I0), 
+		*(out_val_abs_3I0), *(out_val_arg_3I0) * 180.0f * M_1_PI);
+	}
+	{ //S0
+		string print_name = "S0 ";
+		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		*(out_val_re_S0), *(out_val_im_S0), 
+		*(out_val_abs_S0), *(out_val_arg_S0) * 180.0f * M_1_PI);
 	}
 	time += 1 / (NUM_CYCLE * FREQ_N);
 	++step %= NUM_CYCLE;

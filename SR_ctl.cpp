@@ -53,7 +53,7 @@ void SR_ctl_type::Init_local_calc()
 	Settings->All_local_vars->reg_in_var("ctl", "wii_ctl1", &wii_ctl_var[1]);	
 	Settings->All_local_vars->reg_in_var("ctl", "wii_ctl2", &wii_ctl_var[2]);
 	Settings->All_local_vars->reg_in_var("ctl", "wii_ctl3", &wii_ctl_var[3]);
-	//*/------------------------------------------------------------------------------------	
+	//*------------------------------------------------------------------------------------*/
 	if (proc_rank_flag & PROC_PRINT) 	
 	{
 		printf("[%d]: ", proc_rank_num);							
@@ -69,28 +69,26 @@ void SR_ctl_type::Init_local_calc()
 	// Производится выделение памяти под выходные и удалённые переменные.
 	Settings->All_local_vars->make_out_vars();
 	
-	if (proc_rank_flag & PROC_PRINT) 	
-	{	
+	if (proc_rank_flag & PROC_PRINT) {	
 		printf("[%d]: ", proc_rank_num);							
 		printf("=========================================\n");	
 	}
-	if (proc_rank_flag & PROC_PRINT) 	
-	{	
+
+	if (proc_rank_flag & PROC_PRINT) {	
 		printf("[%d]: ", proc_rank_num);							
 		printf("Check ready state for each local calc proc:\n");	
 	}
-	for(int i = 0; i < calc_proc_cnt; i++)
-	{
-		if (proc_rank_flag & PROC_PRINT) 
-		{
+
+	for(int i = 0; i < calc_proc_cnt; i++) {
+		if (proc_rank_flag & PROC_PRINT) {
 			printf("[%d]: ", proc_rank_num);								
 			printf("%s:\n", calc_proc[i]->proc_name);
 		}
 		fprintf(fp, "%s: \n", calc_proc[i]->proc_name);
 		calc_proc[i]->Get_ready();
 	}
-	if (proc_rank_flag & PROC_PRINT) 		
-	{
+	
+	if (proc_rank_flag & PROC_PRINT) {
 		printf("[%d]: ",proc_rank_num);							
 		printf("=========================================\n");
 	}
@@ -345,7 +343,7 @@ void SR_ctl_type::Init_local_calc()
 
 void SR_ctl_type::Init()
 {
-		radio_ctl = false;// управление по радиоканалу отключено при старте (управлене с локального джойстика)
+//		radio_ctl = false;// управление по радиоканалу отключено при старте (управлене с локального джойстика)
 		//печать в консоль
 		print_topic = 0;
 		print_block = 0;
@@ -436,14 +434,14 @@ void SR_ctl_type::Work()
 			{		
 				if (print_topic == TOPIC_ALG_MSGS && print_block == proc_rank_num && print_alg == i)
 				{
-					*local_ctl_var= -1; 	// Устаревшее (возможно)
+//					*local_ctl_var= -1; 	// Устаревшее (возможно)
 					printf("[%d]:alg[%d]<%s>msg: ", proc_rank_num, i, calc_proc[i]->proc_name);
 					calc_proc[i]->calc(); 	// Запуск алгоритма
 					printf("\n");
 				}
 				else
 				{
-					*local_ctl_var= 0;
+//					*local_ctl_var= 0;
 					calc_proc[i]->calc();
 				}
 			}
@@ -452,8 +450,8 @@ void SR_ctl_type::Work()
 		
 		if (print_cnt >= PRINT_PERIOD) //? Изначально было `>`
 		{	
-			if (*out_ctl_var[0] == CMD_STOP_PROG) // Старое
-			printf("CMD_STOP_PROG\n");
+//			if (*out_ctl_var[0] == CMD_STOP_PROG) // Старое
+//			printf("CMD_STOP_PROG\n");
 
 			//printf("[%d]: ",proc_rank_num);	printf("Main calc: \n");
 			for (int i = 0; i < calc_proc_cnt; i++)
@@ -462,14 +460,14 @@ void SR_ctl_type::Work()
 				{
 					if (print_topic == TOPIC_ALG_MSGS && print_block == proc_rank_num && print_alg == i)
 					{
-						*local_ctl_var = -1;
+//						*local_ctl_var = -1;
 						printf("[%d]:ALG[%d]<%s>MSG: ", proc_rank_num, i, calc_proc[i]->proc_name);
 						calc_proc[i]->calc();
 						printf("\n");
 					}
 					else
 					{
-						*local_ctl_var = 0;
+//						*local_ctl_var = 0;
 						calc_proc[i]->calc();
 					}
 				}
@@ -479,21 +477,21 @@ void SR_ctl_type::Work()
 			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 			// Старое
-			if(/*print_topic==TOPIC_ALG_MSGS && */print_block==proc_rank_num && print_alg==-1)
-			{				
-				printf ("alg ctl[-1] data ");
-				if(radio_ctl)	printf ("(radio): ");
-				else			printf ("(wii): ");
-
-				printf ("\n");
-			}
+//			if(/*print_topic==TOPIC_ALG_MSGS && */print_block==proc_rank_num && print_alg==-1)
+//			{				
+//				printf ("alg ctl[-1] data ");
+//				if(radio_ctl)	printf ("(radio): ");
+//				else			printf ("(wii): ");
+//
+//				printf ("\n");
+//			}
 			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 			//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 			//-----------------------------------------------------------------------------------------------------
 			//-----------------------------------------------------------------------------------------------------
 			// Старое
-			if(*out_ctl_var[0] == CMD_STOP_PROG)		{		break;				}
+//			if(*out_ctl_var[0] == CMD_STOP_PROG)		{		break;				}
 		//	if(*out_ctl_var[0] != CMD_STOP_PROG) *out_ctl_var[0] = 0;	//все команды выдаются однократно, а команда стоп - висит
 			//-----------------------------------------------------------------------------------------------------
 			//-----------------------------------------------------------------------------------------------------
@@ -520,7 +518,7 @@ void SR_ctl_type::Work()
 void SR_ctl_type::print_func()
 {
 	//-------------------------------------------------------------------------------------------	
-	float ctl0 = *out_ctl_var[0];
+	/*float ctl0 = *out_ctl_var[0];
 	float ctl1 = *out_ctl_var[1];
 	float ctl2 = *out_ctl_var[2];
 	float ctl3 = *out_ctl_var[3];
@@ -539,7 +537,7 @@ void SR_ctl_type::print_func()
 	{	
 		print_topic = TOPIC_ALG_MSGS;	
 		printf("[%d]:CMD_PRINT_ALG_MSG\n",proc_rank_num); 
-	}
+	}*/
 	
 
 	
@@ -547,14 +545,14 @@ void SR_ctl_type::print_func()
 //	if(ctl0==CMD_PRINT_ALG 	)		{/*print_alg=0;*/					printf("[%d]:print_alg=0\n",proc_rank_num);		}
 //	if(ctl0==CMD_PRINT_VAR 	)		{/*print_var=0;*/					printf("[%d]:print_var=0\n",proc_rank_num);		}
 
-	if(false && ctl0==CMD_INC_PRINT_BLOCK )	{print_block++;					printf("[%d]:print_block =%d\n",proc_rank_num,print_block);	}
-	if(false && ctl0==CMD_DEC_PRINT_BLOCK )	{print_block--;					printf("[%d]:print_block =%d\n",proc_rank_num,print_block);	}
+//	if(false && ctl0==CMD_INC_PRINT_BLOCK )	{print_block++;					printf("[%d]:print_block =%d\n",proc_rank_num,print_block);	}
+//	if(false && ctl0==CMD_DEC_PRINT_BLOCK )	{print_block--;					printf("[%d]:print_block =%d\n",proc_rank_num,print_block);	}
 
-	if(ctl0==CMD_INC_PRINT_ALG   )	{print_alg++;					printf("[%d]:print_alg =%d\n"  ,proc_rank_num,print_alg);	}
-	if(ctl0==CMD_DEC_PRINT_ALG   )	{print_alg--;					printf("[%d]:print_alg =%d\n"  ,proc_rank_num,print_alg);	}
+//	if(ctl0==CMD_INC_PRINT_ALG   )	{print_alg++;					printf("[%d]:print_alg =%d\n"  ,proc_rank_num,print_alg);	}
+//	if(ctl0==CMD_DEC_PRINT_ALG   )	{print_alg--;					printf("[%d]:print_alg =%d\n"  ,proc_rank_num,print_alg);	}
 
-	if(false && ctl0==CMD_INC_PRINT_VAR   )	{print_var++;					printf("[%d]:print_var =%d\n"  ,proc_rank_num,print_var);	}
-	if(false && ctl0==CMD_DEC_PRINT_VAR   )	{print_var--;					printf("[%d]:print_var =%d\n"  ,proc_rank_num,print_var);	}
+//	if(false && ctl0==CMD_INC_PRINT_VAR   )	{print_var++;					printf("[%d]:print_var =%d\n"  ,proc_rank_num,print_var);	}
+//	if(false && ctl0==CMD_DEC_PRINT_VAR   )	{print_var--;					printf("[%d]:print_var =%d\n"  ,proc_rank_num,print_var);	}
 	//-------------------------------------------------------------------------------------------
 	if(print_topic ==0) return;	//не надо печатать
 	if(print_block!=proc_rank_num)	return;	//не надо печатать этому блоку	

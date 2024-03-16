@@ -107,9 +107,9 @@ public:
 	 * @param result Массив, в который будут записаны считанные данные.
 	 * @param n Шаг между читаемыми строками.
 	 * @param delimiter Разделитель столбцов в файле.
-	 * @return int16_t Возвращает -1, если столбец не найден в заголовке файла,
-	 * возвращает количество недочитанных строк, если файл закончился до достижения HBuffSize,
-	 * возвращает 0 в случае успешного чтения всех строк.
+	 * @return int16_t Возвращает -1, если столбец не найден в заголовке файла. \n
+	 * Возвращает количество недочитанных строк, если файл закончился до достижения HBuffSize. \n
+	 * Возвращает 0 в случае успешного чтения всех строк.
 	 */
     int16_t read(const std::string& filename, const std::string& column_name, T *result, const uint8_t n = 1u, const char delimiter = ';') {
         std::ifstream file(filename);
@@ -117,13 +117,13 @@ public:
 
         if (file.is_open()) {
 
-            if (last_filename != filename) {
+            if (last_filename != filename) { // Проверка имени файла
                 last_column_name = "\0";
                 last_filename = filename;
                 last_pos = 0;
                 column_index = 0;
                 line_count = 0;
-            } else if (last_column_name != column_name) {
+            } else if (last_column_name != column_name) { // Проверка имени столбца данных
                 last_column_name = column_name;
                 last_filename = filename;
                 last_pos = 0;
@@ -163,7 +163,7 @@ public:
                         getline(iss, token, delimiter);
 
                     double value = std::atof(token.c_str());
-                    result[i] = 1000 * value; //TODO Убрать 1000 или заменить на коэф. трансформации
+                    result[i] = value;
                     ++i;
                 } else {
                     last_pos = file.tellg();
@@ -234,6 +234,7 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	//* Выделение памяти вспомогательных переменных
 	for (uint8_t i = 0; i < 3; i++)
 	{
+		// Массивы расчётных данных инициализированы нулями
 		I_data[i] = new float[HBuffSize] {};		U_data[i] = new float[HBuffSize] {};
 		gI[i] = new Opmode(HBuffSize);				gU[i] = new Opmode(HBuffSize); //TODO Cтроки нужны при получении режима с помощью класса Opmode.
 	}
@@ -272,7 +273,14 @@ void SR_auto_ctl::calc()
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
-	// Генерация режима вручную
+	//* Запись значений на выходы алгоритма
+	for (uint8_t i = 0; i < 3; i++) 	// По фазам
+		for (uint8_t j = 0; j < HBuffSize; j++)
+		{
+			*(out_val_I[i][j]) = I_data[i][j];		
+			*(out_val_U[i][j]) = U_data[i][j];	
+		}
+	//* Генерация режима вручную
 /*	I_data[0] = gI[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
 	I_data[1] = gI[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
 	I_data[2] = gI[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
@@ -281,30 +289,39 @@ void SR_auto_ctl::calc()
 	U_data[1] = gU[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
 	U_data[2] = gU[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C); //*/
 
-	// Чтение режима из файла
-	std::string file_path = "../test_file_read/fault_1.csv"; //TODO Убрать 1000 или заменить на коэф. трансформации
+	//* Чтение режима из файла
+	//? Чтение из файла выполняется после записи выходов для инитации задержки АЦП
+	std::string file_path = "./op_mode/data_K1.csv";
+//	std::string file_path = "./op_mode/data_K3.csv";
+//	std::string file_path = "../test_file_read/fault_1.csv"; //TODO Убрать 1000 или заменить на коэф. трансформации
 //	std::string file_path = "../test_file_read/folder/data_Ia.csv";
 	//TODO Возможно, стоит добавить в сигнатуру коэффициент трансформации
-	rI[0].read(file_path, "Ia", I_data[0], 1, ',');
-	rI[1].read(file_path, "Ib", I_data[1], 1, ',');
-	rI[2].read(file_path, "Ic", I_data[2], 1, ',');
 	rU[0].read(file_path, "Ua", U_data[0], 1, ',');
 	rU[1].read(file_path, "Ub", U_data[1], 1, ',');
 	rU[2].read(file_path, "Uc", U_data[2], 1, ',');
-
-	// Запись значений на выходы алгоритма
-	for (uint8_t i = 0; i < 3; i++) 	// По фазам
-		for (uint8_t j = 0; j < HBuffSize; j++)
-		{
-			*(out_val_I[i][j]) = I_data[i][j];		
-			*(out_val_U[i][j]) = U_data[i][j];	
-		}
+	rI[0].read(file_path, "Ia", I_data[0], 1, ',');
+	rI[1].read(file_path, "Ib", I_data[1], 1, ',');
+	rI[2].read(file_path, "Ic", I_data[2], 1, ',');
+	
 
 	//! Отладка (не видно с других машин)
-	printf("\n\t%s out-values:\n", proc_name);		
-	for (uint8_t j = 0; j < HBuffSize; j++)
-		printf("%6.3f ", *(out_val_I[0][j]));
-	printf("\n");
+	printf("\n\t%s out-values:\n", proc_name);
+	for (uint8_t i = 0; i < 3; i++)	{
+		string suffix = string(1, static_cast<char>('A' + i));
+		string name = "U_" + suffix;
+		printf("%s:\n", name.c_str());
+		for (uint8_t j = 0; j < HBuffSize; j++)
+			printf("%6.3f ", *(out_val_U[i][j]));
+		printf("\n");
+	}
+	for (uint8_t i = 0; i < 3; i++)	{
+		string suffix = string(1, static_cast<char>('A' + i));
+		string name = "I_" + suffix;
+		printf("%s:\n", name.c_str());
+		for (uint8_t j = 0; j < HBuffSize; j++)
+			printf("%6.3f ", *(out_val_I[i][j]));
+		printf("\n");
+	}
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 

@@ -19,7 +19,7 @@ SR_Settings::SR_Settings()
 {
 	Block_name = "unknown";
 	All_local_vars = new SR_var_list("All_local_vars");
-	All_dist_vars = NULL;
+	All_dist_vars  = nullptr;
 }
 
 SR_Settings::~SR_Settings()	
@@ -32,7 +32,7 @@ int SR_Settings::Init()
 	return -1; //?
 }
 
-int SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array)
+size_t SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array)
 {
 	// Указатель на вектор указателей на SR_calc_proc -- класс вычислительной процедуры (есть в каждом so-файле)
 	vector<SR_calc_proc*> * p_calc_class = new vector<SR_calc_proc*>; // Выделяется на куче -- сохраняется при выходе из функции
@@ -87,29 +87,18 @@ int SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array)
 	}
 
 	SR_calc_proc** calc_proc; // Указатель на указатель на объект `SR_calc_proc`, т.е. массив указателей на `SR_calc_proc`
-	int total_num = (*p_calc_class).size(); // Количество успешно загруженных расчётных модулей (алгоритмов)
+	size_t total_num = p_calc_class->size(); // Количество успешно загруженных расчётных модулей (алгоритмов)
 	calc_proc = new SR_calc_proc*[total_num]; 
 	*p_calc_proc_array = calc_proc; // Входной аргумент функции `find_alg`
 
-	vector<SR_calc_proc*>::iterator iter = (*p_calc_class).begin(); // C точки зрения итератора -- указатель на первый элемент
+	vector<SR_calc_proc*>::iterator iter = p_calc_class->begin(); // C точки зрения итератора -- указатель на первый элемент
 	
-	for (int i = 0; iter != (*p_calc_class).end(); iter++, i++) // `iter++` -- вызываем метод, который выдаст нам указатель на следующий элемент
+	for (size_t i = 0; iter != p_calc_class->end(); iter++, i++) // `iter++` -- вызываем метод, который выдаст нам указатель на следующий элемент
 		calc_proc[i] = (*iter); // Заполняется указателями на экспортированные рассчётные процедуры  из тех so-файлов, которые были найдены
-
-	// Старая реализация:
-/*	vector<SR_calc_proc*>::iterator end_iter = (*p_calc_class).end();
-
-	int i = 0;
-	while(iter != end_iter)
-	{
-		calc_proc[i] = (*iter); // Заполняется указателями на экспортированные рассчётные процедуры  из тех so-файлов, которые были найдены
-		//printf("ALG: %s\n", calc_proc[i]->proc_name);
-		iter++; i++;			// `iter++` -- вызываем метод, который выдаст нам указатель на следующий элемент
-	} //*/
 	
 	// Вектор p_calc_class должен быть удалён ??? 
 	
-	return	total_num;
+	return total_num;
 }
 //------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -133,101 +122,99 @@ SR_var_list::SR_var_list(const char* in_name)
 	init_var("none");
 	var_val = new float[var_num];	for(int i=0;i<var_num;i++) var_val[i] = 0;
 }
-SR_var_list::~SR_var_list()	{ }
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// ‚ажное
+SR_var_list::~SR_var_list()	{}
 
-void SR_var_list::reg_in_var(const char* proc_name,const char* var_name,float** pp_val_calc_func)
+void SR_var_list::reg_in_var(const char* proc_name, const char* var_name, float** pp_val_calc_func)
 {
-	SR_var_discriptor tmp; // ЛокальнаЯ переменная	
-	tmp.calc_proc_name = proc_name; 
-	tmp.var_name = var_name;	
-	tmp.pp_val_calc = pp_val_calc_func;  
-	tmp.use_cnt=0;	//tmp.p_val = NULL;
+	SR_var_discriptor tmp; 				// Локальный дескриптор
+	tmp.calc_proc_name = proc_name; 	// Регистрируем имя расчётной процедуры (алгоритма)
+	tmp.var_name = var_name;			// Регистрируем имя переменной
+	tmp.pp_val_calc = pp_val_calc_func; // Регистрируем адрес указателя на значение переменной
+	tmp.use_cnt = 0;					// Обнуляем счётчик ссылок на переменную
+	//tmp.p_val = nullptr;
 	// Далее данные копируются из локальной памяти (со стека) скорее всего на кучу
-	(*(vector<SR_var_discriptor>*)in_var_list).push_back(tmp); // push_back() выделяет память
-	#if defined (ALG_PRINTF)
-	printf("%s.%s - registrated in\n",proc_name,var_name);		
-	#endif
-}
-void SR_var_list::reg_out_var(const char* proc_name,const char* var_name,float** pp_val_calc_func)
-{
-	SR_var_discriptor tmp; // Объявляется структура, представляющая информацию о регистрируемой переменной
-	tmp.calc_proc_name = proc_name; 
-	tmp.var_name = var_name;	
-	tmp.pp_val_calc = pp_val_calc_func; 
-	tmp.use_cnt = 0;	//tmp.p_val = NULL;
-	// После того, как поля структуры проинициализированы, она добавляется в лист выходных переменных
-	(*(vector<SR_var_discriptor>*)out_var_list).push_back(tmp);
-	#if defined (ALG_PRINTF)
-	printf("%s.%s - registrated out\n",proc_name,var_name);		
-	#endif
+	(*(vector<SR_var_discriptor>*)in_var_list).push_back(tmp); // `push_back()` выделяет память
+#if defined (ALG_PRINTF)
+	printf("%s.%s - registrated in\n", proc_name, var_name);		
+#endif
 }
 
-// Выделение памяти для выходных переменных всех алгоритмов
-// Если хотя бы один из алгоритмов не работает, то ничего не запустится (???)
-void SR_var_list::make_out_vars()
+void SR_var_list::reg_out_var(const char* proc_name, const char* var_name, float** pp_val_calc_func)
 {
+	SR_var_discriptor tmp; 				// Локальный дескриптор
+	tmp.calc_proc_name = proc_name; 	// Регистрируем имя расчётной процедуры (алгоритма)
+	tmp.var_name = var_name;			// Регистрируем имя переменной
+	tmp.pp_val_calc = pp_val_calc_func; // Регистрируем адрес указателя на значение переменной
+	tmp.use_cnt = 0;					// Обнуляем счётчик ссылок на переменную
+	//tmp.p_val = nullptr;
+	// После того, как поля структуры проинициализированы, она добавляется в лист выходных переменных
+	(*(vector<SR_var_discriptor>*)out_var_list).push_back(tmp); // `push_back()` выделяет память
+#if defined (ALG_PRINTF)
+	printf("%s.%s - registrated out\n",proc_name,var_name);		
+#endif
+}
+
+void SR_var_list::make_out_vars() {
 	int ready_in_cnt = 0; // Счётчик готовых входов
-	#if defined (ALG_PRINTF)
+
+#if defined (ALG_PRINTF)
 	printf("Make variables:\n");
-	#endif
+#endif
+
 	// Объявляем локальные указатели векторы с переменными, полученными методами `reg_in_var` и `reg_out_var`
-	vector<SR_var_discriptor> * out_vars = (vector<SR_var_discriptor> *)out_var_list;
-	vector<SR_var_discriptor> *  in_vars = (vector<SR_var_discriptor> *) in_var_list;	
-	int out_num = (*out_vars).size();
-	int in_num  =  (*in_vars).size();
-	out_var_val = new float[out_num]; //выделение памти под переменную
-	for(int out = 0; out < out_num; out++)	
-	{	
-		out_var_val[out] = 0; // Значение выходной переменной устанавливается в 0
-		*( (*out_vars)[out].pp_val_calc ) = &out_var_val[out];	//подключение выходной переменной к указателю рассчетной функции
-		#if defined (ALG_PRINTF)
+	vector<SR_var_discriptor> *out_vars = static_cast<vector<SR_var_discriptor>*>(out_var_list);
+	vector<SR_var_discriptor> * in_vars = static_cast<vector<SR_var_discriptor>*>( in_var_list);	
+	size_t out_num = out_vars->size(); 	// Число выходов
+	size_t  in_num =  in_vars->size(); 	// Число локальных входов
+	out_var_val = new float[out_num]; 	// Выделение памти под выходные переменные
+
+	for (size_t out = 0; out < out_num; out++) {	// Итерации по выходным переменным
+		out_var_val[out] = 0; 	// Значение выходной переменной устанавливается в 0
+		*( (*out_vars)[out].pp_val_calc ) = &out_var_val[out];	// Подключение значения выходной переменной к указателю собственного алгоритма
+#if defined (ALG_PRINTF)
 		printf("<%s>.%s - out set\n", (*out_vars)[out].calc_proc_name, (*out_vars)[out].var_name);
-		#endif	
+#endif	
 	}
-	for(int in = 0; in < in_num; in++)
-	{
-		// Итерации по выходным переменным
-		for(int out = 0; out < out_num; out++)
-			// Сравниваются коды строк; при совпадении возвращается 0,
-			// т.о. проверяется соответствие имён входов и выходов
-			if(strcmp((*in_vars)[in].var_name, (*out_vars)[out].var_name) == 0)
-			{	
-				// Если имена совпадают, входная переменная связывается с выходной переменной
-				ready_in_cnt++; // Увеличивается счетчик готовых входов
-				*( (*in_vars)[in].pp_val_calc ) = &out_var_val[out];	  //подключение  входной переменной к указателю другой рассчетной функции
-				(*out_vars)[out].use_cnt++;		(*in_vars)[in].use_cnt++; //счетчики использования переменных
-				#if defined (ALG_PRINTF)
+
+	for (size_t in = 0; in < in_num; in++) { 		// Итерации по локальным входным переменным
+		for (int out = 0; out < out_num; out++) 	// Итерации по выходным переменным
+			// Сравниваются коды строк; при совпадении возвращается 0, 
+			// т.о. проверяется соответствие имён входов и выходов.
+			if (strcmp((*in_vars)[in].var_name, (*out_vars)[out].var_name) == 0) {	// Если имена совпадают, формируется связь выход-вход
+				*( (*in_vars)[in].pp_val_calc ) = &out_var_val[out];	  // Подключение значения выходной переменной к указателю другого алгоритма
+				(*out_vars)[out].use_cnt++;		(*in_vars)[in].use_cnt++; // Инкремент счётчиков использования переменных
+				ready_in_cnt++;	// Инкремент счетчика готовых входов
+#if defined (ALG_PRINTF)
 				printf("<%s>.%s - in set to out of <%s>\n", 
-					(*in_vars)[in].calc_proc_name, 
-					(*out_vars)[out].var_name, 
+					(*in_vars)[in].calc_proc_name,
+					(*out_vars)[out].var_name, 			
 					(*out_vars)[out].calc_proc_name);
-				#endif	
+#endif	
 			}
 	}
-	#if defined (ALG_PRINTF)
+
+#if defined (ALG_PRINTF)
 	printf("%d of ins are ready (%d are not ready)\n", ready_in_cnt, (in_num - ready_in_cnt));
-	#endif
-	//+ + + + + + + + + + + + + + + + + + + + +  + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + 
+#endif
+	
+	//*+ + + + + + + + + + + + + + + + + + + + +  + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + 
 	// Под входы, которые мы никуда (т.е. к выходам) не присоединили, выделяем память отдельно
 	int remote_var_sz = in_num - ready_in_cnt; // Разница между общим числом входов и числом готовых входов
-	remote_var_val = new float[remote_var_sz];		//выделение памяти под удаленные (дистанционные) переменные	
+	remote_var_val = new float[remote_var_sz]; // Выделение памяти под удаленные (дистанционные) переменные	
 	vector<SR_var_discriptor> *remote_vars = new vector<SR_var_discriptor>;	 
-	remote_var_list = (void*)remote_vars;
+	remote_var_list = static_cast<void*>(remote_vars); 
 	int remote_var_cnt = 0;
-	for (int in = 0; in < in_num; in++)
-	{
-	//	if( (*(*in_vars)[in].pp_val_calc) == NULL )	
-		if ((*in_vars)[in].use_cnt == 0) // По счётчику `use_cnt` проверяется, была ли входная переменная связана с выходной
-		{	
-			remote_var_val[remote_var_cnt] = 0.0f; // Обнуление перед использованием
+	for (int in = 0; in < in_num; in++)	{
+	//	if( (*(*in_vars)[in].pp_val_calc) == NULL )
+		// По счётчику `use_cnt` проверяется, была ли входная переменная связана с выходной
+		if ((*in_vars)[in].use_cnt == 0) {	
+			remote_var_val[remote_var_cnt] = 0; // Обнуление перед использованием
 			*( (*in_vars)[in].pp_val_calc ) = &remote_var_val[remote_var_cnt];	
 			SR_var_discriptor tmp;	
 			tmp.calc_proc_name = (*in_vars)[in].calc_proc_name; //функция приемник
 			tmp.var_name = (*in_vars)[in].var_name;				//переменная приемник
-			// Возможно tmp.use_cnt=0; вместо следующего (???)
+			//? Возможно tmp.use_cnt=0; вместо следующего
 			// (*in_vars)[in].use_cnt=0;	//т.к. сетевой канал пока не привязан
 			// + + + + + + + + + + + + + + + + + 
 			tmp.pp_val_calc = (*in_vars)[in].pp_val_calc;	//указатель на переменную
@@ -240,114 +227,104 @@ void SR_var_list::make_out_vars()
 			remote_var_cnt++;
 		}
 	}	
-	//+ + + + + + + + + + + + + + + + + + + + +  + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + 
-}
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-int SR_var_list::sz_out_list()	{	return (* ((vector<SR_var_discriptor>*)out_var_list) ).size();}
-int SR_var_list::sz_in_list()	{	return (* ((vector<SR_var_discriptor>*)in_var_list)  ).size();}
-int SR_var_list::sz_rem_list()	{	return (* ((vector<SR_var_discriptor>*)remote_var_list)  ).size();}
-SR_var_discriptor* SR_var_list::get_out_by_idx(int idx)
-{
-	if( idx< (* ((vector<SR_var_discriptor>*)out_var_list) ).size() )	
-		return &((* ((vector<SR_var_discriptor>*)out_var_list) )[idx]);
-	return NULL;
-}
-SR_var_discriptor* SR_var_list::get_in_by_idx(int idx)
-{
-	if( idx< (* ((vector<SR_var_discriptor>*)in_var_list) ).size() )	
-		return &((* ((vector<SR_var_discriptor>*)in_var_list) )[idx]);
-	return NULL;
-}
-SR_var_discriptor* SR_var_list::get_rem_by_idx(int idx)
-{
-	if( idx< (* ((vector<SR_var_discriptor>*)remote_var_list) ).size() )	
-		return &((* ((vector<SR_var_discriptor>*)remote_var_list) )[idx]);
-	return NULL;
+	//*+ + + + + + + + + + + + + + + + + + + + +  + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + 
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+size_t SR_var_list::sz_out_list() { return static_cast<vector<SR_var_discriptor>*>(   out_var_list)->size(); }
+size_t SR_var_list::sz_in_list () { return static_cast<vector<SR_var_discriptor>*>(    in_var_list)->size(); }
+size_t SR_var_list::sz_rem_list() { return static_cast<vector<SR_var_discriptor>*>(remote_var_list)->size(); }
 
+SR_var_discriptor* SR_var_list::get_out_by_idx(size_t idx) {
+	if( idx < static_cast<vector<SR_var_discriptor>*>(out_var_list)->size() )	
+		return &static_cast<vector<SR_var_discriptor>*>(out_var_list)->at(idx); //&((* ((vector<SR_var_discriptor>*)out_var_list) )[idx]);
+	return nullptr;
+}
+SR_var_discriptor* SR_var_list::get_in_by_idx(size_t idx) {
+	if( idx < static_cast<vector<SR_var_discriptor>*>(in_var_list)->size() )	
+		return &static_cast<vector<SR_var_discriptor>*>(in_var_list)->at(idx); //&((* ((vector<SR_var_discriptor>*)in_var_list) )[idx]);
+	return nullptr;
+}
+SR_var_discriptor* SR_var_list::get_rem_by_idx(size_t idx) {
+	if( idx < static_cast<vector<SR_var_discriptor>*>(remote_var_list)->size() )	
+		return &static_cast<vector<SR_var_discriptor>*>(remote_var_list)->at(idx); //&((* ((vector<SR_var_discriptor>*)remote_var_list) )[idx]);
+	return nullptr;
+}
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-void SR_var_list::init_var(const char* var_name)
-{
+void SR_var_list::init_var(const char* var_name) {
 	SR_var_discriptor tmp;	
 	tmp.var_name = var_name;	
 	tmp.calc_proc_name = "none"; 
-	tmp.in_cnt=0;	
-	tmp.out_num=-1; 
+	tmp.in_cnt = 0;	
+	tmp.out_num = -1; 
 	tmp.idx = var_num;	
 	var_num++; 
 	//-------------------ТОЛЬКО ДЛЯ ОТЛАДКИ ТАК НЕЛЬЗЯ!!!
-	tmp.p_val=NULL;
+	tmp.p_val = nullptr;
 	//-------------------ТОЛЬКО ДЛЯ ОТЛАДКИ ТАК НЕЛЬЗЯ!!!
-	vector<SR_var_discriptor>* p_var_arr =  (vector<SR_var_discriptor> *)var_list;
-	(*p_var_arr).push_back(tmp);
+	vector<SR_var_discriptor> *p_var_arr = static_cast<vector<SR_var_discriptor>*>(var_list);
+	p_var_arr->push_back(tmp);
 }
-SR_var_discriptor* SR_var_list::get(const char* Name)
-{	
-	vector<SR_var_discriptor>::iterator begin_iter =	(* ((vector<SR_var_discriptor>*)var_list) ).begin();
+
+SR_var_discriptor* SR_var_list::get(const char* Name) {	
+	vector<SR_var_discriptor>::iterator begin_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->begin(); //(* ((vector<SR_var_discriptor>*)var_list) ).begin();
 	vector<SR_var_discriptor>::iterator       iter = begin_iter;
-	vector<SR_var_discriptor>::iterator   end_iter = 	(* ((vector<SR_var_discriptor>*)var_list) ).end();
-	while( iter != end_iter )
-	{	
-		if( strcmp((*iter).var_name,Name)==0 )	
-			return /*‘ точки зрениЯ компилЯтора у iter тип итератора, а не указатель*/&(*iter);	
+	vector<SR_var_discriptor>::iterator   end_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->end();	//(* ((vector<SR_var_discriptor>*)var_list) ).end();
+	while( iter != end_iter ) {	
+		if( strcmp(iter->var_name, Name) == 0 )	
+			return &(*iter); // C точки зрения компилятора у iter тип итератора, а не указатель
 		iter++;	
 	}	
 	return &(*begin_iter);	
 	//{	if((*iter).var_name==Name)	return &(*iter);	iter++;	}	return &(*begin_iter);		
 }
 
-// ЏамЯть надо выделЯть на выходы -- выходы важны,
 void SR_var_list::printf_list()
 {	
-	vector<SR_var_discriptor>::iterator begin_iter =	(* ((vector<SR_var_discriptor>*)var_list) ).begin();
+	vector<SR_var_discriptor>::iterator begin_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->begin();
 	vector<SR_var_discriptor>::iterator       iter = begin_iter;
-	vector<SR_var_discriptor>::iterator   end_iter = 	(* ((vector<SR_var_discriptor>*)var_list) ).end();
-	while( iter != end_iter )
-	{
-		if( (*iter).out_num >=0 )
-		{
-			#if defined (ALG_PRINTF)
-			printf("out variable <%s>	calculated by <%s>	(out %d)\n",(*iter).var_name,(*iter).calc_proc_name,(*iter).out_num);	
-			#endif
+	vector<SR_var_discriptor>::iterator   end_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->end();
+	while( iter != end_iter ) {
+		if( iter->out_num >= 0 ) {
+#if defined (ALG_PRINTF)
+			printf("out variable <%s>	calculated by <%s>	(out %d)\n", 
+				iter->var_name, 		// out variable
+				iter->calc_proc_name, 	// calculated by
+				iter->out_num);			// out
+#endif
 		}
 		iter++;
 	}	
 }
 
-int SR_var_list::sz_list()
-{	
-	return (* ((vector<SR_var_discriptor>*)var_list) ).size();
-}
+size_t SR_var_list::sz_list() { return static_cast<vector<SR_var_discriptor>*>(var_list)->size(); }
 
-const char* SR_var_list::get_name_from_list(int idx)
-{	
-// Ќе момешала бы проверка неотрицательности индекса
-	if( idx< (* ((vector<SR_var_discriptor>*)var_list) ).size() ) 
-		return (* ((vector<SR_var_discriptor>*)var_list) )[idx].var_name;
+const char* SR_var_list::get_name_from_list(size_t idx) {	
+	// Ќе момешала бы проверка неотрицательности индекса
+	if( idx < static_cast<vector<SR_var_discriptor>*>(var_list)->size() ) 
+		return (* static_cast<vector<SR_var_discriptor>*>(var_list) )[idx].var_name;
 	return "none";
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Link_MPI::Link_MPI(int node_num)
-{
+Link_MPI::Link_MPI(int node_num) {
 	node = node_num;
-	vector<link_var_discriptor> * p_send = new vector<link_var_discriptor>;	
-	send_list = (void*)p_send;
-	vector<link_var_discriptor> * p_recv = new vector<link_var_discriptor>;	
-	recv_list = (void*)p_recv;
-	send_buff=NULL;	recv_buff=NULL;
+	vector<link_var_discriptor> *p_send = new vector<link_var_discriptor>;	
+	send_list = static_cast<void*>(p_send);
+	vector<link_var_discriptor> *p_recv = new vector<link_var_discriptor>;	
+	recv_list = static_cast<void*>(p_recv);
+	send_buff = nullptr;	recv_buff = nullptr;
 }
 
-Link_MPI::~Link_MPI() { }
+Link_MPI::~Link_MPI() {}
 
-void Link_MPI::set_send_buff(int sz) { send_buff = new float[sz]; }
-void Link_MPI::set_recv_buff(int sz) { recv_buff = new float[sz]; }
+void Link_MPI::set_send_buff(size_t sz) { send_buff = new float[sz]; }
+void Link_MPI::set_recv_buff(size_t sz) { recv_buff = new float[sz]; }
 
 int  Link_MPI::get_node_num() { return node; }
 
-void Link_MPI::add_send_var(float* p_var_in_calc,int old_buff_idx)
+void Link_MPI::add_send_var(float* p_var_in_calc, int old_buff_idx)
 {
 //	if(send_buff==NULL)	{	return;	}
 //	float* p_var_in_buff = &(send_buff[buff_idx]); 

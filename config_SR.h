@@ -130,8 +130,8 @@ public:
 	void copy_recv_vars();
 
 	// Выделение буферов для MPI
-	void set_send_buff(int sz);
-	void set_recv_buff(int sz);
+	void set_send_buff(size_t sz);
+	void set_recv_buff(size_t sz);
 	
 //	int get_cur_send_sz();
 //	int get_cur_recv_sz();	
@@ -139,12 +139,19 @@ public:
 //	void set_cur_recv_sz(int sz);	
 };
 
-struct SR_var_discriptor
-{
-	const char* var_name; // »м€ переменной
-	const char* calc_proc_name; // »м€ вычислительной процедуры (алгоритма)
-	float** pp_val_calc; // ”казатель на значение переменной
-	int use_cnt; // »ндекс ссылок на переменную (может не работать)
+/**
+ * @struct Дескриптор переменной
+ * @brief Описание регистрируемой переменной
+ * 
+ * В качестве переменных выступают входы-выходы алгоритмов.
+ * 
+ */
+struct SR_var_discriptor {
+	const char* var_name; 		///< Имя переменной
+	const char* calc_proc_name;	///< Имя вычислительной процедуры (алгоритма)
+	float** pp_val_calc; 		///< Адрес указателя на значение переменной
+	int use_cnt; 				///< Индекс ссылок на переменную
+	
 	//---------------
 	int out_num; // ?
 	int idx; // »ндекс
@@ -152,45 +159,89 @@ struct SR_var_discriptor
 	//-------------------“ќЋ№ ќ ƒЋя ќ“Ћјƒ » “ј  Ќ≈Ћ№«я!!!
 	float* p_val;
 	//-------------------“ќЋ№ ќ ƒЋя ќ“Ћјƒ » “ј  Ќ≈Ћ№«я!!!
-
 };
 
-// Класс для работы с переменными, с которыми работает алгоритм
+/**
+ * @class Список переменных
+ * @brief Класс для обработки списков переменных
+ * 
+ * Переменные делятся на: \n 
+ * 1. выходы - значения, которые формируются локальными алгортмами; \n
+ * 2. локальные входы - переменные, которые локальные алгоритмы получают от других алгоритмов; \n
+ * 3. удалённые входы - переменные, которые удалённые алгоритмы получаютс от локальных алгоритмов. \n
+ * Класс управляет регистрацией локальных входов-выходов, выделением памяти под выходные переменные и связыванием входов-выходов.
+ * 
+ */
 class SR_var_list
 {
 protected:
-	void* var_list;
-	void* out_var_list;
-	void*  in_var_list;
-	float* out_var_val;
+	void  *var_list;		//?
+	void  *out_var_list;	///< Указатель на размещение списка выходных переменных
+	void  *in_var_list;		///< Указатель на размещение списка входных переменных
+	float *out_var_val;		///< Указатель на массив значений переменных
 	//+ + + + + + + + + + + + + + + + + + + + + 
-	void* remote_var_list;	
-	float* remote_var_val;
+	void  *remote_var_list;	///< 
+	float *remote_var_val;	///<
 	//+ + + + + + + + + + + + + + + + + + + + + 
 public:
-	const char* list_name;	
-	float* var_val;
+	const char *list_name;	
+	float *var_val;
 	int var_num;
 public:
-	 SR_var_list(const char* in_name);
+	/**
+	 * @brief Конструктор
+	 * 
+	 * @param [in] in_name Имя списка переменных
+	 */
+	SR_var_list(const char* in_name);
+
 	~SR_var_list();
-	void init_var(const char* var_name); // Установка переменных
+
+	void init_var(const char* var_name); //? Установка переменных
+
 	SR_var_discriptor* get(const char* Name); // Вызов переменной по имени (медленно)
-	void  printf_list(); // Перечисление имён всех переменных
-	int sz_list(); // Количество переменных
-	const char* get_name_from_list(int idx); // Имя по индексу массива имён
 	
-	// Размеры списков
-	int sz_out_list(); // выходных переменных
-	int sz_in_list(); // входных локальных
-	int sz_rem_list(); // входных удалённых
-	SR_var_discriptor* get_out_by_idx(int idx);
-	SR_var_discriptor* get_in_by_idx(int idx);
-	SR_var_discriptor* get_rem_by_idx(int idx);	
+	void  printf_list(); // Перечисление имён всех переменных
+	size_t sz_list(); // Количество переменных
+	const char* get_name_from_list(size_t idx); // Имя по индексу массива имён
+	
+	size_t sz_out_list(); 	///< Размер списка выходных переменных
+	size_t sz_in_list();   ///< Размер списка входных локальных переменных
+	size_t sz_rem_list(); 	///< Размер списка входных удалённых переменных
+	SR_var_discriptor* get_out_by_idx(size_t idx);
+	SR_var_discriptor* get_in_by_idx(size_t idx);
+	SR_var_discriptor* get_rem_by_idx(size_t idx);	
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	/**
+	 * @brief Метод регистрации входов
+	 * 
+	 * 1. Сохраняется информация о указателе на значение
+	 * 
+	 * @param [in] proc_name Имя расчётной процедуры (алгоритма)
+	 * @param [in] var_name Имя перемменной (входа)
+	 * @param [in] pp_val_calc_func Адрес указателя на значение переменной
+	 */
 	void reg_in_var (const char* proc_name,const char* var_name,float** pp_val_calc_func);
+
+	/**
+	 * @brief Метод регистрации выходов
+	 * 
+	 * @param [in] proc_name Имя расчётной процедуры (алгоритма)
+	 * @param [in] var_name Имя перемменной (выхода)
+	 * @param [in] pp_val_calc_func Адрес указателя на значение переменной
+	 */
 	void reg_out_var(const char* proc_name,const char* var_name,float** pp_val_calc_func);
-	void make_out_vars(); // Выделение памяти под выходные переменные
+
+	/**
+	 * @brief Метод выделения памяти для связей входы-выходы всех алгоритмов
+	 * 
+	 * Cвязь выход-вход представляет собой область памяти на куче (выделяется с помощью операции `new`).
+ 	 * Если несколько алгоритмов имеют указатели на эту общую область памяти, 
+ 	 * считается, что такие алгоритмы связаны, причём один из указателей этих алгоритмов является выходом.
+ 	 * Память выделяется под выходы, так как выходы формируют значение.
+	 * 
+	 */
+	void make_out_vars();
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 };
 
@@ -230,10 +281,10 @@ public:
 	 * В корневой папке выполняется поиск so-файлов с алгоритмами --
 	 * метод должен пробегаться по алгоритмам и экспортировать их функции.
 	 * 
-	 * @param p_calc_proc_array 
-	 * @return int Количество найденных локальных алгоритмов
+	 * @param [out] p_calc_proc_array 
+	 * @return size_t Количество найденных локальных алгоритмов
 	 */
-	int find_algs(SR_calc_proc*** p_calc_proc_array);	
+	size_t find_algs(SR_calc_proc*** p_calc_proc_array);	
 };
 
 #endif // CONFIG_SR
