@@ -85,11 +85,11 @@
 	const char* name;
 	int sz;	
 	int ID;
-};*/
+};//*/
 
 struct link_var_discriptor
 {
-	int buff_idx;
+	size_t buff_idx;
 //	float* p_var_in_buff;
 	float* p_var_in_calc; // Указатель на входную локальную переменную
 };
@@ -121,8 +121,8 @@ public:
 	// ƒобавление переменной:
 	// float* p_var_in_calc -- указатель на переменную;
 	// int buff_idx -- индекс внутри буфера (на приём или передачу)
-	void add_send_var(float* p_var_in_calc,int buff_idx);
-	void add_recv_var(float* p_var_in_calc,int buff_idx);	
+	void add_send_var(float* p_var_in_calc,size_t buff_idx);
+	void add_recv_var(float* p_var_in_calc,size_t buff_idx);	
 	void set_local_send_buff_order();
 	
 	// Копирование из буфера send или recv в буфер со внешними переменными
@@ -213,9 +213,7 @@ public:
 	SR_var_discriptor* get_rem_by_idx(size_t idx);	
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	/**
-	 * @brief Метод регистрации входов
-	 * 
-	 * 1. Сохраняется информация о указателе на значение
+	 * @brief Метод регистрации локальных входов
 	 * 
 	 * @param [in] proc_name Имя расчётной процедуры (алгоритма)
 	 * @param [in] var_name Имя перемменной (входа)

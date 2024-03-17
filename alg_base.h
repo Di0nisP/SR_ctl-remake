@@ -96,9 +96,9 @@ protected:
 	 * Константы могут быть заданы в INI-файле алгоритма. Если INI-файл отсутствует, то
 	 * значение константы соответствует тому, которым она инициализирована.
 	 * 
-	 * @param pp_val Адрес указателя на значение
-	 * @param var_name Указатель на имя константы
-	 * @param init_val Начальное значение константы
+	 * @param [in] pp_val Адрес указателя на значение
+	 * @param [in] var_name Указатель на имя константы
+	 * @param [in] init_val Начальное значение константы
 	 */
 	void make_const(float** pp_val, const char* var_name, float init_val);	
 	
@@ -108,11 +108,10 @@ protected:
 	 * Если имена выхода одного алгоритма и входа другого совпадают, 
 	 * то указатели созданных выхода и входа указывают на общую память.
 	 * 
-	 * @param pp_val Адрес указателя на значение
-	 * @param var_name Указатель на имя входа
+	 * @param [in] pp_val Адрес указателя на значение
+	 * @param [in] var_name Указатель на имя входа
 	 */
 	void make_in   (float** pp_val, const char* var_name);
-	void make_in   (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
 	
 	/**
 	 * @brief Метод добавления информации о выходах алгоритма
@@ -120,12 +119,13 @@ protected:
 	 * Если имена выхода одного алгоритма и входа другого совпадают, 
 	 * то указатели созданных выхода и входа указывают на общую память.
 	 * 
-	 * @param pp_val Адрес указателя на значение
-	 * @param var_name Указатель на имя выхода
+	 * @param [in] pp_val Адрес указателя на значение
+	 * @param [in] var_name Указатель на имя выхода
 	 */
 	void make_out  (float** pp_val, const char* var_name);
 	
 	// Расширенный (не реализованный) функционал, предполагающий возможность использования составных имён
+	void make_in   (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
 	void make_out  (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
 	void make_out  (float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3,const char* var_name_part4);	
 
@@ -134,9 +134,13 @@ public:
 	~SR_calc_proc();
 
 	/**
-	 * @brief 
+	 * @brief Метод для проверки готовности алгоритма
 	 * 
-	 * @return int 
+	 * Алгоритм считается готовым, если все указатели на значения (входы и выходы),
+	 * которые объявлены в алгоритме, не являются нулевыми, 
+	 * то есть все входы алгоритма подключены.
+	 * 
+	 * @return int Возвращает -1, если алгоритм не готов; возвращает 0, если алгоритм готов
 	 */
 	int Get_ready();
 
@@ -146,17 +150,34 @@ public:
 	 * Метод предназначен для регистрации переменных (входов, выходов и констант) 
 	 * и их инициализации на основе данных из INI-файла.
 	 * 
-	 * @param vars_of_block Указатель на область памяти, куда будет сохранена информация о связях типа входы-выходы
+	 * @param [out] vars_of_block Указатель на область памяти, куда будет сохранена информация о связях типа входы-выходы
 	 * @return int 
 	 */
 	int Reg_vars(void* vars_of_block);
-	int Get_out_val_num();
-	int Get_in_val_num();	
-	float Get_out_val(int idx);	
-	float Get_in_val(int idx);		
-	const char* Get_out_name(int idx);
-	const char* Get_in_name(int idx);	
+
+	/**
+	 * @brief Метод получения числа выходов алгоритма
+	 * 
+	 * @return size_t Число выходов
+	 */
+	size_t get_num_out();
+
+	/**
+	 * @brief Метод получения числа входов алгоритма
+	 * 
+	 * @return size_t Число входов
+	 */
+	size_t get_num_in();
+
+	float Get_out_val(size_t idx);	
+	float Get_in_val(size_t idx);		
+	const char* Get_out_name(size_t idx);
+	const char* Get_in_name(size_t idx);	
 	
+	/**
+	 * @brief Метод запуска вычислительной процедуры (алгоритма)
+	 * 
+	 */
 	virtual void calc() = 0; // Не имеет реализации в одноимённом cpp-файле
 };
 

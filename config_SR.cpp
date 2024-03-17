@@ -110,20 +110,21 @@ SR_var_list::SR_var_list(const char* in_name)
 {
 	var_num = 0;
 	list_name = in_name;
-	vector<SR_var_discriptor> * p_vars = new vector<SR_var_discriptor>;
-	var_list = (void*)p_vars;
+	var_list  	 = static_cast<void*>(new vector<SR_var_discriptor>);
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	vector<SR_var_discriptor> * p_in_vars = new vector<SR_var_discriptor>;
-	in_var_list = (void*) p_in_vars;
-	vector<SR_var_discriptor> * p_out_vars = new vector<SR_var_discriptor>;
-	out_var_list = (void*)p_out_vars;
+	in_var_list  = static_cast<void*>(new vector<SR_var_discriptor>);
+	out_var_list = static_cast<void*>(new vector<SR_var_discriptor>);
 	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
 	//датчики (старое)
 	init_var("none");
 	var_val = new float[var_num];	for(int i=0;i<var_num;i++) var_val[i] = 0;
 }
 
-SR_var_list::~SR_var_list()	{}
+SR_var_list::~SR_var_list()	{
+	delete static_cast<vector<SR_var_discriptor>*>(    var_list);
+	delete static_cast<vector<SR_var_discriptor>*>( in_var_list);
+	delete static_cast<vector<SR_var_discriptor>*>(out_var_list);
+}
 
 void SR_var_list::reg_in_var(const char* proc_name, const char* var_name, float** pp_val_calc_func)
 {
@@ -252,6 +253,7 @@ SR_var_discriptor* SR_var_list::get_rem_by_idx(size_t idx) {
 }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+//?
 void SR_var_list::init_var(const char* var_name) {
 	SR_var_discriptor tmp;	
 	tmp.var_name = var_name;	
@@ -267,10 +269,11 @@ void SR_var_list::init_var(const char* var_name) {
 	p_var_arr->push_back(tmp);
 }
 
+//?
 SR_var_discriptor* SR_var_list::get(const char* Name) {	
-	vector<SR_var_discriptor>::iterator begin_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->begin(); //(* ((vector<SR_var_discriptor>*)var_list) ).begin();
+	vector<SR_var_discriptor>::iterator begin_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->begin();
 	vector<SR_var_discriptor>::iterator       iter = begin_iter;
-	vector<SR_var_discriptor>::iterator   end_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->end();	//(* ((vector<SR_var_discriptor>*)var_list) ).end();
+	vector<SR_var_discriptor>::iterator   end_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->end();
 	while( iter != end_iter ) {	
 		if( strcmp(iter->var_name, Name) == 0 )	
 			return &(*iter); // C точки зрения компилятора у iter тип итератора, а не указатель
@@ -280,6 +283,7 @@ SR_var_discriptor* SR_var_list::get(const char* Name) {
 	//{	if((*iter).var_name==Name)	return &(*iter);	iter++;	}	return &(*begin_iter);		
 }
 
+//?
 void SR_var_list::printf_list()
 {	
 	vector<SR_var_discriptor>::iterator begin_iter = static_cast<vector<SR_var_discriptor>*>(var_list)->begin();
@@ -298,12 +302,12 @@ void SR_var_list::printf_list()
 	}	
 }
 
+//?
 size_t SR_var_list::sz_list() { return static_cast<vector<SR_var_discriptor>*>(var_list)->size(); }
 
 const char* SR_var_list::get_name_from_list(size_t idx) {	
-	// Ќе момешала бы проверка неотрицательности индекса
 	if( idx < static_cast<vector<SR_var_discriptor>*>(var_list)->size() ) 
-		return (* static_cast<vector<SR_var_discriptor>*>(var_list) )[idx].var_name;
+		return static_cast<vector<SR_var_discriptor>*>(var_list)->at(idx).var_name;
 	return "none";
 }
 
@@ -324,60 +328,59 @@ void Link_MPI::set_recv_buff(size_t sz) { recv_buff = new float[sz]; }
 
 int  Link_MPI::get_node_num() { return node; }
 
-void Link_MPI::add_send_var(float* p_var_in_calc, int old_buff_idx)
+void Link_MPI::add_send_var(float* p_var_in_calc, size_t old_buff_idx)
 {
 //	if(send_buff==NULL)	{	return;	}
 //	float* p_var_in_buff = &(send_buff[buff_idx]); 
 	link_var_discriptor tmp;
-	tmp.buff_idx = old_buff_idx;//tmp.p_var_in_buff=p_var_in_buff;
-	tmp.p_var_in_calc=p_var_in_calc;
-	(* (vector<link_var_discriptor> *)send_list  ).push_back(tmp);
+	tmp.buff_idx = old_buff_idx; //tmp.p_var_in_buff=p_var_in_buff;
+	tmp.p_var_in_calc = p_var_in_calc;
+	static_cast<vector<link_var_discriptor>*>(send_list)->push_back(tmp);
 }
 
-bool if_idx_gt (link_var_discriptor i,link_var_discriptor j) { return (i.buff_idx<j.buff_idx); }
+bool if_idx_gt (link_var_discriptor i, link_var_discriptor j) { return (i.buff_idx < j.buff_idx); }
 
-void Link_MPI::set_local_send_buff_order()
-{
-	vector<link_var_discriptor>::iterator begin_iter = (* (vector<link_var_discriptor> *)send_list  ).begin();
+void Link_MPI::set_local_send_buff_order() {
+	vector<link_var_discriptor>::iterator begin_iter = static_cast<vector<link_var_discriptor>*>(send_list)->begin();
 	vector<link_var_discriptor>::iterator       iter = begin_iter;
-	vector<link_var_discriptor>::iterator   end_iter = (* (vector<link_var_discriptor> *)send_list  ).end();
+	vector<link_var_discriptor>::iterator   end_iter = static_cast<vector<link_var_discriptor>*>(send_list)->end();
+	
 	std::sort(begin_iter, end_iter, if_idx_gt);
-	begin_iter = (* (vector<link_var_discriptor> *)send_list  ).begin();		iter = begin_iter;
-	  end_iter = (* (vector<link_var_discriptor> *)send_list  ).end();
-	int buff_idx_cnt=0;
+
+										  begin_iter = static_cast<vector<link_var_discriptor>*>(send_list)->begin();		
+										    	iter = begin_iter;
+										    end_iter = static_cast<vector<link_var_discriptor>*>(send_list)->end();
+	int buff_idx_cnt = 0;
 	// ‘ледующее может не иметь смысла
-	while( iter != end_iter )
-	{	(*iter).buff_idx = buff_idx_cnt;		iter++;	buff_idx_cnt++;	}		
+	while ( iter != end_iter ) {
+		iter->buff_idx = buff_idx_cnt;
+		iter++;	buff_idx_cnt++;	
+	}		
 }
 
-void Link_MPI::add_recv_var(float* p_var_in_calc,int buff_idx)
-{
+void Link_MPI::add_recv_var(float* p_var_in_calc, size_t buff_idx) {
 //	if(recv_buff==NULL) return;	
 //	float* p_var_in_buff = &(recv_buff[buff_idx]);
 	link_var_discriptor tmp;
 	tmp.buff_idx = buff_idx;//tmp.p_var_in_buff=p_var_in_buff;
-	tmp.p_var_in_calc=p_var_in_calc;
-	(* (vector<link_var_discriptor> *)recv_list  ).push_back(tmp);
+	tmp.p_var_in_calc = p_var_in_calc;
+	static_cast<vector<link_var_discriptor>*>(recv_list)->push_back(tmp);
 }
 
-void Link_MPI::copy_send_vars()
-{
-	vector<link_var_discriptor>::iterator begin_iter = (* (vector<link_var_discriptor> *)send_list  ).begin();
+void Link_MPI::copy_send_vars() {
+	vector<link_var_discriptor>::iterator begin_iter = static_cast<vector<link_var_discriptor>*>(send_list)->begin();
 	vector<link_var_discriptor>::iterator       iter = begin_iter;
-	vector<link_var_discriptor>::iterator   end_iter = (* (vector<link_var_discriptor> *)send_list  ).end();
-	// Ѓежим по итераторам send_list
-	while( iter != end_iter )
-	{ send_buff[(*iter).buff_idx] = *((*iter).p_var_in_calc);	iter++;	}
+	vector<link_var_discriptor>::iterator   end_iter = static_cast<vector<link_var_discriptor>*>(send_list)->end();
+	// Бежим по итераторам send_list
+	while ( iter != end_iter ) 	{ send_buff[iter->buff_idx] = *(iter->p_var_in_calc);	iter++; }
 	//{	*((*iter).p_var_in_buff) = *((*iter).p_var_in_calc);	iter++;	}
 }
 	
-void Link_MPI::copy_recv_vars()
-{	
-	vector<link_var_discriptor>::iterator begin_iter = (* (vector<link_var_discriptor> *)recv_list  ).begin();
+void Link_MPI::copy_recv_vars() {	
+	vector<link_var_discriptor>::iterator begin_iter = static_cast<vector<link_var_discriptor>*>(recv_list)->begin();
 	vector<link_var_discriptor>::iterator       iter = begin_iter;
-	vector<link_var_discriptor>::iterator   end_iter = (* (vector<link_var_discriptor> *)recv_list  ).end();
-	while( iter != end_iter )
-	{	*((*iter).p_var_in_calc) = recv_buff[(*iter).buff_idx];	iter++;	}
+	vector<link_var_discriptor>::iterator   end_iter = static_cast<vector<link_var_discriptor>*>(recv_list)->end();
+	while ( iter != end_iter )	{ *(iter->p_var_in_calc) = recv_buff[iter->buff_idx];	iter++;	}
 	//{	*((*iter).p_var_in_calc) = *( (*iter).p_var_in_buff);	iter++;	}
 }
 

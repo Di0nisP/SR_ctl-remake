@@ -4,10 +4,11 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
+                "/usr/include/x86_64-linux-gnu/mpich",
                 "/usr/lib/x86_64-linux-gnu/openmpi/include"
             ],
             "defines": [],
-            "compilerPath": "/usr/bin/mpic++",
+            "compilerPath": "/usr/bin/g++",
             "cStandard": "c17",
             "cppStandard": "gnu++14",
             "intelliSenseMode": "linux-gcc-x64"//,
