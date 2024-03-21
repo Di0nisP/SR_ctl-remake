@@ -13,18 +13,6 @@
 
 using namespace std;
 
-//* Private constants begin ------------------------------------------------------------------------
-// Параметры входного сигнала
-#define FREQ_S 			4000.0f ///< Частота дискретизации АЦП
-#define FREQ_N 			50.0f 	///< Номинальная частота сети
-#define NUM_CYCLE 		4u		///< Число тактов расчёта МУРЗ на периоде номинальной частоты
-#define PHASE_A 		0.0f	///< Угол фазы А, рад
-#define PHASE_B  		2.0943951023931954923084289221863
-#define PHASE_C 	   -2.0943951023931954923084289221863
-#define FAULT_TIME 		2.0f	///< Время изменения режима, с
-const uint8_t HBuffSize = FREQ_S / FREQ_N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
-//* Private constants end --------------------------------------------------------------------------
-
 //* Functions begin --------------------------------------------------------------------------------
 bool overcurrent_protection_trigger(complex<double> Sph1, complex<double> Sph2, complex<double> Sph3,
 complex<double> Iph1, complex<double> Iph2, complex<double> Iph3, 
@@ -59,8 +47,7 @@ private:
 public:
 
     /// @brief Конструктор класса
-    Timers(uint8_t calc_period = MEMS_PERIOD) : time(0), calc_period(calc_period)
-    {
+    Timers(uint8_t calc_period = MEMS_PERIOD) : time(0), calc_period(calc_period) {
 		t_Q  = false;
 		t_CC = false;
 		t_QQ = false;
@@ -75,8 +62,7 @@ public:
 	 * @param S Управляющий сигнал таймера, инициирующий отсчёт выдержки времени
 	 * @param dT Уставка по времени, мс
 	 */
-    void ton(bool S, uint16_t dT) 
-	{
+    void ton(bool S, uint16_t dT) {
         if ( (S == true) && (t_Q == false) )	// Если входной сигнал true, то считаем выдержку времени
 		{
             time += calc_period;
@@ -267,15 +253,15 @@ public:
 };
 
 class ZSCurrentProtection : public StartingElements {
-	private: 
+private: 
 	float c_start; 
 	float c_return;
-	uint16_t t_start; 
+	time_t t_start; 
 	bool dir;
 	Timers *timer;
 
 public:
-	ZSCurrentProtection(std::string name, float c_start, float c_return, uint16_t t_start, bool dir = false, uint16_t step_width = MEMS_PERIOD) :
+	ZSCurrentProtection(std::string name, float c_start, float c_return, time_t t_start, bool dir = false, uint16_t step_width = MEMS_PERIOD) :
 		StartingElements(name), c_start(c_start), c_return(c_return), t_start(t_start), dir(dir)
 	{
 		timer = new Timers(step_width);
@@ -336,19 +322,19 @@ private:
 	//*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
 	//! Объявление входов (данные, пришедшие извне)
 	//* Прямая последовательность
-	float *in_val_re_I1 [3], 	*in_val_im_I1 [3];
-	float *in_val_abs_I1[3], 	*in_val_arg_I1[3];
-	float *in_val_re_U1 [3], 	*in_val_im_U1 [3];
-	float *in_val_abs_U1[3], 	*in_val_arg_U1[3];
-	float *in_val_re_S1 [3], 	*in_val_im_S1 [3];
-	float *in_val_abs_S1[3], 	*in_val_arg_S1[3];
+	float *in_val_re_I1  [3], 	*in_val_im_I1  [3];
+	float *in_val_abs_I1 [3], 	*in_val_arg_I1 [3];
+	float *in_val_re_U1  [3], 	*in_val_im_U1  [3];
+	float *in_val_abs_U1 [3], 	*in_val_arg_U1 [3];
+	float *in_val_re_S1  [3], 	*in_val_im_S1  [3];
+	float *in_val_abs_S1 [3], 	*in_val_arg_S1 [3];
 
-	std::string in_name_re_I1 [3], 	in_name_im_I1 [3];
-	std::string in_name_abs_I1[3], 	in_name_arg_I1[3];
-	std::string in_name_re_U1 [3], 	in_name_im_U1 [3];
-	std::string in_name_abs_U1[3], 	in_name_arg_U1[3];
-	std::string in_name_re_S1 [3], 	in_name_im_S1 [3];
-	std::string in_name_abs_S1[3], 	in_name_arg_S1[3];
+	string in_name_re_I1 [3], 	 in_name_im_I1 [3];
+	string in_name_abs_I1[3], 	 in_name_arg_I1[3];
+	string in_name_re_U1 [3], 	 in_name_im_U1 [3];
+	string in_name_abs_U1[3], 	 in_name_arg_U1[3];
+	string in_name_re_S1 [3], 	 in_name_im_S1 [3];
+	string in_name_abs_S1[3], 	 in_name_arg_S1[3];
 
 	//* Нулевая последовательность
 	float *in_val_re_3I0, 		*in_val_im_3I0;
@@ -364,6 +350,7 @@ private:
 	string in_name_abs_3I0,  	 in_name_arg_3I0;
 	string in_name_abs_3U0,  	 in_name_arg_3U0;
 	string in_name_abs_S0, 	 	 in_name_arg_S0;
+	
 	//! Объявление выходов (должны подключаться на входы другого алгоритма!)
 	float *out_val_start;
 	string out_name_start;
@@ -372,12 +359,22 @@ private:
 	float* set_val_Fn; 					///< Номинальная частота сети, Гц
 	float* set_val_Fs; 					///< Частота дискретизации АЦП, Гц
 	float* set_val_NumCycle;			///< Число тактов устройства на периоде номинальной частоты (50 Гц)
+
+	//TODO Добавить уставки для защит
+	//* Направленная и ненаправленная МТЗ, без пуска по напряжению
+	float *set_val_c_start_ovcp [2];
+	float *set_val_c_return_ovcp[2];
+	float *set_val_t_start_ovcp [2];
+	//* Направленная и ненаправленная ТЗНП, без пуска по напряжению
+	float *set_val_c_start_zscp [2];
+	float *set_val_c_return_zscp[2];
+	float *set_val_t_start_zscp [2];
 	
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	std::vector<StartingElements*> protection_triggers;
-	StartingElements *ovcp[2]; // Ступени МТЗ
-	StartingElements *zscp[2]; // Ступени ТЗНП
+	vector<StartingElements*> protection_elements;
+//	StartingElements *ovcp[2]; // Ступени МТЗ
+//	StartingElements *zscp[2]; // Ступени ТЗНП
 
 public:
 	/// @brief Consructor 
@@ -446,7 +443,8 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	// (Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
 	make_const(&set_val_Fn, "Fn", FREQ_N);
 	make_const(&set_val_Fs, "Fs", FREQ_S);	
-	make_const(&set_val_NumCycle, "NumCycle", NUM_CYCLE);		
+	make_const(&set_val_NumCycle, "NumCycle", NUM_CYCLE);
+		
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 	StartingElements::init_inputs( 
@@ -463,16 +461,16 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 		&in_val_re_S0,  &in_val_im_S0,
 		&in_val_abs_S0, &in_val_arg_S0); //*/
 	
-	protection_triggers.push_back(new OvercurrentProtection("ovcp(1)", 4.0f, 3.0f,   0u));
-	protection_triggers.push_back(new OvercurrentProtection("ovcp(2)", 4.0f, 3.0f, 200u));
-	protection_triggers.push_back(new ZSCurrentProtection  ("zccp(1)", 2.0f, 0.5f,   0u));
-	protection_triggers.push_back(new ZSCurrentProtection  ("zccp(2)", 2.0f, 0.5f, 200u));
+		protection_elements.push_back(new OvercurrentProtection("ovcp(1)", 4.0f, 3.0f,   0u));
+		protection_elements.push_back(new OvercurrentProtection("ovcp(2)", 4.0f, 3.0f, 200u));
+		protection_elements.push_back(new ZSCurrentProtection  ("zccp(1)", 2.0f, 0.5f,   0u));
+		protection_elements.push_back(new ZSCurrentProtection  ("zccp(2)", 2.0f, 0.5f, 200u));
 }
 
 // По-хорошему нужен для динамического изменения ПО (заглушка)
 SR_auto_ctl::~SR_auto_ctl() 
 {
-	for (auto obj : protection_triggers)
+	for (auto obj :protection_elements)
 		delete obj;
 }
 
@@ -493,14 +491,14 @@ void SR_auto_ctl::calc()
 //	ovcp[0]->overcurrent_protection(3.0f, 2.0f, 0);
 //	bool status_ovcp0 = ovcp[0]->get_status();
 
-	for (auto obj : protection_triggers)
+	for (auto obj :protection_elements)
 		obj->detect();
 	
-	*out_val_start = protection_triggers[0]->get_status();
+	*out_val_start =protection_elements[0]->get_status();
 	
 	//! Отладка (не видно с других машин)
 	printf("\n\t%s in-values:\n", proc_name);
-	for (auto obj : protection_triggers)
+	for (auto obj :protection_elements)
 		printf("result %s: %d\n", (obj->name).c_str(),  obj->get_status());
 
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

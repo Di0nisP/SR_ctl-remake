@@ -12,7 +12,9 @@
 //* Defines end -------------------------------------------------------------------------
 
 SR_ctl_type::SR_ctl_type()	{}
-SR_ctl_type::~SR_ctl_type()	{}
+SR_ctl_type::~SR_ctl_type()	{
+	delete Settings;
+}
 
 void SR_ctl_type::Init_local_calc() {
 	FILE *fp; 
@@ -36,7 +38,7 @@ void SR_ctl_type::Init_local_calc() {
 
 	// Пробегаемся по списку алгоритмов и регистрируем их переменные (Reg_vars)
 	for (size_t i = 0; i < calc_proc_cnt; i++)	{	
-		calc_proc[i]->Reg_vars(Settings->All_local_vars);
+		calc_proc[i]->reg_vars(Settings->All_local_vars);
 //		calc_proc[i]->Init_consts();		
 	}
 
@@ -70,7 +72,7 @@ void SR_ctl_type::Init_local_calc() {
 			printf("%s:\n", calc_proc[i]->proc_name);
 		}
 		fprintf(fp, "%s: \n", calc_proc[i]->proc_name);
-		calc_proc[i]->Get_ready();
+		calc_proc[i]->get_ready();
 	}
 	
 	if (proc_rank_flag & PROC_PRINT) {
@@ -329,7 +331,7 @@ void SR_ctl_type::Init() {
 		print_alg = 0;
 		print_var = 0;
 
-		Settings = new SR_Settings();	
+		Settings = new SR_Settings(); //TODO Возможно, стоит перенести в конструктор
 //		Settings->Init();
 
 		if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("START CTL 12\n"); } //сигнализация начала процедуры запуска блока управления
@@ -376,7 +378,7 @@ void SR_ctl_type::Work() {
 			int dist_node_num = p_MPI_link[link_num]->get_node_num();	//номер удаленного узла
 			//+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
 			// Копируем с выходов алгоритмов на буферы для передачи
-			p_MPI_link[link_num]->copy_send_vars(); // (*указатель_на_экземпляр).функция
+			p_MPI_link[link_num]->copy_send_vars();
 			// Пересылка скопированных переменных на удалённые машины
 			// По идее должен быть в конце, после того, как мы пробежались по всем алгоритмам
 			MPI_Send(p_MPI_link[link_num]->send_buff, p_MPI_link[link_num]->send_sz, MPI_FLOAT, dist_node_num, tag, MPI_COMM_WORLD );
@@ -395,7 +397,7 @@ void SR_ctl_type::Work() {
 		//	*/
 			
 		// `calc_proc_cnt` - число локальных алгоритмов
-		for (int i = 0; i < calc_proc_cnt; i++)
+		for (size_t i = 0; i < calc_proc_cnt; i++)
 		{	// `calc_period` расчётной процедуры определяется в самой расчётной процедуре
 			if (MEMS_PERIOD <= calc_proc[i]->calc_period && calc_proc[i]->calc_period < PRINT_PERIOD)
 			{		
@@ -506,8 +508,8 @@ void SR_ctl_type::print_func() {
 		if (0 <= print_alg && print_alg < calc_proc_cnt) {
 			printf("alg[%d]<%s>var:", print_alg, calc_proc[print_alg]->proc_name);
 			int var = abs(print_var) - 1; if (var < 0) var = 0;
-			if (print_var > 0)	printf("out[%d]<%s> = %.3f", var, calc_proc[print_alg]->Get_out_name(var), calc_proc[print_alg]->Get_out_val(var));
-			if (print_var < 0)	printf(" in[%d]<%s> = %.3f", var, calc_proc[print_alg]->Get_in_name (var), calc_proc[print_alg]->Get_in_val (var));	
+			if (print_var > 0)	printf("out[%d]<%s> = %.3f", var, calc_proc[print_alg]->get_out_name(var), calc_proc[print_alg]->get_out_val(var));
+			if (print_var < 0)	printf(" in[%d]<%s> = %.3f", var, calc_proc[print_alg]->get_in_name (var), calc_proc[print_alg]->get_in_val (var));	
 		}
 		else 
 			printf("alg[%d]<no alg>...",print_alg);
@@ -519,6 +521,12 @@ void SR_ctl_type::print_func() {
 
 int main(int argc, char *argv[]) {
 	printf("MPI start\n");
+
+/*	{ // Только для отладки!!!
+		int i = 0;
+		while (i == 0)
+		{sleep(5);}
+	} //*/
 	
 	// Initialize the MPI environment
 	MPI_Init(NULL, NULL);	// MPI_Init(&argc, &argv);

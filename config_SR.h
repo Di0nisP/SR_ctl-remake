@@ -97,16 +97,16 @@ struct link_var_discriptor
 class Link_MPI
 {
 private:
-	int node; // Ќомер узла
-	void* send_list; // —писок на передачу
-	void* recv_list; // —псиок на приЄм
+	int   node; 		///< Номер узла
+	void* send_list; 	///< Список на передачу
+	void* recv_list; 	///< Список на приём
 //	int shift_recv_buff;
 public:
-// —писки на выдачу и на приЄм содержат в себе имена переменных
-	int send_sz; // –азмер буфера на передачу
-	int recv_sz; // Ќа приЄм
-	float* send_buff; // ”казатель на буфер на передачу
-	float* recv_buff; // Ќа приЄм
+	// —писки на выдачу и на приЄм содержат в себе имена переменных
+	int    send_sz; 	///< Размер буфера на передачу
+	int    recv_sz; 	///< Размер буфера на приём
+	float* send_buff; 	///< Указатель на буфер на передачу
+	float* recv_buff; 	///< Указатель на буфер на приём
 //	bool shifted;	
 
 public:
@@ -175,7 +175,7 @@ struct SR_var_discriptor {
 class SR_var_list
 {
 protected:
-	void  *var_list;		//?
+	void  *var_list;		//? Стоит удалить
 	void  *out_var_list;	///< Указатель на размещение списка выходных переменных
 	void  *in_var_list;		///< Указатель на размещение списка входных переменных
 	float *out_var_val;		///< Указатель на массив значений переменных
@@ -186,7 +186,7 @@ protected:
 public:
 	const char *list_name;	
 	float *var_val;
-	int var_num;
+	int    var_num;
 public:
 	/**
 	 * @brief Конструктор

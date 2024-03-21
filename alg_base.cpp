@@ -1,16 +1,18 @@
 ﻿#include "config_SR.h"
 #include "alg_base.h"
 
+//* Includes begin ----------------------------------------------------------------------
 #include <string>      // Для std::string
 #include <vector>      // Для std::vector
 #include <fstream>     // Для работы с файлами
 
 #include <cstdlib>     // Для std::strtod
 #include <cstring>     // Для функций манипуляции со строками в стиле C, таких как strlen
-
-const char *err_var_name = "none";
+//* Includes end ------------------------------------------------------------------------
 
 using namespace std;
+
+const char *err_var_name = "none";
 
 //TODO Оптимизировать
 /**
@@ -51,8 +53,8 @@ int read_float(string* p_in, const char* tag, float* p_result) {
 }
 
 
-/*
-int read_str(string* p_in, const char* tag, string* p_result)
+
+/*int read_str(string* p_in, const char* tag, string* p_result)
 {
 //	string* p_in = (string*)p_in_string;
 	int	start_pos = (*p_in).find(tag,0);								if(start_pos==string::npos)				return -1;	//найден тэг 
@@ -83,12 +85,9 @@ int read_str(const char* file_str, const char* tag, const char* p_result)
 	}
 	else printf("not found ini: <%s> => use defsult settings\n",file_str);
 	return 0;	
-}
-//	*/
+} //*/
 
-
-SR_calc_proc::SR_calc_proc()
-{
+SR_calc_proc::SR_calc_proc() {
 	const_name_list    = static_cast<void*>(new vector<const char*>);
 	out_name_list 	   = static_cast<void*>(new vector<const char*>);	
 	in_name_list 	   = static_cast<void*>(new vector<const char*>);	
@@ -114,31 +113,32 @@ SR_calc_proc::~SR_calc_proc() {
 }
 
 void SR_calc_proc::make_const(float** pp_val, const char* var_name, float init_val) {
-	float* p_val = new float;	*p_val=init_val;
+	float *p_val = new float(init_val);		
 	*pp_val = p_val;
-	vector<const char*> *p_const_name		= (vector<const char*> *)	const_name_list;	(*p_const_name).push_back(var_name);	//имя выхода 
-	vector<float*>      *p_const_val_ptr	= (vector<float*> *)		const_val_ptr_list;	(*p_const_val_ptr).push_back(p_val);	
+//	*pp_val = new float(init_val);
+//	static_cast<vector<    float**>*>(const_val_ptr_list)->push_back(pp_val);
+	static_cast<vector<     float*>*>(const_val_ptr_list)->push_back(p_val);
+	static_cast<vector<const char*>*>(   const_name_list)->push_back(var_name);	
 }
 
 void SR_calc_proc::make_in(float** pp_val, const char* var_name) {
-	//	Лучше сделать push_back(NULL)?
-	*pp_val=NULL;	
-	vector<const char*> *p_in_name		= (vector<const char*> *)	in_name_list;	(*p_in_name).push_back(var_name);
-	vector<float**>      *p_in_val_p	= (vector<float**> *)		in_val_pp_list;	(*p_in_val_p).push_back(pp_val);	
+	*pp_val = nullptr;
+	static_cast<vector<    float**>*>(in_val_pp_list)->push_back(  pp_val);
+	static_cast<vector<const char*>*>(  in_name_list)->push_back(var_name);
 }
 
 void SR_calc_proc::make_in(float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3) {
 	string* p_var_str = new string("");	*p_var_str+=var_name_part1;	*p_var_str+=var_name_part2;	*p_var_str+=var_name_part3;
 	const char* var_name=(*p_var_str).c_str();
-	*pp_val=NULL;	
+	*pp_val = nullptr;	
 	vector<const char*> *p_in_name		= (vector<const char*> *)	in_name_list;	(*p_in_name).push_back(var_name);
 	vector<float**>      *p_in_val_p	= (vector<float**> *)		in_val_pp_list;	(*p_in_val_p).push_back(pp_val);
 }
 
 void SR_calc_proc::make_out(float** pp_val, const char* var_name) {
-	*pp_val=NULL;
-	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//имя выхода 
-	vector<float**>      *p_out_val_p	= (vector<float**> *)		out_val_pp_list;	(*p_out_val_p).push_back(pp_val);
+	*pp_val = nullptr;
+	static_cast<vector<    float**>*>(out_val_pp_list)->push_back(  pp_val);
+	static_cast<vector<const char*>*>(  out_name_list)->push_back(var_name);
 }
 
 void SR_calc_proc::make_out(float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3) {
@@ -168,7 +168,7 @@ size_t SR_calc_proc::get_num_out() {
 	return p_out_name->size();	// Число выходных переменных алгоритма
 }
 
-float SR_calc_proc::Get_out_val(size_t idx) {
+float SR_calc_proc::get_out_val(size_t idx) {
 	vector<float**> *p_out_val_pp = static_cast<vector<float**>*>(out_val_pp_list);
 	if ( idx < p_out_val_pp->size() ) {
 		float  *p_out = *(p_out_val_pp->at(idx));
@@ -177,7 +177,7 @@ float SR_calc_proc::Get_out_val(size_t idx) {
 	return 0;	
 }
 
-float SR_calc_proc::Get_in_val(size_t idx) {
+float SR_calc_proc::get_in_val(size_t idx) {
 	vector<float**> *p_in_val_pp = static_cast<vector<float**>*>( in_val_pp_list);
 	if ( idx < p_in_val_pp->size() ) {
 		float  *p_in = *(p_in_val_pp->at(idx));	if (p_in == nullptr) return 0;
@@ -186,13 +186,13 @@ float SR_calc_proc::Get_in_val(size_t idx) {
 	return 0;	
 }
 
-const char* SR_calc_proc::Get_out_name(size_t idx) {
+const char* SR_calc_proc::get_out_name(size_t idx) {
 	vector<const char*> *out_name =	static_cast<vector<const char*>*>(out_name_list);	
 	if ( idx < out_name->size() )	return out_name->at(idx);
 	else 						    return err_var_name;
 }
 
-const char* SR_calc_proc::Get_in_name(size_t idx) {
+const char* SR_calc_proc::get_in_name(size_t idx) {
 	vector<const char*> * in_name = static_cast<vector<const char*>*>( in_name_list);
 	if ( idx <  in_name->size() )	return  in_name->at(idx);
 	else 							return err_var_name;
@@ -259,7 +259,7 @@ const char* SR_calc_proc::Get_in_name(size_t idx) {
 //	*/
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-int SR_calc_proc::Reg_vars(void* vars_of_block) {
+int SR_calc_proc::reg_vars(void* vars_of_block) {
 	//----------------------------------------------------------
 	//Init_consts
 //	if( (* ((vector<const char*>*)const_name_list) ).empty() ||
@@ -370,8 +370,8 @@ int SR_calc_proc::Reg_vars(void* vars_of_block) {
 	
 	//! Регистрируем локальные входы и выходы		
 	SR_var_list *All_vars_of_block = static_cast<SR_var_list*>(vars_of_block);
-	vector<const char*>  * in_name = static_cast<vector<const char*>*>( in_name_list);
-	vector<const char*>  *out_name = static_cast<vector<const char*>*>(out_name_list);	
+	vector<const char*>  * in_name = static_cast<vector<const char*>*>(   in_name_list);
+	vector<const char*>  *out_name = static_cast<vector<const char*>*>(  out_name_list);	
 	vector<    float**>  *   in_pp = static_cast<vector<    float**>*>( in_val_pp_list); 
 	vector<    float**>  *  out_pp = static_cast<vector<    float**>*>(out_val_pp_list);
 	//* Регистрация локальных входов
@@ -384,13 +384,13 @@ int SR_calc_proc::Reg_vars(void* vars_of_block) {
 	return 0;	
 }
 
-int SR_calc_proc::Get_ready() {
+int SR_calc_proc::get_ready() {
 	if (ready_proc)	return 0;
 
 	int ret = -1;
 
-	vector<const char*> * in_name = static_cast<vector<const char*>*>( in_name_list);
-	vector<const char*> *out_name =	static_cast<vector<const char*>*>(out_name_list);	
+	vector<const char*> * in_name = static_cast<vector<const char*>*>(   in_name_list);
+	vector<const char*> *out_name =	static_cast<vector<const char*>*>(  out_name_list);	
 	vector<    float**> *   in_pp =	static_cast<vector<    float**>*>( in_val_pp_list);	
 	vector<    float**> *  out_pp =	static_cast<vector<    float**>*>(out_val_pp_list);
 		

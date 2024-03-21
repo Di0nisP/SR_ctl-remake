@@ -14,16 +14,9 @@
 #include "alg_base.h"
 
 //* Private constants begin ------------------------------------------------------------------------
-// Параметры входного сигнала
-#define FREQ_S 			4000.0f ///< Частота дискретизации АЦП
-#define FREQ_N 			50.0f 	///< Номинальная частота сети
-#define NUM_CYCLE 		4u		///< Число тактов расчёта МУРЗ на периоде номинальной частоты
-
-const uint8_t N = FREQ_S / FREQ_N;
-const uint8_t HBuffSize = N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
-uint8_t k = 1;
-double sin_w = sin(2.0 * M_PI * k / static_cast<double>(N));
-double cos_w = cos(2.0 * M_PI * k / static_cast<double>(N));
+const uint8_t k = 1;
+const double sin_w = sin(2.0 * M_PI * k / static_cast<double>(N));
+const double cos_w = cos(2.0 * M_PI * k / static_cast<double>(N));
 //* Private constants end --------------------------------------------------------------------------
 
 using namespace std;
@@ -105,11 +98,9 @@ inline complex<double> distance(complex<double> U1ph0, complex<double> U1ph1,
 								complex<double> I1ph0, complex<double> I1ph1) {
     return (U1ph0 - U1ph1) / (I1ph0 - I1ph1); // Z1ph0ph1
 }
-
 //* Functions end ----------------------------------------------------------------------------------
 
-class SR_auto_ctl : public SR_calc_proc
-{
+class SR_auto_ctl : public SR_calc_proc {
 private:
 	///*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
 	//! Объявление входов (данные, пришедшие извне)
@@ -159,9 +150,6 @@ private:
 	string out_name_abs_S0, 	 out_name_arg_S0;
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
-	float* set_val_Fn; 			///< Номинальная частота сети, Гц
-	float* set_val_Fs; 			///< Частота дискретизации АЦП, Гц
-	float* set_val_NumCycle;	///< Число тактов устройства на периоде номинальной частоты (50 Гц)
 
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
@@ -185,14 +173,12 @@ public:
 	void calc();
 };
 
-SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл входного аргумента ???
-{
+SR_auto_ctl::SR_auto_ctl(const char* block_name) {
 	proc_name = "alg_DSP";		// Имя алгоритма (дальше это имя и видно в системе)
 	calc_period = MEMS_PERIOD;	// Период обсчета функции в миллисекундах (PRINT_PERIOD - алгорим редко обсчитывается)
 	
 	//* Выделение памяти вспомогательных переменных
-	for (uint8_t i = 0; i < 3; i++)
-	{
+	for (uint8_t i = 0; i < 3; i++) {
 		I_data[i] = new double[N] {};	U_data[i] = new double[N] {};
 	}
 
@@ -209,8 +195,7 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 		}
 	
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
-	for (uint8_t i = 0; i < 3; i++)
-	{
+	for (uint8_t i = 0; i < 3; i++)	{
 		string suffix = string(1, static_cast<char>('A' + i));
 
 		out_name_re_I1 [i] = "re_I1_"  + suffix;		make_out(&(out_val_re_I1 [i]), out_name_re_I1 [i].c_str());
@@ -246,15 +231,10 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	//(Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
-	make_const(&set_val_Fn, "Fn", FREQ_N);
-	make_const(&set_val_Fs, "Fs", FREQ_S);	
-	make_const(&set_val_NumCycle, "NumCycle", NUM_CYCLE);
-	
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
-SR_auto_ctl::~SR_auto_ctl() 
-{
+SR_auto_ctl::~SR_auto_ctl() {
 	//TODO Проверить правильность
 	for (auto ptr : I_data)
 		delete ptr;
@@ -271,17 +251,14 @@ void SR_auto_ctl::calc()
 	//! Формирование выходных значений
 	// FIFO-цикл
 	for (uint8_t i = 0; i < 3; i++)
-		for (uint8_t j = 0; j < N - HBuffSize; j++)
-		{
+		for (uint8_t j = 0; j < N - HBuffSize; j++) {
 			I_data[i][j] = I_data[i][j + HBuffSize];		
 			U_data[i][j] = U_data[i][j + HBuffSize];
 		}
 	// Добавление новых данных в расчётный пакет
-	for (uint8_t i = 0; i < 3; i++)
-	{
+	for (uint8_t i = 0; i < 3; i++)	{
 		uint8_t j0 = N - HBuffSize;
-		for (uint8_t j = j0; j < N; j++)
-		{
+		for (uint8_t j = j0; j < N; j++) {
 			I_data[i][j] = *(in_val_I[i][j - j0]);			
 			U_data[i][j] = *(in_val_U[i][j - j0]);
 		}
@@ -289,8 +266,7 @@ void SR_auto_ctl::calc()
 	// Запись токовых и напряженческих выходов
 	complex<double> result_I1[3] {}, result_U1[3] {};
 	static uint8_t step = 0u;
-	for (uint8_t i = 0; i < 3u; i++) //TODO Можно ввести настройку для NUM_CYCLE
-	{
+	for (uint8_t i = 0; i < 3u; i++) {
 		result_I1[i] = hoertzel(I_data[i], sin_w, cos_w, step, NUM_CYCLE, N, k); // k = 1
 		*(out_val_re_I1 [i]) = static_cast<float>(result_I1[i].real());
 		*(out_val_im_I1 [i]) = static_cast<float>(result_I1[i].imag());
@@ -319,8 +295,7 @@ void SR_auto_ctl::calc()
 	
 	// Запись выходов мощности
 	complex<double> result_S1, result_S0;
-	for (uint8_t i = 0; i < 3u; i++)
-	{
+	for (uint8_t i = 0; i < 3u; i++) {
 		result_S1 = power(result_I1[i], result_U1[(i+1)%3], result_U1[(i+2)%3]);
 		*(out_val_re_S1 [i]) = static_cast<float>(result_S1.real());
 		*(out_val_im_S1 [i]) = static_cast<float>(result_S1.imag());
@@ -337,20 +312,17 @@ void SR_auto_ctl::calc()
 	static float time = 0.0f;
 	printf("\n\t%s out-values:\n", proc_name);
 	printf("time = %.5f\tstep = %d\n", time, step);
-	for (uint8_t i = 0; i < 3u; i++)
-	{
+	for (uint8_t i = 0; i < 3u; i++) {
 		string print_name = "U_" + string(1, static_cast<char>('A' + i));
 		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
 		*(out_val_re_U1 [i]), *(out_val_im_U1 [i]), 
 		*(out_val_abs_U1[i]), *(out_val_arg_U1[i]) * 180.0f * M_1_PI);
 	}
-	for (uint8_t i = 0; i < 3u; i++)
-	{
+	for (uint8_t i = 0; i < 3u; i++) {
 		string print_name = "I_" + string(1, static_cast<char>('A' + i));
 		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
 		*(out_val_re_I1 [i]), *(out_val_im_I1 [i]), 
 		*(out_val_abs_I1[i]), *(out_val_arg_I1[i]) * 180.0f * M_1_PI);
-		
 	}
 	{ //3U0
 		string print_name = "3U0";

@@ -2,7 +2,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
+            "name": "Build and debug algs",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/SR_ctl",
@@ -21,6 +21,22 @@
                 }
             ],
             "preLaunchTask": "build"
+        }, 
+        {
+            "name": "g++ - Debug active file", // Название конфигурации отладки
+            "type": "cppdbg", // Тип конфигурации для отладки на языке C++
+            "request": "attach", // Запрос на подключение к процессу (в данном случае к уже запущенному процессу)
+            "processId": "${command:pickProcess}", // Идентификатор процесса, к которому будет осуществлено подключение
+            "program": "${workspaceFolder}/SR_ctl", // Путь к исполняемому файлу программы, которую необходимо отлаживать
+            "MIMode": "gdb", // Режим работы MI (Machine Interface) для GDB (GNU Debugger)
+            "setupCommands": [ // Команды, выполняемые перед началом отладки
+                {
+                    "description": "Enable pretty-printing for gdb", // Описание команды
+                    "text": "-enable-pretty-printing", // Текст команды, включающей красивый вывод для gdb
+                    "ignoreFailures": true // Опция, игнорирующая ошибки выполнения данной команды, если они возникнут
+                }
+            ],
+            "miDebuggerPath": "/usr/bin/gdb" // Путь к исполняемому файлу gdb, используемому для отладки
         }
     ]
 }
