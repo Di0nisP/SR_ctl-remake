@@ -98,7 +98,6 @@ const uint8_t N = FREQ_S / FREQ_N;
 const uint8_t HBuffSize = N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
 	
 /**
- * @class Расчётная процедура
  * @brief Класс-продукт
  * 
  * Определяет общий функционал объектов, которые может произвести создатель и его подклассы.
@@ -186,7 +185,7 @@ public:
 	 * @param [out] vars_of_block Указатель на область памяти, куда будет сохранена информация о связях типа входы-выходы
 	 * @return int 
 	 */
-	int reg_vars(void *vars_of_block);
+	int reg_vars(void* vars_of_block);
 
 	/**
 	 * @brief Метод получения числа выходов алгоритма

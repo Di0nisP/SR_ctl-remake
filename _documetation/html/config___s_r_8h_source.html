@@ -1,0 +1,393 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Исходный файл /home/changeme/Документы/SR_ctl-remake/config_SR.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">/home/changeme/Документы/SR_ctl-remake/config_SR.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="config___s_r_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef CONFIG_SR</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define CONFIG_SR</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span><span class="comment">//#include &lt;stdlib&gt;//</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//#include &lt;linux/i2c-dev.h&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;fcntl.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">//#include &lt;iostream.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">//#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;sys/ioctl.h&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;sys/stat.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;unistd.h&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;signal.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="alg__base_8h.html">alg_base.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//#include &quot;UDP_link.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//#include &lt;math.h&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">//  */</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a622293b32ccc06f19e7f568ba80a2390">   26</a></span><span class="preprocessor">#define NUM_BLOCKS 5</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">//#define TXT_SZ 1024</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a123299f29232281ec0b230cd3ecbedd0">   30</a></span><span class="preprocessor">#define TXT_SZ 64</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#afdf864b55cd3ec92dd89308c4abf4d82">   32</a></span><span class="preprocessor">#define DAT_UNIT_NUM 128</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">//----------------------------------------</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a10a8fc35f1a21e5c163f6402ee4d5da3">   36</a></span><span class="preprocessor">#define DEV_ID_ACL   0x19               </span><span class="comment">//LSM303DLHC акселерометр</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a20f6d75653d1f445b9a9e7fc483c9bf6">   37</a></span><span class="preprocessor">#define DEV_ID_MG    0x1e               </span><span class="comment">//LSM303DLHC компас</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#ad83b772f3a6ef5d975b596bc154f3e37">   38</a></span><span class="preprocessor">#define DEV_ID_GYRO  0x6b               </span><span class="comment">//L3GD20 гироскоп</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a79adafdd00f356286db96aff2a7b0c81">   39</a></span><span class="preprocessor">#define DEV_ID_PRESS 0x5d               </span><span class="comment">//датчик давлени€</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a21ad162f03d78874dd5279c2a4762f43">   40</a></span><span class="preprocessor">#define DEV_ID_Wii   0x52</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">//----------------------------------------</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">//тип устройства</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a14a58ae5a3c4960bcfc05f34b96fa64d">   43</a></span><span class="preprocessor">#define UNKNOWN_CTL       0 </span><span class="comment">//неизвестное устройство</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#acf5728c5c951f52769cd061476583188">   44</a></span><span class="preprocessor">#define KITE_CTL_V1       101 </span><span class="comment">//управление куполом (верси€ 1)</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a1838ebd70054d329c368c56bdaff1c18">   45</a></span><span class="preprocessor">#define BOARD_UP_CTL_V1   102 </span><span class="comment">//управление доской - верхн€€ часть (верси€ 1)</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#ae6b5afcb41f53ccdf4c69a19024087cd">   46</a></span><span class="preprocessor">#define BOARD_DOWN_CTL_V1 103 </span><span class="comment">//управление доской - нижн€€  часть (верси€ 1)</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a9ac7e84c2ba3c716ceb7c5a8ee0f2af3">   47</a></span><span class="preprocessor">#define SR_CTL_V1         200 </span><span class="comment">//управление  (верси€ 1)</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//----------------------------------------</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">//шины</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#ac726b4a53564a837eed08bfd70f77042">   50</a></span><span class="preprocessor">#define BUS_ID_I2C1         10</span><span class="comment">//1-€ шина I2C</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a9919a10e1274703c66cced53420bd133">   51</a></span><span class="preprocessor">#define BUS_ID_I2C2         11</span><span class="comment">//2-€ шина I2C</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">//----------------------------------------</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//команды управлени€</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a46dc7ae84992bfe62cc00731959a67f4">   54</a></span><span class="preprocessor">#define CMD_STOP 10</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#aca5a357ef71060012b349048674b568b">   55</a></span><span class="preprocessor">#define CMD_KITE 11</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#afdc55fef6fa872aa7db16da82869da38">   56</a></span><span class="preprocessor">#define CMD_BOARD      12</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#aa763d7b2c411cfca74644d14b45e87fa">   57</a></span><span class="preprocessor">#define CMD_BOARD_ROLL 14</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#ac4ee1ff7263e415d5ba8ad18685b8842">   58</a></span><span class="preprocessor">#define CMD_BOARD_DIR  14</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">//----------------------------------------</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#ac275a5b936bff6134236bbbde4ce4443">   61</a></span><span class="preprocessor">#define STOP_TIMEOUT 300        </span><span class="comment">//врем€ останова мс</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#ad96efba7d51482ccb0ee7c1293059578">   63</a></span><span class="preprocessor">#define LIFE_PERIOD 7200*1000   </span><span class="comment">//период работы программы мс</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a5196aa883551e65e1fe3798bdd00ab09">   65</a></span><span class="preprocessor">#define NET_ACC  001</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#ae623408ca92a2ed61b359235d923edbb">   66</a></span><span class="preprocessor">#define NET_GYRO 002</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a9d3992dca4ea14cea75f5f1e6fc326ef">   67</a></span><span class="preprocessor">#define NET_MG   003</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a74be0cfb617f9c73e299a60fd70cdf23">   68</a></span><span class="preprocessor">#define NET_FLOW 004</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a28964b0750d35f822439ff809daf405b">   70</a></span><span class="preprocessor">#define NET_WII_ACC 011</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a52bb840b3824098f414260e4cd28d184">   71</a></span><span class="preprocessor">#define NET_WII_JOY 011</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a7beed7cb94ecd45dfb3d601e96ee789e">   73</a></span><span class="preprocessor">#define NET_CMD_UP   020</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a6ccf7b3776a2394f6190d8fbabbc0eeb">   74</a></span><span class="preprocessor">#define NET_CMD_DOWN 021</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a195d315a5cca78ce5cb85cb83e317497">   75</a></span><span class="preprocessor">#define NET_CMD_LEFT  022</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#aff69275d2a529d4dae83a001e6f81a87">   76</a></span><span class="preprocessor">#define NET_CMD_RIGHT 023</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a3fc1adf1d60ac1a69594b690f24e4a18">   78</a></span><span class="preprocessor">#define NET_CMD_STAB1 024</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a52f66a05a3da2fbdb63845c055823ffc">   79</a></span><span class="preprocessor">#define NET_CMD_STAB2 025</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="config___s_r_8h.html#a6f7203d673cc9eb77c015f10d3b3bbd3">   81</a></span><span class="preprocessor">#define TYPE_SZ 0</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">/*struct multy_float_var_type</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">{</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment">    const char* name;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">    int sz; </span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">    int ID;</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">};//*/</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="};">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structlink__var__discriptor.html">   90</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structlink__var__discriptor.html">link_var_discriptor</a></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="structlink__var__discriptor.html#a13426cedb0ebd6bac909844ac4d62ca7">   92</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="structlink__var__discriptor.html#a13426cedb0ebd6bac909844ac4d62ca7">buff_idx</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">//  float* p_var_in_buff;</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="structlink__var__discriptor.html#a6136a3a29daf90a64ffba7d0a273e574">   94</a></span>    <span class="keywordtype">float</span>* <a class="code hl_variable" href="structlink__var__discriptor.html#a6136a3a29daf90a64ffba7d0a273e574">p_var_in_calc</a>; <span class="comment">// Указатель на входную локальную переменную</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>};</div>
+</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="};">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html">  101</a></span><span class="keyword">class </span><a class="code hl_class" href="class_link___m_p_i.html">Link_MPI</a></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html#a3d871c8ad1821e59fc99c15b21e20e04">  104</a></span>    <span class="keywordtype">int</span>   <a class="code hl_variable" href="class_link___m_p_i.html#a3d871c8ad1821e59fc99c15b21e20e04">node</a>;         </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html#a6a0f089423539e475fda7aca69ec5852">  105</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_link___m_p_i.html#a6a0f089423539e475fda7aca69ec5852">send_list</a>;    </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html#aed8ce942ab6584786258662799ca85b7">  106</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_link___m_p_i.html#aed8ce942ab6584786258662799ca85b7">recv_list</a>;    </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment">//  int shift_recv_buff;</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// —писки на выдачу и на приЄм содержат в себе имена переменных</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html#a61b97363ed923aeadd32ff0825352453">  110</a></span>    <span class="keywordtype">int</span>    <a class="code hl_variable" href="class_link___m_p_i.html#a61b97363ed923aeadd32ff0825352453">send_sz</a>;     </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html#a0cc3abb6fe287c658f3e68882e0fb07b">  111</a></span>    <span class="keywordtype">int</span>    <a class="code hl_variable" href="class_link___m_p_i.html#a0cc3abb6fe287c658f3e68882e0fb07b">recv_sz</a>;     </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html#a5a4f1f8d7a61f642160c29376ce025df">  112</a></span>    <span class="keywordtype">float</span>* <a class="code hl_variable" href="class_link___m_p_i.html#a5a4f1f8d7a61f642160c29376ce025df">send_buff</a>;   </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_link___m_p_i.html#adfc83fd0778787240db3dc3c71f61c68">  113</a></span>    <span class="keywordtype">float</span>* <a class="code hl_variable" href="class_link___m_p_i.html#adfc83fd0778787240db3dc3c71f61c68">recv_buff</a>;   </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">//  bool shifted;   </span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>     <a class="code hl_function" href="class_link___m_p_i.html#af11ccab0e26abc8bb1537f83b1b6fe1c">Link_MPI</a>(<span class="keywordtype">int</span> node_num);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <a class="code hl_function" href="class_link___m_p_i.html#adc5ab29fbc24a760cf8b9795e52b501a">~Link_MPI</a>();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">//  void set_shift_recv_buff(int shift_bytes);</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_link___m_p_i.html#afaa63864666a4c86860e90fce8fb78d7">get_node_num</a>(); <span class="comment">// ѕолучить номер (ID) узла внутри сети устройств</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">//  void add_send_var(float* p_var_in_buff,float* p_var_in_calc);</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="comment">//  void add_recv_var(float* p_var_in_buff,float* p_var_in_calc);</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <span class="comment">// ƒобавление переменной:</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="comment">// float* p_var_in_calc -- указатель на переменную;</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <span class="comment">// int buff_idx -- индекс внутри буфера (на приём или передачу)</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_link___m_p_i.html#a6b317e439854d6e9b73d95bb659d05ee">add_send_var</a>(<span class="keywordtype">float</span>* p_var_in_calc,<span class="keywordtype">size_t</span> buff_idx);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_link___m_p_i.html#acdb60f906f281395a42c7bfc54c4bb55">add_recv_var</a>(<span class="keywordtype">float</span>* p_var_in_calc,<span class="keywordtype">size_t</span> buff_idx);    </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_link___m_p_i.html#a09c325fad50817b2a065789690f2e0d4">set_local_send_buff_order</a>();</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// Копирование из буфера send или recv в буфер со внешними переменными</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_link___m_p_i.html#aa4749346234606cbc878c04e1e7f8ea7">copy_send_vars</a>();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_link___m_p_i.html#acb0b19a7784e31817d4611decebc2141">copy_recv_vars</a>();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="comment">// Выделение буферов для MPI</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_link___m_p_i.html#a3803c4d49f2630a02fc589f25c9e9975">set_send_buff</a>(<span class="keywordtype">size_t</span> sz);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_link___m_p_i.html#a9f74dc957560bdca3ae5bb4caaec8a9e">set_recv_buff</a>(<span class="keywordtype">size_t</span> sz);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment">//  int get_cur_send_sz();</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">//  int get_cur_recv_sz();  </span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">//  void set_cur_send_sz(int sz);</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="comment">//  void set_cur_recv_sz(int sz);   </span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>};</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="};">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html">  152</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_s_r__var__discriptor.html">SR_var_discriptor</a> {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#ab8b7f271eed738f4978fba7a43ece59f">  153</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="struct_s_r__var__discriptor.html#ab8b7f271eed738f4978fba7a43ece59f">var_name</a>;       </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#a2d59eb5b4b9e9efd540e80a3594d8f44">  154</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="struct_s_r__var__discriptor.html#a2d59eb5b4b9e9efd540e80a3594d8f44">calc_proc_name</a>; </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#aacff75fc8317ca493a8cfffc7995bb0b">  155</a></span>    <span class="keywordtype">float</span>** <a class="code hl_variable" href="struct_s_r__var__discriptor.html#aacff75fc8317ca493a8cfffc7995bb0b">pp_val_calc</a>;        </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#aa838bd34b1dc049fc88b5dae0b9b99cc">  156</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_s_r__var__discriptor.html#aa838bd34b1dc049fc88b5dae0b9b99cc">use_cnt</a>;                </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">//---------------</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#aa1b8d7769a8c9e78673717ddf42f6169">  159</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_s_r__var__discriptor.html#aa1b8d7769a8c9e78673717ddf42f6169">out_num</a>; <span class="comment">// ?</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#aa56a782e0051eabd9f9f2a04b03dd9b1">  160</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_s_r__var__discriptor.html#aa56a782e0051eabd9f9f2a04b03dd9b1">idx</a>; <span class="comment">// »ндекс</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#ac70f9d8d973b9c0e8f30adea3e9430ab">  161</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_s_r__var__discriptor.html#ac70f9d8d973b9c0e8f30adea3e9430ab">in_cnt</a>; <span class="comment">// (может не работать)</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="comment">//-------------------“ќЋ№ ќ ƒЋя ќ“Ћјƒ » “ј  Ќ≈Ћ№«я!!!</span></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="struct_s_r__var__discriptor.html#ad6bbeff512bfac19a83bcf09aa5e4e08">  163</a></span>    <span class="keywordtype">float</span>* <a class="code hl_variable" href="struct_s_r__var__discriptor.html#ad6bbeff512bfac19a83bcf09aa5e4e08">p_val</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment">//-------------------“ќЋ№ ќ ƒЋя ќ“Ћјƒ » “ј  Ќ≈Ћ№«я!!!</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>};</div>
+</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="};">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html">  178</a></span><span class="keyword">class </span><a class="code hl_class" href="class_s_r__var__list.html">SR_var_list</a> {</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a9d32b502abc0dd4205915c46e2a6bd52">  180</a></span>    <span class="keywordtype">void</span>  *<a class="code hl_variable" href="class_s_r__var__list.html#a9d32b502abc0dd4205915c46e2a6bd52">var_list</a>;        <span class="comment">//? Стоит удалить</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#aff08b6463b98e99f921f89c02c9dd817">  181</a></span>    <span class="keywordtype">void</span>  *<a class="code hl_variable" href="class_s_r__var__list.html#aff08b6463b98e99f921f89c02c9dd817">out_var_list</a>;    </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a0263abc99eb70dc7b3da1c0648df6576">  182</a></span>    <span class="keywordtype">void</span>  *<a class="code hl_variable" href="class_s_r__var__list.html#a0263abc99eb70dc7b3da1c0648df6576">in_var_list</a>;     </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a21a977f65c09cfc0d3efcf5d9fa591fc">  183</a></span>    <span class="keywordtype">float</span> *<a class="code hl_variable" href="class_s_r__var__list.html#a21a977f65c09cfc0d3efcf5d9fa591fc">out_var_val</a>;     </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="comment">//+ + + + + + + + + + + + + + + + + + + + + </span></div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a80b7228ced97fc9f7723adad9a700397">  185</a></span>    <span class="keywordtype">void</span>  *<a class="code hl_variable" href="class_s_r__var__list.html#a80b7228ced97fc9f7723adad9a700397">remote_var_list</a>; </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a3515fb5a2ab77fc9c83999c883324b97">  186</a></span>    <span class="keywordtype">float</span> *<a class="code hl_variable" href="class_s_r__var__list.html#a3515fb5a2ab77fc9c83999c883324b97">remote_var_val</a>;  </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="comment">//+ + + + + + + + + + + + + + + + + + + + + </span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a77a35498bb5e32561252fd22a380dca0">  189</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span> *<a class="code hl_variable" href="class_s_r__var__list.html#a77a35498bb5e32561252fd22a380dca0">list_name</a>;  </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a32a3ea6912a4b982bcf97c6d017c65c6">  190</a></span>    <span class="keywordtype">float</span> *<a class="code hl_variable" href="class_s_r__var__list.html#a32a3ea6912a4b982bcf97c6d017c65c6">var_val</a>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="class_s_r__var__list.html#a59f720f8cb4ef34b8413cde0cad715e1">  191</a></span>    <span class="keywordtype">int</span>    <a class="code hl_variable" href="class_s_r__var__list.html#a59f720f8cb4ef34b8413cde0cad715e1">var_num</a>;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <a class="code hl_function" href="class_s_r__var__list.html#a7608d86a2d9edc1c54bb364d0d63ca2f">SR_var_list</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* in_name);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <a class="code hl_function" href="class_s_r__var__list.html#a711152086ac6ae0a4663631f13be1e44">~SR_var_list</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__var__list.html#ab9a287d1fda21d54f07c996fc0777449">init_var</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name); <span class="comment">//? Установка переменных</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <a class="code hl_struct" href="struct_s_r__var__discriptor.html">SR_var_discriptor</a>* <a class="code hl_function" href="class_s_r__var__list.html#aa6a5d92ebf70ef13305b70e9484e68d6">get</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* Name); <span class="comment">// Вызов переменной по имени (медленно)</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">void</span>  <a class="code hl_function" href="class_s_r__var__list.html#ad472b66a1add1322a6a70894851ffde8">printf_list</a>(); <span class="comment">// Перечисление имён всех переменных</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_s_r__var__list.html#ab5eb0e4068e406f48ee962eb5a7577e9">sz_list</a>(); <span class="comment">// Количество переменных</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="class_s_r__var__list.html#a0a9729b206bdabf9976f3b13df01ad49">get_name_from_list</a>(<span class="keywordtype">size_t</span> idx); <span class="comment">// Имя по индексу массива имён</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_s_r__var__list.html#a6975a9e7af3f41a85f2615979f450865">sz_out_list</a>();   </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_s_r__var__list.html#aec3947a99f8c549b33e2e264d1125e08">sz_in_list</a>();   </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_s_r__var__list.html#a037bdcb47ebc44cdb6bf0046d6f105d1">sz_rem_list</a>();   </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <a class="code hl_struct" href="struct_s_r__var__discriptor.html">SR_var_discriptor</a>* <a class="code hl_function" href="class_s_r__var__list.html#aa24b7b7f29148569ebab8f8b79a801c6">get_out_by_idx</a>(<span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <a class="code hl_struct" href="struct_s_r__var__discriptor.html">SR_var_discriptor</a>* <a class="code hl_function" href="class_s_r__var__list.html#adf7522070b92afc0109deebdb46e6534">get_in_by_idx</a>(<span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <a class="code hl_struct" href="struct_s_r__var__discriptor.html">SR_var_discriptor</a>* <a class="code hl_function" href="class_s_r__var__list.html#a6024a7f3bff2f0cad7336985b785462e">get_rem_by_idx</a>(<span class="keywordtype">size_t</span> idx);  </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="comment">//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__var__list.html#a7dbc1a89d4ddc8f04ef285c05833df5d">reg_in_var</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* proc_name,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name,<span class="keywordtype">float</span>** pp_val_calc_func);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__var__list.html#adb84c527b268489cb7e88303fa6cd5dc">reg_out_var</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* proc_name,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name,<span class="keywordtype">float</span>** pp_val_calc_func);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__var__list.html#afefa4d88213b147059171cba41b0a286">make_out_vars</a>();</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    <span class="comment">//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>};</div>
+</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="foldopen" id="foldopen00248" data-start="{" data-end="};">
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno"><a class="line" href="class_s_r___settings.html">  248</a></span><span class="keyword">class </span><a class="code hl_class" href="class_s_r___settings.html">SR_Settings</a></div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>{</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno"><a class="line" href="class_s_r___settings.html#a7f052286c5621fb79d2ccdaedbe10a43">  251</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r___settings.html#a7f052286c5621fb79d2ccdaedbe10a43">p_primary_sensors_list</a>;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno"><a class="line" href="class_s_r___settings.html#a4d8a81b3923a02b45f2f23303ca748ac">  252</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r___settings.html#a4d8a81b3923a02b45f2f23303ca748ac">p_blocks_list</a>;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="class_s_r___settings.html#a9b51d75ccbbfa6a53e038ae1d6e3957f">  253</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r___settings.html#a9b51d75ccbbfa6a53e038ae1d6e3957f">p_net_interface_list</a>;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="comment">//  void* p_Link_list;  </span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="class_s_r___settings.html#a40a5e34d18f651a615e2ccfd74832016">  258</a></span>    <a class="code hl_class" href="class_s_r__var__list.html">SR_var_list</a>*  <a class="code hl_variable" href="class_s_r___settings.html#a40a5e34d18f651a615e2ccfd74832016">All_local_vars</a>;   </div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="class_s_r___settings.html#af0f347b91cae036e3ef341e829128ee4">  259</a></span>    <a class="code hl_class" href="class_s_r__var__list.html">SR_var_list</a>** <a class="code hl_variable" href="class_s_r___settings.html#af0f347b91cae036e3ef341e829128ee4">All_dist_vars</a>;    </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="class_s_r___settings.html#a9698086eb16ccc386a94a29d10ed9abe">  261</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="class_s_r___settings.html#a9698086eb16ccc386a94a29d10ed9abe">Block_name</a>;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <a class="code hl_function" href="class_s_r___settings.html#acaf767b6684b3a208ad50a66ada83ae5">SR_Settings</a>();</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <a class="code hl_function" href="class_s_r___settings.html#a7d8cc33075efc96a55e1a9cbc866dbb3">~SR_Settings</a>();</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_s_r___settings.html#a235cd2df577d2918a35dc84d7f2c6ae9">Init</a>();</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    </div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="comment">// Поиск so-файлов в указанной папке</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_s_r___settings.html#aaeffcde2f98685c6b50df0c34eb3071a">find_algs</a>(<a class="code hl_class" href="class_s_r__calc__proc.html">SR_calc_proc</a>*** p_calc_proc_array);    </div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>};</div>
+</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span><span class="preprocessor">#endif </span><span class="comment">// CONFIG_SR</span></div>
+<div class="ttc" id="aalg__base_8h_html"><div class="ttname"><a href="alg__base_8h.html">alg_base.h</a></div></div>
+<div class="ttc" id="aclass_link___m_p_i_html"><div class="ttname"><a href="class_link___m_p_i.html">Link_MPI</a></div><div class="ttdoc">Класс для работы с входыми-выходами алгоритмов других процессов в коммуникаторе MPI.</div><div class="ttdef"><b>Definition</b> config_SR.h:102</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a09c325fad50817b2a065789690f2e0d4"><div class="ttname"><a href="class_link___m_p_i.html#a09c325fad50817b2a065789690f2e0d4">Link_MPI::set_local_send_buff_order</a></div><div class="ttdeci">void set_local_send_buff_order()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:334</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a0cc3abb6fe287c658f3e68882e0fb07b"><div class="ttname"><a href="class_link___m_p_i.html#a0cc3abb6fe287c658f3e68882e0fb07b">Link_MPI::recv_sz</a></div><div class="ttdeci">int recv_sz</div><div class="ttdoc">Размер буфера на приём</div><div class="ttdef"><b>Definition</b> config_SR.h:111</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a3803c4d49f2630a02fc589f25c9e9975"><div class="ttname"><a href="class_link___m_p_i.html#a3803c4d49f2630a02fc589f25c9e9975">Link_MPI::set_send_buff</a></div><div class="ttdeci">void set_send_buff(size_t sz)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:318</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a3d871c8ad1821e59fc99c15b21e20e04"><div class="ttname"><a href="class_link___m_p_i.html#a3d871c8ad1821e59fc99c15b21e20e04">Link_MPI::node</a></div><div class="ttdeci">int node</div><div class="ttdoc">Номер узла</div><div class="ttdef"><b>Definition</b> config_SR.h:104</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a5a4f1f8d7a61f642160c29376ce025df"><div class="ttname"><a href="class_link___m_p_i.html#a5a4f1f8d7a61f642160c29376ce025df">Link_MPI::send_buff</a></div><div class="ttdeci">float * send_buff</div><div class="ttdoc">Указатель на буфер на передачу</div><div class="ttdef"><b>Definition</b> config_SR.h:112</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a61b97363ed923aeadd32ff0825352453"><div class="ttname"><a href="class_link___m_p_i.html#a61b97363ed923aeadd32ff0825352453">Link_MPI::send_sz</a></div><div class="ttdeci">int send_sz</div><div class="ttdoc">Размер буфера на передачу</div><div class="ttdef"><b>Definition</b> config_SR.h:110</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a6a0f089423539e475fda7aca69ec5852"><div class="ttname"><a href="class_link___m_p_i.html#a6a0f089423539e475fda7aca69ec5852">Link_MPI::send_list</a></div><div class="ttdeci">void * send_list</div><div class="ttdoc">Список на передачу</div><div class="ttdef"><b>Definition</b> config_SR.h:105</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a6b317e439854d6e9b73d95bb659d05ee"><div class="ttname"><a href="class_link___m_p_i.html#a6b317e439854d6e9b73d95bb659d05ee">Link_MPI::add_send_var</a></div><div class="ttdeci">void add_send_var(float *p_var_in_calc, size_t buff_idx)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:323</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_a9f74dc957560bdca3ae5bb4caaec8a9e"><div class="ttname"><a href="class_link___m_p_i.html#a9f74dc957560bdca3ae5bb4caaec8a9e">Link_MPI::set_recv_buff</a></div><div class="ttdeci">void set_recv_buff(size_t sz)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:319</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_aa4749346234606cbc878c04e1e7f8ea7"><div class="ttname"><a href="class_link___m_p_i.html#aa4749346234606cbc878c04e1e7f8ea7">Link_MPI::copy_send_vars</a></div><div class="ttdeci">void copy_send_vars()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:361</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_acb0b19a7784e31817d4611decebc2141"><div class="ttname"><a href="class_link___m_p_i.html#acb0b19a7784e31817d4611decebc2141">Link_MPI::copy_recv_vars</a></div><div class="ttdeci">void copy_recv_vars()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:370</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_acdb60f906f281395a42c7bfc54c4bb55"><div class="ttname"><a href="class_link___m_p_i.html#acdb60f906f281395a42c7bfc54c4bb55">Link_MPI::add_recv_var</a></div><div class="ttdeci">void add_recv_var(float *p_var_in_calc, size_t buff_idx)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:352</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_adc5ab29fbc24a760cf8b9795e52b501a"><div class="ttname"><a href="class_link___m_p_i.html#adc5ab29fbc24a760cf8b9795e52b501a">Link_MPI::~Link_MPI</a></div><div class="ttdeci">~Link_MPI()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:313</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_adfc83fd0778787240db3dc3c71f61c68"><div class="ttname"><a href="class_link___m_p_i.html#adfc83fd0778787240db3dc3c71f61c68">Link_MPI::recv_buff</a></div><div class="ttdeci">float * recv_buff</div><div class="ttdoc">Указатель на буфер на приём</div><div class="ttdef"><b>Definition</b> config_SR.h:113</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_aed8ce942ab6584786258662799ca85b7"><div class="ttname"><a href="class_link___m_p_i.html#aed8ce942ab6584786258662799ca85b7">Link_MPI::recv_list</a></div><div class="ttdeci">void * recv_list</div><div class="ttdoc">Список на приём</div><div class="ttdef"><b>Definition</b> config_SR.h:106</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_af11ccab0e26abc8bb1537f83b1b6fe1c"><div class="ttname"><a href="class_link___m_p_i.html#af11ccab0e26abc8bb1537f83b1b6fe1c">Link_MPI::Link_MPI</a></div><div class="ttdeci">Link_MPI(int node_num)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:304</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html_afaa63864666a4c86860e90fce8fb78d7"><div class="ttname"><a href="class_link___m_p_i.html#afaa63864666a4c86860e90fce8fb78d7">Link_MPI::get_node_num</a></div><div class="ttdeci">int get_node_num()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:321</div></div>
+<div class="ttc" id="aclass_s_r___settings_html"><div class="ttname"><a href="class_s_r___settings.html">SR_Settings</a></div><div class="ttdef"><b>Definition</b> config_SR.h:249</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_a235cd2df577d2918a35dc84d7f2c6ae9"><div class="ttname"><a href="class_s_r___settings.html#a235cd2df577d2918a35dc84d7f2c6ae9">SR_Settings::Init</a></div><div class="ttdeci">int Init()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:28</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_a40a5e34d18f651a615e2ccfd74832016"><div class="ttname"><a href="class_s_r___settings.html#a40a5e34d18f651a615e2ccfd74832016">SR_Settings::All_local_vars</a></div><div class="ttdeci">SR_var_list * All_local_vars</div><div class="ttdoc">Cписок локальных переменных</div><div class="ttdef"><b>Definition</b> config_SR.h:258</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_a4d8a81b3923a02b45f2f23303ca748ac"><div class="ttname"><a href="class_s_r___settings.html#a4d8a81b3923a02b45f2f23303ca748ac">SR_Settings::p_blocks_list</a></div><div class="ttdeci">void * p_blocks_list</div><div class="ttdef"><b>Definition</b> config_SR.h:252</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_a7d8cc33075efc96a55e1a9cbc866dbb3"><div class="ttname"><a href="class_s_r___settings.html#a7d8cc33075efc96a55e1a9cbc866dbb3">SR_Settings::~SR_Settings</a></div><div class="ttdeci">~SR_Settings()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:24</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_a7f052286c5621fb79d2ccdaedbe10a43"><div class="ttname"><a href="class_s_r___settings.html#a7f052286c5621fb79d2ccdaedbe10a43">SR_Settings::p_primary_sensors_list</a></div><div class="ttdeci">void * p_primary_sensors_list</div><div class="ttdef"><b>Definition</b> config_SR.h:251</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_a9698086eb16ccc386a94a29d10ed9abe"><div class="ttname"><a href="class_s_r___settings.html#a9698086eb16ccc386a94a29d10ed9abe">SR_Settings::Block_name</a></div><div class="ttdeci">const char * Block_name</div><div class="ttdef"><b>Definition</b> config_SR.h:261</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_a9b51d75ccbbfa6a53e038ae1d6e3957f"><div class="ttname"><a href="class_s_r___settings.html#a9b51d75ccbbfa6a53e038ae1d6e3957f">SR_Settings::p_net_interface_list</a></div><div class="ttdeci">void * p_net_interface_list</div><div class="ttdef"><b>Definition</b> config_SR.h:253</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_aaeffcde2f98685c6b50df0c34eb3071a"><div class="ttname"><a href="class_s_r___settings.html#aaeffcde2f98685c6b50df0c34eb3071a">SR_Settings::find_algs</a></div><div class="ttdeci">size_t find_algs(SR_calc_proc ***p_calc_proc_array)</div><div class="ttdoc">Метод для поиска локальных алгоритмов</div><div class="ttdef"><b>Definition</b> config_SR.cpp:32</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_acaf767b6684b3a208ad50a66ada83ae5"><div class="ttname"><a href="class_s_r___settings.html#acaf767b6684b3a208ad50a66ada83ae5">SR_Settings::SR_Settings</a></div><div class="ttdeci">SR_Settings()</div><div class="ttdoc">Construct a new sr settings object.</div><div class="ttdef"><b>Definition</b> config_SR.cpp:18</div></div>
+<div class="ttc" id="aclass_s_r___settings_html_af0f347b91cae036e3ef341e829128ee4"><div class="ttname"><a href="class_s_r___settings.html#af0f347b91cae036e3ef341e829128ee4">SR_Settings::All_dist_vars</a></div><div class="ttdeci">SR_var_list ** All_dist_vars</div><div class="ttdoc">Список удалённых переменных</div><div class="ttdef"><b>Definition</b> config_SR.h:259</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html"><div class="ttname"><a href="class_s_r__calc__proc.html">SR_calc_proc</a></div><div class="ttdoc">Класс-продукт</div><div class="ttdef"><b>Definition</b> alg_base.h:106</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html"><div class="ttname"><a href="class_s_r__var__list.html">SR_var_list</a></div><div class="ttdoc">Класс для обработки списков переменных</div><div class="ttdef"><b>Definition</b> config_SR.h:178</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a0263abc99eb70dc7b3da1c0648df6576"><div class="ttname"><a href="class_s_r__var__list.html#a0263abc99eb70dc7b3da1c0648df6576">SR_var_list::in_var_list</a></div><div class="ttdeci">void * in_var_list</div><div class="ttdoc">Указатель на размещение списка входных переменных</div><div class="ttdef"><b>Definition</b> config_SR.h:182</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a037bdcb47ebc44cdb6bf0046d6f105d1"><div class="ttname"><a href="class_s_r__var__list.html#a037bdcb47ebc44cdb6bf0046d6f105d1">SR_var_list::sz_rem_list</a></div><div class="ttdeci">size_t sz_rem_list()</div><div class="ttdoc">Размер списка входных удалённых переменных</div><div class="ttdef"><b>Definition</b> config_SR.cpp:226</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a0a9729b206bdabf9976f3b13df01ad49"><div class="ttname"><a href="class_s_r__var__list.html#a0a9729b206bdabf9976f3b13df01ad49">SR_var_list::get_name_from_list</a></div><div class="ttdeci">const char * get_name_from_list(size_t idx)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:297</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a21a977f65c09cfc0d3efcf5d9fa591fc"><div class="ttname"><a href="class_s_r__var__list.html#a21a977f65c09cfc0d3efcf5d9fa591fc">SR_var_list::out_var_val</a></div><div class="ttdeci">float * out_var_val</div><div class="ttdoc">Указатель на массив значений переменных</div><div class="ttdef"><b>Definition</b> config_SR.h:183</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a32a3ea6912a4b982bcf97c6d017c65c6"><div class="ttname"><a href="class_s_r__var__list.html#a32a3ea6912a4b982bcf97c6d017c65c6">SR_var_list::var_val</a></div><div class="ttdeci">float * var_val</div><div class="ttdef"><b>Definition</b> config_SR.h:190</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a3515fb5a2ab77fc9c83999c883324b97"><div class="ttname"><a href="class_s_r__var__list.html#a3515fb5a2ab77fc9c83999c883324b97">SR_var_list::remote_var_val</a></div><div class="ttdeci">float * remote_var_val</div><div class="ttdef"><b>Definition</b> config_SR.h:186</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a59f720f8cb4ef34b8413cde0cad715e1"><div class="ttname"><a href="class_s_r__var__list.html#a59f720f8cb4ef34b8413cde0cad715e1">SR_var_list::var_num</a></div><div class="ttdeci">int var_num</div><div class="ttdef"><b>Definition</b> config_SR.h:191</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a6024a7f3bff2f0cad7336985b785462e"><div class="ttname"><a href="class_s_r__var__list.html#a6024a7f3bff2f0cad7336985b785462e">SR_var_list::get_rem_by_idx</a></div><div class="ttdeci">SR_var_discriptor * get_rem_by_idx(size_t idx)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:238</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a6975a9e7af3f41a85f2615979f450865"><div class="ttname"><a href="class_s_r__var__list.html#a6975a9e7af3f41a85f2615979f450865">SR_var_list::sz_out_list</a></div><div class="ttdeci">size_t sz_out_list()</div><div class="ttdoc">Размер списка выходных переменных</div><div class="ttdef"><b>Definition</b> config_SR.cpp:224</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a711152086ac6ae0a4663631f13be1e44"><div class="ttname"><a href="class_s_r__var__list.html#a711152086ac6ae0a4663631f13be1e44">SR_var_list::~SR_var_list</a></div><div class="ttdeci">~SR_var_list()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:114</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a7608d86a2d9edc1c54bb364d0d63ca2f"><div class="ttname"><a href="class_s_r__var__list.html#a7608d86a2d9edc1c54bb364d0d63ca2f">SR_var_list::SR_var_list</a></div><div class="ttdeci">SR_var_list(const char *in_name)</div><div class="ttdoc">Конструктор</div><div class="ttdef"><b>Definition</b> config_SR.cpp:101</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a77a35498bb5e32561252fd22a380dca0"><div class="ttname"><a href="class_s_r__var__list.html#a77a35498bb5e32561252fd22a380dca0">SR_var_list::list_name</a></div><div class="ttdeci">const char * list_name</div><div class="ttdef"><b>Definition</b> config_SR.h:189</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a7dbc1a89d4ddc8f04ef285c05833df5d"><div class="ttname"><a href="class_s_r__var__list.html#a7dbc1a89d4ddc8f04ef285c05833df5d">SR_var_list::reg_in_var</a></div><div class="ttdeci">void reg_in_var(const char *proc_name, const char *var_name, float **pp_val_calc_func)</div><div class="ttdoc">Метод регистрации локальных входов</div><div class="ttdef"><b>Definition</b> config_SR.cpp:120</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a80b7228ced97fc9f7723adad9a700397"><div class="ttname"><a href="class_s_r__var__list.html#a80b7228ced97fc9f7723adad9a700397">SR_var_list::remote_var_list</a></div><div class="ttdeci">void * remote_var_list</div><div class="ttdef"><b>Definition</b> config_SR.h:185</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_a9d32b502abc0dd4205915c46e2a6bd52"><div class="ttname"><a href="class_s_r__var__list.html#a9d32b502abc0dd4205915c46e2a6bd52">SR_var_list::var_list</a></div><div class="ttdeci">void * var_list</div><div class="ttdef"><b>Definition</b> config_SR.h:180</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_aa24b7b7f29148569ebab8f8b79a801c6"><div class="ttname"><a href="class_s_r__var__list.html#aa24b7b7f29148569ebab8f8b79a801c6">SR_var_list::get_out_by_idx</a></div><div class="ttdeci">SR_var_discriptor * get_out_by_idx(size_t idx)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:228</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_aa6a5d92ebf70ef13305b70e9484e68d6"><div class="ttname"><a href="class_s_r__var__list.html#aa6a5d92ebf70ef13305b70e9484e68d6">SR_var_list::get</a></div><div class="ttdeci">SR_var_discriptor * get(const char *Name)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:262</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_ab5eb0e4068e406f48ee962eb5a7577e9"><div class="ttname"><a href="class_s_r__var__list.html#ab5eb0e4068e406f48ee962eb5a7577e9">SR_var_list::sz_list</a></div><div class="ttdeci">size_t sz_list()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:295</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_ab9a287d1fda21d54f07c996fc0777449"><div class="ttname"><a href="class_s_r__var__list.html#ab9a287d1fda21d54f07c996fc0777449">SR_var_list::init_var</a></div><div class="ttdeci">void init_var(const char *var_name)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:246</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_ad472b66a1add1322a6a70894851ffde8"><div class="ttname"><a href="class_s_r__var__list.html#ad472b66a1add1322a6a70894851ffde8">SR_var_list::printf_list</a></div><div class="ttdeci">void printf_list()</div><div class="ttdef"><b>Definition</b> config_SR.cpp:276</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_adb84c527b268489cb7e88303fa6cd5dc"><div class="ttname"><a href="class_s_r__var__list.html#adb84c527b268489cb7e88303fa6cd5dc">SR_var_list::reg_out_var</a></div><div class="ttdeci">void reg_out_var(const char *proc_name, const char *var_name, float **pp_val_calc_func)</div><div class="ttdoc">Метод регистрации выходов</div><div class="ttdef"><b>Definition</b> config_SR.cpp:134</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_adf7522070b92afc0109deebdb46e6534"><div class="ttname"><a href="class_s_r__var__list.html#adf7522070b92afc0109deebdb46e6534">SR_var_list::get_in_by_idx</a></div><div class="ttdeci">SR_var_discriptor * get_in_by_idx(size_t idx)</div><div class="ttdef"><b>Definition</b> config_SR.cpp:233</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_aec3947a99f8c549b33e2e264d1125e08"><div class="ttname"><a href="class_s_r__var__list.html#aec3947a99f8c549b33e2e264d1125e08">SR_var_list::sz_in_list</a></div><div class="ttdeci">size_t sz_in_list()</div><div class="ttdoc">Размер списка входных локальных переменных</div><div class="ttdef"><b>Definition</b> config_SR.cpp:225</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_afefa4d88213b147059171cba41b0a286"><div class="ttname"><a href="class_s_r__var__list.html#afefa4d88213b147059171cba41b0a286">SR_var_list::make_out_vars</a></div><div class="ttdeci">void make_out_vars()</div><div class="ttdoc">Метод выделения памяти для связей входы-выходы всех алгоритмов</div><div class="ttdef"><b>Definition</b> config_SR.cpp:148</div></div>
+<div class="ttc" id="aclass_s_r__var__list_html_aff08b6463b98e99f921f89c02c9dd817"><div class="ttname"><a href="class_s_r__var__list.html#aff08b6463b98e99f921f89c02c9dd817">SR_var_list::out_var_list</a></div><div class="ttdeci">void * out_var_list</div><div class="ttdoc">Указатель на размещение списка выходных переменных</div><div class="ttdef"><b>Definition</b> config_SR.h:181</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html"><div class="ttname"><a href="struct_s_r__var__discriptor.html">SR_var_discriptor</a></div><div class="ttdoc">Описание регистрируемой переменной</div><div class="ttdef"><b>Definition</b> config_SR.h:152</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_a2d59eb5b4b9e9efd540e80a3594d8f44"><div class="ttname"><a href="struct_s_r__var__discriptor.html#a2d59eb5b4b9e9efd540e80a3594d8f44">SR_var_discriptor::calc_proc_name</a></div><div class="ttdeci">const char * calc_proc_name</div><div class="ttdoc">Имя вычислительной процедуры (алгоритма)</div><div class="ttdef"><b>Definition</b> config_SR.h:154</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_aa1b8d7769a8c9e78673717ddf42f6169"><div class="ttname"><a href="struct_s_r__var__discriptor.html#aa1b8d7769a8c9e78673717ddf42f6169">SR_var_discriptor::out_num</a></div><div class="ttdeci">int out_num</div><div class="ttdef"><b>Definition</b> config_SR.h:159</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_aa56a782e0051eabd9f9f2a04b03dd9b1"><div class="ttname"><a href="struct_s_r__var__discriptor.html#aa56a782e0051eabd9f9f2a04b03dd9b1">SR_var_discriptor::idx</a></div><div class="ttdeci">int idx</div><div class="ttdef"><b>Definition</b> config_SR.h:160</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_aa838bd34b1dc049fc88b5dae0b9b99cc"><div class="ttname"><a href="struct_s_r__var__discriptor.html#aa838bd34b1dc049fc88b5dae0b9b99cc">SR_var_discriptor::use_cnt</a></div><div class="ttdeci">int use_cnt</div><div class="ttdoc">Индекс ссылок на переменную</div><div class="ttdef"><b>Definition</b> config_SR.h:156</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_aacff75fc8317ca493a8cfffc7995bb0b"><div class="ttname"><a href="struct_s_r__var__discriptor.html#aacff75fc8317ca493a8cfffc7995bb0b">SR_var_discriptor::pp_val_calc</a></div><div class="ttdeci">float ** pp_val_calc</div><div class="ttdoc">Адрес указателя на значение переменной</div><div class="ttdef"><b>Definition</b> config_SR.h:155</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_ab8b7f271eed738f4978fba7a43ece59f"><div class="ttname"><a href="struct_s_r__var__discriptor.html#ab8b7f271eed738f4978fba7a43ece59f">SR_var_discriptor::var_name</a></div><div class="ttdeci">const char * var_name</div><div class="ttdoc">Имя переменной</div><div class="ttdef"><b>Definition</b> config_SR.h:153</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_ac70f9d8d973b9c0e8f30adea3e9430ab"><div class="ttname"><a href="struct_s_r__var__discriptor.html#ac70f9d8d973b9c0e8f30adea3e9430ab">SR_var_discriptor::in_cnt</a></div><div class="ttdeci">int in_cnt</div><div class="ttdef"><b>Definition</b> config_SR.h:161</div></div>
+<div class="ttc" id="astruct_s_r__var__discriptor_html_ad6bbeff512bfac19a83bcf09aa5e4e08"><div class="ttname"><a href="struct_s_r__var__discriptor.html#ad6bbeff512bfac19a83bcf09aa5e4e08">SR_var_discriptor::p_val</a></div><div class="ttdeci">float * p_val</div><div class="ttdef"><b>Definition</b> config_SR.h:163</div></div>
+<div class="ttc" id="astructlink__var__discriptor_html"><div class="ttname"><a href="structlink__var__discriptor.html">link_var_discriptor</a></div><div class="ttdef"><b>Definition</b> config_SR.h:91</div></div>
+<div class="ttc" id="astructlink__var__discriptor_html_a13426cedb0ebd6bac909844ac4d62ca7"><div class="ttname"><a href="structlink__var__discriptor.html#a13426cedb0ebd6bac909844ac4d62ca7">link_var_discriptor::buff_idx</a></div><div class="ttdeci">size_t buff_idx</div><div class="ttdef"><b>Definition</b> config_SR.h:92</div></div>
+<div class="ttc" id="astructlink__var__discriptor_html_a6136a3a29daf90a64ffba7d0a273e574"><div class="ttname"><a href="structlink__var__discriptor.html#a6136a3a29daf90a64ffba7d0a273e574">link_var_discriptor::p_var_in_calc</a></div><div class="ttdeci">float * p_var_in_calc</div><div class="ttdef"><b>Definition</b> config_SR.h:94</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

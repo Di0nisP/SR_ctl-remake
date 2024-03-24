@@ -1,0 +1,168 @@
+\doxysection{Файл /home/changeme/Документы/\+SR\+\_\+ctl-\/remake/alg\+\_\+1\+\_\+\+DSP.cpp}
+\hypertarget{alg__1___d_s_p_8cpp}{}\label{alg__1___d_s_p_8cpp}\index{/home/changeme/Документы/SR\_ctl-\/remake/alg\_1\_DSP.cpp@{/home/changeme/Документы/SR\_ctl-\/remake/alg\_1\_DSP.cpp}}
+{\ttfamily \#include "{}alg\+\_\+base.\+h"{}}\newline
+Граф включаемых заголовочных файлов для alg\+\_\+1\+\_\+\+DSP.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{alg__1___d_s_p_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_s_r__auto__ctl}{SR\+\_\+auto\+\_\+ctl}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+complex$<$ double $>$ \mbox{\hyperlink{alg__1___d_s_p_8cpp_ad00a3a5504eba5744e31b67dde4486ce}{hoertzel}} (double \texorpdfstring{$\ast$}{*}X, double \mbox{\hyperlink{alg__1___d_s_p_8cpp_af10d9ea79f6f967112343a6932b8ac6d}{sin\+\_\+w}}, double \mbox{\hyperlink{alg__1___d_s_p_8cpp_a5363d1fa4b86cf1ae967e9514a4df73d}{cos\+\_\+w}}, uint8\+\_\+t step, uint8\+\_\+t num\+\_\+cycle, uint8\+\_\+t \mbox{\hyperlink{alg__base_8h_a3a6afdc6c2effffb266aa6f4494122a9}{N}}, uint8\+\_\+t \mbox{\hyperlink{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f}{k}}=1u)
+\begin{DoxyCompactList}\small\item\em Алгоритм Гёртцеля с коррекцией фазы на шаге \end{DoxyCompactList}\item 
+complex$<$ double $>$ \mbox{\hyperlink{alg__1___d_s_p_8cpp_a3eb627be49629aeffaffee7185df8d67}{power}} (complex$<$ double $>$ I1ph0, complex$<$ double $>$ U1ph1, complex$<$ double $>$ U1ph2)
+\begin{DoxyCompactList}\small\item\em Функция расчёта мощности прямой последовательности \end{DoxyCompactList}\item 
+complex$<$ double $>$ \mbox{\hyperlink{alg__1___d_s_p_8cpp_a3fcf46ff340d6b600565b8fac6ccba62}{power}} (complex$<$ double $>$ I0, complex$<$ double $>$ U0)
+\begin{DoxyCompactList}\small\item\em Функция расчёта мощности нулевой последовательности \end{DoxyCompactList}\item 
+complex$<$ double $>$ \mbox{\hyperlink{alg__1___d_s_p_8cpp_aa79b465c8086e5664779931a248e8ab4}{distance}} (complex$<$ double $>$ U1ph0, complex$<$ double $>$ U1ph1, complex$<$ double $>$ I1ph0, complex$<$ double $>$ I1ph1)
+\begin{DoxyCompactList}\small\item\em Функция расчёта междуфазного сопротивления \end{DoxyCompactList}\item 
+\mbox{\hyperlink{alg__base_8h_ab628e42bb29ed7b1ca25e8c54aeb77d3}{LIB\+\_\+\+EXPORT}} \mbox{\hyperlink{class_s_r__calc__proc}{SR\+\_\+calc\+\_\+proc}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{alg__1___d_s_p_8cpp_ab9a63d0d9515884c8341a5789c9b9238}{Get\+Calc\+Class}} (const char \texorpdfstring{$\ast$}{*}block\+\_\+name, char \texorpdfstring{$\ast$}{*}file\+\_\+name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Переменные}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\+\_\+t \mbox{\hyperlink{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f}{k}} = 1
+\item 
+const double \mbox{\hyperlink{alg__1___d_s_p_8cpp_af10d9ea79f6f967112343a6932b8ac6d}{sin\+\_\+w}} = sin(2.\+0 \texorpdfstring{$\ast$}{*} M\+\_\+\+PI \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f}{k}} / static\+\_\+cast$<$double$>$(\mbox{\hyperlink{alg__base_8h_a3a6afdc6c2effffb266aa6f4494122a9}{N}}))
+\item 
+const double \mbox{\hyperlink{alg__1___d_s_p_8cpp_a5363d1fa4b86cf1ae967e9514a4df73d}{cos\+\_\+w}} = cos(2.\+0 \texorpdfstring{$\ast$}{*} M\+\_\+\+PI \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f}{k}} / static\+\_\+cast$<$double$>$(\mbox{\hyperlink{alg__base_8h_a3a6afdc6c2effffb266aa6f4494122a9}{N}}))
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Функции}
+\Hypertarget{alg__1___d_s_p_8cpp_aa79b465c8086e5664779931a248e8ab4}\label{alg__1___d_s_p_8cpp_aa79b465c8086e5664779931a248e8ab4} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!distance@{distance}}
+\index{distance@{distance}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{distance()}{distance()}}
+{\footnotesize\ttfamily complex$<$ double $>$ distance (\begin{DoxyParamCaption}\item[{complex$<$ double $>$}]{U1ph0,  }\item[{complex$<$ double $>$}]{U1ph1,  }\item[{complex$<$ double $>$}]{I1ph0,  }\item[{complex$<$ double $>$}]{I1ph1 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Функция расчёта междуфазного сопротивления 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em U1ph0} & Напряжение фазы \#1 \\
+\hline
+{\em U1ph1} & Напряжение фазы \#2 \\
+\hline
+{\em I1ph0} & Ток фазы \#1 \\
+\hline
+{\em I1ph1} & Ток фазы \#2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+complex$<$double$>$ Междуфазное сопротивление 
+\end{DoxyReturn}
+\Hypertarget{alg__1___d_s_p_8cpp_ab9a63d0d9515884c8341a5789c9b9238}\label{alg__1___d_s_p_8cpp_ab9a63d0d9515884c8341a5789c9b9238} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!GetCalcClass@{GetCalcClass}}
+\index{GetCalcClass@{GetCalcClass}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{GetCalcClass()}{GetCalcClass()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{alg__base_8h_ab628e42bb29ed7b1ca25e8c54aeb77d3}{LIB\+\_\+\+EXPORT}} \mbox{\hyperlink{class_s_r__calc__proc}{SR\+\_\+calc\+\_\+proc}} \texorpdfstring{$\ast$}{*} Get\+Calc\+Class (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{block\+\_\+name,  }\item[{char \texorpdfstring{$\ast$}{*}}]{file\+\_\+name }\end{DoxyParamCaption})}
+
+\Hypertarget{alg__1___d_s_p_8cpp_ad00a3a5504eba5744e31b67dde4486ce}\label{alg__1___d_s_p_8cpp_ad00a3a5504eba5744e31b67dde4486ce} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!hoertzel@{hoertzel}}
+\index{hoertzel@{hoertzel}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{hoertzel()}{hoertzel()}}
+{\footnotesize\ttfamily complex$<$ double $>$ hoertzel (\begin{DoxyParamCaption}\item[{double \texorpdfstring{$\ast$}{*}}]{X,  }\item[{double}]{sin\+\_\+w,  }\item[{double}]{cos\+\_\+w,  }\item[{uint8\+\_\+t}]{step,  }\item[{uint8\+\_\+t}]{num\+\_\+cycle,  }\item[{uint8\+\_\+t}]{N,  }\item[{uint8\+\_\+t}]{k = {\ttfamily 1u} }\end{DoxyParamCaption})}
+
+
+
+Алгоритм Гёртцеля с коррекцией фазы на шаге 
+
+При установке параметра step в ноль коррекция фазы не осуществляется.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em X} & Указатель на выборку (массив) дискретных значений \\
+\hline
+{\em sin\+\_\+w} & Коэффициент Im(\+W) \\
+\hline
+{\em cos\+\_\+w} & Коэффициент Re(\+W) \\
+\hline
+{\em step} & Номер шага \\
+\hline
+{\em num\+\_\+cycle} & Кратность шага \\
+\hline
+{\em N} & Размер выборки \\
+\hline
+{\em k} & Спектральный отсчёт (искомая гармоническая составляющая сигнала) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+complex$<$double$>$ Число в комплексной ортогональной форме 
+\end{DoxyReturn}
+\Hypertarget{alg__1___d_s_p_8cpp_a3fcf46ff340d6b600565b8fac6ccba62}\label{alg__1___d_s_p_8cpp_a3fcf46ff340d6b600565b8fac6ccba62} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!power@{power}}
+\index{power@{power}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily complex$<$ double $>$ power (\begin{DoxyParamCaption}\item[{complex$<$ double $>$}]{I0,  }\item[{complex$<$ double $>$}]{U0 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Функция расчёта мощности нулевой последовательности 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em I0} & Ток нулевой последовательности \\
+\hline
+{\em U0} & Напряжение нулевой последовательности \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+complex$<$double$>$ Мощность нулевой последовательности 
+\end{DoxyReturn}
+\Hypertarget{alg__1___d_s_p_8cpp_a3eb627be49629aeffaffee7185df8d67}\label{alg__1___d_s_p_8cpp_a3eb627be49629aeffaffee7185df8d67} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!power@{power}}
+\index{power@{power}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{power()}{power()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily complex$<$ double $>$ power (\begin{DoxyParamCaption}\item[{complex$<$ double $>$}]{I1ph0,  }\item[{complex$<$ double $>$}]{U1ph1,  }\item[{complex$<$ double $>$}]{U1ph2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Функция расчёта мощности прямой последовательности 
+
+Чередование фаз принимается следующим\+: А -\/ В -\/ С. Фаза мощности соответсвует фазе тока.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em I1ph0} & Ток фазы А (В, С) \\
+\hline
+{\em U1ph1} & Напряжение фазы В (С, А) \\
+\hline
+{\em U1ph2} & Напряжение фазы С (А, В) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+complex$<$double$>$ Мощность фазы А (В, С) 
+\end{DoxyReturn}
+
+
+\doxysubsection{Переменные}
+\Hypertarget{alg__1___d_s_p_8cpp_a5363d1fa4b86cf1ae967e9514a4df73d}\label{alg__1___d_s_p_8cpp_a5363d1fa4b86cf1ae967e9514a4df73d} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!cos\_w@{cos\_w}}
+\index{cos\_w@{cos\_w}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{cos\_w}{cos\_w}}
+{\footnotesize\ttfamily const double cos\+\_\+w = cos(2.\+0 \texorpdfstring{$\ast$}{*} M\+\_\+\+PI \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f}{k}} / static\+\_\+cast$<$double$>$(\mbox{\hyperlink{alg__base_8h_a3a6afdc6c2effffb266aa6f4494122a9}{N}}))}
+
+\Hypertarget{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f}\label{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!k@{k}}
+\index{k@{k}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily const uint8\+\_\+t k = 1}
+
+\Hypertarget{alg__1___d_s_p_8cpp_af10d9ea79f6f967112343a6932b8ac6d}\label{alg__1___d_s_p_8cpp_af10d9ea79f6f967112343a6932b8ac6d} 
+\index{alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}!sin\_w@{sin\_w}}
+\index{sin\_w@{sin\_w}!alg\_1\_DSP.cpp@{alg\_1\_DSP.cpp}}
+\doxysubsubsection{\texorpdfstring{sin\_w}{sin\_w}}
+{\footnotesize\ttfamily const double sin\+\_\+w = sin(2.\+0 \texorpdfstring{$\ast$}{*} M\+\_\+\+PI \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{alg__1___d_s_p_8cpp_adef6b5a0f85a1271571d982cd065d94f}{k}} / static\+\_\+cast$<$double$>$(\mbox{\hyperlink{alg__base_8h_a3a6afdc6c2effffb266aa6f4494122a9}{N}}))}
+

@@ -1,0 +1,172 @@
+\doxysection{Класс Timers}
+\hypertarget{class_timers}{}\label{class_timers}\index{Timers@{Timers}}
+
+
+Граф связей класса Timers\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=157pt]{class_timers__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_timers_a1702f716e1d6404177971a8db46fbf5e}{Timers}} (uint8\+\_\+t \mbox{\hyperlink{class_timers_a63e17fa496922ceaefece90ef7ead575}{calc\+\_\+period}}=\mbox{\hyperlink{alg__base_8h_aa7c45943d07d88404ba5c337288e327c}{MEMS\+\_\+\+PERIOD}})
+\begin{DoxyCompactList}\small\item\em Конструктор класса \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_timers_ac62031d1b1ea29b41e75f62c87aece63}{\texorpdfstring{$\sim$}{\string~}\+Timers}} ()
+\begin{DoxyCompactList}\small\item\em Деструктор класса \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_timers_ad3d041ec64c9195a47f199949b0ab858}{ton}} (bool S, uint16\+\_\+t dT)
+\begin{DoxyCompactList}\small\item\em Таймер задержки фронта \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_timers_a44a235abc212f493e0468ff0c4faaa74}{get\+\_\+Q}} () const
+\begin{DoxyCompactList}\small\item\em Метод для получения значения выхода \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{class_timers_a07621dfdfd74c4d57e949abf622d1314}{get\+\_\+time}} () const
+\begin{DoxyCompactList}\small\item\em Метод для получения текущего времени (в рамках отсчёта уставки) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_timers_acd59345d37e5417099825759eb682dff}{time}}
+\begin{DoxyCompactList}\small\item\em Счетчик времени, мс \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_timers_a63e17fa496922ceaefece90ef7ead575}{calc\+\_\+period}}
+\begin{DoxyCompactList}\small\item\em Шаг таймера, мс \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_timers_a4c1c275e9f8de95c8dc7174c6526b1da}{t\+\_\+Q}}
+\begin{DoxyCompactList}\small\item\em Выходное значение таймера \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_timers_adfcc1afcf50913e77b0e5a133297f0ea}{t\+\_\+\+CC}}
+\begin{DoxyCompactList}\small\item\em Входное значение таймера на прошлом шаге \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_timers_acb578aecbb656d779b565e3cb075c021}{t\+\_\+\+QQ}}
+\begin{DoxyCompactList}\small\item\em Показатель фронта \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_timers_a1702f716e1d6404177971a8db46fbf5e}\label{class_timers_a1702f716e1d6404177971a8db46fbf5e} 
+\index{Timers@{Timers}!Timers@{Timers}}
+\index{Timers@{Timers}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{Timers()}{Timers()}}
+{\footnotesize\ttfamily Timers\+::\+Timers (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{calc\+\_\+period = {\ttfamily \mbox{\hyperlink{alg__base_8h_aa7c45943d07d88404ba5c337288e327c}{MEMS\+\_\+\+PERIOD}}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор класса 
+
+\Hypertarget{class_timers_ac62031d1b1ea29b41e75f62c87aece63}\label{class_timers_ac62031d1b1ea29b41e75f62c87aece63} 
+\index{Timers@{Timers}!````~Timers@{\texorpdfstring{$\sim$}{\string~}Timers}}
+\index{````~Timers@{\texorpdfstring{$\sim$}{\string~}Timers}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Timers()}{\string~Timers()}}
+{\footnotesize\ttfamily Timers\+::\texorpdfstring{$\sim$}{\string~}\+Timers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Деструктор класса 
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_timers_a44a235abc212f493e0468ff0c4faaa74}\label{class_timers_a44a235abc212f493e0468ff0c4faaa74} 
+\index{Timers@{Timers}!get\_Q@{get\_Q}}
+\index{get\_Q@{get\_Q}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{get\_Q()}{get\_Q()}}
+{\footnotesize\ttfamily bool Timers\+::get\+\_\+Q (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Метод для получения значения выхода 
+
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=325pt]{class_timers_a44a235abc212f493e0468ff0c4faaa74_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_timers_a07621dfdfd74c4d57e949abf622d1314}\label{class_timers_a07621dfdfd74c4d57e949abf622d1314} 
+\index{Timers@{Timers}!get\_time@{get\_time}}
+\index{get\_time@{get\_time}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{get\_time()}{get\_time()}}
+{\footnotesize\ttfamily uint16\+\_\+t Timers\+::get\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Метод для получения текущего времени (в рамках отсчёта уставки) 
+
+\Hypertarget{class_timers_ad3d041ec64c9195a47f199949b0ab858}\label{class_timers_ad3d041ec64c9195a47f199949b0ab858} 
+\index{Timers@{Timers}!ton@{ton}}
+\index{ton@{ton}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{ton()}{ton()}}
+{\footnotesize\ttfamily void Timers\+::ton (\begin{DoxyParamCaption}\item[{bool}]{S,  }\item[{uint16\+\_\+t}]{dT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Таймер задержки фронта 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em S} & Управляющий сигнал таймера, инициирующий отсчёт выдержки времени \\
+\hline
+{\em dT} & Уставка по времени, мс \\
+\hline
+\end{DoxyParams}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{class_timers_ad3d041ec64c9195a47f199949b0ab858_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_timers_a63e17fa496922ceaefece90ef7ead575}\label{class_timers_a63e17fa496922ceaefece90ef7ead575} 
+\index{Timers@{Timers}!calc\_period@{calc\_period}}
+\index{calc\_period@{calc\_period}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{calc\_period}{calc\_period}}
+{\footnotesize\ttfamily uint8\+\_\+t Timers\+::calc\+\_\+period\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Шаг таймера, мс 
+
+\Hypertarget{class_timers_adfcc1afcf50913e77b0e5a133297f0ea}\label{class_timers_adfcc1afcf50913e77b0e5a133297f0ea} 
+\index{Timers@{Timers}!t\_CC@{t\_CC}}
+\index{t\_CC@{t\_CC}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{t\_CC}{t\_CC}}
+{\footnotesize\ttfamily bool Timers\+::t\+\_\+\+CC\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Входное значение таймера на прошлом шаге 
+
+\Hypertarget{class_timers_a4c1c275e9f8de95c8dc7174c6526b1da}\label{class_timers_a4c1c275e9f8de95c8dc7174c6526b1da} 
+\index{Timers@{Timers}!t\_Q@{t\_Q}}
+\index{t\_Q@{t\_Q}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{t\_Q}{t\_Q}}
+{\footnotesize\ttfamily bool Timers\+::t\+\_\+Q\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Выходное значение таймера 
+
+\Hypertarget{class_timers_acb578aecbb656d779b565e3cb075c021}\label{class_timers_acb578aecbb656d779b565e3cb075c021} 
+\index{Timers@{Timers}!t\_QQ@{t\_QQ}}
+\index{t\_QQ@{t\_QQ}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{t\_QQ}{t\_QQ}}
+{\footnotesize\ttfamily bool Timers\+::t\+\_\+\+QQ\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Показатель фронта 
+
+\Hypertarget{class_timers_acd59345d37e5417099825759eb682dff}\label{class_timers_acd59345d37e5417099825759eb682dff} 
+\index{Timers@{Timers}!time@{time}}
+\index{time@{time}!Timers@{Timers}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily uint16\+\_\+t Timers\+::time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Счетчик времени, мс 
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+/home/changeme/Документы/\+SR\+\_\+ctl-\/remake/\mbox{\hyperlink{alg__2__triggers_8cpp}{alg\+\_\+2\+\_\+triggers.\+cpp}}\end{DoxyCompactItemize}

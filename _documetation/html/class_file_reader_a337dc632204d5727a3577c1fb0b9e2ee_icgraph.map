@@ -1,0 +1,5 @@
+<map id="FileReader::read" name="FileReader::read">
+<area shape="rect" id="Node000001" title="Читает данные из файла и записывает их в массив." alt="" coords="185,5,313,31"/>
+<area shape="rect" id="Node000002" href="$class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd" title="Основной метод алгоритма" alt="" coords="5,5,137,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,21,137,21,137,15,172,15"/>
+</map>

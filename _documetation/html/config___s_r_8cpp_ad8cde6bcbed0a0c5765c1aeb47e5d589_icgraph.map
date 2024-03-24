@@ -1,0 +1,11 @@
+<map id="if_idx_gt" name="if_idx_gt">
+<area shape="rect" id="Node000001" title=" " alt="" coords="724,13,803,38"/>
+<area shape="rect" id="Node000002" href="$class_link___m_p_i.html#a09c325fad50817b2a065789690f2e0d4" title=" " alt="" coords="529,5,676,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="710,28,677,28,677,23,710,23"/>
+<area shape="rect" id="Node000003" href="$class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="283,13,481,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="515,28,482,28,482,23,515,23"/>
+<area shape="rect" id="Node000004" href="$class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="108,13,235,38"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="268,28,235,28,235,23,268,23"/>
+<area shape="rect" id="Node000005" href="$_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,60,38"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="95,28,60,28,60,23,95,23"/>
+</map>

@@ -1,0 +1,230 @@
+\doxysection{/home/changeme/Документы/\+SR\+\_\+ctl-\/remake/config\+\_\+\+SR.h}
+\hypertarget{config___s_r_8h_source}{}\label{config___s_r_8h_source}\mbox{\hyperlink{config___s_r_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ CONFIG\_SR}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ CONFIG\_SR}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <stdlib.h>}\textcolor{comment}{//\#include\ <stdlib>//}}
+\DoxyCodeLine{00006\ \textcolor{comment}{//\#include\ <linux/i2c-\/dev.h>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <fcntl.h>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string.h>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{comment}{//\#include\ <iostream.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\#include\ <string>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <sys/ioctl.h>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <sys/types.h>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <sys/stat.h>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <unistd.h>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <signal.h>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{alg__base_8h}{alg\_base.h}}"{}}}
+\DoxyCodeLine{00021\ \textcolor{comment}{//\#include\ "{}UDP\_link.h"{}}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\#include\ <math.h>}}
+\DoxyCodeLine{00024\ \textcolor{comment}{//\ \ */}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ NUM\_BLOCKS\ 5}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\#define\ TXT\_SZ\ 1024}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ TXT\_SZ\ 64}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ DAT\_UNIT\_NUM\ 128}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ DEV\_ID\_ACL\ \ \ 0x19\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//LSM303DLHC\ акселерометр}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ DEV\_ID\_MG\ \ \ \ 0x1e\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//LSM303DLHC\ компас}}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ DEV\_ID\_GYRO\ \ 0x6b\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//L3GD20\ гироскоп}}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ DEV\_ID\_PRESS\ 0x5d\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }\textcolor{comment}{//датчик\ давлени€}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ DEV\_ID\_Wii\ \ \ 0x52}}
+\DoxyCodeLine{00041\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00042\ \textcolor{comment}{//тип\ устройства}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ UNKNOWN\_CTL\ \ \ \ \ \ \ 0\ }\textcolor{comment}{//неизвестное\ устройство}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ KITE\_CTL\_V1\ \ \ \ \ \ \ 101\ }\textcolor{comment}{//управление\ куполом\ (верси€\ 1)}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ BOARD\_UP\_CTL\_V1\ \ \ 102\ }\textcolor{comment}{//управление\ доской\ -\/\ верхн€€\ часть\ (верси€\ 1)}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ BOARD\_DOWN\_CTL\_V1\ 103\ }\textcolor{comment}{//управление\ доской\ -\/\ нижн€€\ \ часть\ (верси€\ 1)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ SR\_CTL\_V1\ \ \ \ \ \ \ \ \ 200\ }\textcolor{comment}{//управление\ \ (верси€\ 1)}}
+\DoxyCodeLine{00048\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00049\ \textcolor{comment}{//шины}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ BUS\_ID\_I2C1\ \ \ \ \ \ \ \ \ 10}\textcolor{comment}{//1-\/€\ шина\ I2C}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#define\ BUS\_ID\_I2C2\ \ \ \ \ \ \ \ \ 11}\textcolor{comment}{//2-\/€\ шина\ I2C}}
+\DoxyCodeLine{00052\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00053\ \textcolor{comment}{//команды\ управлени€}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ CMD\_STOP\ 10}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ CMD\_KITE\ 11}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ CMD\_BOARD\ \ \ \ \ \ 12}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ CMD\_BOARD\_ROLL\ 14}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ CMD\_BOARD\_DIR\ \ 14}}
+\DoxyCodeLine{00059\ \ }
+\DoxyCodeLine{00060\ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#define\ STOP\_TIMEOUT\ 300\ \ \ \ \ \ \ \ }\textcolor{comment}{//врем€\ останова\ мс}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#define\ LIFE\_PERIOD\ 7200*1000\ \ \ }\textcolor{comment}{//период\ работы\ программы\ мс}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ NET\_ACC\ \ 001}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ NET\_GYRO\ 002}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#define\ NET\_MG\ \ \ 003}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ NET\_FLOW\ 004}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ NET\_WII\_ACC\ 011}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#define\ NET\_WII\_JOY\ 011}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#define\ NET\_CMD\_UP\ \ \ 020}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ NET\_CMD\_DOWN\ 021}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ NET\_CMD\_LEFT\ \ 022}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ NET\_CMD\_RIGHT\ 023}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#define\ NET\_CMD\_STAB1\ 024}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ NET\_CMD\_STAB2\ 025}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ TYPE\_SZ\ 0}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{comment}{/*struct\ multy\_float\_var\_type}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\{}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ const\ char*\ name;}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ int\ sz;\ }}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ \ \ \ int\ ID;}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\};//*/}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlink__var__discriptor}{link\_var\_discriptor}}}
+\DoxyCodeLine{00091\ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{structlink__var__discriptor_a13426cedb0ebd6bac909844ac4d62ca7}{buff\_idx}};}
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ \ float*\ p\_var\_in\_buff;}}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{structlink__var__discriptor_a6136a3a29daf90a64ffba7d0a273e574}{p\_var\_in\_calc}};\ \textcolor{comment}{//\ Указатель\ на\ входную\ локальную\ переменную}}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00101\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_link___m_p_i}{Link\_MPI}}}
+\DoxyCodeLine{00102\ \{}
+\DoxyCodeLine{00103\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00104\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \mbox{\hyperlink{class_link___m_p_i_a3d871c8ad1821e59fc99c15b21e20e04}{node}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00105\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_link___m_p_i_a6a0f089423539e475fda7aca69ec5852}{send\_list}};\ \ \ }
+\DoxyCodeLine{00106\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_link___m_p_i_aed8ce942ab6584786258662799ca85b7}{recv\_list}};\ \ \ }
+\DoxyCodeLine{00107\ \textcolor{comment}{//\ \ int\ shift\_recv\_buff;}}
+\DoxyCodeLine{00108\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00109\ \ \ \ \ \textcolor{comment}{//\ —писки\ на\ выдачу\ и\ на\ приЄм\ содержат\ в\ себе\ имена\ переменных}}
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{class_link___m_p_i_a61b97363ed923aeadd32ff0825352453}{send\_sz}};\ \ }
+\DoxyCodeLine{00111\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{class_link___m_p_i_a0cc3abb6fe287c658f3e68882e0fb07b}{recv\_sz}};\ \ }
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{class_link___m_p_i_a5a4f1f8d7a61f642160c29376ce025df}{send\_buff}};\ \ }
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{class_link___m_p_i_adfc83fd0778787240db3dc3c71f61c68}{recv\_buff}};\ \ }
+\DoxyCodeLine{00114\ \textcolor{comment}{//\ \ bool\ shifted;\ \ \ }}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00117\ \ \ \ \ \ \mbox{\hyperlink{class_link___m_p_i_af11ccab0e26abc8bb1537f83b1b6fe1c}{Link\_MPI}}(\textcolor{keywordtype}{int}\ node\_num);}
+\DoxyCodeLine{00118\ \ \ \ \ \mbox{\hyperlink{class_link___m_p_i_adc5ab29fbc24a760cf8b9795e52b501a}{\string~Link\_MPI}}();}
+\DoxyCodeLine{00119\ \textcolor{comment}{//\ \ void\ set\_shift\_recv\_buff(int\ shift\_bytes);}}
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_link___m_p_i_afaa63864666a4c86860e90fce8fb78d7}{get\_node\_num}}();\ \textcolor{comment}{//\ ѕолучить\ номер\ (ID)\ узла\ внутри\ сети\ устройств}}
+\DoxyCodeLine{00121\ \ \ \ \ }
+\DoxyCodeLine{00122\ \textcolor{comment}{//\ \ void\ add\_send\_var(float*\ p\_var\_in\_buff,float*\ p\_var\_in\_calc);}}
+\DoxyCodeLine{00123\ \textcolor{comment}{//\ \ void\ add\_recv\_var(float*\ p\_var\_in\_buff,float*\ p\_var\_in\_calc);}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{//\ ƒобавление\ переменной:}}
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{comment}{//\ float*\ p\_var\_in\_calc\ -\/-\/\ указатель\ на\ переменную;}}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{comment}{//\ int\ buff\_idx\ -\/-\/\ индекс\ внутри\ буфера\ (на\ приём\ или\ передачу)}}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_link___m_p_i_a6b317e439854d6e9b73d95bb659d05ee}{add\_send\_var}}(\textcolor{keywordtype}{float}*\ p\_var\_in\_calc,\textcolor{keywordtype}{size\_t}\ buff\_idx);}
+\DoxyCodeLine{00129\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_link___m_p_i_acdb60f906f281395a42c7bfc54c4bb55}{add\_recv\_var}}(\textcolor{keywordtype}{float}*\ p\_var\_in\_calc,\textcolor{keywordtype}{size\_t}\ buff\_idx);\ \ \ \ }
+\DoxyCodeLine{00130\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_link___m_p_i_a09c325fad50817b2a065789690f2e0d4}{set\_local\_send\_buff\_order}}();}
+\DoxyCodeLine{00131\ \ \ \ \ }
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{comment}{//\ Копирование\ из\ буфера\ send\ или\ recv\ в\ буфер\ со\ внешними\ переменными}}
+\DoxyCodeLine{00133\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_link___m_p_i_aa4749346234606cbc878c04e1e7f8ea7}{copy\_send\_vars}}();}
+\DoxyCodeLine{00134\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_link___m_p_i_acb0b19a7784e31817d4611decebc2141}{copy\_recv\_vars}}();}
+\DoxyCodeLine{00135\ }
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{comment}{//\ Выделение\ буферов\ для\ MPI}}
+\DoxyCodeLine{00137\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_link___m_p_i_a3803c4d49f2630a02fc589f25c9e9975}{set\_send\_buff}}(\textcolor{keywordtype}{size\_t}\ sz);}
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_link___m_p_i_a9f74dc957560bdca3ae5bb4caaec8a9e}{set\_recv\_buff}}(\textcolor{keywordtype}{size\_t}\ sz);}
+\DoxyCodeLine{00139\ \ \ \ \ }
+\DoxyCodeLine{00140\ \textcolor{comment}{//\ \ int\ get\_cur\_send\_sz();}}
+\DoxyCodeLine{00141\ \textcolor{comment}{//\ \ int\ get\_cur\_recv\_sz();\ \ }}
+\DoxyCodeLine{00142\ \textcolor{comment}{//\ \ void\ set\_cur\_send\_sz(int\ sz);}}
+\DoxyCodeLine{00143\ \textcolor{comment}{//\ \ void\ set\_cur\_recv\_sz(int\ sz);\ \ \ }}
+\DoxyCodeLine{00144\ \};}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00152\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_s_r__var__discriptor}{SR\_var\_discriptor}}\ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_s_r__var__discriptor_ab8b7f271eed738f4978fba7a43ece59f}{var\_name}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00154\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{struct_s_r__var__discriptor_a2d59eb5b4b9e9efd540e80a3594d8f44}{calc\_proc\_name}};\ \ \ }
+\DoxyCodeLine{00155\ \ \ \ \ \textcolor{keywordtype}{float}**\ \mbox{\hyperlink{struct_s_r__var__discriptor_aacff75fc8317ca493a8cfffc7995bb0b}{pp\_val\_calc}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00156\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_r__var__discriptor_aa838bd34b1dc049fc88b5dae0b9b99cc}{use\_cnt}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00157\ \ \ \ \ }
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00159\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_r__var__discriptor_aa1b8d7769a8c9e78673717ddf42f6169}{out\_num}};\ \textcolor{comment}{//\ ?}}
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_r__var__discriptor_aa56a782e0051eabd9f9f2a04b03dd9b1}{idx}};\ \textcolor{comment}{//\ »ндекс}}
+\DoxyCodeLine{00161\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_s_r__var__discriptor_ac70f9d8d973b9c0e8f30adea3e9430ab}{in\_cnt}};\ \textcolor{comment}{//\ (может\ не\ работать)}}
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/“ќЋ№ ќ\ ƒЋя\ ќ“Ћјƒ »\ “ј \ Ќ≈Ћ№«я!!!}}
+\DoxyCodeLine{00163\ \ \ \ \ \textcolor{keywordtype}{float}*\ \mbox{\hyperlink{struct_s_r__var__discriptor_ad6bbeff512bfac19a83bcf09aa5e4e08}{p\_val}};}
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/“ќЋ№ ќ\ ƒЋя\ ќ“Ћјƒ »\ “ј \ Ќ≈Ћ№«я!!!}}
+\DoxyCodeLine{00165\ \};}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00178\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_s_r__var__list}{SR\_var\_list}}\ \{}
+\DoxyCodeLine{00179\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00180\ \ \ \ \ \textcolor{keywordtype}{void}\ \ *\mbox{\hyperlink{class_s_r__var__list_a9d32b502abc0dd4205915c46e2a6bd52}{var\_list}};\ \ \ \ \ \ \ \ \textcolor{comment}{//?\ Стоит\ удалить}}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{void}\ \ *\mbox{\hyperlink{class_s_r__var__list_aff08b6463b98e99f921f89c02c9dd817}{out\_var\_list}};\ \ \ \ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{void}\ \ *\mbox{\hyperlink{class_s_r__var__list_a0263abc99eb70dc7b3da1c0648df6576}{in\_var\_list}};\ \ \ \ \ \ }
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{class_s_r__var__list_a21a977f65c09cfc0d3efcf5d9fa591fc}{out\_var\_val}};\ \ \ \ \ \ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//+\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ }}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{void}\ \ *\mbox{\hyperlink{class_s_r__var__list_a80b7228ced97fc9f7723adad9a700397}{remote\_var\_list}};\ \ }
+\DoxyCodeLine{00186\ \ \ \ \ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{class_s_r__var__list_a3515fb5a2ab77fc9c83999c883324b97}{remote\_var\_val}};\ \ \ \ }
+\DoxyCodeLine{00187\ \ \ \ \ \textcolor{comment}{//+\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ +\ }}
+\DoxyCodeLine{00188\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00189\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}\ *\mbox{\hyperlink{class_s_r__var__list_a77a35498bb5e32561252fd22a380dca0}{list\_name}};\ }
+\DoxyCodeLine{00190\ \ \ \ \ \textcolor{keywordtype}{float}\ *\mbox{\hyperlink{class_s_r__var__list_a32a3ea6912a4b982bcf97c6d017c65c6}{var\_val}};}
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{keywordtype}{int}\ \ \ \ \mbox{\hyperlink{class_s_r__var__list_a59f720f8cb4ef34b8413cde0cad715e1}{var\_num}};}
+\DoxyCodeLine{00192\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00198\ \ \ \ \ \mbox{\hyperlink{class_s_r__var__list_a7608d86a2d9edc1c54bb364d0d63ca2f}{SR\_var\_list}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ in\_name);}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ \mbox{\hyperlink{class_s_r__var__list_a711152086ac6ae0a4663631f13be1e44}{\string~SR\_var\_list}}();}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__var__list_ab9a287d1fda21d54f07c996fc0777449}{init\_var}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name);\ \textcolor{comment}{//?\ Установка\ переменных}}
+\DoxyCodeLine{00203\ }
+\DoxyCodeLine{00204\ \ \ \ \ \mbox{\hyperlink{struct_s_r__var__discriptor}{SR\_var\_discriptor}}*\ \mbox{\hyperlink{class_s_r__var__list_aa6a5d92ebf70ef13305b70e9484e68d6}{get}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ Name);\ \textcolor{comment}{//\ Вызов\ переменной\ по\ имени\ (медленно)}}
+\DoxyCodeLine{00205\ \ \ \ \ }
+\DoxyCodeLine{00206\ \ \ \ \ \textcolor{keywordtype}{void}\ \ \mbox{\hyperlink{class_s_r__var__list_ad472b66a1add1322a6a70894851ffde8}{printf\_list}}();\ \textcolor{comment}{//\ Перечисление\ имён\ всех\ переменных}}
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_s_r__var__list_ab5eb0e4068e406f48ee962eb5a7577e9}{sz\_list}}();\ \textcolor{comment}{//\ Количество\ переменных}}
+\DoxyCodeLine{00208\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_s_r__var__list_a0a9729b206bdabf9976f3b13df01ad49}{get\_name\_from\_list}}(\textcolor{keywordtype}{size\_t}\ idx);\ \textcolor{comment}{//\ Имя\ по\ индексу\ массива\ имён}}
+\DoxyCodeLine{00209\ \ \ \ \ }
+\DoxyCodeLine{00210\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_s_r__var__list_a6975a9e7af3f41a85f2615979f450865}{sz\_out\_list}}();\ \ \ \ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_s_r__var__list_aec3947a99f8c549b33e2e264d1125e08}{sz\_in\_list}}();\ \ \ }
+\DoxyCodeLine{00212\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_s_r__var__list_a037bdcb47ebc44cdb6bf0046d6f105d1}{sz\_rem\_list}}();\ \ \ \ }
+\DoxyCodeLine{00213\ \ \ \ \ \mbox{\hyperlink{struct_s_r__var__discriptor}{SR\_var\_discriptor}}*\ \mbox{\hyperlink{class_s_r__var__list_aa24b7b7f29148569ebab8f8b79a801c6}{get\_out\_by\_idx}}(\textcolor{keywordtype}{size\_t}\ idx);}
+\DoxyCodeLine{00214\ \ \ \ \ \mbox{\hyperlink{struct_s_r__var__discriptor}{SR\_var\_discriptor}}*\ \mbox{\hyperlink{class_s_r__var__list_adf7522070b92afc0109deebdb46e6534}{get\_in\_by\_idx}}(\textcolor{keywordtype}{size\_t}\ idx);}
+\DoxyCodeLine{00215\ \ \ \ \ \mbox{\hyperlink{struct_s_r__var__discriptor}{SR\_var\_discriptor}}*\ \mbox{\hyperlink{class_s_r__var__list_a6024a7f3bff2f0cad7336985b785462e}{get\_rem\_by\_idx}}(\textcolor{keywordtype}{size\_t}\ idx);\ \ \ }
+\DoxyCodeLine{00216\ \ \ \ \ \textcolor{comment}{//\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}}
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__var__list_a7dbc1a89d4ddc8f04ef285c05833df5d}{reg\_in\_var}}\ (\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ proc\_name,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name,\textcolor{keywordtype}{float}**\ pp\_val\_calc\_func);}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00233\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__var__list_adb84c527b268489cb7e88303fa6cd5dc}{reg\_out\_var}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ proc\_name,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name,\textcolor{keywordtype}{float}**\ pp\_val\_calc\_func);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__var__list_afefa4d88213b147059171cba41b0a286}{make\_out\_vars}}();}
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{comment}{//\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~\string~}}
+\DoxyCodeLine{00246\ \};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_s_r___settings}{SR\_Settings}}}
+\DoxyCodeLine{00249\ \{}
+\DoxyCodeLine{00250\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00251\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r___settings_a7f052286c5621fb79d2ccdaedbe10a43}{p\_primary\_sensors\_list}};}
+\DoxyCodeLine{00252\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r___settings_a4d8a81b3923a02b45f2f23303ca748ac}{p\_blocks\_list}};}
+\DoxyCodeLine{00253\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r___settings_a9b51d75ccbbfa6a53e038ae1d6e3957f}{p\_net\_interface\_list}};}
+\DoxyCodeLine{00254\ \ \ \ \ }
+\DoxyCodeLine{00255\ \textcolor{comment}{//\ \ void*\ p\_Link\_list;\ \ }}
+\DoxyCodeLine{00256\ \ \ \ \ }
+\DoxyCodeLine{00257\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00258\ \ \ \ \ \mbox{\hyperlink{class_s_r__var__list}{SR\_var\_list}}*\ \ \mbox{\hyperlink{class_s_r___settings_a40a5e34d18f651a615e2ccfd74832016}{All\_local\_vars}};\ \ }
+\DoxyCodeLine{00259\ \ \ \ \ \mbox{\hyperlink{class_s_r__var__list}{SR\_var\_list}}**\ \mbox{\hyperlink{class_s_r___settings_af0f347b91cae036e3ef341e829128ee4}{All\_dist\_vars}};\ \ \ \ }
+\DoxyCodeLine{00260\ }
+\DoxyCodeLine{00261\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_s_r___settings_a9698086eb16ccc386a94a29d10ed9abe}{Block\_name}};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00263\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00270\ \ \ \ \ \mbox{\hyperlink{class_s_r___settings_acaf767b6684b3a208ad50a66ada83ae5}{SR\_Settings}}();}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \ \ \ \ \mbox{\hyperlink{class_s_r___settings_a7d8cc33075efc96a55e1a9cbc866dbb3}{\string~SR\_Settings}}();}
+\DoxyCodeLine{00273\ }
+\DoxyCodeLine{00274\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_s_r___settings_a235cd2df577d2918a35dc84d7f2c6ae9}{Init}}();}
+\DoxyCodeLine{00275\ \ \ \ \ }
+\DoxyCodeLine{00276\ \ \ \ \ \textcolor{comment}{//\ Поиск\ so-\/файлов\ в\ указанной\ папке}}
+\DoxyCodeLine{00287\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_s_r___settings_aaeffcde2f98685c6b50df0c34eb3071a}{find\_algs}}(\mbox{\hyperlink{class_s_r__calc__proc}{SR\_calc\_proc}}***\ p\_calc\_proc\_array);\ \ \ }
+\DoxyCodeLine{00288\ \};}
+\DoxyCodeLine{00289\ }
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CONFIG\_SR}}
+
+\end{DoxyCode}

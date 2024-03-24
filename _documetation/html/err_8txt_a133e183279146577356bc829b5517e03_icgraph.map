@@ -1,0 +1,37 @@
+<map id="printf" name="printf">
+<area shape="rect" id="Node000001" title=" " alt="" coords="779,304,836,329"/>
+<area shape="rect" id="Node000002" href="$class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd" title="Основной метод алгоритма" alt="" coords="564,5,696,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="804,290,802,238,793,171,783,137,770,103,752,71,729,44,713,33,695,26,697,21,716,28,732,40,756,68,774,100,788,135,798,170,808,237,810,290"/>
+<area shape="rect" id="Node000003" href="$class_s_r___settings.html#aaeffcde2f98685c6b50df0c34eb3071a" title="Метод для поиска локальных алгоритмов" alt="" coords="547,203,713,228"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="784,295,759,271,729,250,684,231,686,226,732,245,763,267,788,292"/>
+<area shape="rect" id="Node000004" href="$class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="283,179,481,204"/>
+<area shape="poly" id="edge9_Node000001_Node000004" title=" " alt="" coords="765,309,529,243,418,207,420,202,530,238,766,304"/>
+<area shape="rect" id="Node000005" href="$class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="108,304,235,329"/>
+<area shape="poly" id="edge8_Node000001_Node000005" title=" " alt="" coords="765,319,235,319,235,314,765,314"/>
+<area shape="rect" id="Node000006" href="$_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,355,60,380"/>
+<area shape="poly" id="edge10_Node000001_Node000006" title=" " alt="" coords="765,322,731,325,61,368,60,363,730,319,765,317"/>
+<area shape="rect" id="Node000007" href="$class_s_r__calc__proc.html#a934ae8c2b30447cb94bcfa24b5602e53" title="Метод для проверки готовности алгоритма" alt="" coords="540,55,720,80"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="802,291,798,247,786,194,764,139,748,115,729,93,713,82,716,78,732,89,752,112,769,137,791,192,803,246,808,290"/>
+<area shape="rect" id="Node000008" href="$class_s_r__var__list.html#afefa4d88213b147059171cba41b0a286" title="Метод выделения памяти для связей входы&#45;выходы всех алгоритмов" alt="" coords="529,104,731,129"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="800,291,792,257,779,216,758,176,729,143,712,132,714,127,732,139,762,173,784,214,797,255,805,290"/>
+<area shape="rect" id="Node000009" href="$class_s_r__ctl__type.html#a6f3f1b2fe81f8c318c9999aef961e401" title="Метод вывода информации о работе алгоритма" alt="" coords="545,405,715,431"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="788,342,763,366,732,388,686,408,684,403,729,384,759,362,784,338"/>
+<area shape="rect" id="Node000010" href="$class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e" title="Главный метод запуска в работу" alt="" coords="313,405,451,431"/>
+<area shape="poly" id="edge21_Node000001_Node000010" title=" " alt="" coords="805,343,796,404,781,480,760,549,747,576,732,593,706,611,681,622,657,628,633,628,584,617,528,594,501,578,477,558,436,513,405,467,387,432,392,430,410,464,440,509,480,555,504,574,531,589,586,612,634,623,657,622,680,617,704,606,729,589,743,573,755,548,776,479,791,403,800,343"/>
+<area shape="rect" id="Node000011" href="$class_s_r__var__list.html#ad472b66a1add1322a6a70894851ffde8" title=" " alt="" coords="548,455,712,480"/>
+<area shape="poly" id="edge16_Node000001_Node000011" title=" " alt="" coords="800,343,775,395,756,423,732,445,712,457,709,452,729,441,752,419,771,393,795,341"/>
+<area shape="rect" id="Node000012" href="$class_s_r__var__list.html#a7dbc1a89d4ddc8f04ef285c05833df5d" title="Метод регистрации локальных входов" alt="" coords="545,504,715,529"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="805,344,797,378,784,419,762,460,732,495,714,506,712,502,729,491,758,457,779,417,792,377,800,343"/>
+<area shape="rect" id="Node000013" href="$class_s_r__var__list.html#adb84c527b268489cb7e88303fa6cd5dc" title="Метод регистрации выходов" alt="" coords="541,553,719,579"/>
+<area shape="poly" id="edge18_Node000001_Node000013" title=" " alt="" coords="808,343,803,387,791,441,769,496,752,522,732,544,716,555,713,551,729,540,748,519,764,494,786,439,798,386,802,343"/>
+<area shape="rect" id="Node000014" href="$class_s_r__calc__proc.html#a4ff04b0308134ee3896d701e66ee2690" title="Метод регистрации переменных алгоритма" alt="" coords="545,153,715,179"/>
+<area shape="poly" id="edge19_Node000001_Node000014" title=" " alt="" coords="795,292,771,241,752,214,729,192,709,181,712,176,732,188,756,211,775,238,800,290"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="534,209,481,204,482,198,534,203"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="349,213,195,306,192,302,346,209"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="124,337,61,360,59,355,122,332"/>
+<area shape="poly" id="edge7_Node000007_Node000004" title=" " alt="" coords="549,86,530,94,492,114,455,138,400,181,396,176,452,134,489,110,528,89,548,81"/>
+<area shape="poly" id="edge12_Node000008_Node000004" title=" " alt="" coords="559,135,530,143,418,181,416,176,529,138,558,130"/>
+<area shape="poly" id="edge14_Node000009_Node000010" title=" " alt="" coords="531,421,451,421,451,415,531,415"/>
+<area shape="poly" id="edge15_Node000010_Node000006" title=" " alt="" coords="299,414,207,404,107,389,60,377,61,372,109,383,207,398,299,409"/>
+<area shape="poly" id="edge20_Node000014_Node000004" title=" " alt="" coords="531,179,482,184,481,179,531,173"/>
+</map>

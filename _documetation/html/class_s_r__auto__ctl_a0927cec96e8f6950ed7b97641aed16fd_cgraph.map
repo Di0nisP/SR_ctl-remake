@@ -1,0 +1,7 @@
+<map id="SR_auto_ctl::calc" name="SR_auto_ctl::calc">
+<area shape="rect" id="Node000001" title="Основной метод алгоритма" alt="" coords="5,31,137,56"/>
+<area shape="rect" id="Node000002" href="$err_8txt.html#a133e183279146577356bc829b5517e03" title=" " alt="" coords="221,5,278,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,31,207,21,207,27,138,37"/>
+<area shape="rect" id="Node000003" href="$class_file_reader.html#a337dc632204d5727a3577c1fb0b9e2ee" title="Читает данные из файла и записывает их в массив." alt="" coords="185,55,313,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,50,172,54,172,60,137,55"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="SR_calc_proc::reg_vars" name="SR_calc_proc::reg_vars">
+<area shape="rect" id="Node000001" title="Метод регистрации переменных алгоритма" alt="" coords="5,31,176,56"/>
+<area shape="rect" id="Node000002" href="$err_8txt.html#a133e183279146577356bc829b5517e03" title=" " alt="" coords="239,5,296,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,28,225,21,226,27,177,34"/>
+<area shape="rect" id="Node000003" href="$alg__base_8cpp.html#a70eb720011f04bab13494ce26e0280cb" title="Функция для получения значений констант из INI&#45;файлов" alt="" coords="224,55,311,80"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,52,211,57,210,62,176,58"/>
+</map>

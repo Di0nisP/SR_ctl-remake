@@ -468,8 +468,7 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 }
 
 // По-хорошему нужен для динамического изменения ПО (заглушка)
-SR_auto_ctl::~SR_auto_ctl() 
-{
+SR_auto_ctl::~SR_auto_ctl() {
 	for (auto obj :protection_elements)
 		delete obj;
 }

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Исходный файл /home/changeme/Документы/SR_ctl-remake/SR_ctl.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">/home/changeme/Документы/SR_ctl-remake/SR_ctl.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="_s_r__ctl_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//* Includes begin ----------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="config___s_r_8h.html">config_SR.h</a>&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;dlfcn.h&gt;</span>   <span class="comment">// Для динамической загрузки библиотек в Unix-подобных системах</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;link.h&gt;</span>    <span class="comment">// Для работы с динамическими библиотеками в Linux</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;dirent.h&gt;</span>  <span class="comment">// Для работы с каталогами и файлами в директориях</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">//* Includes end ------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//* Defines begin -----------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a7f565a1b08131af1d7ab8233bc107f99">   10</a></span><span class="preprocessor">#define CMD_ARRAY_SZ 8</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a082f3c456bf608927652a37d7b749344">   11</a></span><span class="preprocessor">#define GRIP_POS_ARRAY_SZ 16</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#ab8164a3c843844d2ce92ea4322507bbc">   13</a></span><span class="preprocessor">#define CMD_NUM_PAR 4</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a81f9882ea086a0bd9eb12881ad33ff87">   15</a></span><span class="preprocessor">#define MPI_AR_SZ 10</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a39cedb466517523e55cab4dd201f6363">   16</a></span><span class="preprocessor">#define MPI_STR_SZ 128</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a25a1f1ba4cb8314e846cbfe963f3dc71">   17</a></span><span class="preprocessor">#define MPI_SR_DELAY 50</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a4c6600f7eb80f84e916b529b52d86f7c">   18</a></span><span class="preprocessor">#define MPI_SR_TIMEOUT 1000 </span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//* Defines end -------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a873db3f3cee909c3d8aace64eaf4ef89">   21</a></span><span class="keywordtype">char</span> <a class="code hl_variable" href="_s_r__ctl_8h.html#a873db3f3cee909c3d8aace64eaf4ef89">proc_rank_flag</a>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="_s_r__ctl_8h.html#a4456005defbf179270449cdaac04de05">   22</a></span><span class="keywordtype">char</span> <a class="code hl_variable" href="_s_r__ctl_8h.html#a4456005defbf179270449cdaac04de05">proc_rank_num</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html">   30</a></span><span class="keyword">class </span><a class="code hl_class" href="class_s_r__ctl__type.html">SR_ctl_type</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a0e0da224c6f95180f480b8a62d9b7d1b">   32</a></span>    <a class="code hl_class" href="class_link___m_p_i.html">Link_MPI</a> **<a class="code hl_variable" href="class_s_r__ctl__type.html#a0e0da224c6f95180f480b8a62d9b7d1b">p_MPI_link</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a411d038d6b56ddbeaa05b96324efd06d">   34</a></span>    <a class="code hl_class" href="class_s_r___settings.html">SR_Settings</a> *<a class="code hl_variable" href="class_s_r__ctl__type.html#a411d038d6b56ddbeaa05b96324efd06d">Settings</a>;  </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a29b94de26ae99e2b963adfc11e759809">   42</a></span>    <a class="code hl_class" href="class_s_r__calc__proc.html">SR_calc_proc</a> **<a class="code hl_variable" href="class_s_r__ctl__type.html#a29b94de26ae99e2b963adfc11e759809">calc_proc</a>;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#aea0025eebfbf31e0e272db418a933e9c">   43</a></span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="class_s_r__ctl__type.html#aea0025eebfbf31e0e272db418a933e9c">calc_proc_cnt</a>;   </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// Флаги печати. Управлют выводом информации о локальном процессе в консоль.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a73e7aac302dee74b61c1e78b78f8d02d">   46</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_s_r__ctl__type.html#a73e7aac302dee74b61c1e78b78f8d02d">print_topic</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a3d6556f8b181064e929644b072fed0b7">   47</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_s_r__ctl__type.html#a3d6556f8b181064e929644b072fed0b7">print_block</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a48e00123d51c426274d4e24ba5afab4c">   48</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_s_r__ctl__type.html#a48e00123d51c426274d4e24ba5afab4c">print_alg</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a8bd06bd88e61ab7f382539caa190c16a">   49</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_s_r__ctl__type.html#a8bd06bd88e61ab7f382539caa190c16a">print_var</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a6445dff1c25e255e5b38dbd795c178b2">   51</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="class_s_r__ctl__type.html#a6445dff1c25e255e5b38dbd795c178b2">step_time</a>;       </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_s_r__ctl__type.html#a3f6bbf00ec96b57937bb041222e2399a">   53</a></span>    <a class="code hl_variable" href="err_8txt.html#a5cdc7338037dabaa4cafccc0aa0adb05">time_t</a> <a class="code hl_variable" href="class_s_r__ctl__type.html#a3f6bbf00ec96b57937bb041222e2399a">print_cnt</a>;       </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__ctl__type.html#a6f3f1b2fe81f8c318c9999aef961e401">print_func</a>();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef">Init_local_calc</a>();</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_function" href="class_s_r__ctl__type.html#a7583cd48dd444bfe3e909cc95174fe81">SR_ctl_type</a>();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_function" href="class_s_r__ctl__type.html#a052a534a81a516b1a9600c94dc33026d">~SR_ctl_type</a>();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa">Init</a>();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e">Work</a>();    </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>};</div>
+</div>
+<div class="ttc" id="a_s_r__ctl_8h_html_a4456005defbf179270449cdaac04de05"><div class="ttname"><a href="_s_r__ctl_8h.html#a4456005defbf179270449cdaac04de05">proc_rank_num</a></div><div class="ttdeci">char proc_rank_num</div><div class="ttdef"><b>Definition</b> SR_ctl.h:22</div></div>
+<div class="ttc" id="a_s_r__ctl_8h_html_a873db3f3cee909c3d8aace64eaf4ef89"><div class="ttname"><a href="_s_r__ctl_8h.html#a873db3f3cee909c3d8aace64eaf4ef89">proc_rank_flag</a></div><div class="ttdeci">char proc_rank_flag</div><div class="ttdef"><b>Definition</b> SR_ctl.h:21</div></div>
+<div class="ttc" id="aclass_link___m_p_i_html"><div class="ttname"><a href="class_link___m_p_i.html">Link_MPI</a></div><div class="ttdoc">Класс для работы с входыми-выходами алгоритмов других процессов в коммуникаторе MPI.</div><div class="ttdef"><b>Definition</b> config_SR.h:102</div></div>
+<div class="ttc" id="aclass_s_r___settings_html"><div class="ttname"><a href="class_s_r___settings.html">SR_Settings</a></div><div class="ttdef"><b>Definition</b> config_SR.h:249</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html"><div class="ttname"><a href="class_s_r__calc__proc.html">SR_calc_proc</a></div><div class="ttdoc">Класс-продукт</div><div class="ttdef"><b>Definition</b> alg_base.h:106</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html"><div class="ttname"><a href="class_s_r__ctl__type.html">SR_ctl_type</a></div><div class="ttdoc">Класс-создатель</div><div class="ttdef"><b>Definition</b> SR_ctl.h:30</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a052a534a81a516b1a9600c94dc33026d"><div class="ttname"><a href="class_s_r__ctl__type.html#a052a534a81a516b1a9600c94dc33026d">SR_ctl_type::~SR_ctl_type</a></div><div class="ttdeci">~SR_ctl_type()</div><div class="ttdef"><b>Definition</b> SR_ctl.cpp:15</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a0d7e12a52d5d1849923941c6ae71727e"><div class="ttname"><a href="class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e">SR_ctl_type::Work</a></div><div class="ttdeci">void Work()</div><div class="ttdoc">Главный метод запуска в работу</div><div class="ttdef"><b>Definition</b> SR_ctl.cpp:350</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a0e0da224c6f95180f480b8a62d9b7d1b"><div class="ttname"><a href="class_s_r__ctl__type.html#a0e0da224c6f95180f480b8a62d9b7d1b">SR_ctl_type::p_MPI_link</a></div><div class="ttdeci">Link_MPI ** p_MPI_link</div><div class="ttdef"><b>Definition</b> SR_ctl.h:32</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a15aeb853304d28d278a2467752e5e3ef"><div class="ttname"><a href="class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef">SR_ctl_type::Init_local_calc</a></div><div class="ttdeci">void Init_local_calc()</div><div class="ttdoc">Инициализация локальных алгоритмов</div><div class="ttdef"><b>Definition</b> SR_ctl.cpp:19</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a29b94de26ae99e2b963adfc11e759809"><div class="ttname"><a href="class_s_r__ctl__type.html#a29b94de26ae99e2b963adfc11e759809">SR_ctl_type::calc_proc</a></div><div class="ttdeci">SR_calc_proc ** calc_proc</div><div class="ttdoc">Список расчётных процедур, которые надо запускать</div><div class="ttdef"><b>Definition</b> SR_ctl.h:42</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a3d6556f8b181064e929644b072fed0b7"><div class="ttname"><a href="class_s_r__ctl__type.html#a3d6556f8b181064e929644b072fed0b7">SR_ctl_type::print_block</a></div><div class="ttdeci">int print_block</div><div class="ttdef"><b>Definition</b> SR_ctl.h:47</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a3f6bbf00ec96b57937bb041222e2399a"><div class="ttname"><a href="class_s_r__ctl__type.html#a3f6bbf00ec96b57937bb041222e2399a">SR_ctl_type::print_cnt</a></div><div class="ttdeci">time_t print_cnt</div><div class="ttdoc">Счётчик времени обсчёта медленных функций и выдачи на печать (мс)</div><div class="ttdef"><b>Definition</b> SR_ctl.h:53</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a411d038d6b56ddbeaa05b96324efd06d"><div class="ttname"><a href="class_s_r__ctl__type.html#a411d038d6b56ddbeaa05b96324efd06d">SR_ctl_type::Settings</a></div><div class="ttdeci">SR_Settings * Settings</div><div class="ttdoc">Общие настройки всего фреймворка</div><div class="ttdef"><b>Definition</b> SR_ctl.h:34</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a48e00123d51c426274d4e24ba5afab4c"><div class="ttname"><a href="class_s_r__ctl__type.html#a48e00123d51c426274d4e24ba5afab4c">SR_ctl_type::print_alg</a></div><div class="ttdeci">int print_alg</div><div class="ttdef"><b>Definition</b> SR_ctl.h:48</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a5b6fc56ea96ee235d11155797f0ca7aa"><div class="ttname"><a href="class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa">SR_ctl_type::Init</a></div><div class="ttdeci">void Init()</div><div class="ttdoc">Главный метод инициализации</div><div class="ttdef"><b>Definition</b> SR_ctl.cpp:327</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a6445dff1c25e255e5b38dbd795c178b2"><div class="ttname"><a href="class_s_r__ctl__type.html#a6445dff1c25e255e5b38dbd795c178b2">SR_ctl_type::step_time</a></div><div class="ttdeci">double step_time</div><div class="ttdoc">Время шага расчёта (мкс)</div><div class="ttdef"><b>Definition</b> SR_ctl.h:51</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a6f3f1b2fe81f8c318c9999aef961e401"><div class="ttname"><a href="class_s_r__ctl__type.html#a6f3f1b2fe81f8c318c9999aef961e401">SR_ctl_type::print_func</a></div><div class="ttdeci">void print_func()</div><div class="ttdoc">Метод вывода информации о работе алгоритма</div><div class="ttdef"><b>Definition</b> SR_ctl.cpp:464</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a73e7aac302dee74b61c1e78b78f8d02d"><div class="ttname"><a href="class_s_r__ctl__type.html#a73e7aac302dee74b61c1e78b78f8d02d">SR_ctl_type::print_topic</a></div><div class="ttdeci">int print_topic</div><div class="ttdef"><b>Definition</b> SR_ctl.h:46</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a7583cd48dd444bfe3e909cc95174fe81"><div class="ttname"><a href="class_s_r__ctl__type.html#a7583cd48dd444bfe3e909cc95174fe81">SR_ctl_type::SR_ctl_type</a></div><div class="ttdeci">SR_ctl_type()</div><div class="ttdef"><b>Definition</b> SR_ctl.cpp:14</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_a8bd06bd88e61ab7f382539caa190c16a"><div class="ttname"><a href="class_s_r__ctl__type.html#a8bd06bd88e61ab7f382539caa190c16a">SR_ctl_type::print_var</a></div><div class="ttdeci">int print_var</div><div class="ttdef"><b>Definition</b> SR_ctl.h:49</div></div>
+<div class="ttc" id="aclass_s_r__ctl__type_html_aea0025eebfbf31e0e272db418a933e9c"><div class="ttname"><a href="class_s_r__ctl__type.html#aea0025eebfbf31e0e272db418a933e9c">SR_ctl_type::calc_proc_cnt</a></div><div class="ttdeci">size_t calc_proc_cnt</div><div class="ttdoc">Количество загруженных локальных расчётных процедур (алгоритмов)</div><div class="ttdef"><b>Definition</b> SR_ctl.h:43</div></div>
+<div class="ttc" id="aconfig___s_r_8h_html"><div class="ttname"><a href="config___s_r_8h.html">config_SR.h</a></div></div>
+<div class="ttc" id="aerr_8txt_html_a5cdc7338037dabaa4cafccc0aa0adb05"><div class="ttname"><a href="err_8txt.html#a5cdc7338037dabaa4cafccc0aa0adb05">time_t</a></div><div class="ttdeci">int time_t</div><div class="ttdef"><b>Definition</b> err.txt:7326</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>
