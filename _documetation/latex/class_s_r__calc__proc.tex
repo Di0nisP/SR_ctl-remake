@@ -1,0 +1,487 @@
+\doxysection{Класс SR\+\_\+calc\+\_\+proc}
+\hypertarget{class_s_r__calc__proc}{}\label{class_s_r__calc__proc}\index{SR\_calc\_proc@{SR\_calc\_proc}}
+
+
+Класс-\/продукт  
+
+
+
+
+{\ttfamily \#include $<$alg\+\_\+base.\+h$>$}
+
+
+
+Граф наследования\+:SR\+\_\+calc\+\_\+proc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_s_r__calc__proc__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Граф связей класса SR\+\_\+calc\+\_\+proc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{class_s_r__calc__proc__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_r__calc__proc_af8785ac6dc070a50e2febe101eaccc9e}{SR\+\_\+calc\+\_\+proc}} ()
+\item 
+\mbox{\hyperlink{class_s_r__calc__proc_a208fda0e4af9943e813bd3ca93916373}{\texorpdfstring{$\sim$}{\string~}\+SR\+\_\+calc\+\_\+proc}} ()
+\item 
+int \mbox{\hyperlink{class_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53}{get\+\_\+ready}} ()
+\begin{DoxyCompactList}\small\item\em Метод для проверки готовности алгоритма \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690}{reg\+\_\+vars}} (void \texorpdfstring{$\ast$}{*}vars\+\_\+of\+\_\+block)
+\begin{DoxyCompactList}\small\item\em Метод регистрации переменных алгоритма \end{DoxyCompactList}\item 
+\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} \mbox{\hyperlink{class_s_r__calc__proc_acccdf7fd2574bf5f3a46b107dedc945f}{get\+\_\+num\+\_\+out}} ()
+\begin{DoxyCompactList}\small\item\em Метод получения числа выходов алгоритма \end{DoxyCompactList}\item 
+\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} \mbox{\hyperlink{class_s_r__calc__proc_a68048302de021f1cb1ce35ec0ac538f6}{get\+\_\+num\+\_\+in}} ()
+\begin{DoxyCompactList}\small\item\em Метод получения числа входов алгоритма \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_s_r__calc__proc_a4ec76156b9b3d76ad40d0f1a00027940}{get\+\_\+out\+\_\+val}} (\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} idx)
+\begin{DoxyCompactList}\small\item\em Метод для получения значения выходной переменной \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_s_r__calc__proc_ae0f4ee95c7d59084a02865a2aa047104}{get\+\_\+in\+\_\+val}} (\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} idx)
+\begin{DoxyCompactList}\small\item\em Метод для получения значения входной переменной \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_ac52b68fbdb581f01a644458343c80f09}{get\+\_\+out\+\_\+name}} (\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} idx)
+\begin{DoxyCompactList}\small\item\em Метод для получения имени выходной переменной \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_ab97abab7ba92b56476813499a711bd49}{get\+\_\+in\+\_\+name}} (\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} idx)
+\begin{DoxyCompactList}\small\item\em Метод для получения имени входной переменной \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5}{calc}} ()=0
+\begin{DoxyCompactList}\small\item\em Метод запуска вычислительной процедуры (алгоритма) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_s_r__calc__proc_a9f53f544c46f15c1e75ff404a47358c1}{calc\+\_\+period}}
+\begin{DoxyCompactList}\small\item\em Период обсчета функции в мс \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_r__calc__proc_a2706cd8b80daffd02590edfab80ca9e5}{ready\+\_\+proc}}
+\begin{DoxyCompactList}\small\item\em Переменная готовности алгоритма \end{DoxyCompactList}\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_ab61712f803ea2d9fc22ed5a8f6f6adee}{proc\+\_\+name}}
+\begin{DoxyCompactList}\small\item\em Указатель на имя функции \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{class_s_r__calc__proc_a05947716775717bf41ae128e3a1cf716}{file\+\_\+name}} \mbox{[}256\mbox{]}
+\begin{DoxyCompactList}\small\item\em Имя файла \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_s_r__calc__proc_a657f77ad93b7a41645eeda3fb79ab078}{make\+\_\+const}} (float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+\_\+val, const char \texorpdfstring{$\ast$}{*}var\+\_\+name, float init\+\_\+val)
+\begin{DoxyCompactList}\small\item\em Метод добавления информации о константах (или настройках) алгоритма \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_r__calc__proc_a7f9429177612fc0e27af92f817d32367}{make\+\_\+in}} (float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+\_\+val, const char \texorpdfstring{$\ast$}{*}var\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Метод добавления информации о входах алгоритма \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541}{make\+\_\+out}} (float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+\_\+val, const char \texorpdfstring{$\ast$}{*}var\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Метод добавления информации о выходах алгоритма \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_r__calc__proc_a4d4387fee5f17357c21dc2db27ab9246}{make\+\_\+in}} (float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+\_\+val, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part1, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part2, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part3)
+\item 
+void \mbox{\hyperlink{class_s_r__calc__proc_a98d2e2ead4212eec0dfb913da8de3373}{make\+\_\+out}} (float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+\_\+val, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part1, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part2, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part3)
+\item 
+void \mbox{\hyperlink{class_s_r__calc__proc_a1b71a01e684d0dd02b79d0a77a6cd47e}{make\+\_\+out}} (float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}pp\+\_\+val, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part1, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part2, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part3, const char \texorpdfstring{$\ast$}{*}var\+\_\+name\+\_\+part4)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Защищенные данные}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_a7596532f56ec0683990c18f7c292e667}{const\+\_\+name\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Указатель на область памяти, связанной с хранимыми именами констант алгоритма \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_ac44ce44e6a8f674d912ef09c6c38f55a}{const\+\_\+val\+\_\+ptr\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Указатель на область памяти, связанной с хранимыми значениями констант алгоритма \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_a019fc41f1b3c2a6b3159519e7e0cacb9}{out\+\_\+name\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Указатель на область памяти, связанной с хранимыми именами выходов алгоритма \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_a06900025fb6f283409076781577eade6}{out\+\_\+val\+\_\+pp\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_ad2af3d02d4fe8cd575801f802edd13af}{in\+\_\+name\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Указатель на область памяти, связанной с хранимыми именами входов алгоритма \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_s_r__calc__proc_aeaaeb15aafbcbe3f391a790a4345f722}{in\+\_\+val\+\_\+pp\+\_\+list}}
+\begin{DoxyCompactList}\small\item\em Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс-\/продукт 
+
+Определяет общий функционал объектов, которые может произвести создатель и его подклассы. 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_s_r__calc__proc_af8785ac6dc070a50e2febe101eaccc9e}\label{class_s_r__calc__proc_af8785ac6dc070a50e2febe101eaccc9e} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!SR\_calc\_proc@{SR\_calc\_proc}}
+\index{SR\_calc\_proc@{SR\_calc\_proc}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{SR\_calc\_proc()}{SR\_calc\_proc()}}
+{\footnotesize\ttfamily SR\+\_\+calc\+\_\+proc\+::\+SR\+\_\+calc\+\_\+proc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\Hypertarget{class_s_r__calc__proc_a208fda0e4af9943e813bd3ca93916373}\label{class_s_r__calc__proc_a208fda0e4af9943e813bd3ca93916373} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!````~SR\_calc\_proc@{\texorpdfstring{$\sim$}{\string~}SR\_calc\_proc}}
+\index{````~SR\_calc\_proc@{\texorpdfstring{$\sim$}{\string~}SR\_calc\_proc}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SR\_calc\_proc()}{\string~SR\_calc\_proc()}}
+{\footnotesize\ttfamily SR\+\_\+calc\+\_\+proc\+::\texorpdfstring{$\sim$}{\string~}\+SR\+\_\+calc\+\_\+proc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5}\label{class_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!calc@{calc}}
+\index{calc@{calc}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{calc()}{calc()}}
+{\footnotesize\ttfamily virtual void SR\+\_\+calc\+\_\+proc\+::calc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Метод запуска вычислительной процедуры (алгоритма) 
+
+
+
+Замещается в \mbox{\hyperlink{class_s_r__auto__ctl_a0927cec96e8f6950ed7b97641aed16fd}{SR\+\_\+auto\+\_\+ctl}}, \mbox{\hyperlink{class_s_r__auto__ctl_a0927cec96e8f6950ed7b97641aed16fd}{SR\+\_\+auto\+\_\+ctl}}, \mbox{\hyperlink{class_s_r__auto__ctl_a0927cec96e8f6950ed7b97641aed16fd}{SR\+\_\+auto\+\_\+ctl}}, \mbox{\hyperlink{class_s_r__auto__ctl_a0927cec96e8f6950ed7b97641aed16fd}{SR\+\_\+auto\+\_\+ctl}} и \mbox{\hyperlink{class_s_r__auto__ctl_a0927cec96e8f6950ed7b97641aed16fd}{SR\+\_\+auto\+\_\+ctl}}.
+
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_s_r__calc__proc_ab97abab7ba92b56476813499a711bd49}\label{class_s_r__calc__proc_ab97abab7ba92b56476813499a711bd49} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!get\_in\_name@{get\_in\_name}}
+\index{get\_in\_name@{get\_in\_name}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{get\_in\_name()}{get\_in\_name()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::get\+\_\+in\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}}}]{idx }\end{DoxyParamCaption})}
+
+
+
+Метод для получения имени входной переменной 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em idx} & Индекс переменной в списке входных переменных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+const char\texorpdfstring{$\ast$}{*} Указатель на массив символов имени входной переменной 
+\end{DoxyReturn}
+\Hypertarget{class_s_r__calc__proc_ae0f4ee95c7d59084a02865a2aa047104}\label{class_s_r__calc__proc_ae0f4ee95c7d59084a02865a2aa047104} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!get\_in\_val@{get\_in\_val}}
+\index{get\_in\_val@{get\_in\_val}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{get\_in\_val()}{get\_in\_val()}}
+{\footnotesize\ttfamily float SR\+\_\+calc\+\_\+proc\+::get\+\_\+in\+\_\+val (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}}}]{idx }\end{DoxyParamCaption})}
+
+
+
+Метод для получения значения входной переменной 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em idx} & Индекс переменной в списке входных переменных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+float Значение входной переменной 
+\end{DoxyReturn}
+\Hypertarget{class_s_r__calc__proc_a68048302de021f1cb1ce35ec0ac538f6}\label{class_s_r__calc__proc_a68048302de021f1cb1ce35ec0ac538f6} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!get\_num\_in@{get\_num\_in}}
+\index{get\_num\_in@{get\_num\_in}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{get\_num\_in()}{get\_num\_in()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} SR\+\_\+calc\+\_\+proc\+::get\+\_\+num\+\_\+in (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод получения числа входов алгоритма 
+
+\begin{DoxyReturn}{Возвращает}
+size\+\_\+t Число входов 
+\end{DoxyReturn}
+\Hypertarget{class_s_r__calc__proc_acccdf7fd2574bf5f3a46b107dedc945f}\label{class_s_r__calc__proc_acccdf7fd2574bf5f3a46b107dedc945f} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!get\_num\_out@{get\_num\_out}}
+\index{get\_num\_out@{get\_num\_out}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{get\_num\_out()}{get\_num\_out()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}} SR\+\_\+calc\+\_\+proc\+::get\+\_\+num\+\_\+out (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод получения числа выходов алгоритма 
+
+\begin{DoxyReturn}{Возвращает}
+size\+\_\+t Число выходов 
+\end{DoxyReturn}
+\Hypertarget{class_s_r__calc__proc_ac52b68fbdb581f01a644458343c80f09}\label{class_s_r__calc__proc_ac52b68fbdb581f01a644458343c80f09} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!get\_out\_name@{get\_out\_name}}
+\index{get\_out\_name@{get\_out\_name}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{get\_out\_name()}{get\_out\_name()}}
+{\footnotesize\ttfamily const char \texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::get\+\_\+out\+\_\+name (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}}}]{idx }\end{DoxyParamCaption})}
+
+
+
+Метод для получения имени выходной переменной 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em idx} & Индекс переменной в списке выходных переменных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+const char\texorpdfstring{$\ast$}{*} Указатель на массив символов имени выходной переменной 
+\end{DoxyReturn}
+\Hypertarget{class_s_r__calc__proc_a4ec76156b9b3d76ad40d0f1a00027940}\label{class_s_r__calc__proc_a4ec76156b9b3d76ad40d0f1a00027940} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!get\_out\_val@{get\_out\_val}}
+\index{get\_out\_val@{get\_out\_val}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{get\_out\_val()}{get\_out\_val()}}
+{\footnotesize\ttfamily float SR\+\_\+calc\+\_\+proc\+::get\+\_\+out\+\_\+val (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{err_8txt_ae43e1afb4123c6ddee091cf03ec10266}{size\+\_\+t}}}]{idx }\end{DoxyParamCaption})}
+
+
+
+Метод для получения значения выходной переменной 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em idx} & Индекс переменной в списке выходных переменных \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+float Значение выходной переменной 
+\end{DoxyReturn}
+\Hypertarget{class_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53}\label{class_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!get\_ready@{get\_ready}}
+\index{get\_ready@{get\_ready}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{get\_ready()}{get\_ready()}}
+{\footnotesize\ttfamily int SR\+\_\+calc\+\_\+proc\+::get\+\_\+ready (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Метод для проверки готовности алгоритма 
+
+Алгоритм считается готовым, если все указатели на значения (входы и выходы), которые объявлены в алгоритме, не являются нулевыми, то есть все входы алгоритма подключены.
+
+\begin{DoxyReturn}{Возвращает}
+int Возвращает -\/1, если алгоритм не готов; возвращает 0, если алгоритм готов 
+\end{DoxyReturn}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_s_r__calc__proc_a657f77ad93b7a41645eeda3fb79ab078}\label{class_s_r__calc__proc_a657f77ad93b7a41645eeda3fb79ab078} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!make\_const@{make\_const}}
+\index{make\_const@{make\_const}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{make\_const()}{make\_const()}}
+{\footnotesize\ttfamily void SR\+\_\+calc\+\_\+proc\+::make\+\_\+const (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+\_\+val,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name,  }\item[{float}]{init\+\_\+val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Метод добавления информации о константах (или настройках) алгоритма 
+
+Константы используются внутри алгоритма. Константы могут быть заданы в INI-\/файле алгоритма. Если INI-\/файл отсутствует, то значение константы соответствует тому, которым она инициализирована.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em pp\+\_\+val} & Адрес указателя на значение \\
+\hline
+\mbox{\texttt{ in}}  & {\em var\+\_\+name} & Указатель на имя константы \\
+\hline
+\mbox{\texttt{ in}}  & {\em init\+\_\+val} & Начальное значение константы \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_s_r__calc__proc_a7f9429177612fc0e27af92f817d32367}\label{class_s_r__calc__proc_a7f9429177612fc0e27af92f817d32367} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!make\_in@{make\_in}}
+\index{make\_in@{make\_in}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{make\_in()}{make\_in()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void SR\+\_\+calc\+\_\+proc\+::make\+\_\+in (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+\_\+val,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Метод добавления информации о входах алгоритма 
+
+Если имена выхода одного алгоритма и входа другого совпадают, то указатели созданных выхода и входа указывают на общую память.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em pp\+\_\+val} & Адрес указателя на значение \\
+\hline
+\mbox{\texttt{ in}}  & {\em var\+\_\+name} & Указатель на имя входа \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_s_r__calc__proc_a4d4387fee5f17357c21dc2db27ab9246}\label{class_s_r__calc__proc_a4d4387fee5f17357c21dc2db27ab9246} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!make\_in@{make\_in}}
+\index{make\_in@{make\_in}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{make\_in()}{make\_in()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void SR\+\_\+calc\+\_\+proc\+::make\+\_\+in (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+\_\+val,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part2,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541}\label{class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!make\_out@{make\_out}}
+\index{make\_out@{make\_out}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{make\_out()}{make\_out()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void SR\+\_\+calc\+\_\+proc\+::make\+\_\+out (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+\_\+val,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Метод добавления информации о выходах алгоритма 
+
+Если имена выхода одного алгоритма и входа другого совпадают, то указатели созданных выхода и входа указывают на общую память.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em pp\+\_\+val} & Адрес указателя на значение \\
+\hline
+\mbox{\texttt{ in}}  & {\em var\+\_\+name} & Указатель на имя выхода \\
+\hline
+\end{DoxyParams}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_s_r__calc__proc_a98d2e2ead4212eec0dfb913da8de3373}\label{class_s_r__calc__proc_a98d2e2ead4212eec0dfb913da8de3373} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!make\_out@{make\_out}}
+\index{make\_out@{make\_out}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{make\_out()}{make\_out()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void SR\+\_\+calc\+\_\+proc\+::make\+\_\+out (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+\_\+val,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part2,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part3 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_s_r__calc__proc_a1b71a01e684d0dd02b79d0a77a6cd47e}\label{class_s_r__calc__proc_a1b71a01e684d0dd02b79d0a77a6cd47e} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!make\_out@{make\_out}}
+\index{make\_out@{make\_out}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{make\_out()}{make\_out()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void SR\+\_\+calc\+\_\+proc\+::make\+\_\+out (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{pp\+\_\+val,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part1,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part2,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part3,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{var\+\_\+name\+\_\+part4 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\Hypertarget{class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690}\label{class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!reg\_vars@{reg\_vars}}
+\index{reg\_vars@{reg\_vars}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{reg\_vars()}{reg\_vars()}}
+{\footnotesize\ttfamily int SR\+\_\+calc\+\_\+proc\+::reg\+\_\+vars (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{vars\+\_\+of\+\_\+block }\end{DoxyParamCaption})}
+
+
+
+Метод регистрации переменных алгоритма 
+
+Метод предназначен для регистрации переменных (входов, выходов и констант) и их инициализации на основе данных из INI-\/файла.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ out}}  & {\em vars\+\_\+of\+\_\+block} & Указатель на область памяти, куда будет сохранена информация о связях типа входы-\/выходы \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+int 
+\end{DoxyReturn}
+Регистрируем локальные входы и выходы ~\newline
+Граф вызовов\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=309pt]{class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_s_r__calc__proc_a9f53f544c46f15c1e75ff404a47358c1}\label{class_s_r__calc__proc_a9f53f544c46f15c1e75ff404a47358c1} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!calc\_period@{calc\_period}}
+\index{calc\_period@{calc\_period}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{calc\_period}{calc\_period}}
+{\footnotesize\ttfamily int SR\+\_\+calc\+\_\+proc\+::calc\+\_\+period}
+
+
+
+Период обсчета функции в мс 
+
+\Hypertarget{class_s_r__calc__proc_a7596532f56ec0683990c18f7c292e667}\label{class_s_r__calc__proc_a7596532f56ec0683990c18f7c292e667} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!const\_name\_list@{const\_name\_list}}
+\index{const\_name\_list@{const\_name\_list}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{const\_name\_list}{const\_name\_list}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::const\+\_\+name\+\_\+list\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Указатель на область памяти, связанной с хранимыми именами констант алгоритма 
+
+\Hypertarget{class_s_r__calc__proc_ac44ce44e6a8f674d912ef09c6c38f55a}\label{class_s_r__calc__proc_ac44ce44e6a8f674d912ef09c6c38f55a} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!const\_val\_ptr\_list@{const\_val\_ptr\_list}}
+\index{const\_val\_ptr\_list@{const\_val\_ptr\_list}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{const\_val\_ptr\_list}{const\_val\_ptr\_list}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::const\+\_\+val\+\_\+ptr\+\_\+list\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Указатель на область памяти, связанной с хранимыми значениями констант алгоритма 
+
+\Hypertarget{class_s_r__calc__proc_a05947716775717bf41ae128e3a1cf716}\label{class_s_r__calc__proc_a05947716775717bf41ae128e3a1cf716} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!file\_name@{file\_name}}
+\index{file\_name@{file\_name}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{file\_name}{file\_name}}
+{\footnotesize\ttfamily char SR\+\_\+calc\+\_\+proc\+::file\+\_\+name\mbox{[}256\mbox{]}}
+
+
+
+Имя файла 
+
+\Hypertarget{class_s_r__calc__proc_ad2af3d02d4fe8cd575801f802edd13af}\label{class_s_r__calc__proc_ad2af3d02d4fe8cd575801f802edd13af} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!in\_name\_list@{in\_name\_list}}
+\index{in\_name\_list@{in\_name\_list}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{in\_name\_list}{in\_name\_list}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::in\+\_\+name\+\_\+list\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Указатель на область памяти, связанной с хранимыми именами входов алгоритма 
+
+\Hypertarget{class_s_r__calc__proc_aeaaeb15aafbcbe3f391a790a4345f722}\label{class_s_r__calc__proc_aeaaeb15aafbcbe3f391a790a4345f722} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!in\_val\_pp\_list@{in\_val\_pp\_list}}
+\index{in\_val\_pp\_list@{in\_val\_pp\_list}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{in\_val\_pp\_list}{in\_val\_pp\_list}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::in\+\_\+val\+\_\+pp\+\_\+list\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма 
+
+\Hypertarget{class_s_r__calc__proc_a019fc41f1b3c2a6b3159519e7e0cacb9}\label{class_s_r__calc__proc_a019fc41f1b3c2a6b3159519e7e0cacb9} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!out\_name\_list@{out\_name\_list}}
+\index{out\_name\_list@{out\_name\_list}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{out\_name\_list}{out\_name\_list}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::out\+\_\+name\+\_\+list\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Указатель на область памяти, связанной с хранимыми именами выходов алгоритма 
+
+\Hypertarget{class_s_r__calc__proc_a06900025fb6f283409076781577eade6}\label{class_s_r__calc__proc_a06900025fb6f283409076781577eade6} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!out\_val\_pp\_list@{out\_val\_pp\_list}}
+\index{out\_val\_pp\_list@{out\_val\_pp\_list}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{out\_val\_pp\_list}{out\_val\_pp\_list}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::out\+\_\+val\+\_\+pp\+\_\+list\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма 
+
+\Hypertarget{class_s_r__calc__proc_ab61712f803ea2d9fc22ed5a8f6f6adee}\label{class_s_r__calc__proc_ab61712f803ea2d9fc22ed5a8f6f6adee} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!proc\_name@{proc\_name}}
+\index{proc\_name@{proc\_name}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{proc\_name}{proc\_name}}
+{\footnotesize\ttfamily const char\texorpdfstring{$\ast$}{*} SR\+\_\+calc\+\_\+proc\+::proc\+\_\+name}
+
+
+
+Указатель на имя функции 
+
+\Hypertarget{class_s_r__calc__proc_a2706cd8b80daffd02590edfab80ca9e5}\label{class_s_r__calc__proc_a2706cd8b80daffd02590edfab80ca9e5} 
+\index{SR\_calc\_proc@{SR\_calc\_proc}!ready\_proc@{ready\_proc}}
+\index{ready\_proc@{ready\_proc}!SR\_calc\_proc@{SR\_calc\_proc}}
+\doxysubsubsection{\texorpdfstring{ready\_proc}{ready\_proc}}
+{\footnotesize\ttfamily bool SR\+\_\+calc\+\_\+proc\+::ready\+\_\+proc}
+
+
+
+Переменная готовности алгоритма 
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+/home/changeme/Документы/\+SR\+\_\+ctl-\/remake/\mbox{\hyperlink{alg__base_8h}{alg\+\_\+base.\+h}}\item 
+/home/changeme/Документы/\+SR\+\_\+ctl-\/remake/\mbox{\hyperlink{alg__base_8cpp}{alg\+\_\+base.\+cpp}}\end{DoxyCompactItemize}

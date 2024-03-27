@@ -1,0 +1,113 @@
+\doxysection{Класс Opmode}
+\hypertarget{class_opmode}{}\label{class_opmode}\index{Opmode@{Opmode}}
+
+
+Класс для формирования синусоиды  
+
+
+
+
+Граф связей класса Opmode\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=242pt]{class_opmode__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_opmode_a5b9f9daf97cc29641f0f440ef734adb1}{Opmode}} (uint8\+\_\+t \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}})
+\item 
+\mbox{\hyperlink{class_opmode_a88ce6e4b20124bde2af0d4199438ca29}{\texorpdfstring{$\sim$}{\string~}\+Opmode}} ()
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_opmode_aaed5a309cc9ee92b664aa01e42f9036f}{function\+\_\+opmode\+\_\+example}} (uint8\+\_\+t \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}}, float F, float fault\+\_\+time, float magnitude\+\_\+1, float phase\+\_\+1, float magnitude\+\_\+2, float phase\+\_\+2)
+\begin{DoxyCompactList}\small\item\em Функция формирования сигнала \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+const double \mbox{\hyperlink{class_opmode_a7d0b20f85c2c66a58b10f9a71d2c73e4}{Fs}} = \mbox{\hyperlink{alg__base_8h_ad17773d92820995bbd2c7e98b227b2b9}{FREQ\+\_\+S}}
+\item 
+const double \mbox{\hyperlink{class_opmode_a745344e06584b7ce7afb9782b03a4e1c}{Fn}} = \mbox{\hyperlink{alg__base_8h_aa67cdf477f1a1ec5d691750e8661f7f6}{FREQ\+\_\+N}}
+\item 
+double \mbox{\hyperlink{class_opmode_a28a38e39965011e10dec19d5672116bb}{time}}
+\item 
+float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_opmode_a476aa1036cf96e24a39e33b20318ffd1}{out\+\_\+array}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для формирования синусоиды 
+
+Функционал класса может быть использован для формирования режимов электрических сетей. 
+
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_opmode_a5b9f9daf97cc29641f0f440ef734adb1}\label{class_opmode_a5b9f9daf97cc29641f0f440ef734adb1} 
+\index{Opmode@{Opmode}!Opmode@{Opmode}}
+\index{Opmode@{Opmode}!Opmode@{Opmode}}
+\doxysubsubsection{\texorpdfstring{Opmode()}{Opmode()}}
+{\footnotesize\ttfamily Opmode\+::\+Opmode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{HBuff\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_opmode_a88ce6e4b20124bde2af0d4199438ca29}\label{class_opmode_a88ce6e4b20124bde2af0d4199438ca29} 
+\index{Opmode@{Opmode}!````~Opmode@{\texorpdfstring{$\sim$}{\string~}Opmode}}
+\index{````~Opmode@{\texorpdfstring{$\sim$}{\string~}Opmode}!Opmode@{Opmode}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Opmode()}{\string~Opmode()}}
+{\footnotesize\ttfamily Opmode\+::\texorpdfstring{$\sim$}{\string~}\+Opmode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_opmode_aaed5a309cc9ee92b664aa01e42f9036f}\label{class_opmode_aaed5a309cc9ee92b664aa01e42f9036f} 
+\index{Opmode@{Opmode}!function\_opmode\_example@{function\_opmode\_example}}
+\index{function\_opmode\_example@{function\_opmode\_example}!Opmode@{Opmode}}
+\doxysubsubsection{\texorpdfstring{function\_opmode\_example()}{function\_opmode\_example()}}
+{\footnotesize\ttfamily float \texorpdfstring{$\ast$}{*} Opmode\+::function\+\_\+opmode\+\_\+example (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{HBuff\+Size,  }\item[{float}]{F,  }\item[{float}]{fault\+\_\+time,  }\item[{float}]{magnitude\+\_\+1,  }\item[{float}]{phase\+\_\+1,  }\item[{float}]{magnitude\+\_\+2,  }\item[{float}]{phase\+\_\+2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Функция формирования сигнала 
+
+Данная функция позволяет получить синусоидальный сигнал, сдвинутый по фазе, с фиксированным изменением амлитуды в момент времени аварии.
+
+
+\begin{DoxyParams}{Аргументы}
+{\em fault\+\_\+time} & Время аварии \\
+\hline
+{\em phase} & Фаза сигнала \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+float\texorpdfstring{$\ast$}{*} Указатель на массив значений на такте 
+\end{DoxyReturn}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_opmode_a745344e06584b7ce7afb9782b03a4e1c}\label{class_opmode_a745344e06584b7ce7afb9782b03a4e1c} 
+\index{Opmode@{Opmode}!Fn@{Fn}}
+\index{Fn@{Fn}!Opmode@{Opmode}}
+\doxysubsubsection{\texorpdfstring{Fn}{Fn}}
+{\footnotesize\ttfamily const double Opmode\+::\+Fn = \mbox{\hyperlink{alg__base_8h_aa67cdf477f1a1ec5d691750e8661f7f6}{FREQ\+\_\+N}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_opmode_a7d0b20f85c2c66a58b10f9a71d2c73e4}\label{class_opmode_a7d0b20f85c2c66a58b10f9a71d2c73e4} 
+\index{Opmode@{Opmode}!Fs@{Fs}}
+\index{Fs@{Fs}!Opmode@{Opmode}}
+\doxysubsubsection{\texorpdfstring{Fs}{Fs}}
+{\footnotesize\ttfamily const double Opmode\+::\+Fs = \mbox{\hyperlink{alg__base_8h_ad17773d92820995bbd2c7e98b227b2b9}{FREQ\+\_\+S}}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_opmode_a476aa1036cf96e24a39e33b20318ffd1}\label{class_opmode_a476aa1036cf96e24a39e33b20318ffd1} 
+\index{Opmode@{Opmode}!out\_array@{out\_array}}
+\index{out\_array@{out\_array}!Opmode@{Opmode}}
+\doxysubsubsection{\texorpdfstring{out\_array}{out\_array}}
+{\footnotesize\ttfamily float\texorpdfstring{$\ast$}{*} Opmode\+::out\+\_\+array\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_opmode_a28a38e39965011e10dec19d5672116bb}\label{class_opmode_a28a38e39965011e10dec19d5672116bb} 
+\index{Opmode@{Opmode}!time@{time}}
+\index{time@{time}!Opmode@{Opmode}}
+\doxysubsubsection{\texorpdfstring{time}{time}}
+{\footnotesize\ttfamily double Opmode\+::time\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+/home/changeme/Документы/\+SR\+\_\+ctl-\/remake/\mbox{\hyperlink{alg__0___a_d_c_8cpp}{alg\+\_\+0\+\_\+\+ADC.\+cpp}}\end{DoxyCompactItemize}

@@ -1,63 +1,33 @@
-﻿#ifndef CONFIG_SR
+﻿/**
+ * @file config_SR.h
+ * @brief Заголовочный файл с конфигурационным функционалом фреймворка
+ */
+
+#ifndef CONFIG_SR
 #define CONFIG_SR
 
-#include <stdio.h>
-#include <stdlib.h>//#include <stdlib>//
-//#include <linux/i2c-dev.h>
-#include <fcntl.h>
-#include <string.h>
-
-//#include <iostream.h>
-
-//#include <string>
-
-#include <sys/ioctl.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <signal.h>
+//* Includes begin ----------------------------------------------------------------------
+#include <stdio.h> 		// Для работы с стандартными вводом и выводом
+#include <stdlib.h> 	// Обеспечивает доступ к функциям выделения памяти, управления процессами и другим базовым функциям
+#include <fcntl.h> 		// Позволяет управлять файловыми дескрипторами и выполнять операции с файлами
+#include <string.h> 	// Предоставляет функции для работы со строками
+#include <sys/ioctl.h> 	// Содержит определения констант, структур и функций для управления устройствами ввода-вывода
+#include <sys/types.h> 	// Определяет базовые типы данных
+#include <sys/stat.h> 	// Предоставляет функции для работы с атрибутами файлов
+#include <unistd.h> 	// Содержит декларации функций и типов данных, связанных с системными вызовами
+#include <signal.h> 	// Позволяет управлять сигналами и их обработкой
 
 #include "alg_base.h"
-//#include "UDP_link.h"
+//* Includes end ------------------------------------------------------------------------
 
-//#include <math.h>
-//	*/
-
-#define NUM_BLOCKS 5
+//#define NUM_BLOCKS 5
 
 //#define TXT_SZ 1024
 
-#define TXT_SZ 64
+//#define TXT_SZ 64
 
-#define DAT_UNIT_NUM 128
+//#define DAT_UNIT_NUM 128
 
-
-//----------------------------------------
-#define DEV_ID_ACL   0x19				//LSM303DLHC акселерометр
-#define DEV_ID_MG    0x1e				//LSM303DLHC компас
-#define DEV_ID_GYRO  0x6b				//L3GD20 гироскоп
-#define DEV_ID_PRESS 0x5d				//датчик давлени€
-#define DEV_ID_Wii   0x52
-//----------------------------------------
-//тип устройства
-#define UNKNOWN_CTL       0 //неизвестное устройство
-#define KITE_CTL_V1       101 //управление куполом (верси€ 1)
-#define BOARD_UP_CTL_V1   102 //управление доской - верхн€€ часть (верси€ 1)
-#define BOARD_DOWN_CTL_V1 103 //управление доской - нижн€€  часть (верси€ 1)
-#define SR_CTL_V1         200 //управление  (верси€ 1)
-//----------------------------------------
-//шины
-#define BUS_ID_I2C1			10//1-€ шина I2C
-#define BUS_ID_I2C2			11//2-€ шина I2C
-//----------------------------------------
-//команды управлени€
-#define CMD_STOP 10
-#define CMD_KITE 11
-#define CMD_BOARD      12
-#define CMD_BOARD_ROLL 14
-#define CMD_BOARD_DIR  14
- 
-//----------------------------------------
 #define STOP_TIMEOUT 300		//врем€ останова мс
 
 #define LIFE_PERIOD 7200*1000	//период работы программы мс
@@ -80,87 +50,119 @@
 
 #define TYPE_SZ 0
 
-/*struct multy_float_var_type
-{
-	const char* name;
-	int sz;	
-	int ID;
-};//*/
-
-struct link_var_discriptor
-{
+/**
+ * @brief 
+ * 
+ */
+struct link_var_discriptor {
 	size_t buff_idx;
 //	float* p_var_in_buff;
 	float* p_var_in_calc; // Указатель на входную локальную переменную
 };
 
 /**
- * @brief Класс для работы с входыми-выходами алгоритмов других процессов в коммуникаторе MPI
+ * @brief Класс для работы с входами-выходами алгоритмов других процессов в коммуникаторе MPI
  * 
  */
-class Link_MPI
+class Link_MPI 
 {
 private:
-	int   node; 		///< Номер узла
+	int   node; 		///< Номер узла (процесса) в коммуникаторе MPI
 	void* send_list; 	///< Список на передачу
 	void* recv_list; 	///< Список на приём
-//	int shift_recv_buff;
 public:
-	// —писки на выдачу и на приЄм содержат в себе имена переменных
 	int    send_sz; 	///< Размер буфера на передачу
 	int    recv_sz; 	///< Размер буфера на приём
-	float* send_buff; 	///< Указатель на буфер на передачу
-	float* recv_buff; 	///< Указатель на буфер на приём
-//	bool shifted;	
-
+	//? Списки на выдачу и на приём содержат в себе имена переменных
+	float* send_buff; 	///< @brief Указатель на буфер на передачу
+						///< @details Данные в массиве хранятся в порядке, задаваемом локальным отправителем
+	float* recv_buff; 	///< @brief Указатель на буфер на приём
+						///< @details Данные в массиве хранятся в порядке, задаваемом удалённым отправителем	
 public:
-	 Link_MPI(int node_num);
+	/**
+	 * @details Производится выделения памяти под списки на передачу и на приём
+	 * @param [in] node_num Ранг узла (процесса) в коммуникаторе MPI
+	 */
+	Link_MPI(int node_num);
+
 	~Link_MPI();
-//	void set_shift_recv_buff(int shift_bytes);
-	int get_node_num(); // ѕолучить номер (ID) узла внутри сети устройств
+
+	/**
+	 * @brief Метод для получения номера узла (процесса) в коммуникаторе MPI
+	 * 
+	 * @return int Номер узла (процесса) в коммуникаторе MPI
+	 */
+	int get_node_num();
 	
 //	void add_send_var(float* p_var_in_buff,float* p_var_in_calc);
 //	void add_recv_var(float* p_var_in_buff,float* p_var_in_calc);
 
-	// ƒобавление переменной:
-	// float* p_var_in_calc -- указатель на переменную;
-	// int buff_idx -- индекс внутри буфера (на приём или передачу)
-	void add_send_var(float* p_var_in_calc,size_t buff_idx);
-	void add_recv_var(float* p_var_in_calc,size_t buff_idx);	
+	/**
+	 * @brief Метод добавления переменной в список отправляемых переменных
+	 * 
+	 * @param [in] p_var_in_calc Указатель на переменную
+	 * @param [in] buff_idx Индекс элемента буфера на передачу
+	 */
+	void add_send_var(float* p_var_in_calc, size_t buff_idx);
+
+	/**
+	 * @brief Метод добавления переменной в список удалённых переменных
+	 * 
+	 * @param [in] p_var_in_calc Указатель на переменную
+	 * @param [in] buff_idx Индекс элемента буфера на приём
+	 */
+	void add_recv_var(float* p_var_in_calc, size_t buff_idx);
+
+	/**
+	 * @brief 
+	 * 
+	 */
 	void set_local_send_buff_order();
 	
 	// Копирование из буфера send или recv в буфер со внешними переменными
+	/**
+	 * @brief 
+	 * 
+	 */
 	void copy_send_vars();
+	/**
+	 * @brief 
+	 * 
+	 */
 	void copy_recv_vars();
 
 	// Выделение буферов для MPI
-	void set_send_buff(size_t sz);
-	void set_recv_buff(size_t sz);
-	
-//	int get_cur_send_sz();
-//	int get_cur_recv_sz();	
-//	void set_cur_send_sz(int sz);
-//	void set_cur_recv_sz(int sz);	
+	/**
+	 * @brief Метод выделения памяти для буфера на отправку
+	 * 
+	 * @param sz Размер буфера на отправку
+	 */
+	void set_send_buff(int sz);
+	/**
+	 * @brief Метод выделения памяти для буфера на приём
+	 * 
+	 * @param sz Размер буфера на приём
+	 */
+	void set_recv_buff(int sz);
 };
 
 /**
  * @brief Описание регистрируемой переменной
  * 
  * В качестве переменных выступают входы-выходы алгоритмов.
- * 
  */
 struct SR_var_discriptor {
 	const char* var_name; 		///< Имя переменной
 	const char* calc_proc_name;	///< Имя вычислительной процедуры (алгоритма)
-	float** pp_val_calc; 		///< Адрес указателя на значение переменной
-	int use_cnt; 				///< Индекс ссылок на переменную
+	float**     pp_val_calc; 	///< Адрес указателя на значение переменной
+	size_t      use_cnt; 		///< Число ссылок на переменную
 	
 	//---------------
-	int out_num; // ?
-	int idx; // »ндекс
-	int in_cnt; // (может не работать)
+//	int out_num; // ?
+//	int idx; // »ндекс
+//	int in_cnt; // (может не работать)
 	//-------------------“ќЋ№ ќ ƒЋя ќ“Ћјƒ » “ј  Ќ≈Ћ№«я!!!
-	float* p_val;
+//	float* p_val;
 	//-------------------“ќЋ№ ќ ƒЋя ќ“Ћјƒ » “ј  Ќ≈Ћ№«я!!!
 };
 
@@ -175,20 +177,21 @@ struct SR_var_discriptor {
  * Класс управляет регистрацией локальных входов-выходов, выделением памяти под выходные переменные и связыванием входов-выходов.
  * 
  */
-class SR_var_list {
+class SR_var_list 
+{
 protected:
-	void  *var_list;		//? Стоит удалить
+//	void  *var_list;		//?
 	void  *out_var_list;	///< Указатель на размещение списка выходных переменных
 	void  *in_var_list;		///< Указатель на размещение списка входных переменных
 	float *out_var_val;		///< Указатель на массив значений переменных
 	//+ + + + + + + + + + + + + + + + + + + + + 
-	void  *remote_var_list;	///< 
-	float *remote_var_val;	///<
+	void  *remote_var_list;	///< Указатель на список требуемых (удалённых) переменных
+	float *remote_var_val;	///< Указатель на массив значений требуемых (удалённых) переменных
 	//+ + + + + + + + + + + + + + + + + + + + + 
 public:
 	const char *list_name;	
-	float *var_val;
-	int    var_num;
+//	float *var_val;
+//	int    var_num;
 public:
 	/**
 	 * @brief Конструктор
@@ -201,10 +204,10 @@ public:
 
 	void init_var(const char* var_name); //? Установка переменных
 
-	SR_var_discriptor* get(const char* Name); // Вызов переменной по имени (медленно)
+//	SR_var_discriptor* get(const char* Name); // Вызов переменной по имени (медленно)
 	
-	void  printf_list(); // Перечисление имён всех переменных
-	size_t sz_list(); // Количество переменных
+//	void  printf_list(); // Перечисление имён всех переменных
+//	size_t sz_list(); // Количество переменных
 	const char* get_name_from_list(size_t idx); // Имя по индексу массива имён
 	
 	size_t sz_out_list(); 	///< Размер списка выходных переменных
@@ -248,25 +251,21 @@ public:
 class SR_Settings
 {
 private:
-	void* p_primary_sensors_list;
-	void* p_blocks_list;
-	void* p_net_interface_list;
+//	void* p_primary_sensors_list;	///<
+//	void* p_blocks_list;			///<
+//	void* p_net_interface_list;		///<
 	
-//	void* p_Link_list;	
+//	void* p_Link_list;				///<
 	
 public:
 	SR_var_list*  All_local_vars;	///< Cписок локальных переменных
-	SR_var_list** All_dist_vars;	///< Список удалённых переменных	
+	/// @todo All_dist_vars не нужен
+	SR_var_list** All_dist_vars;	///< Список удалённых переменных 
 
-	const char* Block_name;
+	const char* Block_name;			//? Заглушка
 
 public:
-	/**
-	 * @brief Construct a new sr settings object
-	 * 
-	 * Создаётся список локальных переменных.
-	 * 
-	 */
+	/// @details Создаётся список локальных переменных
 	SR_Settings();
 
 	~SR_Settings();

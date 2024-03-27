@@ -1,4 +1,9 @@
-﻿#ifndef ALG_BASE_SR
+﻿/**
+ * @file alg_base.h
+ * @brief Заголовочный файл с базовым функционалом алгоритмов
+ */
+
+#ifndef ALG_BASE_SR
 #define ALG_BASE_SR
 
 //* Includes begin ----------------------------------------------------------------------
@@ -35,7 +40,7 @@
 #define CMD_INC_PRINT_VAR 105	///<
 #define CMD_DEC_PRINT_VAR 106	///<
 
-//темы печати
+// Темы печати
 #define TOPIC_ALG_VARS 1		///<
 #define TOPIC_ALG_MSGS 2		///<
 

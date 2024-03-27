@@ -1,0 +1,790 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Класс SR_ctl_type</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_s_r__ctl__type-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс SR_ctl_type</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс-создатель  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_s_r__ctl_8h_source.html">SR_ctl.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф связей класса SR_ctl_type:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type__coll__graph.png" border="0" usemap="#a_s_r__ctl__type_coll__map" alt="Collaboration graph"/></div>
+<map name="a_s_r__ctl__type_coll__map" id="a_s_r__ctl__type_coll__map">
+<area shape="rect" title="Класс&#45;создатель" alt="" coords="185,1116,316,1441"/>
+<area shape="rect" href="class_link___m_p_i.html" title="Класс для работы с входами&#45;выходами алгоритмов других процессов в коммуникаторе MPI." alt="" coords="5,581,163,961"/>
+<area shape="poly" title=" " alt="" coords="128,960,168,1091,181,1127,177,1129,163,1093,123,961"/>
+<area shape="rect" href="class_s_r___settings.html" title=" " alt="" coords="187,708,314,833"/>
+<area shape="poly" title=" " alt="" coords="253,833,253,1099,248,1099,248,833"/>
+<area shape="rect" href="class_s_r__var__list.html" title="Класс для обработки списков переменных" alt="" coords="166,5,335,411"/>
+<area shape="poly" title=" " alt="" coords="253,411,253,691,248,691,248,411"/>
+<area shape="rect" href="class_s_r__calc__proc.html" title="Класс&#45;продукт" alt="" coords="338,488,481,1053"/>
+<area shape="poly" title=" " alt="" coords="340,1031,321,1093,318,1101,313,1100,316,1091,335,1030"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a7583cd48dd444bfe3e909cc95174fe81" id="r_a7583cd48dd444bfe3e909cc95174fe81"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7583cd48dd444bfe3e909cc95174fe81">SR_ctl_type</a> ()</td></tr>
+<tr class="memdesc:a7583cd48dd444bfe3e909cc95174fe81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контруктор по умолчанию  <br /></td></tr>
+<tr class="separator:a7583cd48dd444bfe3e909cc95174fe81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a052a534a81a516b1a9600c94dc33026d" id="r_a052a534a81a516b1a9600c94dc33026d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a052a534a81a516b1a9600c94dc33026d">~SR_ctl_type</a> ()</td></tr>
+<tr class="memdesc:a052a534a81a516b1a9600c94dc33026d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Деструктор  <br /></td></tr>
+<tr class="separator:a052a534a81a516b1a9600c94dc33026d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a6d7c5cdda0e48fa1a24072b8c3881b" id="r_a3a6d7c5cdda0e48fa1a24072b8c3881b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3a6d7c5cdda0e48fa1a24072b8c3881b">SR_ctl_type</a> (const <a class="el" href="class_s_r__ctl__type.html">SR_ctl_type</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a3a6d7c5cdda0e48fa1a24072b8c3881b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запрет компилятору автоматически генерировать конструктор копирования  <br /></td></tr>
+<tr class="separator:a3a6d7c5cdda0e48fa1a24072b8c3881b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bcff0b5258ae01e098c2efd85ed79a0" id="r_a8bcff0b5258ae01e098c2efd85ed79a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_s_r__ctl__type.html">SR_ctl_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8bcff0b5258ae01e098c2efd85ed79a0">operator=</a> (const <a class="el" href="class_s_r__ctl__type.html">SR_ctl_type</a> &amp;)=delete</td></tr>
+<tr class="memdesc:a8bcff0b5258ae01e098c2efd85ed79a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Запрет компилятору автоматически генерировать оператор присваивания  <br /></td></tr>
+<tr class="separator:a8bcff0b5258ae01e098c2efd85ed79a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6fc56ea96ee235d11155797f0ca7aa" id="r_a5b6fc56ea96ee235d11155797f0ca7aa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b6fc56ea96ee235d11155797f0ca7aa">Init</a> ()</td></tr>
+<tr class="memdesc:a5b6fc56ea96ee235d11155797f0ca7aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Главный метод инициализации  <br /></td></tr>
+<tr class="separator:a5b6fc56ea96ee235d11155797f0ca7aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d7e12a52d5d1849923941c6ae71727e" id="r_a0d7e12a52d5d1849923941c6ae71727e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d7e12a52d5d1849923941c6ae71727e">Work</a> ()</td></tr>
+<tr class="memdesc:a0d7e12a52d5d1849923941c6ae71727e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Главный метод запуска в работу  <br /></td></tr>
+<tr class="separator:a0d7e12a52d5d1849923941c6ae71727e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a6f3f1b2fe81f8c318c9999aef961e401" id="r_a6f3f1b2fe81f8c318c9999aef961e401"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f3f1b2fe81f8c318c9999aef961e401">print_func</a> ()</td></tr>
+<tr class="memdesc:a6f3f1b2fe81f8c318c9999aef961e401"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод вывода информации о работе алгоритма  <br /></td></tr>
+<tr class="separator:a6f3f1b2fe81f8c318c9999aef961e401"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15aeb853304d28d278a2467752e5e3ef" id="r_a15aeb853304d28d278a2467752e5e3ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15aeb853304d28d278a2467752e5e3ef">Init_local_calc</a> ()</td></tr>
+<tr class="memdesc:a15aeb853304d28d278a2467752e5e3ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Инициализация локальных алгоритмов  <br /></td></tr>
+<tr class="separator:a15aeb853304d28d278a2467752e5e3ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:a0e0da224c6f95180f480b8a62d9b7d1b" id="r_a0e0da224c6f95180f480b8a62d9b7d1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_link___m_p_i.html">Link_MPI</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e0da224c6f95180f480b8a62d9b7d1b">p_MPI_link</a></td></tr>
+<tr class="separator:a0e0da224c6f95180f480b8a62d9b7d1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a411d038d6b56ddbeaa05b96324efd06d" id="r_a411d038d6b56ddbeaa05b96324efd06d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_s_r___settings.html">SR_Settings</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a411d038d6b56ddbeaa05b96324efd06d">Settings</a></td></tr>
+<tr class="memdesc:a411d038d6b56ddbeaa05b96324efd06d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Общие настройки всего фреймворка  <br /></td></tr>
+<tr class="separator:a411d038d6b56ddbeaa05b96324efd06d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29b94de26ae99e2b963adfc11e759809" id="r_a29b94de26ae99e2b963adfc11e759809"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_s_r__calc__proc.html">SR_calc_proc</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29b94de26ae99e2b963adfc11e759809">calc_proc</a></td></tr>
+<tr class="memdesc:a29b94de26ae99e2b963adfc11e759809"><td class="mdescLeft">&#160;</td><td class="mdescRight">Список расчётных процедур, которые надо запускать  <br /></td></tr>
+<tr class="separator:a29b94de26ae99e2b963adfc11e759809"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea0025eebfbf31e0e272db418a933e9c" id="r_aea0025eebfbf31e0e272db418a933e9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea0025eebfbf31e0e272db418a933e9c">calc_proc_cnt</a></td></tr>
+<tr class="memdesc:aea0025eebfbf31e0e272db418a933e9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество загруженных локальных расчётных процедур (алгоритмов)  <br /></td></tr>
+<tr class="separator:aea0025eebfbf31e0e272db418a933e9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ed1212bf6aa6708b1b9a5e64b2c4fc8" id="r_a4ed1212bf6aa6708b1b9a5e64b2c4fc8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ed1212bf6aa6708b1b9a5e64b2c4fc8">print_topic</a></td></tr>
+<tr class="memdesc:a4ed1212bf6aa6708b1b9a5e64b2c4fc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг печати, определющий тему печати  <br /></td></tr>
+<tr class="separator:a4ed1212bf6aa6708b1b9a5e64b2c4fc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16205344253162ec9dee7e95d9feafe0" id="r_a16205344253162ec9dee7e95d9feafe0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a16205344253162ec9dee7e95d9feafe0">print_block</a></td></tr>
+<tr class="memdesc:a16205344253162ec9dee7e95d9feafe0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг печати, определяющий номер процесса в коммуникаторе MPI, информация о котором должна быть выведена на печать  <br /></td></tr>
+<tr class="separator:a16205344253162ec9dee7e95d9feafe0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac53496535957562be297d81515f7da5" id="r_aac53496535957562be297d81515f7da5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac53496535957562be297d81515f7da5">print_alg</a></td></tr>
+<tr class="memdesc:aac53496535957562be297d81515f7da5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг печати, определяющий номер алгоритма по порядку инициализации, информация о котором должна быть выведена на печать  <br /></td></tr>
+<tr class="separator:aac53496535957562be297d81515f7da5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a671073551bbe0314452cecf89c406ddb" id="r_a671073551bbe0314452cecf89c406ddb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a671073551bbe0314452cecf89c406ddb">print_var</a></td></tr>
+<tr class="memdesc:a671073551bbe0314452cecf89c406ddb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Флаг печати, определяющий номер переменных (входа в списке входов и выхода в списке выходов) алгоритма, информация о которых должна быть выведена на печать  <br /></td></tr>
+<tr class="separator:a671073551bbe0314452cecf89c406ddb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6445dff1c25e255e5b38dbd795c178b2" id="r_a6445dff1c25e255e5b38dbd795c178b2"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6445dff1c25e255e5b38dbd795c178b2">step_time</a></td></tr>
+<tr class="memdesc:a6445dff1c25e255e5b38dbd795c178b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Время шага расчёта (мкс)  <br /></td></tr>
+<tr class="separator:a6445dff1c25e255e5b38dbd795c178b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3f6bbf00ec96b57937bb041222e2399a" id="r_a3f6bbf00ec96b57937bb041222e2399a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#a5cdc7338037dabaa4cafccc0aa0adb05">time_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3f6bbf00ec96b57937bb041222e2399a">print_cnt</a></td></tr>
+<tr class="memdesc:a3f6bbf00ec96b57937bb041222e2399a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Счётчик времени обсчёта медленных функций и выдачи на печать (мс)  <br /></td></tr>
+<tr class="separator:a3f6bbf00ec96b57937bb041222e2399a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс-создатель </p>
+<p>Класс отвечает за инициализацию и запуск в работу всех локальных алгоритмов. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a7583cd48dd444bfe3e909cc95174fe81" name="a7583cd48dd444bfe3e909cc95174fe81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7583cd48dd444bfe3e909cc95174fe81">&#9670;&#160;</a></span>SR_ctl_type() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SR_ctl_type::SR_ctl_type </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Контруктор по умолчанию </p>
+
+</div>
+</div>
+<a id="a052a534a81a516b1a9600c94dc33026d" name="a052a534a81a516b1a9600c94dc33026d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a052a534a81a516b1a9600c94dc33026d">&#9670;&#160;</a></span>~SR_ctl_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SR_ctl_type::~SR_ctl_type </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Деструктор </p>
+
+</div>
+</div>
+<a id="a3a6d7c5cdda0e48fa1a24072b8c3881b" name="a3a6d7c5cdda0e48fa1a24072b8c3881b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a6d7c5cdda0e48fa1a24072b8c3881b">&#9670;&#160;</a></span>SR_ctl_type() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">SR_ctl_type::SR_ctl_type </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_s_r__ctl__type.html">SR_ctl_type</a> &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Запрет компилятору автоматически генерировать конструктор копирования </p>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a5b6fc56ea96ee235d11155797f0ca7aa" name="a5b6fc56ea96ee235d11155797f0ca7aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b6fc56ea96ee235d11155797f0ca7aa">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_ctl_type::Init </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Главный метод инициализации </p>
+<p>Не является RT-процессом. </p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_cgraph.png" border="0" usemap="#aclass_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_cgraph" alt=""/></div>
+<map name="aclass_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_cgraph" id="aclass_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_cgraph">
+<area shape="rect" title="Главный метод инициализации" alt="" coords="5,420,132,445"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="180,420,379,445"/>
+<area shape="poly" title=" " alt="" coords="132,430,166,430,166,435,132,435"/>
+<area shape="rect" href="class_link___m_p_i.html#acdb60f906f281395a42c7bfc54c4bb55" title="Метод добавления переменной в список удалённых переменных" alt="" coords="440,5,615,31"/>
+<area shape="poly" title=" " alt="" coords="279,420,286,352,308,250,326,193,351,137,384,85,425,40,430,36,434,40,428,44,388,88,356,140,331,195,313,251,291,353,284,420"/>
+<area shape="rect" href="class_link___m_p_i.html#a6b317e439854d6e9b73d95bb659d05ee" title="Метод добавления переменной в список отправляемых переменных" alt="" coords="438,55,617,80"/>
+<area shape="poly" title=" " alt="" coords="279,419,290,359,314,270,333,221,357,173,388,128,425,89,431,85,434,89,428,93,392,131,362,176,337,223,319,272,295,361,285,420"/>
+<area shape="rect" href="class_s_r___settings.html#aaeffcde2f98685c6b50df0c34eb3071a" title="Метод для поиска локальных алгоритмов" alt="" coords="445,104,610,129"/>
+<area shape="poly" title=" " alt="" coords="281,419,294,367,320,292,339,250,363,210,391,172,425,140,434,134,437,138,428,144,395,176,368,213,344,253,325,294,299,369,286,420"/>
+<area shape="rect" href="class_s_r__var__list.html#adf7522070b92afc0109deebdb46e6534" title=" " alt="" coords="456,154,599,194"/>
+<area shape="poly" title=" " alt="" coords="283,419,300,377,330,320,371,258,397,229,425,204,442,193,445,198,428,208,401,233,376,261,334,322,305,380,288,421"/>
+<area shape="rect" href="class_link___m_p_i.html#afaa63864666a4c86860e90fce8fb78d7" title="Метод для получения номера узла (процесса) в коммуникаторе MPI." alt="" coords="435,219,619,244"/>
+<area shape="poly" title=" " alt="" coords="285,418,305,385,336,341,377,294,425,254,439,247,442,251,428,259,380,298,340,344,309,388,290,421"/>
+<area shape="rect" href="class_s_r__var__list.html#aa24b7b7f29148569ebab8f8b79a801c6" title=" " alt="" coords="452,269,603,309"/>
+<area shape="poly" title=" " alt="" coords="292,418,348,370,385,343,425,318,440,311,442,316,428,323,388,347,351,374,296,422"/>
+<area shape="rect" href="class_s_r__calc__proc.html#a934ae8c2b30447cb94bcfa24b5602e53" title="Метод для проверки готовности алгоритма" alt="" coords="437,333,617,359"/>
+<area shape="poly" title=" " alt="" coords="307,417,361,393,426,369,456,360,457,365,428,374,363,398,309,422"/>
+<area shape="rect" href="class_s_r__var__list.html#a6024a7f3bff2f0cad7336985b785462e" title=" " alt="" coords="449,383,605,423"/>
+<area shape="poly" title=" " alt="" coords="378,418,436,411,436,417,379,424"/>
+<area shape="rect" href="class_s_r__var__list.html#afefa4d88213b147059171cba41b0a286" title="Метод выделения памяти для связей входы&#45;выходы всех алгоритмов" alt="" coords="427,448,628,473"/>
+<area shape="poly" title=" " alt="" coords="379,441,413,445,413,450,378,447"/>
+<area shape="rect" href="class_s_r__calc__proc.html#a4ff04b0308134ee3896d701e66ee2690" title="Метод регистрации переменных алгоритма" alt="" coords="442,497,613,523"/>
+<area shape="poly" title=" " alt="" coords="315,443,427,482,460,491,458,496,426,487,313,448"/>
+<area shape="rect" href="class_link___m_p_i.html#a09c325fad50817b2a065789690f2e0d4" title=" " alt="" coords="454,547,601,587"/>
+<area shape="poly" title=" " alt="" coords="297,443,353,486,428,533,443,540,440,545,425,538,350,491,294,447"/>
+<area shape="rect" href="class_link___m_p_i.html#a8c8017b32231011a1624412a5f07338b" title="Метод выделения памяти для буфера на приём" alt="" coords="440,612,615,637"/>
+<area shape="poly" title=" " alt="" coords="290,444,310,475,341,517,381,560,428,597,443,605,441,610,425,602,378,564,337,520,306,478,286,447"/>
+<area shape="rect" href="class_link___m_p_i.html#acd5acdfde01c9869bc2d42afe6a2a703" title="Метод выделения памяти для буфера на отправку" alt="" coords="438,661,617,687"/>
+<area shape="poly" title=" " alt="" coords="288,444,305,484,334,540,375,599,400,625,428,648,437,653,435,658,425,652,397,629,371,602,330,543,300,487,283,446"/>
+<area shape="rect" href="class_s_r__var__list.html#aec3947a99f8c549b33e2e264d1125e08" title="Размер списка входных локальных переменных" alt="" coords="446,711,609,736"/>
+<area shape="poly" title=" " alt="" coords="286,445,301,493,328,562,347,599,370,635,397,669,428,697,436,702,433,707,425,701,393,672,366,638,342,602,323,564,296,495,281,446"/>
+<area shape="rect" href="class_s_r__var__list.html#a6975a9e7af3f41a85f2615979f450865" title="Размер списка выходных переменных" alt="" coords="442,760,613,785"/>
+<area shape="poly" title=" " alt="" coords="285,445,297,501,322,583,341,628,365,672,394,712,428,747,435,751,432,756,425,751,390,715,360,674,336,630,317,585,292,503,280,446"/>
+<area shape="rect" href="class_s_r__var__list.html#a037bdcb47ebc44cdb6bf0046d6f105d1" title="Размер списка входных удалённых переменных" alt="" coords="439,809,615,835"/>
+<area shape="poly" title=" " alt="" coords="284,445,293,508,316,603,334,656,359,707,390,755,428,796,434,800,431,804,425,800,386,758,354,710,329,658,311,605,288,509,279,446"/>
+<area shape="rect" href="alg__0___a_d_c_8cpp.html#ab9a63d0d9515884c8341a5789c9b9238" title=" " alt="" coords="676,104,784,129"/>
+<area shape="poly" title=" " alt="" coords="610,114,662,114,662,119,610,119"/>
+<area shape="rect" href="alg__base_8cpp.html#a70eb720011f04bab13494ce26e0280cb" title="Функция для получения значений констант из INI&#45;файлов" alt="" coords="687,497,773,523"/>
+<area shape="poly" title=" " alt="" coords="613,507,673,507,673,513,613,513"/>
+<area shape="rect" href="config___s_r_8cpp.html#ad8cde6bcbed0a0c5765c1aeb47e5d589" title=" " alt="" coords="691,555,769,580"/>
+<area shape="poly" title=" " alt="" coords="601,565,677,565,677,570,601,570"/>
+</map>
+</div>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_icgraph.png" border="0" usemap="#aclass_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_icgraph" alt=""/></div>
+<map name="aclass_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_icgraph" id="aclass_s_r__ctl__type_a5b6fc56ea96ee235d11155797f0ca7aa_icgraph">
+<area shape="rect" title="Главный метод инициализации" alt="" coords="108,5,235,31"/>
+<area shape="rect" href="_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a15aeb853304d28d278a2467752e5e3ef" name="a15aeb853304d28d278a2467752e5e3ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15aeb853304d28d278a2467752e5e3ef">&#9670;&#160;</a></span>Init_local_calc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_ctl_type::Init_local_calc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Инициализация локальных алгоритмов </p>
+<p>Инициализация и настройка взаимодействия между процессами при использовании библиотеки MPI</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000002">Необходимо сделать</a></b></dt><dd>//? Сейчас настроено только на обмен между двумя процессами </dd></dl>
+<p>Обмен данными между процессами MPI</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000003">Необходимо сделать</a></b></dt><dd>Проблема в том, что если "падает" узел (процесс), фреймворк виснет </dd></dl>
+<p>Отправка</p>
+<p>Приём</p>
+<p>Теперь локальная переменная подключена</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_cgraph.png" border="0" usemap="#aclass_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_cgraph" alt=""/></div>
+<map name="aclass_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_cgraph" id="aclass_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_cgraph">
+<area shape="rect" title="Инициализация локальных алгоритмов" alt="" coords="5,420,204,445"/>
+<area shape="rect" href="class_link___m_p_i.html#acdb60f906f281395a42c7bfc54c4bb55" title="Метод добавления переменной в список удалённых переменных" alt="" coords="265,5,440,31"/>
+<area shape="poly" title=" " alt="" coords="104,420,111,352,133,250,151,193,177,137,209,85,250,40,256,36,259,40,254,44,213,88,181,140,156,195,138,251,117,353,109,420"/>
+<area shape="rect" href="class_link___m_p_i.html#a6b317e439854d6e9b73d95bb659d05ee" title="Метод добавления переменной в список отправляемых переменных" alt="" coords="263,55,442,80"/>
+<area shape="poly" title=" " alt="" coords="105,419,115,359,139,270,158,221,182,173,213,128,250,89,256,85,259,89,254,93,217,131,187,176,163,223,144,272,120,361,110,420"/>
+<area shape="rect" href="class_s_r___settings.html#aaeffcde2f98685c6b50df0c34eb3071a" title="Метод для поиска локальных алгоритмов" alt="" coords="270,104,435,129"/>
+<area shape="poly" title=" " alt="" coords="106,419,119,367,146,292,165,250,188,210,217,172,250,140,259,134,262,138,254,144,221,176,193,213,170,253,150,294,124,369,111,420"/>
+<area shape="rect" href="class_s_r__var__list.html#adf7522070b92afc0109deebdb46e6534" title=" " alt="" coords="281,154,424,194"/>
+<area shape="poly" title=" " alt="" coords="108,419,125,377,155,320,197,258,222,229,250,204,267,193,270,198,254,208,226,233,201,261,160,322,130,380,113,421"/>
+<area shape="rect" href="class_link___m_p_i.html#afaa63864666a4c86860e90fce8fb78d7" title="Метод для получения номера узла (процесса) в коммуникаторе MPI." alt="" coords="261,219,445,244"/>
+<area shape="poly" title=" " alt="" coords="111,418,130,385,161,341,202,294,251,254,265,247,267,251,253,259,206,298,166,344,135,388,115,421"/>
+<area shape="rect" href="class_s_r__var__list.html#aa24b7b7f29148569ebab8f8b79a801c6" title=" " alt="" coords="277,269,428,309"/>
+<area shape="poly" title=" " alt="" coords="118,418,173,370,211,343,251,318,265,311,268,316,253,323,214,347,176,374,121,422"/>
+<area shape="rect" href="class_s_r__calc__proc.html#a934ae8c2b30447cb94bcfa24b5602e53" title="Метод для проверки готовности алгоритма" alt="" coords="263,333,443,359"/>
+<area shape="poly" title=" " alt="" coords="132,417,186,393,251,369,281,360,283,365,253,374,188,398,134,422"/>
+<area shape="rect" href="class_s_r__var__list.html#a6024a7f3bff2f0cad7336985b785462e" title=" " alt="" coords="275,383,431,423"/>
+<area shape="poly" title=" " alt="" coords="204,418,261,411,262,417,204,424"/>
+<area shape="rect" href="class_s_r__var__list.html#afefa4d88213b147059171cba41b0a286" title="Метод выделения памяти для связей входы&#45;выходы всех алгоритмов" alt="" coords="252,448,453,473"/>
+<area shape="poly" title=" " alt="" coords="204,441,239,445,238,450,204,447"/>
+<area shape="rect" href="class_s_r__calc__proc.html#a4ff04b0308134ee3896d701e66ee2690" title="Метод регистрации переменных алгоритма" alt="" coords="267,497,438,523"/>
+<area shape="poly" title=" " alt="" coords="140,443,253,482,285,491,284,496,251,487,138,448"/>
+<area shape="rect" href="class_link___m_p_i.html#a09c325fad50817b2a065789690f2e0d4" title=" " alt="" coords="279,547,426,587"/>
+<area shape="poly" title=" " alt="" coords="122,443,178,486,253,533,268,540,266,545,251,538,175,491,119,447"/>
+<area shape="rect" href="class_link___m_p_i.html#a8c8017b32231011a1624412a5f07338b" title="Метод выделения памяти для буфера на приём" alt="" coords="265,612,440,637"/>
+<area shape="poly" title=" " alt="" coords="116,444,136,475,167,517,207,560,253,597,268,605,266,610,251,602,203,564,163,520,131,478,111,447"/>
+<area shape="rect" href="class_link___m_p_i.html#acd5acdfde01c9869bc2d42afe6a2a703" title="Метод выделения памяти для буфера на отправку" alt="" coords="263,661,442,687"/>
+<area shape="poly" title=" " alt="" coords="113,444,130,484,160,540,201,599,226,625,254,648,263,653,260,658,250,652,222,629,197,602,155,543,125,487,108,446"/>
+<area shape="rect" href="class_s_r__var__list.html#aec3947a99f8c549b33e2e264d1125e08" title="Размер списка входных локальных переменных" alt="" coords="271,711,434,736"/>
+<area shape="poly" title=" " alt="" coords="112,445,126,493,153,562,172,599,195,635,222,669,254,697,261,702,258,707,250,701,219,672,191,638,168,602,148,564,121,495,107,446"/>
+<area shape="rect" href="class_s_r__var__list.html#a6975a9e7af3f41a85f2615979f450865" title="Размер списка выходных переменных" alt="" coords="267,760,438,785"/>
+<area shape="poly" title=" " alt="" coords="111,445,122,501,147,583,166,628,190,672,219,712,254,747,260,751,257,756,250,751,215,715,185,674,161,630,142,585,117,503,105,446"/>
+<area shape="rect" href="class_s_r__var__list.html#a037bdcb47ebc44cdb6bf0046d6f105d1" title="Размер списка входных удалённых переменных" alt="" coords="265,809,441,835"/>
+<area shape="poly" title=" " alt="" coords="110,445,118,508,141,603,160,656,184,707,215,755,254,796,259,800,256,804,250,800,211,758,179,710,155,658,136,605,113,509,104,446"/>
+<area shape="rect" href="alg__0___a_d_c_8cpp.html#ab9a63d0d9515884c8341a5789c9b9238" title=" " alt="" coords="501,104,609,129"/>
+<area shape="poly" title=" " alt="" coords="435,114,487,114,487,119,435,119"/>
+<area shape="rect" href="alg__base_8cpp.html#a70eb720011f04bab13494ce26e0280cb" title="Функция для получения значений констант из INI&#45;файлов" alt="" coords="512,497,599,523"/>
+<area shape="poly" title=" " alt="" coords="438,507,498,507,498,513,438,513"/>
+<area shape="rect" href="config___s_r_8cpp.html#ad8cde6bcbed0a0c5765c1aeb47e5d589" title=" " alt="" coords="516,555,595,580"/>
+<area shape="poly" title=" " alt="" coords="426,565,502,565,502,570,426,570"/>
+</map>
+</div>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_icgraph.png" border="0" usemap="#aclass_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_icgraph" alt=""/></div>
+<map name="aclass_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_icgraph" id="aclass_s_r__ctl__type_a15aeb853304d28d278a2467752e5e3ef_icgraph">
+<area shape="rect" title="Инициализация локальных алгоритмов" alt="" coords="283,5,481,31"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="108,5,235,31"/>
+<area shape="poly" title=" " alt="" coords="268,21,235,21,235,15,268,15"/>
+<area shape="rect" href="_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a8bcff0b5258ae01e098c2efd85ed79a0" name="a8bcff0b5258ae01e098c2efd85ed79a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8bcff0b5258ae01e098c2efd85ed79a0">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_s_r__ctl__type.html">SR_ctl_type</a> SR_ctl_type::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_s_r__ctl__type.html">SR_ctl_type</a> &amp;</td>          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Запрет компилятору автоматически генерировать оператор присваивания </p>
+
+</div>
+</div>
+<a id="a6f3f1b2fe81f8c318c9999aef961e401" name="a6f3f1b2fe81f8c318c9999aef961e401"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f3f1b2fe81f8c318c9999aef961e401">&#9670;&#160;</a></span>print_func()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_ctl_type::print_func </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод вывода информации о работе алгоритма </p>
+<p>Печать данных в консоль. </p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type_a6f3f1b2fe81f8c318c9999aef961e401_icgraph.png" border="0" usemap="#aclass_s_r__ctl__type_a6f3f1b2fe81f8c318c9999aef961e401_icgraph" alt=""/></div>
+<map name="aclass_s_r__ctl__type_a6f3f1b2fe81f8c318c9999aef961e401_icgraph" id="aclass_s_r__ctl__type_a6f3f1b2fe81f8c318c9999aef961e401_icgraph">
+<area shape="rect" title="Метод вывода информации о работе алгоритма" alt="" coords="295,5,465,31"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e" title="Главный метод запуска в работу" alt="" coords="108,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+<area shape="rect" href="_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0d7e12a52d5d1849923941c6ae71727e" name="a0d7e12a52d5d1849923941c6ae71727e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d7e12a52d5d1849923941c6ae71727e">&#9670;&#160;</a></span>Work()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_ctl_type::Work </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Главный метод запуска в работу </p>
+<p>Быстрая часть ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼</p>
+<p>▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲ <br  />
+</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_cgraph.png" border="0" usemap="#aclass_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_cgraph" alt=""/></div>
+<map name="aclass_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_cgraph" id="aclass_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_cgraph">
+<area shape="rect" title="Главный метод запуска в работу" alt="" coords="5,104,144,129"/>
+<area shape="rect" href="class_s_r__calc__proc.html#af547eee10a8d43b4b08cc859427189f5" title="Метод запуска вычислительной процедуры (алгоритма)" alt="" coords="217,5,359,31"/>
+<area shape="poly" title=" " alt="" coords="90,102,134,71,191,40,210,32,212,37,193,44,137,75,93,106"/>
+<area shape="rect" href="class_link___m_p_i.html#acb0b19a7784e31817d4611decebc2141" title=" " alt="" coords="193,55,383,80"/>
+<area shape="poly" title=" " alt="" coords="130,101,218,81,220,86,131,107"/>
+<area shape="rect" href="class_link___m_p_i.html#aa4749346234606cbc878c04e1e7f8ea7" title=" " alt="" coords="192,104,384,129"/>
+<area shape="poly" title=" " alt="" coords="144,114,178,114,178,119,144,119"/>
+<area shape="rect" href="class_link___m_p_i.html#afaa63864666a4c86860e90fce8fb78d7" title="Метод для получения номера узла (процесса) в коммуникаторе MPI." alt="" coords="196,153,380,179"/>
+<area shape="poly" title=" " alt="" coords="131,127,220,148,218,153,130,132"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a6f3f1b2fe81f8c318c9999aef961e401" title="Метод вывода информации о работе алгоритма" alt="" coords="203,203,373,228"/>
+<area shape="poly" title=" " alt="" coords="94,127,138,157,193,188,216,196,214,201,191,192,135,162,91,132"/>
+</map>
+</div>
+<div id="dynsection-7" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_icgraph.png" border="0" usemap="#aclass_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_icgraph" alt=""/></div>
+<map name="aclass_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_icgraph" id="aclass_s_r__ctl__type_a0d7e12a52d5d1849923941c6ae71727e_icgraph">
+<area shape="rect" title="Главный метод запуска в работу" alt="" coords="108,5,247,31"/>
+<area shape="rect" href="_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a29b94de26ae99e2b963adfc11e759809" name="a29b94de26ae99e2b963adfc11e759809"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29b94de26ae99e2b963adfc11e759809">&#9670;&#160;</a></span>calc_proc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_s_r__calc__proc.html">SR_calc_proc</a>** SR_ctl_type::calc_proc</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Список расчётных процедур, которые надо запускать </p>
+<p>Сколько найдено и успешно подключено динамиечских библиотек (.so) расчётных процедур - столько записей. </p>
+
+</div>
+</div>
+<a id="aea0025eebfbf31e0e272db418a933e9c" name="aea0025eebfbf31e0e272db418a933e9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea0025eebfbf31e0e272db418a933e9c">&#9670;&#160;</a></span>calc_proc_cnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> SR_ctl_type::calc_proc_cnt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Количество загруженных локальных расчётных процедур (алгоритмов) </p>
+
+</div>
+</div>
+<a id="a0e0da224c6f95180f480b8a62d9b7d1b" name="a0e0da224c6f95180f480b8a62d9b7d1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e0da224c6f95180f480b8a62d9b7d1b">&#9670;&#160;</a></span>p_MPI_link</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_link___m_p_i.html">Link_MPI</a>** SR_ctl_type::p_MPI_link</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aac53496535957562be297d81515f7da5" name="aac53496535957562be297d81515f7da5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac53496535957562be297d81515f7da5">&#9670;&#160;</a></span>print_alg</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> SR_ctl_type::print_alg</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Флаг печати, определяющий номер алгоритма по порядку инициализации, информация о котором должна быть выведена на печать </p>
+
+</div>
+</div>
+<a id="a16205344253162ec9dee7e95d9feafe0" name="a16205344253162ec9dee7e95d9feafe0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16205344253162ec9dee7e95d9feafe0">&#9670;&#160;</a></span>print_block</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> SR_ctl_type::print_block</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Флаг печати, определяющий номер процесса в коммуникаторе MPI, информация о котором должна быть выведена на печать </p>
+
+</div>
+</div>
+<a id="a3f6bbf00ec96b57937bb041222e2399a" name="a3f6bbf00ec96b57937bb041222e2399a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3f6bbf00ec96b57937bb041222e2399a">&#9670;&#160;</a></span>print_cnt</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#a5cdc7338037dabaa4cafccc0aa0adb05">time_t</a> SR_ctl_type::print_cnt</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Счётчик времени обсчёта медленных функций и выдачи на печать (мс) </p>
+
+</div>
+</div>
+<a id="a4ed1212bf6aa6708b1b9a5e64b2c4fc8" name="a4ed1212bf6aa6708b1b9a5e64b2c4fc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ed1212bf6aa6708b1b9a5e64b2c4fc8">&#9670;&#160;</a></span>print_topic</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> SR_ctl_type::print_topic</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Флаг печати, определющий тему печати </p>
+
+</div>
+</div>
+<a id="a671073551bbe0314452cecf89c406ddb" name="a671073551bbe0314452cecf89c406ddb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a671073551bbe0314452cecf89c406ddb">&#9670;&#160;</a></span>print_var</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> SR_ctl_type::print_var</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Флаг печати, определяющий номер переменных (входа в списке входов и выхода в списке выходов) алгоритма, информация о которых должна быть выведена на печать </p>
+
+</div>
+</div>
+<a id="a411d038d6b56ddbeaa05b96324efd06d" name="a411d038d6b56ddbeaa05b96324efd06d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a411d038d6b56ddbeaa05b96324efd06d">&#9670;&#160;</a></span>Settings</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_s_r___settings.html">SR_Settings</a>* SR_ctl_type::Settings</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Общие настройки всего фреймворка </p>
+
+</div>
+</div>
+<a id="a6445dff1c25e255e5b38dbd795c178b2" name="a6445dff1c25e255e5b38dbd795c178b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6445dff1c25e255e5b38dbd795c178b2">&#9670;&#160;</a></span>step_time</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double SR_ctl_type::step_time</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Время шага расчёта (мкс) </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>/home/changeme/Документы/SR_ctl-remake/<a class="el" href="_s_r__ctl_8h_source.html">SR_ctl.h</a></li>
+<li>/home/changeme/Документы/SR_ctl-remake/<a class="el" href="_s_r__ctl_8cpp.html">SR_ctl.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

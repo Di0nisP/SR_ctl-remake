@@ -1,0 +1,139 @@
+\doxysection{Шаблон класса File\+Reader\texorpdfstring{$<$}{<} T, HBuff\+Size \texorpdfstring{$>$}{>}}
+\hypertarget{class_file_reader}{}\label{class_file_reader}\index{FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}}
+
+
+Класс для хранения параметров состояния чтения из файла  
+
+
+
+
+Граф наследования\+:File\+Reader\texorpdfstring{$<$}{<} T, HBuff\+Size \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=253pt]{class_file_reader__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Граф связей класса File\+Reader\texorpdfstring{$<$}{<} T, HBuff\+Size \texorpdfstring{$>$}{>}\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=224pt]{class_file_reader__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+int16\+\_\+t \mbox{\hyperlink{class_file_reader_a337dc632204d5727a3577c1fb0b9e2ee}{read}} (const std\+::string \&filename, const std\+::string \&column\+\_\+name, T \texorpdfstring{$\ast$}{*}result, const uint8\+\_\+t n=1u, const char delimiter=\textquotesingle{};\textquotesingle{})
+\begin{DoxyCompactList}\small\item\em Читает данные из файла и записывает их в массив. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+std\+::streampos \mbox{\hyperlink{class_file_reader_a079fd34ce856a8344b33af20545332b8}{last\+\_\+pos}} \{\}
+\item 
+std\+::string \mbox{\hyperlink{class_file_reader_ab86c398e312fc178360fed5ebb59d540}{last\+\_\+column\+\_\+name}} \{\}
+\item 
+std\+::string \mbox{\hyperlink{class_file_reader_a0382a85e52b7e50590b5a585f028d0c6}{last\+\_\+filename}} \{\}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{class_file_reader_a85a03269200e0f4e7f6144355b76b654}{column\+\_\+index}} = 0
+\item 
+uint16\+\_\+t \mbox{\hyperlink{class_file_reader_a54ddce567e5dad1762d623a5c364fe2b}{line\+\_\+count}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+\subsubsection*{template$<$typename T, const uint8\+\_\+t HBuff\+Size$>$\newline
+class File\+Reader$<$ T, HBuff\+Size $>$}
+Класс для хранения параметров состояния чтения из файла 
+
+
+\begin{DoxyTemplParams}{Параметры шаблона}
+{\em T} & Типа выходного массива функции чтения файла \\
+\hline
+{\em HBuff\+Size} & количество читаемых позиций файла \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Методы}
+\Hypertarget{class_file_reader_a337dc632204d5727a3577c1fb0b9e2ee}\label{class_file_reader_a337dc632204d5727a3577c1fb0b9e2ee} 
+\index{FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}!read@{read}}
+\index{read@{read}!FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily template$<$typename T , const uint8\+\_\+t HBuff\+Size$>$ \\
+int16\+\_\+t \mbox{\hyperlink{class_file_reader}{File\+Reader}}$<$ T, \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}} $>$\+::read (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename,  }\item[{const std\+::string \&}]{column\+\_\+name,  }\item[{T \texorpdfstring{$\ast$}{*}}]{result,  }\item[{const uint8\+\_\+t}]{n = {\ttfamily 1u},  }\item[{const char}]{delimiter = {\ttfamily \textquotesingle{};\textquotesingle{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Читает данные из файла и записывает их в массив. 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em filename} & Имя файла для чтения. \\
+\hline
+{\em column\+\_\+name} & Имя столбца, из которого нужно получить данные. \\
+\hline
+{\em result} & Массив, в который будут записаны считанные данные. \\
+\hline
+{\em n} & Шаг между читаемыми строками. \\
+\hline
+{\em delimiter} & Разделитель столбцов в файле. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+int16\+\_\+t Возвращает -\/1, если столбец не найден в заголовке файла. ~\newline
+Возвращает количество недочитанных строк, если файл закончился до достижения HBuff\+Size. ~\newline
+Возвращает 0 в случае успешного чтения всех строк. 
+\end{DoxyReturn}
+Граф вызова функции\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=311pt]{class_file_reader_a337dc632204d5727a3577c1fb0b9e2ee_icgraph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Данные класса}
+\Hypertarget{class_file_reader_a85a03269200e0f4e7f6144355b76b654}\label{class_file_reader_a85a03269200e0f4e7f6144355b76b654} 
+\index{FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}!column\_index@{column\_index}}
+\index{column\_index@{column\_index}!FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}}
+\doxysubsubsection{\texorpdfstring{column\_index}{column\_index}}
+{\footnotesize\ttfamily template$<$typename T , const uint8\+\_\+t HBuff\+Size$>$ \\
+uint8\+\_\+t \mbox{\hyperlink{class_file_reader}{File\+Reader}}$<$ T, \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}} $>$\+::column\+\_\+index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_file_reader_ab86c398e312fc178360fed5ebb59d540}\label{class_file_reader_ab86c398e312fc178360fed5ebb59d540} 
+\index{FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}!last\_column\_name@{last\_column\_name}}
+\index{last\_column\_name@{last\_column\_name}!FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}}
+\doxysubsubsection{\texorpdfstring{last\_column\_name}{last\_column\_name}}
+{\footnotesize\ttfamily template$<$typename T , const uint8\+\_\+t HBuff\+Size$>$ \\
+std\+::string \mbox{\hyperlink{class_file_reader}{File\+Reader}}$<$ T, \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}} $>$\+::last\+\_\+column\+\_\+name \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_file_reader_a0382a85e52b7e50590b5a585f028d0c6}\label{class_file_reader_a0382a85e52b7e50590b5a585f028d0c6} 
+\index{FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}!last\_filename@{last\_filename}}
+\index{last\_filename@{last\_filename}!FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}}
+\doxysubsubsection{\texorpdfstring{last\_filename}{last\_filename}}
+{\footnotesize\ttfamily template$<$typename T , const uint8\+\_\+t HBuff\+Size$>$ \\
+std\+::string \mbox{\hyperlink{class_file_reader}{File\+Reader}}$<$ T, \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}} $>$\+::last\+\_\+filename \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_file_reader_a079fd34ce856a8344b33af20545332b8}\label{class_file_reader_a079fd34ce856a8344b33af20545332b8} 
+\index{FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}!last\_pos@{last\_pos}}
+\index{last\_pos@{last\_pos}!FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}}
+\doxysubsubsection{\texorpdfstring{last\_pos}{last\_pos}}
+{\footnotesize\ttfamily template$<$typename T , const uint8\+\_\+t HBuff\+Size$>$ \\
+std\+::streampos \mbox{\hyperlink{class_file_reader}{File\+Reader}}$<$ T, \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}} $>$\+::last\+\_\+pos \{\}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_file_reader_a54ddce567e5dad1762d623a5c364fe2b}\label{class_file_reader_a54ddce567e5dad1762d623a5c364fe2b} 
+\index{FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}!line\_count@{line\_count}}
+\index{line\_count@{line\_count}!FileReader$<$ T, HBuffSize $>$@{FileReader$<$ T, HBuffSize $>$}}
+\doxysubsubsection{\texorpdfstring{line\_count}{line\_count}}
+{\footnotesize\ttfamily template$<$typename T , const uint8\+\_\+t HBuff\+Size$>$ \\
+uint16\+\_\+t \mbox{\hyperlink{class_file_reader}{File\+Reader}}$<$ T, \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuff\+Size}} $>$\+::line\+\_\+count = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+/home/changeme/Документы/\+SR\+\_\+ctl-\/remake/\mbox{\hyperlink{alg__0___a_d_c_8cpp}{alg\+\_\+0\+\_\+\+ADC.\+cpp}}\end{DoxyCompactItemize}

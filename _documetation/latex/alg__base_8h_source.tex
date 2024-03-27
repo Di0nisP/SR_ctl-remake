@@ -1,0 +1,134 @@
+\doxysection{/home/changeme/Документы/\+SR\+\_\+ctl-\/remake/alg\+\_\+base.h}
+\hypertarget{alg__base_8h_source}{}\label{alg__base_8h_source}\mbox{\hyperlink{alg__base_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ ALG\_BASE\_SR}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ ALG\_BASE\_SR}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//*\ Includes\ begin\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <math.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <complex>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <string.h>}\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <string>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <fstream>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <sstream>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <filesystem>}\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//*\ Includes\ end\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \textcolor{comment}{//*\ User\ defines\ begin\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#define\ \ MEMS\_PERIOD\ \ 5u\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ PRINT\_PERIOD\ 20u\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ CMD\_STOP\_PROG\ 123456789\ }}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ CMD\_PRINT\ 100\ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ CMD\_NO\_PRINT\ 1000\ \ \ \ \ \ \ }}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ CMD\_PRINT\_ALG\_VAR\ 1001\ \ }}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#define\ CMD\_PRINT\_ALG\_MSG\ 1002\ \ }}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ CMD\_PRINT\_BLOCK\ 10\ \ \ \ \ \ }}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ CMD\_PRINT\_ALG\ 11\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ CMD\_PRINT\_VAR\ 12\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#define\ CMD\_INC\_PRINT\_BLOCK\ 101\ }}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ CMD\_DEC\_PRINT\_BLOCK\ 102\ }}
+\DoxyCodeLine{00038\ \textcolor{preprocessor}{\#define\ CMD\_INC\_PRINT\_ALG\ 103\ \ \ }}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ CMD\_DEC\_PRINT\_ALG\ 104\ \ \ }}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ CMD\_INC\_PRINT\_VAR\ 105\ \ \ }}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ CMD\_DEC\_PRINT\_VAR\ 106\ \ \ }}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Темы\ печати}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ TOPIC\_ALG\_VARS\ 1\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ TOPIC\_ALG\_MSGS\ 2\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ ALG\_PRINTF\ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ FREQ\_S\ \ \ 4000.0f\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ FREQ\_N\ \ \ \ \ 50.0f\ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{00051\ \textcolor{comment}{//*\ User\ defines\ end\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{comment}{//*\ User\ macros\ begin\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ NUM\_CYCLE\ \ static\_cast<uint8\_t>(1000\ /\ (FREQ\_N\ *\ MEMS\_PERIOD))\ }}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#if\ defined\ (\_MSC\_VER)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LIB\_EXPORT\ extern\ "{}C"{}\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LIB\_EXPORT\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#elif\ defined\ (\_\_GNUC\_\_)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LIB\_EXPORT\ extern\ "{}C"{}\ \_\_attribute\_\_((visibility("{}default"{})))}}
+\DoxyCodeLine{00077\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LIB\_EXPORT\ \_\_attribute\_\_((visibility("{}default"{})))}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#endif}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\ \ \ \ \#warning\ Unknown\ dynamic\ link\ semantics}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ \_\_cplusplus}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LIB\_EXPORT\ extern\ "{}C"{}\ }}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LIB\_EXPORT\ }}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00100\ \textcolor{comment}{//*\ User\ macros\ end\ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{alg__base_8h_a3a6afdc6c2effffb266aa6f4494122a9}{N}}\ =\ \mbox{\hyperlink{alg__base_8h_ad17773d92820995bbd2c7e98b227b2b9}{FREQ\_S}}\ /\ \mbox{\hyperlink{alg__base_8h_aa67cdf477f1a1ec5d691750e8661f7f6}{FREQ\_N}};}
+\DoxyCodeLine{00103\ \textcolor{keyword}{const}\ uint8\_t\ \mbox{\hyperlink{alg__base_8h_a712ffdd991a3c1e9f3945bff9434a1f1}{HBuffSize}}\ =\ \mbox{\hyperlink{alg__base_8h_a3a6afdc6c2effffb266aa6f4494122a9}{N}}\ /\ \mbox{\hyperlink{alg__base_8h_af952851515705c845e531d0496b9c44e}{NUM\_CYCLE}};\ \ \ \ \ }
+\DoxyCodeLine{00104\ \ \ \ \ }
+\DoxyCodeLine{00111\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_s_r__calc__proc}{SR\_calc\_proc}}\ \{}
+\DoxyCodeLine{00112\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00113\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r__calc__proc_a7596532f56ec0683990c18f7c292e667}{const\_name\_list}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r__calc__proc_ac44ce44e6a8f674d912ef09c6c38f55a}{const\_val\_ptr\_list}};\ }
+\DoxyCodeLine{00115\ \ \ \ \ }
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r__calc__proc_a019fc41f1b3c2a6b3159519e7e0cacb9}{out\_name\_list}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r__calc__proc_a06900025fb6f283409076781577eade6}{out\_val\_pp\_list}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00118\ \ \ \ \ }
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r__calc__proc_ad2af3d02d4fe8cd575801f802edd13af}{in\_name\_list}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{class_s_r__calc__proc_aeaaeb15aafbcbe3f391a790a4345f722}{in\_val\_pp\_list}};\ \ \ \ \ }
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_s_r__calc__proc_a9f53f544c46f15c1e75ff404a47358c1}{calc\_period}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_s_r__calc__proc_a2706cd8b80daffd02590edfab80ca9e5}{ready\_proc}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_s_r__calc__proc_ab61712f803ea2d9fc22ed5a8f6f6adee}{proc\_name}};\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{class_s_r__calc__proc_a05947716775717bf41ae128e3a1cf716}{file\_name}}[256];\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00128\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00140\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__calc__proc_a657f77ad93b7a41645eeda3fb79ab078}{make\_const}}(\textcolor{keywordtype}{float}**\ pp\_val,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name,\ \textcolor{keywordtype}{float}\ init\_val);\ \ \ \ }
+\DoxyCodeLine{00141\ \ \ \ \ }
+\DoxyCodeLine{00151\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__calc__proc_a7f9429177612fc0e27af92f817d32367}{make\_in}}\ \ \ (\textcolor{keywordtype}{float}**\ pp\_val,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name);}
+\DoxyCodeLine{00152\ \ \ \ \ }
+\DoxyCodeLine{00162\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541}{make\_out}}\ \ (\textcolor{keywordtype}{float}**\ pp\_val,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name);}
+\DoxyCodeLine{00163\ \ \ \ \ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{comment}{//\ Расширенный\ (не\ реализованный)\ функционал,\ предполагающий\ возможность\ использования\ составных\ имён}}
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__calc__proc_a7f9429177612fc0e27af92f817d32367}{make\_in}}\ \ \ (\textcolor{keywordtype}{float}**\ pp\_val,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part1,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part2,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part3);}
+\DoxyCodeLine{00166\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541}{make\_out}}\ \ (\textcolor{keywordtype}{float}**\ pp\_val,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part1,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part2,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part3);}
+\DoxyCodeLine{00167\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541}{make\_out}}\ \ (\textcolor{keywordtype}{float}**\ pp\_val,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part1,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part2,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part3,\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ var\_name\_part4);\ \ \ }
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00170\ \ \ \ \ \ \mbox{\hyperlink{class_s_r__calc__proc_af8785ac6dc070a50e2febe101eaccc9e}{SR\_calc\_proc}}();}
+\DoxyCodeLine{00171\ \ \ \ \ \mbox{\hyperlink{class_s_r__calc__proc_a208fda0e4af9943e813bd3ca93916373}{\string~SR\_calc\_proc}}();}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00182\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53}{get\_ready}}();}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00193\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690}{reg\_vars}}(\textcolor{keywordtype}{void}*\ vars\_of\_block);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00200\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_s_r__calc__proc_acccdf7fd2574bf5f3a46b107dedc945f}{get\_num\_out}}();}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00207\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ \mbox{\hyperlink{class_s_r__calc__proc_a68048302de021f1cb1ce35ec0ac538f6}{get\_num\_in}}();}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00215\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_s_r__calc__proc_a4ec76156b9b3d76ad40d0f1a00027940}{get\_out\_val}}(\textcolor{keywordtype}{size\_t}\ idx);}
+\DoxyCodeLine{00216\ }
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_s_r__calc__proc_ae0f4ee95c7d59084a02865a2aa047104}{get\_in\_val}}(\textcolor{keywordtype}{size\_t}\ idx);}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00231\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_s_r__calc__proc_ac52b68fbdb581f01a644458343c80f09}{get\_out\_name}}(\textcolor{keywordtype}{size\_t}\ idx);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00239\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{class_s_r__calc__proc_ab97abab7ba92b56476813499a711bd49}{get\_in\_name}}(\textcolor{keywordtype}{size\_t}\ idx);\ }
+\DoxyCodeLine{00240\ \ \ \ \ }
+\DoxyCodeLine{00245\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5}{calc}}()\ =\ 0;\ \textcolor{comment}{//\ Не\ имеет\ реализации\ в\ одноимённом\ cpp-\/файле}}
+\DoxyCodeLine{00246\ \};}
+\DoxyCodeLine{00247\ }
+\DoxyCodeLine{00248\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ ALG\_BASE\_SR}}
+
+\end{DoxyCode}

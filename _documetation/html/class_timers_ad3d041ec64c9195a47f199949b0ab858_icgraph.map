@@ -1,0 +1,7 @@
+<map id="Timers::ton" name="Timers::ton">
+<area shape="rect" id="Node000001" title="Таймер задержки фронта" alt="" coords="219,45,315,70"/>
+<area shape="rect" id="Node000002" href="$class_overcurrent_protection.html#ade9231a8865c400b84c9fedb9ee2092c" title=" " alt="" coords="5,5,171,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="205,49,170,43,171,38,206,44"/>
+<area shape="rect" id="Node000003" href="$class_z_s_current_protection.html#a84e5931eee2af7db314196f3596470ed" title=" " alt="" coords="11,69,165,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="206,71,165,78,164,73,205,66"/>
+</map>

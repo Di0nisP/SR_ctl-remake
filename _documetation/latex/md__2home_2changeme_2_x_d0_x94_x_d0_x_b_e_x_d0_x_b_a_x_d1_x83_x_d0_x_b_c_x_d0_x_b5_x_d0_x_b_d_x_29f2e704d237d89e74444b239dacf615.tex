@@ -1,0 +1,15 @@
+\chapter{SR\+\_\+ctl}
+\hypertarget{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615}{}\label{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615}\index{SR\_ctl@{SR\_ctl}}
+\label{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615_autotoc_md0}%
+\Hypertarget{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615_autotoc_md0}%
+\hypertarget{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615_autotoc_md1}{}\doxysection{\texorpdfstring{Description}{Description}}\label{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615_autotoc_md1}
+Distributed control system framework for robotics
+
+SR\+\_\+ctl is framework for distributed control system for robotics.
+
+The framework allows to assemble control systems from many end devices are joined by Ethernet network. The control system is based on Message Passing Interface (MPI). Control system algorithms are realized as .so files that compiled from C++ files produced by special template.
+
+Different .so algorithms are linked by variables transmission. Each algorithm has inputs and outputs. Output value form one algorithm transmits to another algorithm input if names of the input and output correspond one to each other.
+
+Algorithms work with constant period on each device. Algorithms work one after other. \hypertarget{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615_autotoc_md2}{}\doxysection{\texorpdfstring{Решение возможных проблем}{Решение возможных проблем}}\label{md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615_autotoc_md2}
+В случае возникновения "{}непонятных"{} ошибок следует удалить INI-\/файлы. 

@@ -1,0 +1,15 @@
+<map id="SR_auto_ctl" name="SR_auto_ctl">
+<area shape="rect" id="Node000001" title=" " alt="" coords="9,856,144,1601"/>
+<area shape="rect" id="Node000002" href="$class_s_r__calc__proc.html" title="Класс&#45;продукт" alt="" coords="5,213,148,779"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="44,793,43,855,38,855,39,793"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="62,793,61,855,56,855,56,793"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="79,793,79,855,74,855,74,793"/>
+<area shape="poly" id="edge4_Node000001_Node000002" title=" " alt="" coords="97,793,97,855,92,855,92,793"/>
+<area shape="poly" id="edge5_Node000001_Node000002" title=" " alt="" coords="115,793,115,855,110,855,109,793"/>
+<area shape="rect" id="Node000003" href="$class_opmode.html" title="Класс для формирования синусоиды" alt="" coords="173,413,389,579"/>
+<area shape="poly" id="edge6_Node000001_Node000003" title=" " alt="" coords="260,580,151,971,146,970,255,578"/>
+<area shape="rect" id="Node000004" href="$class_file_reader.html" title=" " alt="" coords="413,416,565,576"/>
+<area shape="poly" id="edge7_Node000001_Node000004" title=" " alt="" coords="474,577,445,676,426,729,403,780,346,881,282,978,216,1066,157,1140,152,1136,212,1063,277,975,342,878,398,777,421,727,440,674,469,576"/>
+<area shape="rect" id="Node000005" href="$class_file_reader.html" title="Класс для хранения параметров состояния чтения из файла" alt="" coords="393,5,585,151"/>
+<area shape="poly" id="edge8_Node000004_Node000005" title=" " alt="" coords="491,164,491,416,486,416,486,164"/>
+</map>

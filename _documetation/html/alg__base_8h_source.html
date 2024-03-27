@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Исходный файл /home/changeme/Документы/SR_ctl-remake/alg_base.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">/home/changeme/Документы/SR_ctl-remake/alg_base.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="alg__base_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef ALG_BASE_SR</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#define ALG_BASE_SR</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">//* Includes begin ----------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;math.h&gt;</span>               </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;complex&gt;</span>              </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;stdio.h&gt;</span>              </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &lt;string.h&gt;</span>             </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;string&gt;</span>               </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;fstream&gt;</span>              </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;sstream&gt;</span>              </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;filesystem&gt;</span>           </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &lt;vector&gt;</span>               </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//* Includes end ------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">//* User defines begin ------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="alg__base_8h.html#aa7c45943d07d88404ba5c337288e327c">   22</a></span><span class="preprocessor">#define  MEMS_PERIOD  5u        </span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="alg__base_8h.html#ab8fb7d5aecd38e0e7d6106a400e10388">   23</a></span><span class="preprocessor">#define PRINT_PERIOD 20u        </span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="alg__base_8h.html#ab8c1d610e6168a501863e92a8675bca8">   25</a></span><span class="preprocessor">#define CMD_STOP_PROG 123456789 </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="alg__base_8h.html#afd67a594574c05e8d40ec8ff3ead0e61">   26</a></span><span class="preprocessor">#define CMD_PRINT 100           </span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a6c82a95d21d05ac90c1f1e3c065f674d">   28</a></span><span class="preprocessor">#define CMD_NO_PRINT 1000       </span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a88cfc63fd9114854486e9cdb9980f9ab">   29</a></span><span class="preprocessor">#define CMD_PRINT_ALG_VAR 1001  </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a27a62fac4bbb1260090e1fdacb390be9">   30</a></span><span class="preprocessor">#define CMD_PRINT_ALG_MSG 1002  </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a538b0b9604cb52c0a08874e67f8811a6">   32</a></span><span class="preprocessor">#define CMD_PRINT_BLOCK 10      </span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a0c404d458145f16616eea2da2479a63b">   33</a></span><span class="preprocessor">#define CMD_PRINT_ALG 11        </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a8eb26ab6f183ae400f97e6b755b31573">   34</a></span><span class="preprocessor">#define CMD_PRINT_VAR 12        </span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a55ce5e08db6fc1dbcfc92e8d1393d258">   36</a></span><span class="preprocessor">#define CMD_INC_PRINT_BLOCK 101 </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a29b8b95c29a1e130394d7a3277ee6628">   37</a></span><span class="preprocessor">#define CMD_DEC_PRINT_BLOCK 102 </span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a6d98f88fd61fe3b32e7c8f3ec58b83a5">   38</a></span><span class="preprocessor">#define CMD_INC_PRINT_ALG 103   </span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a827cd81408add462382ace39bcdb952f">   39</a></span><span class="preprocessor">#define CMD_DEC_PRINT_ALG 104   </span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a7a3daea444da0a54d01291063c4d96df">   40</a></span><span class="preprocessor">#define CMD_INC_PRINT_VAR 105   </span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a8c1ea8786a49d81e0c83403943f10646">   41</a></span><span class="preprocessor">#define CMD_DEC_PRINT_VAR 106   </span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// Темы печати</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a42c2ef2d448294a98d52ad0fcc70d86a">   44</a></span><span class="preprocessor">#define TOPIC_ALG_VARS 1        </span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="alg__base_8h.html#af52be43ddce82c5b90c62e10fad2de02">   45</a></span><span class="preprocessor">#define TOPIC_ALG_MSGS 2        </span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a92840fef2f83aa32eb4c2a5d41bc4fb7">   47</a></span><span class="preprocessor">#define ALG_PRINTF              </span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="alg__base_8h.html#ad17773d92820995bbd2c7e98b227b2b9">   49</a></span><span class="preprocessor">#define FREQ_S   4000.0f        </span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="alg__base_8h.html#aa67cdf477f1a1ec5d691750e8661f7f6">   50</a></span><span class="preprocessor">#define FREQ_N     50.0f        </span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">//* User defines end --------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">//* User macros begin -------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="alg__base_8h.html#af952851515705c845e531d0496b9c44e">   54</a></span><span class="preprocessor">#define NUM_CYCLE  static_cast&lt;uint8_t&gt;(1000 / (FREQ_N * MEMS_PERIOD)) </span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#if defined (_MSC_VER)</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="preprocessor">    #ifdef __cplusplus</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="preprocessor">        #define LIB_EXPORT extern &quot;C&quot; __declspec(dllexport)</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">    #else</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">        #define LIB_EXPORT __declspec(dllexport)</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">#elif defined (__GNUC__)</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">    #ifdef __cplusplus</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">        #define LIB_EXPORT extern &quot;C&quot; __attribute__((visibility(&quot;default&quot;)))</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">    #else</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="preprocessor">        #define LIB_EXPORT __attribute__((visibility(&quot;default&quot;)))</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="preprocessor">        #endif</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">    #warning Unknown dynamic link semantics</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">    #ifdef __cplusplus</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="preprocessor">        #define LIB_EXPORT extern &quot;C&quot; </span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">    #else</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="alg__base_8h.html#ab628e42bb29ed7b1ca25e8c54aeb77d3">   97</a></span><span class="preprocessor">        #define LIB_EXPORT </span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="preprocessor">    #endif</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">//* User macros end ---------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">  102</a></span><span class="keyword">const</span> uint8_t <a class="code hl_variable" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a> = <a class="code hl_define" href="alg__base_8h.html#ad17773d92820995bbd2c7e98b227b2b9">FREQ_S</a> / <a class="code hl_define" href="alg__base_8h.html#aa67cdf477f1a1ec5d691750e8661f7f6">FREQ_N</a>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="alg__base_8h.html#a712ffdd991a3c1e9f3945bff9434a1f1">  103</a></span><span class="keyword">const</span> uint8_t <a class="code hl_variable" href="alg__base_8h.html#a712ffdd991a3c1e9f3945bff9434a1f1">HBuffSize</a> = <a class="code hl_variable" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a> / <a class="code hl_define" href="alg__base_8h.html#af952851515705c845e531d0496b9c44e">NUM_CYCLE</a>;    </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    </div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="};">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html">  111</a></span><span class="keyword">class </span><a class="code hl_class" href="class_s_r__calc__proc.html">SR_calc_proc</a> {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#a7596532f56ec0683990c18f7c292e667">  113</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r__calc__proc.html#a7596532f56ec0683990c18f7c292e667">const_name_list</a>;      </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#ac44ce44e6a8f674d912ef09c6c38f55a">  114</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r__calc__proc.html#ac44ce44e6a8f674d912ef09c6c38f55a">const_val_ptr_list</a>;   </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#a019fc41f1b3c2a6b3159519e7e0cacb9">  116</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r__calc__proc.html#a019fc41f1b3c2a6b3159519e7e0cacb9">out_name_list</a>;        </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#a06900025fb6f283409076781577eade6">  117</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r__calc__proc.html#a06900025fb6f283409076781577eade6">out_val_pp_list</a>;      </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#ad2af3d02d4fe8cd575801f802edd13af">  119</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r__calc__proc.html#ad2af3d02d4fe8cd575801f802edd13af">in_name_list</a>;         </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#aeaaeb15aafbcbe3f391a790a4345f722">  120</a></span>    <span class="keywordtype">void</span>* <a class="code hl_variable" href="class_s_r__calc__proc.html#aeaaeb15aafbcbe3f391a790a4345f722">in_val_pp_list</a>;       </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#a9f53f544c46f15c1e75ff404a47358c1">  123</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="class_s_r__calc__proc.html#a9f53f544c46f15c1e75ff404a47358c1">calc_period</a>;            </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#a2706cd8b80daffd02590edfab80ca9e5">  124</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="class_s_r__calc__proc.html#a2706cd8b80daffd02590edfab80ca9e5">ready_proc</a>;            </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#ab61712f803ea2d9fc22ed5a8f6f6adee">  125</a></span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_variable" href="class_s_r__calc__proc.html#ab61712f803ea2d9fc22ed5a8f6f6adee">proc_name</a>;      </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#a05947716775717bf41ae128e3a1cf716">  126</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="class_s_r__calc__proc.html#a05947716775717bf41ae128e3a1cf716">file_name</a>[256];        </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a657f77ad93b7a41645eeda3fb79ab078">make_const</a>(<span class="keywordtype">float</span>** pp_val, <span class="keyword">const</span> <span class="keywordtype">char</span>* var_name, <span class="keywordtype">float</span> init_val);  </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a7f9429177612fc0e27af92f817d32367">make_in</a>   (<span class="keywordtype">float</span>** pp_val, <span class="keyword">const</span> <span class="keywordtype">char</span>* var_name);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a61c12d41972bdd7069c44714e41dc541">make_out</a>  (<span class="keywordtype">float</span>** pp_val, <span class="keyword">const</span> <span class="keywordtype">char</span>* var_name);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment">// Расширенный (не реализованный) функционал, предполагающий возможность использования составных имён</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a7f9429177612fc0e27af92f817d32367">make_in</a>   (<span class="keywordtype">float</span>** pp_val, <span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part1,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part2,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part3);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a61c12d41972bdd7069c44714e41dc541">make_out</a>  (<span class="keywordtype">float</span>** pp_val, <span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part1,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part2,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part3);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a61c12d41972bdd7069c44714e41dc541">make_out</a>  (<span class="keywordtype">float</span>** pp_val, <span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part1,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part2,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part3,<span class="keyword">const</span> <span class="keywordtype">char</span>* var_name_part4);   </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>     <a class="code hl_function" href="class_s_r__calc__proc.html#af8785ac6dc070a50e2febe101eaccc9e">SR_calc_proc</a>();</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <a class="code hl_function" href="class_s_r__calc__proc.html#a208fda0e4af9943e813bd3ca93916373">~SR_calc_proc</a>();</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a934ae8c2b30447cb94bcfa24b5602e53">get_ready</a>();</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a4ff04b0308134ee3896d701e66ee2690">reg_vars</a>(<span class="keywordtype">void</span>* vars_of_block);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_s_r__calc__proc.html#acccdf7fd2574bf5f3a46b107dedc945f">get_num_out</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">size_t</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a68048302de021f1cb1ce35ec0ac538f6">get_num_in</a>();</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_s_r__calc__proc.html#a4ec76156b9b3d76ad40d0f1a00027940">get_out_val</a>(<span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">float</span> <a class="code hl_function" href="class_s_r__calc__proc.html#ae0f4ee95c7d59084a02865a2aa047104">get_in_val</a>(<span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="class_s_r__calc__proc.html#ac52b68fbdb581f01a644458343c80f09">get_out_name</a>(<span class="keywordtype">size_t</span> idx);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code hl_function" href="class_s_r__calc__proc.html#ab97abab7ba92b56476813499a711bd49">get_in_name</a>(<span class="keywordtype">size_t</span> idx);    </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="class_s_r__calc__proc.html#af547eee10a8d43b4b08cc859427189f5">  245</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="class_s_r__calc__proc.html#af547eee10a8d43b4b08cc859427189f5">calc</a>() = 0; <span class="comment">// Не имеет реализации в одноимённом cpp-файле</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>};</div>
+</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="preprocessor">#endif </span><span class="comment">// ALG_BASE_SR</span></div>
+<div class="ttc" id="aalg__base_8h_html_a3a6afdc6c2effffb266aa6f4494122a9"><div class="ttname"><a href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a></div><div class="ttdeci">const uint8_t N</div><div class="ttdef"><b>Definition</b> alg_base.h:102</div></div>
+<div class="ttc" id="aalg__base_8h_html_a712ffdd991a3c1e9f3945bff9434a1f1"><div class="ttname"><a href="alg__base_8h.html#a712ffdd991a3c1e9f3945bff9434a1f1">HBuffSize</a></div><div class="ttdeci">const uint8_t HBuffSize</div><div class="ttdoc">Число точек на такте расчёта (Fn = 50, Fs = 4000)</div><div class="ttdef"><b>Definition</b> alg_base.h:103</div></div>
+<div class="ttc" id="aalg__base_8h_html_aa67cdf477f1a1ec5d691750e8661f7f6"><div class="ttname"><a href="alg__base_8h.html#aa67cdf477f1a1ec5d691750e8661f7f6">FREQ_N</a></div><div class="ttdeci">#define FREQ_N</div><div class="ttdoc">Номинальная частота сети, Гц</div><div class="ttdef"><b>Definition</b> alg_base.h:50</div></div>
+<div class="ttc" id="aalg__base_8h_html_ad17773d92820995bbd2c7e98b227b2b9"><div class="ttname"><a href="alg__base_8h.html#ad17773d92820995bbd2c7e98b227b2b9">FREQ_S</a></div><div class="ttdeci">#define FREQ_S</div><div class="ttdoc">Частота дискретизации АЦП, Гц</div><div class="ttdef"><b>Definition</b> alg_base.h:49</div></div>
+<div class="ttc" id="aalg__base_8h_html_af952851515705c845e531d0496b9c44e"><div class="ttname"><a href="alg__base_8h.html#af952851515705c845e531d0496b9c44e">NUM_CYCLE</a></div><div class="ttdeci">#define NUM_CYCLE</div><div class="ttdoc">Число тактов расчёта МУРЗ на периоде номинальной частоты</div><div class="ttdef"><b>Definition</b> alg_base.h:54</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html"><div class="ttname"><a href="class_s_r__calc__proc.html">SR_calc_proc</a></div><div class="ttdoc">Класс-продукт</div><div class="ttdef"><b>Definition</b> alg_base.h:111</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a019fc41f1b3c2a6b3159519e7e0cacb9"><div class="ttname"><a href="class_s_r__calc__proc.html#a019fc41f1b3c2a6b3159519e7e0cacb9">SR_calc_proc::out_name_list</a></div><div class="ttdeci">void * out_name_list</div><div class="ttdoc">Указатель на область памяти, связанной с хранимыми именами выходов алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.h:116</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a05947716775717bf41ae128e3a1cf716"><div class="ttname"><a href="class_s_r__calc__proc.html#a05947716775717bf41ae128e3a1cf716">SR_calc_proc::file_name</a></div><div class="ttdeci">char file_name[256]</div><div class="ttdoc">Имя файла</div><div class="ttdef"><b>Definition</b> alg_base.h:126</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a06900025fb6f283409076781577eade6"><div class="ttname"><a href="class_s_r__calc__proc.html#a06900025fb6f283409076781577eade6">SR_calc_proc::out_val_pp_list</a></div><div class="ttdeci">void * out_val_pp_list</div><div class="ttdoc">Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.h:117</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a208fda0e4af9943e813bd3ca93916373"><div class="ttname"><a href="class_s_r__calc__proc.html#a208fda0e4af9943e813bd3ca93916373">SR_calc_proc::~SR_calc_proc</a></div><div class="ttdeci">~SR_calc_proc()</div><div class="ttdef"><b>Definition</b> alg_base.cpp:106</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a2706cd8b80daffd02590edfab80ca9e5"><div class="ttname"><a href="class_s_r__calc__proc.html#a2706cd8b80daffd02590edfab80ca9e5">SR_calc_proc::ready_proc</a></div><div class="ttdeci">bool ready_proc</div><div class="ttdoc">Переменная готовности алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.h:124</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a4ec76156b9b3d76ad40d0f1a00027940"><div class="ttname"><a href="class_s_r__calc__proc.html#a4ec76156b9b3d76ad40d0f1a00027940">SR_calc_proc::get_out_val</a></div><div class="ttdeci">float get_out_val(size_t idx)</div><div class="ttdoc">Метод для получения значения выходной переменной</div><div class="ttdef"><b>Definition</b> alg_base.cpp:171</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a4ff04b0308134ee3896d701e66ee2690"><div class="ttname"><a href="class_s_r__calc__proc.html#a4ff04b0308134ee3896d701e66ee2690">SR_calc_proc::reg_vars</a></div><div class="ttdeci">int reg_vars(void *vars_of_block)</div><div class="ttdoc">Метод регистрации переменных алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.cpp:262</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a61c12d41972bdd7069c44714e41dc541"><div class="ttname"><a href="class_s_r__calc__proc.html#a61c12d41972bdd7069c44714e41dc541">SR_calc_proc::make_out</a></div><div class="ttdeci">void make_out(float **pp_val, const char *var_name)</div><div class="ttdoc">Метод добавления информации о выходах алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.cpp:138</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a657f77ad93b7a41645eeda3fb79ab078"><div class="ttname"><a href="class_s_r__calc__proc.html#a657f77ad93b7a41645eeda3fb79ab078">SR_calc_proc::make_const</a></div><div class="ttdeci">void make_const(float **pp_val, const char *var_name, float init_val)</div><div class="ttdoc">Метод добавления информации о константах (или настройках) алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.cpp:115</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a68048302de021f1cb1ce35ec0ac538f6"><div class="ttname"><a href="class_s_r__calc__proc.html#a68048302de021f1cb1ce35ec0ac538f6">SR_calc_proc::get_num_in</a></div><div class="ttdeci">size_t get_num_in()</div><div class="ttdoc">Метод получения числа входов алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.cpp:161</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a7596532f56ec0683990c18f7c292e667"><div class="ttname"><a href="class_s_r__calc__proc.html#a7596532f56ec0683990c18f7c292e667">SR_calc_proc::const_name_list</a></div><div class="ttdeci">void * const_name_list</div><div class="ttdoc">Указатель на область памяти, связанной с хранимыми именами констант алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.h:113</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a7f9429177612fc0e27af92f817d32367"><div class="ttname"><a href="class_s_r__calc__proc.html#a7f9429177612fc0e27af92f817d32367">SR_calc_proc::make_in</a></div><div class="ttdeci">void make_in(float **pp_val, const char *var_name)</div><div class="ttdoc">Метод добавления информации о входах алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.cpp:124</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a934ae8c2b30447cb94bcfa24b5602e53"><div class="ttname"><a href="class_s_r__calc__proc.html#a934ae8c2b30447cb94bcfa24b5602e53">SR_calc_proc::get_ready</a></div><div class="ttdeci">int get_ready()</div><div class="ttdoc">Метод для проверки готовности алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.cpp:387</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_a9f53f544c46f15c1e75ff404a47358c1"><div class="ttname"><a href="class_s_r__calc__proc.html#a9f53f544c46f15c1e75ff404a47358c1">SR_calc_proc::calc_period</a></div><div class="ttdeci">int calc_period</div><div class="ttdoc">Период обсчета функции в мс</div><div class="ttdef"><b>Definition</b> alg_base.h:123</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_ab61712f803ea2d9fc22ed5a8f6f6adee"><div class="ttname"><a href="class_s_r__calc__proc.html#ab61712f803ea2d9fc22ed5a8f6f6adee">SR_calc_proc::proc_name</a></div><div class="ttdeci">const char * proc_name</div><div class="ttdoc">Указатель на имя функции</div><div class="ttdef"><b>Definition</b> alg_base.h:125</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_ab97abab7ba92b56476813499a711bd49"><div class="ttname"><a href="class_s_r__calc__proc.html#ab97abab7ba92b56476813499a711bd49">SR_calc_proc::get_in_name</a></div><div class="ttdeci">const char * get_in_name(size_t idx)</div><div class="ttdoc">Метод для получения имени входной переменной</div><div class="ttdef"><b>Definition</b> alg_base.cpp:195</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_ac44ce44e6a8f674d912ef09c6c38f55a"><div class="ttname"><a href="class_s_r__calc__proc.html#ac44ce44e6a8f674d912ef09c6c38f55a">SR_calc_proc::const_val_ptr_list</a></div><div class="ttdeci">void * const_val_ptr_list</div><div class="ttdoc">Указатель на область памяти, связанной с хранимыми значениями констант алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.h:114</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_ac52b68fbdb581f01a644458343c80f09"><div class="ttname"><a href="class_s_r__calc__proc.html#ac52b68fbdb581f01a644458343c80f09">SR_calc_proc::get_out_name</a></div><div class="ttdeci">const char * get_out_name(size_t idx)</div><div class="ttdoc">Метод для получения имени выходной переменной</div><div class="ttdef"><b>Definition</b> alg_base.cpp:189</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_acccdf7fd2574bf5f3a46b107dedc945f"><div class="ttname"><a href="class_s_r__calc__proc.html#acccdf7fd2574bf5f3a46b107dedc945f">SR_calc_proc::get_num_out</a></div><div class="ttdeci">size_t get_num_out()</div><div class="ttdoc">Метод получения числа выходов алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.cpp:166</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_ad2af3d02d4fe8cd575801f802edd13af"><div class="ttname"><a href="class_s_r__calc__proc.html#ad2af3d02d4fe8cd575801f802edd13af">SR_calc_proc::in_name_list</a></div><div class="ttdeci">void * in_name_list</div><div class="ttdoc">Указатель на область памяти, связанной с хранимыми именами входов алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.h:119</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_ae0f4ee95c7d59084a02865a2aa047104"><div class="ttname"><a href="class_s_r__calc__proc.html#ae0f4ee95c7d59084a02865a2aa047104">SR_calc_proc::get_in_val</a></div><div class="ttdeci">float get_in_val(size_t idx)</div><div class="ttdoc">Метод для получения значения входной переменной</div><div class="ttdef"><b>Definition</b> alg_base.cpp:180</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_aeaaeb15aafbcbe3f391a790a4345f722"><div class="ttname"><a href="class_s_r__calc__proc.html#aeaaeb15aafbcbe3f391a790a4345f722">SR_calc_proc::in_val_pp_list</a></div><div class="ttdeci">void * in_val_pp_list</div><div class="ttdoc">Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма</div><div class="ttdef"><b>Definition</b> alg_base.h:120</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_af547eee10a8d43b4b08cc859427189f5"><div class="ttname"><a href="class_s_r__calc__proc.html#af547eee10a8d43b4b08cc859427189f5">SR_calc_proc::calc</a></div><div class="ttdeci">virtual void calc()=0</div><div class="ttdoc">Метод запуска вычислительной процедуры (алгоритма)</div></div>
+<div class="ttc" id="aclass_s_r__calc__proc_html_af8785ac6dc070a50e2febe101eaccc9e"><div class="ttname"><a href="class_s_r__calc__proc.html#af8785ac6dc070a50e2febe101eaccc9e">SR_calc_proc::SR_calc_proc</a></div><div class="ttdeci">SR_calc_proc()</div><div class="ttdef"><b>Definition</b> alg_base.cpp:90</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

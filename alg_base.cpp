@@ -404,14 +404,14 @@ int SR_calc_proc::get_ready() {
 	if (ready_proc)	{	
 		ret = 0;
 #if defined (ALG_PRINTF)
-		printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, out_pp->size(), ok_in, in_pp->size());	
-		printf("%s: ready!\n", proc_name);
+		printf("     %s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, out_pp->size(), ok_in, in_pp->size());	
+		printf("     %s: ready!\n", proc_name);
 #endif
 	}
 	else {
 #if defined (ALG_PRINTF)
-		printf("%s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, out_pp->size(), ok_in, in_pp->size());	
-		printf("%s: not ready!\n", proc_name);
+		printf("     %s: out=%d(%d) in=%d(%d)\n", proc_name, ok_out, out_pp->size(), ok_in, in_pp->size());	
+		printf("     %s: not ready!\n", proc_name);
 #endif
 	}
 	// Если не все входные и выходные переменные готовы, метод возвращает `-1`, 

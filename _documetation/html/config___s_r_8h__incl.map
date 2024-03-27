@@ -1,0 +1,39 @@
+<map id="/home/changeme/Документы/SR_ctl&#45;remake/config_SR.h" name="/home/changeme/Документы/SR_ctl&#45;remake/config_SR.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="448,5,667,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,167,72,192"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="448,42,331,63,268,78,208,96,132,128,70,162,68,157,130,123,206,91,267,73,330,58,447,37"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="382,93,453,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="525,48,451,89,449,84,523,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="477,93,539,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="548,47,525,83,520,80,543,44"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="97,167,167,192"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="448,43,353,63,303,78,256,96,201,127,157,160,154,156,198,122,254,91,301,73,351,58,447,38"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="564,93,652,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="572,44,595,80,591,83,567,47"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="676,93,772,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="598,43,688,85,686,90,596,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="796,93,881,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="625,43,785,87,784,92,624,48"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="905,93,980,119"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="656,43,892,90,891,96,655,48"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="1005,93,1078,119"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="667,39,817,61,991,91,990,96,816,66,666,44"/>
+<area shape="rect" id="Node000011" href="$alg__base_8h.html" title="Заголовочный файл с базовым функционалом алгоритмов" alt="" coords="266,93,358,119"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="499,48,361,92,360,87,498,43"/>
+<area shape="poly" id="edge13_Node000011_Node000002" title=" " alt="" coords="269,121,86,169,84,163,267,116"/>
+<area shape="poly" id="edge14_Node000011_Node000005" title=" " alt="" coords="284,121,175,164,173,159,282,116"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="278,167,346,192"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="315,119,315,153,309,153,309,119"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="370,167,449,192"/>
+<area shape="poly" id="edge12_Node000011_Node000013" title=" " alt="" coords="329,117,384,156,381,160,326,121"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="473,167,532,192"/>
+<area shape="poly" id="edge15_Node000011_Node000014" title=" " alt="" coords="344,116,461,160,459,165,342,121"/>
+<area shape="rect" id="Node000015" title=" " alt="" coords="557,167,630,192"/>
+<area shape="poly" id="edge16_Node000011_Node000015" title=" " alt="" coords="358,116,544,163,543,168,357,121"/>
+<area shape="rect" id="Node000016" title=" " alt="" coords="655,167,729,192"/>
+<area shape="poly" id="edge17_Node000011_Node000016" title=" " alt="" coords="359,114,371,116,505,139,642,164,641,169,504,144,370,121,358,119"/>
+<area shape="rect" id="Node000017" title=" " alt="" coords="753,167,844,192"/>
+<area shape="poly" id="edge18_Node000011_Node000017" title=" " alt="" coords="359,114,371,116,554,140,740,164,739,169,553,145,370,121,358,119"/>
+<area shape="rect" id="Node000018" title=" " alt="" coords="191,167,254,192"/>
+<area shape="poly" id="edge19_Node000011_Node000018" title=" " alt="" coords="299,121,250,160,246,156,296,117"/>
+</map>
