@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['operator_3d_0',['operator=',['../class_s_r__ctl__type.html#a8bcff0b5258ae01e098c2efd85ed79a0',1,'SR_ctl_type']]],
+  ['operator_3d_0',['operator=',['../class_s_r__ctl__type.html#a2a8fcd09f1c5b5eafbc5298cdb9b108e',1,'SR_ctl_type']]],
   ['opmode_1',['Opmode',['../class_opmode.html',1,'Opmode'],['../class_opmode.html#a5b9f9daf97cc29641f0f440ef734adb1',1,'Opmode::Opmode(uint8_t HBuffSize)']]],
   ['out_5farray_2',['out_array',['../class_opmode.html#a476aa1036cf96e24a39e33b20318ffd1',1,'Opmode']]],
   ['out_5fname_5fabs_5f3i0_3',['out_name_abs_3I0',['../class_s_r__auto__ctl.html#af632d4b4075be4a5cc3d68a2809918bc',1,'SR_auto_ctl']]],
