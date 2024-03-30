@@ -1,24 +1,5 @@
 var searchData=
 [
-  ['cmd_5farray_5fsz_0',['CMD_ARRAY_SZ',['../_s_r__ctl_8h.html#a7f565a1b08131af1d7ab8233bc107f99',1,'SR_ctl.h']]],
-  ['cmd_5fboard_1',['CMD_BOARD',['../config___s_r_8h.html#afdc55fef6fa872aa7db16da82869da38',1,'config_SR.h']]],
-  ['cmd_5fboard_5fdir_2',['CMD_BOARD_DIR',['../config___s_r_8h.html#ac4ee1ff7263e415d5ba8ad18685b8842',1,'config_SR.h']]],
-  ['cmd_5fboard_5froll_3',['CMD_BOARD_ROLL',['../config___s_r_8h.html#aa763d7b2c411cfca74644d14b45e87fa',1,'config_SR.h']]],
-  ['cmd_5fdec_5fprint_5falg_4',['CMD_DEC_PRINT_ALG',['../alg__base_8h.html#a827cd81408add462382ace39bcdb952f',1,'alg_base.h']]],
-  ['cmd_5fdec_5fprint_5fblock_5',['CMD_DEC_PRINT_BLOCK',['../alg__base_8h.html#a29b8b95c29a1e130394d7a3277ee6628',1,'alg_base.h']]],
-  ['cmd_5fdec_5fprint_5fvar_6',['CMD_DEC_PRINT_VAR',['../alg__base_8h.html#a8c1ea8786a49d81e0c83403943f10646',1,'alg_base.h']]],
-  ['cmd_5finc_5fprint_5falg_7',['CMD_INC_PRINT_ALG',['../alg__base_8h.html#a6d98f88fd61fe3b32e7c8f3ec58b83a5',1,'alg_base.h']]],
-  ['cmd_5finc_5fprint_5fblock_8',['CMD_INC_PRINT_BLOCK',['../alg__base_8h.html#a55ce5e08db6fc1dbcfc92e8d1393d258',1,'alg_base.h']]],
-  ['cmd_5finc_5fprint_5fvar_9',['CMD_INC_PRINT_VAR',['../alg__base_8h.html#a7a3daea444da0a54d01291063c4d96df',1,'alg_base.h']]],
-  ['cmd_5fkite_10',['CMD_KITE',['../config___s_r_8h.html#aca5a357ef71060012b349048674b568b',1,'config_SR.h']]],
-  ['cmd_5fno_5fprint_11',['CMD_NO_PRINT',['../alg__base_8h.html#a6c82a95d21d05ac90c1f1e3c065f674d',1,'alg_base.h']]],
-  ['cmd_5fnum_5fpar_12',['CMD_NUM_PAR',['../_s_r__ctl_8h.html#ab8164a3c843844d2ce92ea4322507bbc',1,'SR_ctl.h']]],
-  ['cmd_5fprint_13',['CMD_PRINT',['../alg__base_8h.html#afd67a594574c05e8d40ec8ff3ead0e61',1,'alg_base.h']]],
-  ['cmd_5fprint_5falg_14',['CMD_PRINT_ALG',['../alg__base_8h.html#a0c404d458145f16616eea2da2479a63b',1,'alg_base.h']]],
-  ['cmd_5fprint_5falg_5fmsg_15',['CMD_PRINT_ALG_MSG',['../alg__base_8h.html#a27a62fac4bbb1260090e1fdacb390be9',1,'alg_base.h']]],
-  ['cmd_5fprint_5falg_5fvar_16',['CMD_PRINT_ALG_VAR',['../alg__base_8h.html#a88cfc63fd9114854486e9cdb9980f9ab',1,'alg_base.h']]],
-  ['cmd_5fprint_5fblock_17',['CMD_PRINT_BLOCK',['../alg__base_8h.html#a538b0b9604cb52c0a08874e67f8811a6',1,'alg_base.h']]],
-  ['cmd_5fprint_5fvar_18',['CMD_PRINT_VAR',['../alg__base_8h.html#a8eb26ab6f183ae400f97e6b755b31573',1,'alg_base.h']]],
-  ['cmd_5fstop_19',['CMD_STOP',['../config___s_r_8h.html#a46dc7ae84992bfe62cc00731959a67f4',1,'config_SR.h']]],
-  ['cmd_5fstop_5fprog_20',['CMD_STOP_PROG',['../alg__base_8h.html#ab8c1d610e6168a501863e92a8675bca8',1,'alg_base.h']]]
+  ['lib_5fexport_0',['LIB_EXPORT',['../alg__base_8h.html#ab628e42bb29ed7b1ca25e8c54aeb77d3',1,'alg_base.h']]],
+  ['life_5fperiod_1',['LIFE_PERIOD',['../config___s_r_8h.html#ad96efba7d51482ccb0ee7c1293059578',1,'config_SR.h']]]
 ];

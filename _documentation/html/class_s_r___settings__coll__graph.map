@@ -1,5 +1,5 @@
 <map id="SR_Settings" name="SR_Settings">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,608,184,793"/>
-<area shape="rect" id="Node000002" href="$class_s_r__var__list.html" title="Класс для обработки списков переменных" alt="" coords="10,5,179,531"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="97,531,97,592,92,592,92,531"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="13,448,140,573"/>
+<area shape="rect" id="Node000002" href="$class_s_r__var__list.html" title="Класс для обработки списков переменных" alt="" coords="5,5,148,371"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,371,79,431,74,431,74,371"/>
 </map>

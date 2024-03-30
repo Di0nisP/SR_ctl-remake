@@ -1,9 +1,0 @@
-<map id="SR_var_list::sz_rem_list" name="SR_var_list::sz_rem_list">
-<area shape="rect" id="Node000001" title="Размер списка входных удалённых переменных" alt="" coords="529,5,705,31"/>
-<area shape="rect" id="Node000002" href="$class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="283,5,481,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="515,21,482,21,482,15,515,15"/>
-<area shape="rect" id="Node000003" href="$class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="108,5,235,31"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="268,21,235,21,235,15,268,15"/>
-<area shape="rect" id="Node000004" href="$_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
-</map>

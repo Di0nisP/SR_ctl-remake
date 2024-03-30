@@ -78,6 +78,9 @@ $(function() {
   <div class="headertitle"><div class="title">Файл /home/changeme/Документы/SR_ctl-remake/SR_ctl.cpp</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Реализация функционала главного программного узла фреймворка SR_ctl.  
+<a href="#details">Подробнее...</a></p>
 <div class="textblock"><code>#include &lt;mpi.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_s_r__ctl_8h_source.html">SR_ctl.h</a>&quot;</code><br />
 </div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
@@ -87,12 +90,12 @@ $(function() {
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_s_r__ctl_8cpp__incl.png" border="0" usemap="#a_2home_2changeme_2_xD0_x94_xD0_xBE_xD0_xBA_xD1_x83_xD0_xBC_xD0_xB5_xD0_xBD_xD1_x82_xD1_x8B_2_s_r__ctl-remake_2_s_r__ctl_8cpp" alt=""/></div>
 <map name="a_2home_2changeme_2_xD0_x94_xD0_xBE_xD0_xBA_xD1_x83_xD0_xBC_xD0_xB5_xD0_xBD_xD1_x82_xD1_x8B_2_s_r__ctl-remake_2_s_r__ctl_8cpp" id="a_2home_2changeme_2_xD0_x94_xD0_xBE_xD0_xBA_xD1_x83_xD0_xBC_xD0_xB5_xD0_xBD_xD1_x82_xD1_x8B_2_s_r__ctl-remake_2_s_r__ctl_8cpp">
-<area shape="rect" title=" " alt="" coords="552,5,771,45"/>
+<area shape="rect" title="Реализация функционала главного программного узла фреймворка SR_ctl." alt="" coords="552,5,771,45"/>
 <area shape="rect" title=" " alt="" coords="587,93,645,119"/>
 <area shape="poly" title=" " alt="" coords="653,47,632,83,627,80,648,44"/>
-<area shape="rect" href="_s_r__ctl_8h.html" title=" " alt="" coords="669,93,744,119"/>
+<area shape="rect" href="_s_r__ctl_8h.html" title="Главный программный узел фреймворка SR_ctl." alt="" coords="669,93,744,119"/>
 <area shape="poly" title=" " alt="" coords="675,44,695,80,691,83,670,47"/>
-<area shape="rect" href="config___s_r_8h.html" title=" " alt="" coords="509,167,606,192"/>
+<area shape="rect" href="config___s_r_8h.html" title="Заголовочный файл с конфигурационным функционалом фреймворка" alt="" coords="509,167,606,192"/>
 <area shape="poly" title=" " alt="" coords="684,121,595,163,593,158,682,116"/>
 <area shape="rect" title=" " alt="" coords="631,167,697,192"/>
 <area shape="poly" title=" " alt="" coords="702,120,680,156,676,154,697,118"/>
@@ -118,7 +121,7 @@ $(function() {
 <area shape="poly" title=" " alt="" coords="607,187,619,189,754,212,892,237,891,242,753,217,618,195,606,192"/>
 <area shape="rect" title=" " alt="" coords="1005,240,1078,265"/>
 <area shape="poly" title=" " alt="" coords="607,187,619,189,722,203,803,212,886,221,991,237,991,243,885,226,803,217,721,209,618,195,606,193"/>
-<area shape="rect" href="alg__base_8h.html" title=" " alt="" coords="266,240,358,265"/>
+<area shape="rect" href="alg__base_8h.html" title="Заголовочный файл с базовым функционалом алгоритмов" alt="" coords="266,240,358,265"/>
 <area shape="poly" title=" " alt="" coords="519,195,365,239,364,234,517,189"/>
 <area shape="poly" title=" " alt="" coords="269,268,86,315,84,310,267,263"/>
 <area shape="poly" title=" " alt="" coords="284,268,175,311,173,306,282,263"/>
@@ -150,6 +153,7 @@ $(function() {
 <tr class="memitem:aee69d5c25c2d5482f2aa8222e720f74b" id="r_aee69d5c25c2d5482f2aa8222e720f74b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee69d5c25c2d5482f2aa8222e720f74b">PROC_PRINT</a>&#160;&#160;&#160;0b00000111</td></tr>
 <tr class="separator:aee69d5c25c2d5482f2aa8222e720f74b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5fea1eaa0db28a67a1b718b1e5afe7c8" id="r_a5fea1eaa0db28a67a1b718b1e5afe7c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5fea1eaa0db28a67a1b718b1e5afe7c8">NUM_STEP_TO_STOP</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memdesc:a5fea1eaa0db28a67a1b718b1e5afe7c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ограничение по шагам  <br /></td></tr>
 <tr class="separator:a5fea1eaa0db28a67a1b718b1e5afe7c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -157,7 +161,9 @@ $(function() {
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97" id="r_a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Макросы</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Реализация функционала главного программного узла фреймворка SR_ctl. </p>
+</div><h2 class="groupheader">Макросы</h2>
 <a id="a5fea1eaa0db28a67a1b718b1e5afe7c8" name="a5fea1eaa0db28a67a1b718b1e5afe7c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fea1eaa0db28a67a1b718b1e5afe7c8">&#9670;&#160;</a></span>NUM_STEP_TO_STOP</h2>
 
@@ -169,6 +175,8 @@ $(function() {
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Ограничение по шагам </p>
 
 </div>
 </div>
@@ -254,70 +262,60 @@ $(function() {
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="_s_r__ctl_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#a_s_r__ctl_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="a_s_r__ctl_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="a_s_r__ctl_8cpp_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,922,60,947"/>
-<area shape="rect" href="class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="108,922,235,947"/>
-<area shape="poly" title=" " alt="" coords="60,932,94,932,94,937,60,937"/>
-<area shape="rect" href="err_8txt.html#a133e183279146577356bc829b5517e03" title=" " alt="" coords="804,809,861,834"/>
-<area shape="poly" title=" " alt="" coords="59,922,107,908,201,891,281,881,419,873,556,866,636,858,730,844,790,830,791,836,731,849,637,864,556,872,419,878,282,886,202,896,109,913,61,927"/>
-<area shape="rect" href="class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e" title="Главный метод запуска в работу" alt="" coords="313,1010,451,1035"/>
-<area shape="poly" title=" " alt="" coords="61,942,109,957,210,984,304,1005,303,1010,209,989,107,963,59,947"/>
-<area shape="rect" href="class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="283,441,481,466"/>
-<area shape="poly" title=" " alt="" coords="176,921,367,478,372,480,181,923"/>
-<area shape="poly" title=" " alt="" coords="185,946,268,1035,332,1095,407,1152,488,1200,530,1217,572,1229,613,1233,653,1230,692,1218,729,1195,749,1172,766,1134,781,1087,795,1035,815,929,826,847,831,848,820,930,800,1036,787,1089,771,1136,753,1174,732,1199,694,1222,654,1235,613,1238,571,1234,528,1222,486,1205,404,1157,329,1099,264,1039,181,949"/>
-<area shape="rect" href="class_link___m_p_i.html#acdb60f906f281395a42c7bfc54c4bb55" title=" " alt="" coords="543,415,717,441"/>
-<area shape="poly" title=" " alt="" coords="481,441,528,436,529,441,482,446"/>
-<area shape="rect" href="class_link___m_p_i.html#a6b317e439854d6e9b73d95bb659d05ee" title=" " alt="" coords="541,465,719,490"/>
-<area shape="poly" title=" " alt="" coords="482,460,527,465,526,470,481,466"/>
-<area shape="rect" href="class_s_r___settings.html#aaeffcde2f98685c6b50df0c34eb3071a" title="Метод для поиска локальных алгоритмов" alt="" coords="547,119,713,145"/>
-<area shape="poly" title=" " alt="" coords="383,440,396,386,422,309,441,267,465,225,494,187,528,154,534,149,538,153,531,158,498,190,469,228,446,269,427,311,401,388,388,441"/>
-<area shape="poly" title=" " alt="" coords="388,466,401,518,428,593,447,634,470,674,498,711,531,743,632,770,791,809,790,814,631,775,528,748,494,715,466,677,442,636,423,595,396,519,383,467"/>
-<area shape="rect" href="class_s_r__var__list.html#adf7522070b92afc0109deebdb46e6534" title=" " alt="" coords="559,515,701,555"/>
-<area shape="poly" title=" " alt="" coords="421,464,530,500,554,508,553,513,528,505,420,469"/>
-<area shape="rect" href="class_link___m_p_i.html#afaa63864666a4c86860e90fce8fb78d7" title=" " alt="" coords="538,910,722,935"/>
-<area shape="poly" title=" " alt="" coords="388,466,401,529,427,627,447,682,470,739,498,794,531,845,562,876,595,901,592,905,558,880,527,848,494,797,465,741,442,684,422,628,396,530,383,467"/>
-<area shape="rect" href="class_s_r__var__list.html#aa24b7b7f29148569ebab8f8b79a801c6" title=" " alt="" coords="555,579,705,619"/>
-<area shape="poly" title=" " alt="" coords="398,464,453,512,491,540,531,564,544,571,542,576,528,569,488,544,450,516,395,468"/>
-<area shape="rect" href="class_s_r__calc__proc.html#a934ae8c2b30447cb94bcfa24b5602e53" title="Метод для проверки готовности алгоритма" alt="" coords="540,809,720,834"/>
-<area shape="poly" title=" " alt="" coords="388,466,399,524,424,610,443,658,466,705,496,749,531,787,551,801,548,805,528,791,492,752,462,708,438,660,419,612,394,525,382,467"/>
-<area shape="rect" href="class_s_r__var__list.html#a6024a7f3bff2f0cad7336985b785462e" title=" " alt="" coords="552,693,708,733"/>
-<area shape="poly" title=" " alt="" coords="390,465,408,507,437,564,478,626,503,654,531,679,541,686,538,691,528,683,499,658,474,629,432,567,403,509,386,467"/>
-<area shape="rect" href="class_s_r__var__list.html#afefa4d88213b147059171cba41b0a286" title="Метод выделения памяти для связей входы&#45;выходы всех алгоритмов" alt="" coords="529,643,731,669"/>
-<area shape="poly" title=" " alt="" coords="392,465,412,498,443,543,483,589,531,628,545,636,542,641,528,633,479,593,439,546,408,501,388,468"/>
-<area shape="rect" href="class_s_r__calc__proc.html#a4ff04b0308134ee3896d701e66ee2690" title="Метод регистрации переменных алгоритма" alt="" coords="545,70,715,95"/>
-<area shape="poly" title=" " alt="" coords="382,440,392,380,416,289,434,239,459,190,490,144,528,105,533,100,537,104,531,109,494,147,464,192,439,241,421,290,397,381,387,441"/>
-<area shape="rect" href="class_link___m_p_i.html#a09c325fad50817b2a065789690f2e0d4" title=" " alt="" coords="557,5,703,45"/>
-<area shape="poly" title=" " alt="" coords="381,440,389,373,412,270,430,213,455,156,487,102,528,55,543,44,546,48,531,59,492,106,460,158,435,215,417,272,395,374,387,441"/>
-<area shape="rect" href="class_link___m_p_i.html#a9f74dc957560bdca3ae5bb4caaec8a9e" title=" " alt="" coords="543,169,717,194"/>
-<area shape="poly" title=" " alt="" coords="385,439,400,394,429,330,471,263,497,231,528,205,538,198,541,202,531,209,501,235,475,266,434,333,405,396,390,441"/>
-<area shape="rect" href="class_link___m_p_i.html#a3803c4d49f2630a02fc589f25c9e9975" title=" " alt="" coords="541,218,719,243"/>
-<area shape="poly" title=" " alt="" coords="387,439,405,402,436,352,477,299,501,275,528,254,541,246,544,251,531,258,505,279,481,302,440,355,410,405,391,442"/>
-<area shape="rect" href="class_s_r__var__list.html#aec3947a99f8c549b33e2e264d1125e08" title="Размер списка входных локальных переменных" alt="" coords="549,267,711,293"/>
-<area shape="poly" title=" " alt="" coords="390,439,443,374,483,335,528,303,545,295,547,300,531,308,486,340,447,377,394,442"/>
-<area shape="rect" href="class_s_r__var__list.html#a6975a9e7af3f41a85f2615979f450865" title="Размер списка выходных переменных" alt="" coords="545,317,715,342"/>
-<area shape="poly" title=" " alt="" coords="397,438,452,396,489,373,528,352,551,344,553,349,530,357,492,377,455,401,400,443"/>
-<area shape="rect" href="class_s_r__var__list.html#a037bdcb47ebc44cdb6bf0046d6f105d1" title="Размер списка входных удалённых переменных" alt="" coords="542,366,718,391"/>
-<area shape="poly" title=" " alt="" coords="418,438,529,401,562,392,564,397,530,407,419,443"/>
-<area shape="rect" href="alg__0___a_d_c_8cpp.html#ab9a63d0d9515884c8341a5789c9b9238" title=" " alt="" coords="779,119,887,145"/>
-<area shape="poly" title=" " alt="" coords="713,129,765,129,765,135,713,135"/>
-<area shape="poly" title=" " alt="" coords="715,141,733,154,749,176,763,205,786,280,803,371,816,469,830,662,834,795,828,795,825,662,811,470,798,371,781,281,758,207,744,179,729,158,711,145"/>
-<area shape="poly" title=" " alt="" coords="720,819,790,819,790,824,720,824"/>
-<area shape="poly" title=" " alt="" coords="707,666,732,679,762,705,788,736,822,795,818,797,783,739,759,709,729,684,704,671"/>
-<area shape="poly" title=" " alt="" coords="717,93,733,105,750,129,764,160,789,241,806,339,819,445,832,652,834,795,829,795,826,652,814,446,801,339,783,242,760,162,745,132,729,109,714,97"/>
-<area shape="rect" href="alg__base_8cpp.html#a70eb720011f04bab13494ce26e0280cb" title="Функция для получения значений констант из INI&#45;файлов" alt="" coords="789,70,876,95"/>
-<area shape="poly" title=" " alt="" coords="716,80,776,80,776,85,716,85"/>
-<area shape="rect" href="config___s_r_8cpp.html#ad8cde6bcbed0a0c5765c1aeb47e5d589" title=" " alt="" coords="793,13,872,38"/>
-<area shape="poly" title=" " alt="" coords="704,23,779,23,779,28,704,28"/>
-<area shape="poly" title=" " alt="" coords="451,1033,514,1039,587,1038,661,1025,696,1012,729,995,748,981,765,963,792,923,810,882,822,847,827,848,815,884,796,926,769,967,752,985,732,1000,698,1017,662,1030,587,1043,514,1044,451,1038"/>
-<area shape="poly" title=" " alt="" coords="403,1008,459,977,528,946,555,937,557,942,530,950,461,982,406,1012"/>
-<area shape="rect" href="class_s_r__calc__proc.html#af547eee10a8d43b4b08cc859427189f5" title="Метод запуска вычислительной процедуры (алгоритма)" alt="" coords="559,1061,701,1086"/>
-<area shape="poly" title=" " alt="" coords="446,1033,554,1055,553,1060,445,1038"/>
-<area shape="rect" href="class_link___m_p_i.html#acb0b19a7784e31817d4611decebc2141" title=" " alt="" coords="535,1110,725,1135"/>
-<area shape="poly" title=" " alt="" coords="405,1033,461,1064,530,1096,553,1104,552,1109,528,1101,458,1069,403,1038"/>
-<area shape="rect" href="class_link___m_p_i.html#aa4749346234606cbc878c04e1e7f8ea7" title=" " alt="" coords="534,1159,726,1185"/>
-<area shape="poly" title=" " alt="" coords="396,1034,450,1088,489,1119,531,1146,546,1152,544,1157,528,1150,485,1124,447,1092,392,1037"/>
-<area shape="rect" href="class_s_r__ctl__type.html#a6f3f1b2fe81f8c318c9999aef961e401" title="Метод вывода информации о работе алгоритма" alt="" coords="545,959,715,985"/>
-<area shape="poly" title=" " alt="" coords="445,1007,553,985,554,990,446,1012"/>
-<area shape="poly" title=" " alt="" coords="706,957,729,946,757,923,781,897,816,844,821,847,786,900,761,927,732,950,708,962"/>
+<area shape="rect" title=" " alt="" coords="5,704,60,729"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="114,563,241,588"/>
+<area shape="poly" title=" " alt="" coords="45,702,151,596,155,600,49,706"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e" title="Главный метод запуска в работу" alt="" coords="108,728,247,753"/>
+<area shape="poly" title=" " alt="" coords="60,718,95,724,94,729,60,724"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="295,447,493,472"/>
+<area shape="poly" title=" " alt="" coords="201,560,355,476,358,481,204,565"/>
+<area shape="rect" href="class_link___m_p_i.html#acdb60f906f281395a42c7bfc54c4bb55" title="Метод добавления переменной в список удалённых переменных" alt="" coords="555,55,729,80"/>
+<area shape="poly" title=" " alt="" coords="394,446,402,382,425,286,444,233,469,180,500,131,540,89,545,85,549,89,543,93,504,135,473,183,449,235,430,287,407,383,399,447"/>
+<area shape="rect" href="class_link___m_p_i.html#a6b317e439854d6e9b73d95bb659d05ee" title="Метод добавления переменной в список отправляемых переменных" alt="" coords="553,104,731,129"/>
+<area shape="poly" title=" " alt="" coords="395,446,406,390,431,306,450,261,474,216,504,174,540,139,546,134,549,138,543,143,508,178,479,219,455,263,436,308,411,391,400,447"/>
+<area shape="rect" href="class_s_r___settings.html#aaeffcde2f98685c6b50df0c34eb3071a" title="Метод для поиска локальных алгоритмов" alt="" coords="559,153,725,179"/>
+<area shape="poly" title=" " alt="" coords="396,446,410,397,438,328,457,290,480,253,508,219,540,189,550,183,553,187,543,193,512,222,485,256,462,293,443,330,415,399,401,447"/>
+<area shape="rect" href="class_s_r__var__list.html#adf7522070b92afc0109deebdb46e6534" title="Метод получения описания локального входа по индексу" alt="" coords="571,203,713,243"/>
+<area shape="poly" title=" " alt="" coords="398,445,417,408,447,356,489,301,513,276,540,253,557,243,560,247,543,258,517,279,493,305,452,359,422,411,403,448"/>
+<area shape="rect" href="class_link___m_p_i.html#afaa63864666a4c86860e90fce8fb78d7" title="Метод для получения номера узла (процесса) в коммуникаторе MPI." alt="" coords="550,808,734,833"/>
+<area shape="poly" title=" " alt="" coords="405,471,447,543,496,645,508,690,511,727,518,761,528,778,543,795,548,799,544,803,539,799,523,781,513,763,506,728,502,691,491,647,442,546,401,473"/>
+<area shape="rect" href="class_s_r__var__list.html#aa24b7b7f29148569ebab8f8b79a801c6" title="Метод получения описания локального выхода по индексу" alt="" coords="567,267,717,307"/>
+<area shape="poly" title=" " alt="" coords="403,445,457,384,496,348,540,317,553,310,555,315,543,322,500,352,461,388,407,448"/>
+<area shape="rect" href="class_s_r__calc__proc.html#a934ae8c2b30447cb94bcfa24b5602e53" title="Метод для проверки готовности алгоритма" alt="" coords="552,332,732,357"/>
+<area shape="poly" title=" " alt="" coords="411,444,467,407,540,368,565,359,567,364,542,372,469,411,414,449"/>
+<area shape="rect" href="class_s_r__var__list.html#a6024a7f3bff2f0cad7336985b785462e" title="Метод получения описания требуемой переменной по индексу" alt="" coords="564,382,720,422"/>
+<area shape="poly" title=" " alt="" coords="449,444,550,421,551,426,450,449"/>
+<area shape="rect" href="class_s_r__var__list.html#afefa4d88213b147059171cba41b0a286" title="Метод выделения памяти для связей входы&#45;выходы всех алгоритмов" alt="" coords="541,447,743,472"/>
+<area shape="poly" title=" " alt="" coords="493,457,528,457,528,462,493,462"/>
+<area shape="rect" href="class_s_r__calc__proc.html#a4ff04b0308134ee3896d701e66ee2690" title="Метод регистрации переменных алгоритма" alt="" coords="557,496,727,521"/>
+<area shape="poly" title=" " alt="" coords="459,469,565,491,564,496,458,475"/>
+<area shape="rect" href="class_link___m_p_i.html#a09c325fad50817b2a065789690f2e0d4" title="Метод для установки порядка выдачи, соответствующего локальному" alt="" coords="569,546,715,586"/>
+<area shape="poly" title=" " alt="" coords="419,470,474,500,542,532,562,539,560,544,540,536,472,504,416,474"/>
+<area shape="rect" href="class_link___m_p_i.html#a8c8017b32231011a1624412a5f07338b" title="Метод выделения памяти для буфера на приём" alt="" coords="555,611,729,636"/>
+<area shape="poly" title=" " alt="" coords="407,471,460,531,499,566,543,596,560,604,558,609,540,600,496,570,457,535,403,474"/>
+<area shape="rect" href="class_link___m_p_i.html#acd5acdfde01c9869bc2d42afe6a2a703" title="Метод выделения памяти для буфера на отправку" alt="" coords="553,660,731,685"/>
+<area shape="poly" title=" " alt="" coords="404,471,423,507,453,554,493,604,517,627,543,646,553,652,550,657,540,651,514,631,489,608,449,558,418,509,399,474"/>
+<area shape="rect" href="class_s_r__var__list.html#aec3947a99f8c549b33e2e264d1125e08" title="Метод для получения общего числа локальных входов" alt="" coords="561,709,723,735"/>
+<area shape="poly" title=" " alt="" coords="404,471,466,589,507,654,526,679,543,696,551,701,548,705,540,700,522,683,502,657,461,592,399,473"/>
+<area shape="rect" href="class_s_r__var__list.html#a6975a9e7af3f41a85f2615979f450865" title="Метод для получения общего числа локальных выходов" alt="" coords="557,759,727,784"/>
+<area shape="poly" title=" " alt="" coords="405,471,496,645,507,675,514,701,523,723,543,745,549,750,546,754,540,749,518,726,509,702,502,677,491,647,400,474"/>
+<area shape="rect" href="class_s_r__var__list.html#a037bdcb47ebc44cdb6bf0046d6f105d1" title="Метод для получения общего числа требуемых (удалённых) переменных" alt="" coords="554,5,730,31"/>
+<area shape="poly" title=" " alt="" coords="393,446,399,375,407,323,419,265,437,205,463,145,496,89,539,40,545,36,548,40,543,44,501,92,468,147,442,206,424,267,412,324,404,376,398,447"/>
+<area shape="rect" href="alg__0___a_d_c_8cpp.html#ab9a63d0d9515884c8341a5789c9b9238" title=" " alt="" coords="791,153,899,179"/>
+<area shape="poly" title=" " alt="" coords="725,163,777,163,777,169,725,169"/>
+<area shape="rect" href="alg__base_8cpp.html#a70eb720011f04bab13494ce26e0280cb" title="Функция для получения значений констант из INI&#45;файлов" alt="" coords="801,496,888,521"/>
+<area shape="poly" title=" " alt="" coords="728,506,788,506,788,511,728,511"/>
+<area shape="rect" href="config___s_r_8cpp.html#ad8cde6bcbed0a0c5765c1aeb47e5d589" title=" " alt="" coords="805,553,884,579"/>
+<area shape="poly" title=" " alt="" coords="716,563,791,563,791,569,716,569"/>
+<area shape="poly" title=" " alt="" coords="199,725,255,698,331,673,373,666,415,664,457,672,495,689,508,701,516,714,521,742,526,770,532,782,543,795,549,799,546,804,540,799,527,785,521,771,516,743,511,716,504,704,492,694,455,677,415,670,374,671,332,678,257,703,202,730"/>
+<area shape="rect" href="class_s_r__calc__proc.html#af547eee10a8d43b4b08cc859427189f5" title="Метод запуска вычислительной процедуры (алгоритма)" alt="" coords="323,752,465,777"/>
+<area shape="poly" title=" " alt="" coords="247,746,310,753,309,758,247,751"/>
+<area shape="rect" href="class_link___m_p_i.html#acb0b19a7784e31817d4611decebc2141" title="Метод для считывания буфера на приём" alt="" coords="299,801,489,827"/>
+<area shape="poly" title=" " alt="" coords="206,751,296,787,322,795,320,800,294,793,204,756"/>
+<area shape="rect" href="class_link___m_p_i.html#aa4749346234606cbc878c04e1e7f8ea7" title="Метод для заполнения буфера на выдачу" alt="" coords="298,851,490,876"/>
+<area shape="poly" title=" " alt="" coords="192,752,235,794,264,817,296,837,311,844,309,849,293,842,261,822,231,798,188,755"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a6f3f1b2fe81f8c318c9999aef961e401" title="Метод вывода информации о работе алгоритма" alt="" coords="309,703,479,728"/>
+<area shape="poly" title=" " alt="" coords="247,730,295,724,295,730,247,735"/>
 </map>
 </div>
 

@@ -1,9 +1,8 @@
 var searchData=
 [
-  ['dat_5funit_5fnum_0',['DAT_UNIT_NUM',['../config___s_r_8h.html#afdf864b55cd3ec92dd89308c4abf4d82',1,'config_SR.h']]],
-  ['dev_5fid_5facl_1',['DEV_ID_ACL',['../config___s_r_8h.html#a10a8fc35f1a21e5c163f6402ee4d5da3',1,'config_SR.h']]],
-  ['dev_5fid_5fgyro_2',['DEV_ID_GYRO',['../config___s_r_8h.html#ad83b772f3a6ef5d975b596bc154f3e37',1,'config_SR.h']]],
-  ['dev_5fid_5fmg_3',['DEV_ID_MG',['../config___s_r_8h.html#a20f6d75653d1f445b9a9e7fc483c9bf6',1,'config_SR.h']]],
-  ['dev_5fid_5fpress_4',['DEV_ID_PRESS',['../config___s_r_8h.html#a79adafdd00f356286db96aff2a7b0c81',1,'config_SR.h']]],
-  ['dev_5fid_5fwii_5',['DEV_ID_Wii',['../config___s_r_8h.html#a21ad162f03d78874dd5279c2a4762f43',1,'config_SR.h']]]
+  ['mems_5fperiod_0',['MEMS_PERIOD',['../alg__base_8h.html#aa7c45943d07d88404ba5c337288e327c',1,'alg_base.h']]],
+  ['mpi_5far_5fsz_1',['MPI_AR_SZ',['../_s_r__ctl_8h.html#a81f9882ea086a0bd9eb12881ad33ff87',1,'SR_ctl.h']]],
+  ['mpi_5fsr_5fdelay_2',['MPI_SR_DELAY',['../_s_r__ctl_8h.html#a25a1f1ba4cb8314e846cbfe963f3dc71',1,'SR_ctl.h']]],
+  ['mpi_5fsr_5ftimeout_3',['MPI_SR_TIMEOUT',['../_s_r__ctl_8h.html#a4c6600f7eb80f84e916b529b52d86f7c',1,'SR_ctl.h']]],
+  ['mpi_5fstr_5fsz_4',['MPI_STR_SZ',['../_s_r__ctl_8h.html#a39cedb466517523e55cab4dd201f6363',1,'SR_ctl.h']]]
 ];

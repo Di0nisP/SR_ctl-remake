@@ -22,24 +22,6 @@
 #define  MEMS_PERIOD  5u		///< Период опроса датчиков, мс
 #define PRINT_PERIOD 20u		///< Период отображения, мс
 
-#define CMD_STOP_PROG 123456789	///<
-#define CMD_PRINT 100			///<
-
-#define CMD_NO_PRINT 1000		///<
-#define CMD_PRINT_ALG_VAR 1001	///<
-#define CMD_PRINT_ALG_MSG 1002	///<
-
-#define CMD_PRINT_BLOCK 10		///<
-#define CMD_PRINT_ALG 11		///<
-#define CMD_PRINT_VAR 12		///<
-
-#define CMD_INC_PRINT_BLOCK 101	///<
-#define CMD_DEC_PRINT_BLOCK 102	///<
-#define CMD_INC_PRINT_ALG 103	///<
-#define CMD_DEC_PRINT_ALG 104	///<
-#define CMD_INC_PRINT_VAR 105	///<
-#define CMD_DEC_PRINT_VAR 106	///<
-
 // Темы печати
 #define TOPIC_ALG_VARS 1		///<
 #define TOPIC_ALG_MSGS 2		///<
@@ -168,6 +150,7 @@ protected:
 
 public:
 	 SR_calc_proc();
+	 
 	~SR_calc_proc();
 
 	/**

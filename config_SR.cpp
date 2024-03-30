@@ -20,23 +20,27 @@
 
 using namespace std;
 
-SR_Settings::SR_Settings() {
+SR_Settings::SR_Settings() 
+{
 	Block_name = "unknown";
 	All_local_vars = new SR_var_list("All_local_vars");
-	All_dist_vars  = nullptr;
+//	All_dist_vars  = nullptr;
 }
 
-SR_Settings::~SR_Settings()	{
+SR_Settings::~SR_Settings()	
+{
 	delete All_local_vars; // Композиция
 }
 
-int SR_Settings::Init() {
+int SR_Settings::Init() 
+{
 	return -1; //?
 }
 
-size_t SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array) {
+size_t SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array) 
+{
 	// Указатель на вектор указателей на SR_calc_proc -- класс вычислительной процедуры (есть в каждом so-файле)
-	vector<SR_calc_proc*> * p_calc_class = new vector<SR_calc_proc*>; // Выделяется на куче -- сохраняется при выходе из функции
+	vector<SR_calc_proc*> *p_calc_class = new vector<SR_calc_proc*>; // Выделяется на куче -- сохраняется при выходе из функции
 	
 #if defined (ALG_PRINTF)
 	printf("alg files:\n");
@@ -95,38 +99,37 @@ size_t SR_Settings::find_algs(SR_calc_proc*** p_calc_proc_array) {
 	for (size_t i = 0; iter != p_calc_class->end(); iter++, i++) // `iter++` -- вызываем метод, который выдаст нам указатель на следующий элемент
 		calc_proc[i] = (*iter); // Заполняется указателями на экспортированные рассчётные процедуры  из тех so-файлов, которые были найдены
 	
-	// Вектор p_calc_class должен быть удалён ???
 	delete p_calc_class;
 	
 	return total_num;
 }
 
-SR_var_list::SR_var_list(const char* in_name) {
-//	var_num = 0;
+SR_var_list::SR_var_list(const char* in_name) 
+{
 	list_name = in_name;
-//	var_list  	 = static_cast<void*>(new vector<SR_var_discriptor>); //?
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-	 in_var_list = static_cast<void*>(new vector<SR_var_discriptor>);
-	out_var_list = static_cast<void*>(new vector<SR_var_discriptor>);
-	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~	
-	//датчики (старое)
-//	init_var("none"); //?
-//	var_val = new float[var_num];	for(size_t i = 0; i < var_num; i++) var_val[i] = 0;
+	in_var_list 	= static_cast<void*>(new vector<SR_var_discriptor>);
+	out_var_list 	= static_cast<void*>(new vector<SR_var_discriptor>);
+	out_var_val 	= nullptr;
+	remote_var_list = nullptr;
+	remote_var_val 	= nullptr;
 }
 
-SR_var_list::~SR_var_list()	{
-//	delete static_cast<vector<SR_var_discriptor>*>(    var_list); //?
+SR_var_list::~SR_var_list()	
+{
 	delete static_cast<vector<SR_var_discriptor>*>( in_var_list);
 	delete static_cast<vector<SR_var_discriptor>*>(out_var_list);
+	if (out_var_val 	!= nullptr) delete out_var_val;
+	if (remote_var_list != nullptr) delete static_cast<vector<SR_var_discriptor>*>(remote_var_list);
+	if (remote_var_val 	!= nullptr) delete out_var_val;
 }
 
-void SR_var_list::reg_in_var (const char* proc_name, const char* var_name, float** pp_val_calc_func) {
+void SR_var_list::reg_in_var (const char* proc_name, const char* var_name, float** pp_val_calc_func) 
+{
 	SR_var_discriptor tmp; 				// Локальный дескриптор
 	tmp.calc_proc_name = proc_name; 	// Регистрируем имя расчётной процедуры (алгоритма)
 	tmp.var_name = var_name;			// Регистрируем имя переменной
 	tmp.pp_val_calc = pp_val_calc_func; // Регистрируем адрес указателя на значение переменной
 	tmp.use_cnt = 0;					// Обнуляем счётчик ссылок на переменную
-	//tmp.p_val = nullptr;
 	// Далее данные копируются из локальной памяти (со стека) скорее всего на кучу
 	static_cast<vector<SR_var_discriptor>*>(in_var_list)->push_back(tmp); // `push_back()` выделяет память
 #if defined (ALG_PRINTF)
@@ -134,13 +137,13 @@ void SR_var_list::reg_in_var (const char* proc_name, const char* var_name, float
 #endif
 }
 
-void SR_var_list::reg_out_var(const char* proc_name, const char* var_name, float** pp_val_calc_func) {
+void SR_var_list::reg_out_var(const char* proc_name, const char* var_name, float** pp_val_calc_func) 
+{
 	SR_var_discriptor tmp; 				// Локальный дескриптор
 	tmp.calc_proc_name = proc_name; 	// Регистрируем имя расчётной процедуры (алгоритма)
 	tmp.var_name = var_name;			// Регистрируем имя переменной
 	tmp.pp_val_calc = pp_val_calc_func; // Регистрируем адрес указателя на значение переменной
 	tmp.use_cnt = 0;					// Обнуляем счётчик ссылок на переменную
-	//tmp.p_val = nullptr;
 	// После того, как поля структуры проинициализированы, она добавляется в лист выходных переменных
 	static_cast<vector<SR_var_discriptor>*>(out_var_list)->push_back(tmp); // `push_back()` выделяет память
 #if defined (ALG_PRINTF)
@@ -148,7 +151,8 @@ void SR_var_list::reg_out_var(const char* proc_name, const char* var_name, float
 #endif
 }
 
-void SR_var_list::make_out_vars() {
+void SR_var_list::make_out_vars() 
+{
 	size_t ready_in_cnt = 0; // Счётчик готовых входов
 
 #if defined (ALG_PRINTF)
@@ -195,7 +199,8 @@ void SR_var_list::make_out_vars() {
 	//*+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + 
 	// Под входы, которые мы никуда (т.е. к выходам) не присоединили, выделяем память отдельно
 	size_t remote_var_sz = in_num - ready_in_cnt; 	// Разница между общим числом входов и числом готовых входов
-	remote_var_val = new float[remote_var_sz]; 		// Выделение памяти под удаленные (дистанционные) переменные	
+	remote_var_val = new float[remote_var_sz]; 		// Выделение памяти под удаленные (дистанционные) переменные.
+													// Это фактически дополнительные выходы, значение которых формируется другим процессом.	
 	vector<SR_var_discriptor> *remote_vars = new vector<SR_var_discriptor>;	 
 	remote_var_list = static_cast<void*>(remote_vars); 
 	size_t remote_var_cnt = 0;						// Инициализируем нулём счётчик удалённых переменных
@@ -226,17 +231,20 @@ size_t SR_var_list::sz_out_list() { return static_cast<vector<SR_var_discriptor>
 size_t SR_var_list::sz_in_list () { return static_cast<vector<SR_var_discriptor>*>(    in_var_list)->size(); }
 size_t SR_var_list::sz_rem_list() { return static_cast<vector<SR_var_discriptor>*>(remote_var_list)->size(); }
 
-SR_var_discriptor* SR_var_list::get_out_by_idx(size_t idx) {
+SR_var_discriptor* SR_var_list::get_out_by_idx(size_t idx) 
+{
 	if ( idx < static_cast<vector<SR_var_discriptor>*>(out_var_list)->size() )	
 		return &static_cast<vector<SR_var_discriptor>*>(out_var_list)->at(idx); //&((* ((vector<SR_var_discriptor>*)out_var_list) )[idx]);
 	return nullptr;
 }
-SR_var_discriptor* SR_var_list::get_in_by_idx(size_t idx) {
+SR_var_discriptor* SR_var_list::get_in_by_idx(size_t idx) 
+{
 	if ( idx < static_cast<vector<SR_var_discriptor>*>(in_var_list)->size() )	
 		return &static_cast<vector<SR_var_discriptor>*>(in_var_list)->at(idx); //&((* ((vector<SR_var_discriptor>*)in_var_list) )[idx]);
 	return nullptr;
 }
-SR_var_discriptor* SR_var_list::get_rem_by_idx(size_t idx) {
+SR_var_discriptor* SR_var_list::get_rem_by_idx(size_t idx) 
+{
 	if ( idx < static_cast<vector<SR_var_discriptor>*>(remote_var_list)->size() )	
 		return &static_cast<vector<SR_var_discriptor>*>(remote_var_list)->at(idx); //&((* ((vector<SR_var_discriptor>*)remote_var_list) )[idx]);
 	return nullptr;
@@ -301,20 +309,20 @@ const char* SR_var_list::get_name_from_list(size_t idx) {
 }//*/
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Link_MPI::Link_MPI(int node_num) {
+Link_MPI::Link_MPI(int node_num) 
+{
 	node = node_num;
-	vector<link_var_discriptor> *p_send = new vector<link_var_discriptor>;	
-	send_list = static_cast<void*>(p_send);
-	vector<link_var_discriptor> *p_recv = new vector<link_var_discriptor>;	
-	recv_list = static_cast<void*>(p_recv);
-	send_buff = nullptr;	recv_buff = nullptr;
+	send_list = static_cast<void*>(new vector<link_var_discriptor>);
+	recv_list = static_cast<void*>(new vector<link_var_discriptor>);
+	send_buff = nullptr;    recv_buff = nullptr;
 }
 
-Link_MPI::~Link_MPI() {
+Link_MPI::~Link_MPI() 
+{
 	delete static_cast<vector<link_var_discriptor>*>(recv_list);
 	delete static_cast<vector<link_var_discriptor>*>(send_list);
-	if (send_buff != nullptr)	delete send_buff;
-	if (recv_buff != nullptr)	delete recv_buff;
+	if (send_buff != nullptr) delete send_buff;
+	if (recv_buff != nullptr) delete recv_buff;
 }
 
 void Link_MPI::set_send_buff(int sz) { send_buff = new float[sz]; }
@@ -322,7 +330,8 @@ void Link_MPI::set_recv_buff(int sz) { recv_buff = new float[sz]; }
 
 int  Link_MPI::get_node_num() { return node; }
 
-void Link_MPI::add_send_var(float* p_var_in_calc, size_t buff_idx) {
+void Link_MPI::add_send_var(float* p_var_in_calc, size_t buff_idx) 
+{
 //	if(send_buff==NULL)	{	return;	}
 //	float* p_var_in_buff = &(send_buff[buff_idx]); 
 	link_var_discriptor tmp;
@@ -333,25 +342,28 @@ void Link_MPI::add_send_var(float* p_var_in_calc, size_t buff_idx) {
 
 bool if_idx_gt(link_var_discriptor i, link_var_discriptor j) { return (i.buff_idx < j.buff_idx); }
 
-void Link_MPI::set_local_send_buff_order() {
+void Link_MPI::set_local_send_buff_order() 
+{
 	vector<link_var_discriptor>::iterator begin_iter = static_cast<vector<link_var_discriptor>*>(send_list)->begin();
 	vector<link_var_discriptor>::iterator       iter = begin_iter;
 	vector<link_var_discriptor>::iterator   end_iter = static_cast<vector<link_var_discriptor>*>(send_list)->end();
 	
+	/// @todo Использовать лямбда-выражение
 	std::sort(begin_iter, end_iter, if_idx_gt);
 
 										  begin_iter = static_cast<vector<link_var_discriptor>*>(send_list)->begin();		
 										    	iter = begin_iter;
 										    end_iter = static_cast<vector<link_var_discriptor>*>(send_list)->end();
+	
 	int buff_idx_cnt = 0;
-	/// @todo Следующее может не иметь смысла
-	while ( iter != end_iter ) {
+	while (iter != end_iter) {
 		iter->buff_idx = buff_idx_cnt;
-		iter++;	buff_idx_cnt++;	
+		iter++;    buff_idx_cnt++;	
 	}		
 }
 
-void Link_MPI::add_recv_var(float* p_var_in_calc, size_t buff_idx) {
+void Link_MPI::add_recv_var(float* p_var_in_calc, size_t buff_idx) 
+{
 //	if(recv_buff==NULL) return;	
 //	float* p_var_in_buff = &(recv_buff[buff_idx]);
 	link_var_discriptor tmp;
@@ -360,7 +372,8 @@ void Link_MPI::add_recv_var(float* p_var_in_calc, size_t buff_idx) {
 	static_cast<vector<link_var_discriptor>*>(recv_list)->push_back(tmp);
 }
 
-void Link_MPI::copy_send_vars() {
+void Link_MPI::copy_send_vars() 
+{
 	vector<link_var_discriptor>::iterator begin_iter = static_cast<vector<link_var_discriptor>*>(send_list)->begin();
 	vector<link_var_discriptor>::iterator       iter = begin_iter;
 	vector<link_var_discriptor>::iterator   end_iter = static_cast<vector<link_var_discriptor>*>(send_list)->end();
@@ -368,7 +381,8 @@ void Link_MPI::copy_send_vars() {
 	while ( iter != end_iter ) 	{ send_buff[iter->buff_idx] = *(iter->p_var_in_calc);	iter++; }
 }
 	
-void Link_MPI::copy_recv_vars() {	
+void Link_MPI::copy_recv_vars() 
+{	
 	vector<link_var_discriptor>::iterator begin_iter = static_cast<vector<link_var_discriptor>*>(recv_list)->begin();
 	vector<link_var_discriptor>::iterator       iter = begin_iter;
 	vector<link_var_discriptor>::iterator   end_iter = static_cast<vector<link_var_discriptor>*>(recv_list)->end();

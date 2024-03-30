@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['board_5fdown_5fctl_5fv1_0',['BOARD_DOWN_CTL_V1',['../config___s_r_8h.html#ae6b5afcb41f53ccdf4c69a19024087cd',1,'config_SR.h']]],
-  ['board_5fup_5fctl_5fv1_1',['BOARD_UP_CTL_V1',['../config___s_r_8h.html#a1838ebd70054d329c368c56bdaff1c18',1,'config_SR.h']]],
-  ['bus_5fid_5fi2c1_2',['BUS_ID_I2C1',['../config___s_r_8h.html#ac726b4a53564a837eed08bfd70f77042',1,'config_SR.h']]],
-  ['bus_5fid_5fi2c2_3',['BUS_ID_I2C2',['../config___s_r_8h.html#a9919a10e1274703c66cced53420bd133',1,'config_SR.h']]]
+  ['fault_5ftime_0',['FAULT_TIME',['../alg__0___a_d_c_8cpp.html#a9a4eccc3b362e2d6900b75bc05675437',1,'alg_0_ADC.cpp']]],
+  ['freq_5fn_1',['FREQ_N',['../alg__base_8h.html#aa67cdf477f1a1ec5d691750e8661f7f6',1,'alg_base.h']]],
+  ['freq_5fs_2',['FREQ_S',['../alg__base_8h.html#ad17773d92820995bbd2c7e98b227b2b9',1,'alg_base.h']]]
 ];

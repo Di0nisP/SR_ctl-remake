@@ -1,0 +1,3 @@
+@startuml myimage.png
+Link_MPI -> link_var_discriptor
+@enduml

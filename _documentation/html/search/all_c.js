@@ -15,7 +15,6 @@ var searchData=
   ['net_5fwii_5facc_12',['NET_WII_ACC',['../config___s_r_8h.html#a28964b0750d35f822439ff809daf405b',1,'config_SR.h']]],
   ['net_5fwii_5fjoy_13',['NET_WII_JOY',['../config___s_r_8h.html#a52bb840b3824098f414260e4cd28d184',1,'config_SR.h']]],
   ['node_14',['node',['../class_link___m_p_i.html#a3d871c8ad1821e59fc99c15b21e20e04',1,'Link_MPI::node'],['../local__vars_8txt.html#aa9d974fc0ad5bee4cc9ebcaeaf7478c7',1,'node:&#160;local_vars.txt']]],
-  ['num_5fblocks_15',['NUM_BLOCKS',['../config___s_r_8h.html#a622293b32ccc06f19e7f568ba80a2390',1,'config_SR.h']]],
-  ['num_5fcycle_16',['NUM_CYCLE',['../alg__base_8h.html#af952851515705c845e531d0496b9c44e',1,'alg_base.h']]],
-  ['num_5fstep_5fto_5fstop_17',['NUM_STEP_TO_STOP',['../_s_r__ctl_8cpp.html#a5fea1eaa0db28a67a1b718b1e5afe7c8',1,'SR_ctl.cpp']]]
+  ['num_5fcycle_15',['NUM_CYCLE',['../alg__base_8h.html#af952851515705c845e531d0496b9c44e',1,'alg_base.h']]],
+  ['num_5fstep_5fto_5fstop_16',['NUM_STEP_TO_STOP',['../_s_r__ctl_8cpp.html#a5fea1eaa0db28a67a1b718b1e5afe7c8',1,'SR_ctl.cpp']]]
 ];

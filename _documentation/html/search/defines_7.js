@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['lib_5fexport_0',['LIB_EXPORT',['../alg__base_8h.html#ab628e42bb29ed7b1ca25e8c54aeb77d3',1,'alg_base.h']]],
-  ['life_5fperiod_1',['LIFE_PERIOD',['../config___s_r_8h.html#ad96efba7d51482ccb0ee7c1293059578',1,'config_SR.h']]]
+  ['topic_5falg_5fmsgs_0',['TOPIC_ALG_MSGS',['../alg__base_8h.html#af52be43ddce82c5b90c62e10fad2de02',1,'alg_base.h']]],
+  ['topic_5falg_5fvars_1',['TOPIC_ALG_VARS',['../alg__base_8h.html#a42c2ef2d448294a98d52ad0fcc70d86a',1,'alg_base.h']]],
+  ['type_5fsz_2',['TYPE_SZ',['../config___s_r_8h.html#a6f7203d673cc9eb77c015f10d3b3bbd3',1,'config_SR.h']]]
 ];

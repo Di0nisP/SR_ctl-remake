@@ -1,5 +1,5 @@
 <map id="Link_MPI::copy_send_vars" name="Link_MPI::copy_send_vars">
-<area shape="rect" id="Node000001" title=" " alt="" coords="295,5,487,31"/>
+<area shape="rect" id="Node000001" title="Метод для заполнения буфера на выдачу" alt="" coords="295,5,487,31"/>
 <area shape="rect" id="Node000002" href="$class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e" title="Главный метод запуска в работу" alt="" coords="108,5,247,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
 <area shape="rect" id="Node000003" href="$_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>

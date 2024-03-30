@@ -261,7 +261,7 @@ void SR_ctl_type::Init_local_calc() {
         fprintf(fp," \n");
         
         //! Приём
-        //* Прием удалённых выдаваемых переменных
+        //* Прием удалённых выдаваемых переменных (откуда получаем данные)
         size_t cnt_recv_buff = 0;	// Счётчик в буффере
         for (int dist_idx = 0; dist_idx < dist_sz[0]; dist_idx++) {	// Итерации по удалённым выходным переменным
             MPI_Recv(str_in_buf, 		// Указатель на буфер, в который будут сохранены принятые данные
@@ -270,12 +270,14 @@ void SR_ctl_type::Init_local_calc() {
                      dist_node_num, 	// Ранг удаленного узла (процесса), от которого ожидаются данные
                      tag,				// Метка сообщения, используемая для идентификации конкретного приёма данных
                      MPI_COMM_WORLD,    // Коммуникатор, определяющий группу процессов, между которыми происходит обмен данными
-                     &resv_status);     // Структура, содержащая информацию о статусе выполнения операции отправки и приема данных        
+                     &resv_status);     // Структура, содержащая информацию о статусе выполнения операции отправки и приема данных    
+
         //  if (proc_rank_flag&PROC_PRINT) {
         //		printf("[%d]: ",proc_rank_num);	
         //		printf("node[%d] declares out var: %s\n",dist_node_num,str_in_buf);	
         //	}
             fprintf(fp,"node[%d] declares out var: %s;", dist_node_num, str_in_buf);
+
             for (int loc_idx = 0; loc_idx < local_sz[1]; loc_idx++) { // Итерации по требуемым переменным (неподключенным локальным входам)
                 SR_var_discriptor *local_var_ptr = Settings->All_local_vars->get_rem_by_idx(loc_idx);	// Получение указателя на структуру данных требуемой переменной (неподключенного локального входа)
                 if (local_var_ptr != nullptr) {
@@ -286,12 +288,9 @@ void SR_ctl_type::Init_local_calc() {
                             printf("node's[%d] out var <%s> will be used in func %s\n", dist_node_num, str_in_buf, local_var_ptr->calc_proc_name); 
                         }
                         fprintf(fp, "	node's[%d] out var <%s> will be used in func %s",dist_node_num,str_in_buf, local_var_ptr->calc_proc_name);
-                    //	printf("before float* p_var_in_calc = *(local_var_ptr->pp_val_calc); \n");
                         float *p_var_in_calc = *(local_var_ptr->pp_val_calc);	// Сохраняем указатель на выделенную под приём удалённого значения память
                         local_var_ptr->use_cnt++;	//! Теперь локальная переменная подключена
-                    //	printf("after  float* p_var_in_calc = *(local_var_ptr->pp_val_calc); \n");
-                        p_MPI_link[link_num]->add_recv_var(p_var_in_calc, cnt_recv_buff); // Связывание принимаемых переменных с переменными приёма
-                    //	printf("after  add_recv_var(p_var_in_calc,cnt_recv_buff); \n");					
+                        p_MPI_link[link_num]->add_recv_var(p_var_in_calc, cnt_recv_buff); //? Связывание принимаемых переменных с переменными приёма				
                         cnt_recv_buff++;
                     }
                 }	
@@ -306,7 +305,7 @@ void SR_ctl_type::Init_local_calc() {
         }
         fprintf(fp," \n node[%d] will provide %d local in vars\n", dist_node_num, cnt_recv_buff);
         
-        //* Приём удаленных требуемых переменных 
+        //* Приём удаленных требуемых переменных (куда отправляем данные)
         size_t cnt_send_buff = 0;	//счетчик в буффере
     //	int local_send_list_idx = 0;
         for (int dist_idx = 0; dist_idx < dist_sz[1]; dist_idx++) {	// Итерации по неподключенным удалённым входам 
@@ -327,17 +326,17 @@ void SR_ctl_type::Init_local_calc() {
             for (int loc_idx = 0; loc_idx < local_sz[0]; loc_idx++) {	// Итерации по локальным выходам
                 SR_var_discriptor *local_var_ptr = Settings->All_local_vars->get_out_by_idx(loc_idx);	// Получение указателя на структуру данных указанного выхода
                 if (local_var_ptr != nullptr) {
-                    if( strcmp(local_var_ptr->var_name, str_in_buf) == 0 ) {	// Если имена удалённого входа и локального выхода совпадают...		
+                    if (strcmp(local_var_ptr->var_name, str_in_buf) == 0) {	// Если имена удалённого входа и локального выхода совпадают...		
                         if (proc_rank_flag & PROC_PRINT) {
 							printf("[%d]: ",proc_rank_num);		
 							printf("%s.<%s> will be used in node[%d]\n", local_var_ptr->calc_proc_name, str_in_buf, dist_node_num); 
 						}
                         fprintf(fp, "    %s.<%s> will be used in node[%d]", local_var_ptr->calc_proc_name, str_in_buf, dist_node_num);
-                        float* p_var_in_calc = *(local_var_ptr->pp_val_calc);	// Сохраняем указатель на выделенную под локальную выходную переменную память
+                        float *p_var_in_calc = *(local_var_ptr->pp_val_calc);	// Сохраняем указатель на выделенную под локальную выходную переменную память
 						local_var_ptr->use_cnt++;	// Увеличение числа подключений к локальному выходу
 						/// @todo Проверить корректность
-                        //p_MPI_link[link_num]->add_send_var(p_var_in_calc,cnt_send_buff);//связывание принимаемых переменных с переменными приема
-                        p_MPI_link[link_num]->add_send_var(p_var_in_calc, loc_idx);	// Cвязывание принимаемых переменных с переменными приёма
+                        //p_MPI_link[link_num]->add_send_var(p_var_in_calc,cnt_send_buff);
+                        p_MPI_link[link_num]->add_send_var(p_var_in_calc, loc_idx); //? Связывание выдаваемых переменных с переменными отправки	
                         cnt_send_buff++;
                     }
                 }
@@ -346,13 +345,13 @@ void SR_ctl_type::Init_local_calc() {
         }
 
         p_MPI_link[link_num]->send_sz = cnt_send_buff;
-        p_MPI_link[link_num]->set_local_send_buff_order();	// Установить порядок выдачи соответствующий локальному
+        p_MPI_link[link_num]->set_local_send_buff_order();
     
-        if (proc_rank_flag&PROC_PRINT) {
+        if (proc_rank_flag & PROC_PRINT) {
 			printf("[%d]: ",proc_rank_num);	
 			printf("%d local out vars will be got from node[%d]\n", cnt_send_buff, dist_node_num); 
 		}
-        fprintf(fp," \n %d local out vars will be got from node[%d]\n",cnt_send_buff,dist_node_num);
+        fprintf(fp, "\n%d local out vars will be got from node[%d]\n", cnt_send_buff, dist_node_num);
     
         MPI_Barrier(MPI_COMM_WORLD);
     }
@@ -377,10 +376,8 @@ void SR_ctl_type::Init() {
 //		Settings->Init();
 
         if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("START CTL 12\n"); } //сигнализация начала процедуры запуска блока управления
-//		if (proc_rank_flag&PROC_PRINT) 		{printf("[%d]: ",proc_rank_num);							printf("SecondaryI2CBus On!\n");}	//инициализация второго I2c интерфейса Rasp Pi
-//		if (proc_rank_flag&PROC_PRINT) 		{printf("[%d]: ",proc_rank_num);							printf("config read!\n");	}		//инициализация конфигурационной информации из файла
         
-        print_cnt = 0;							//период индикации, мс
+        print_cnt = 0;      //период индикации, мс
 
         if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("Sensors checked!\n"); }	//инициализация датчиков (если есть)
 
@@ -390,93 +387,85 @@ void SR_ctl_type::Init() {
 }
 
 void SR_ctl_type::Work() { 
-    // Get the number of processes
     int world_size; // Число машин
-    MPI_Comm_size(MPI_COMM_WORLD, &world_size);
-    // Get the rank of the process
+    MPI_Comm_size(MPI_COMM_WORLD, &world_size); // Get the number of processes
     int world_rank; // Текущая машина
-    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
+    MPI_Comm_rank(MPI_COMM_WORLD, &world_rank); // Get the rank of the process
+
     if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("process rank %d out of %d processors\n", world_rank, world_size); }
-    int tag = 0;	// ID			
-    MPI_Request resv_request;
-    int resv_flag = 1;
-    MPI_Status resv_status;
+    
+	int tag = 0;			
+	MPI_Request resv_request;
+	int resv_flag = 0;
+	MPI_Status resv_status;
 
-    if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("Start! \n"); }
-
-//	for(step=0; true ;step+=MEMS_PERIOD,print_cnt+=MEMS_PERIOD)
-//	for(step=0; step<NUM_STEP_TO_STOP*MEMS_PERIOD ;step+=MEMS_PERIOD,print_cnt+=MEMS_PERIOD)
+    if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("Start!\n"); }
         
     // На каждом шаге обсчёта быстрых алгоритмов, мы добавляем `MEMS_PERIOD` к `print_cnt`
     for (time_t stp_tm = 0; stp_tm < (NUM_STEP_TO_STOP * MEMS_PERIOD); stp_tm += MEMS_PERIOD, print_cnt += MEMS_PERIOD)	{
         double HP_start_time = MPI_Wtime(); // Метка времени начала выполнения цикла
-        
         //!	Быстрая часть
         //!▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
-        //* Цикл по связям 
-        //TODO Нужно добавить проверки: dist_node_num != world_rank
-        //TODO send_sz > 0 & send_buff != NULL
-        for(int link_num = 0; link_num < (world_size - 1); link_num++) {
-            int dist_node_num = p_MPI_link[link_num]->get_node_num();	//номер удаленного узла
-            //+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-            // Копируем с выходов алгоритмов на буферы для передачи
-            p_MPI_link[link_num]->copy_send_vars();
-            // Пересылка скопированных переменных на удалённые машины
+        //* Цикл по связям MPI
+		/// @todo Проверить цикл по связям
+        for (int link_num = 0; link_num < (world_size - 1); link_num++) {
+            int dist_node_num = p_MPI_link[link_num]->get_node_num();   // Номер удаленного узла
+            p_MPI_link[link_num]->copy_send_vars();	// Копируем данные с выходов локальных алгоритмов в буферы для передачи на удалённые входы
+            // Пересылка скопированных переменных на удалённые машины:
             // По идее должен быть в конце, после того, как мы пробежались по всем алгоритмам
-            MPI_Send(p_MPI_link[link_num]->send_buff, p_MPI_link[link_num]->send_sz, MPI_FLOAT, dist_node_num, tag, MPI_COMM_WORLD );
-                
-        //  if (stp_tm != 0) MPI_Test(&resv_request, &resv_flag, &resv_status); // Добавлено!
+			if (dist_node_num != world_rank && 
+				p_MPI_link[link_num]->send_sz > 0 && 
+				p_MPI_link[link_num]->send_buff != nullptr)
+			{
+				MPI_Send(p_MPI_link[link_num]->send_buff,   // Указатель на буфер, содержащий данные, которые будут отправлены
+						 p_MPI_link[link_num]->send_sz,     // Размер данных, принимаемых в буфере
+						 MPI_FLOAT,                         // Типа данных в буфере
+						 dist_node_num,                     // Ранг удаленного узла (процесса), куда отправляются данные
+						 tag,                               // Метка сообщения, используемая для идентификации конкретной отправки данных
+						 MPI_COMM_WORLD);                   // Коммуникатор, определяющий группу процессов, между которыми происходит обмен данными
+			}
 
-            if (resv_flag == 1) // Значение с предыдущей итерации этого цикла
-            {
-            //  p_MPI_link[link_num]->copy_recv_vars(); // Возможно, лучше после MPI_Test
-                MPI_Irecv( p_MPI_link[link_num]->recv_buff, p_MPI_link[link_num]->recv_sz, MPI_FLOAT, dist_node_num, tag, MPI_COMM_WORLD,  &resv_request);
-            }
-            MPI_Test(&resv_request, &resv_flag, &resv_status); // Возможно, должно быть до if и вообще вне цикла
-            if ( resv_flag == 1) p_MPI_link[link_num]->copy_recv_vars(); // Добавлено!
-            //+ + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
-        }
-        //	*/
+			MPI_Irecv(p_MPI_link[link_num]->recv_buff,  // Указатель на буфер, в который будут помещены принятые данные
+						p_MPI_link[link_num]->recv_sz,    // Размер данных, принимаемых в буфере
+						MPI_FLOAT,                        // Типа данных в буфере
+						dist_node_num,                    // Ранг удаленного узла (процесса), от которого ожидаются данные
+						tag,                              // Метка сообщения, используемая для идентификации конкретного приема данных
+						MPI_COMM_WORLD,                   // Коммуникатор, определяющий группу процессов, между которыми происходит обмен данными
+						&resv_request);                   // Указатель на структуру запроса, который будет заполнен MPI и может быть использован позже для проверки состояния операции приема
+
+            MPI_Test(&resv_request, // Указатель на структуру запроса, который был использован для инициации асинхронной операции приема данных
+                     &resv_flag,    // Указатель на переменную, в которую будет записан результат проверки. Если прием данных завершен, эта переменная будет установлена в значение, отличное от нуля.
+                     &resv_status); // Указатель на структуру статуса, которая может быть использована для получения информации о завершенной операции приема данных
             
-        // `calc_proc_cnt` - число локальных алгоритмов
-        for (size_t i = 0; i < calc_proc_cnt; i++) {	
-			// `calc_period` расчётной процедуры определяется в самой расчётной процедуре
+            if (resv_flag != 0) p_MPI_link[link_num]->copy_recv_vars();
+        }   //*/
+
+        for (size_t i = 0; i < calc_proc_cnt; i++) {	// Итерации по локальным алгоритмам
             if (MEMS_PERIOD <= calc_proc[i]->calc_period && calc_proc[i]->calc_period < PRINT_PERIOD) {		
                 if (print_topic == TOPIC_ALG_MSGS && print_block == proc_rank_num && print_alg == i) {
-//					*local_ctl_var= -1; 	// Устаревшее (возможно)
                     printf("[%d]:alg[%d]<%s>msg: ", proc_rank_num, i, calc_proc[i]->proc_name);
-                    calc_proc[i]->calc(); 	// Запуск алгоритма
+                    calc_proc[i]->calc(); 	// Запуск быстрого алгоритма в списке алгоритмов
                     printf("\n");
                 }
                 else {
-//					*local_ctl_var= 0;
-                    calc_proc[i]->calc();
+                    calc_proc[i]->calc();	// Запуск быстрого алгоритма в списке алгоритмов
                 }
             }
         }		
         //!▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲		
         
-        if (print_cnt >= PRINT_PERIOD) //? Изначально было `>`
-        {	
-//			if (*out_ctl_var[0] == CMD_STOP_PROG) // Старое
-//			printf("CMD_STOP_PROG\n");
-
-            //printf("[%d]: ",proc_rank_num);	printf("Main calc: \n");
+        if (print_cnt >= PRINT_PERIOD) { //? Изначально было `>`
+//			printf("[%d]: ", proc_rank_num);	printf("Main calc: \n");
             for (int i = 0; i < calc_proc_cnt; i++) {
                 // Отрабатывают медленные алгоритмы
                 if (PRINT_PERIOD <= calc_proc[i]->calc_period) { 
-                    if (print_topic == TOPIC_ALG_MSGS && 
-                        print_block == proc_rank_num  && 
-                        print_alg   == i) 
-                    {
-//						*local_ctl_var = -1;
+                    if (print_topic == TOPIC_ALG_MSGS && print_block == proc_rank_num && print_alg == i) {
                         printf("[%d]:ALG[%d]<%s>MSG: ", proc_rank_num, i, calc_proc[i]->proc_name);
-                        calc_proc[i]->calc();
+                        calc_proc[i]->calc();	// Запуск медленного алгоритма в списке алгоритмов
                         printf("\n");
                     }
                     else {
-//						*local_ctl_var = 0;
-                        calc_proc[i]->calc();
+                        calc_proc[i]->calc();	// Запуск медленного алгоритма в списке алгоритмов
                     }
                 }
             }
@@ -488,8 +477,7 @@ void SR_ctl_type::Work() {
         step_time = (MPI_Wtime() - HP_start_time) * 1000000; // Время цикла в мкс
             
         time_t idle_time = MEMS_PERIOD * 1000 - static_cast<time_t>(step_time); // Время до окончания такта
-        if (idle_time < 0)
-        {
+        if (idle_time < 0) {
             printf("[%d]: ", proc_rank_num); 
             printf ("Warning: Step time exceeds MEMS_PERIOD by %d us!\n", -idle_time);
             idle_time = 0;
@@ -497,21 +485,22 @@ void SR_ctl_type::Work() {
         usleep(idle_time); // Функция принимает микросекунды
     }
     
-    if (proc_rank_flag & PROC_PRINT)	{ printf("[%d]: ", proc_rank_num);	printf("final\n"); }
+    if (proc_rank_flag & PROC_PRINT) { printf("[%d]: ", proc_rank_num);	printf("final\n"); }
 }
 
-void SR_ctl_type::print_func() {
+void SR_ctl_type::print_func() 
+{
     if (print_topic == 0) return;				// Не надо печатать
     if (print_block != proc_rank_num) return;	// Не надо печатать этому блоку	
     
     if (print_topic == TOPIC_ALG_VARS) {
-        printf("[%d]: ",proc_rank_num);
+        printf("[%d]: ", proc_rank_num);
         
         if (0 <= print_alg && print_alg < calc_proc_cnt) {
             printf("alg[%d]<%s>var: ", print_alg, calc_proc[print_alg]->proc_name);
-            //int var = abs(print_var) - 1; if (var < 0) var = 0;
-            //if (print_var > 0)	printf("out[%d]<%s> = %.3f", var, calc_proc[print_alg]->get_out_name(var), calc_proc[print_alg]->get_out_val(var));
-            //if (print_var < 0)	printf(" in[%d]<%s> = %.3f", var, calc_proc[print_alg]->get_in_name (var), calc_proc[print_alg]->get_in_val (var));
+        //	int var = abs(print_var) - 1; if (var < 0) var = 0;
+        //	if (print_var > 0)	printf("out[%d]<%s> = %.3f", var, calc_proc[print_alg]->get_out_name(var), calc_proc[print_alg]->get_out_val(var));
+        //	if (print_var < 0)	printf(" in[%d]<%s> = %.3f", var, calc_proc[print_alg]->get_in_name (var), calc_proc[print_alg]->get_in_val (var));
             if (print_var > 0)	printf("out[%d]<%s> = %.3f", print_var, calc_proc[print_alg]->get_out_name(print_var), calc_proc[print_alg]->get_out_val(print_var));
             if (print_var < 0)	printf(" in[%d]<%s> = %.3f", print_var, calc_proc[print_alg]->get_in_name (print_var), calc_proc[print_alg]->get_in_val (print_var));	
         }
@@ -524,10 +513,11 @@ void SR_ctl_type::print_func() {
     //		int calc_proc_num_in_var =calc_proc[calc_proc_idx]->Get_in_val_num();	
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]) 
+{
     printf("MPI start\n");
 
-    { // Только для отладки!!!
+    /*{ // Только для отладки!!!
         int i = 0;
         while (i == 0)
         {sleep(5);}

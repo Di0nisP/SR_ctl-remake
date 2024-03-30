@@ -78,7 +78,7 @@ public:
 	/// @brief Запрет компилятору автоматически генерировать конструктор копирования
 	SR_ctl_type(const SR_ctl_type&) = delete;
 	/// @brief Запрет компилятору автоматически генерировать оператор присваивания
-	SR_ctl_type operator = (const SR_ctl_type&) = delete;
+	SR_ctl_type& operator = (const SR_ctl_type&) = delete;
 
 	/**
 	 * @brief Главный метод инициализации
