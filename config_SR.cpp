@@ -118,9 +118,9 @@ SR_var_list::~SR_var_list()
 {
 	delete static_cast<vector<SR_var_discriptor>*>( in_var_list);
 	delete static_cast<vector<SR_var_discriptor>*>(out_var_list);
-	if (out_var_val 	!= nullptr) delete out_var_val;
+	if (out_var_val 	!= nullptr) delete[] out_var_val;
 	if (remote_var_list != nullptr) delete static_cast<vector<SR_var_discriptor>*>(remote_var_list);
-	if (remote_var_val 	!= nullptr) delete out_var_val;
+	if (remote_var_val 	!= nullptr) delete[] remote_var_val;
 }
 
 void SR_var_list::reg_in_var (const char* proc_name, const char* var_name, float** pp_val_calc_func) 

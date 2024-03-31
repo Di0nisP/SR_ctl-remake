@@ -209,7 +209,8 @@ public:
 	virtual void detect() = 0;
 };
 
-class OvercurrentProtection : public StartingElements {
+class OvercurrentProtection : public StartingElements 
+{
 private: 
 	float c_start; 
 	float c_return;
@@ -224,13 +225,14 @@ public:
 		timer = new Timers(step_width);
 	}
 
-	~OvercurrentProtection() {
+	~OvercurrentProtection() 
+	{
 		delete timer; // Композиция
 	}
 
-	void detect() {
-		switch (static_cast<uint8_t>(status))
-		{
+	void detect() 
+	{
+		switch (static_cast<uint8_t>(status)) {
 		case 1:
 			// Условие возврата по уровню
 			if (*in_val_abs_I1[0] < c_return &&
@@ -317,7 +319,8 @@ float **StartingElements::in_val_im_S0   = nullptr;
 float **StartingElements::in_val_abs_S0  = nullptr;
 float **StartingElements::in_val_arg_S0  = nullptr;//*/
 
-class SR_auto_ctl: public SR_calc_proc {
+class SR_auto_ctl: public SR_calc_proc 
+{
 private:
 	//*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
 	//! Объявление входов (данные, пришедшие извне)
@@ -352,8 +355,10 @@ private:
 	string in_name_abs_S0, 	 	 in_name_arg_S0;
 	
 	//! Объявление выходов (должны подключаться на входы другого алгоритма!)
-	float *out_val_start;
-	string out_name_start;
+	float *out_val_ovcp [2];
+	string out_name_ovcp[2];
+	float *out_val_zscp [2];
+	string out_name_zscp[2];
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
 	float* set_val_Fn; 					///< Номинальная частота сети, Гц
@@ -437,7 +442,10 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	in_name_arg_S0 = "arg_S0";		make_in(&in_val_arg_S0, in_name_arg_S0.c_str());
 
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
-	out_name_start = "start";	make_out(&out_val_start, out_name_start.c_str());
+	for (size_t i = 0; i < 2; i++) {
+		out_name_ovcp[i] = "ovcp(" + to_string(i) + ")";	make_out(&out_val_ovcp[i], out_name_ovcp[i].c_str());
+		out_name_zscp[i] = "zscp(" + to_string(i) + ")";	make_out(&out_val_zscp[i], out_name_zscp[i].c_str());
+	}
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	// (Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
@@ -460,16 +468,16 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 		&in_val_abs_3U0,&in_val_arg_3U0,
 		&in_val_re_S0,  &in_val_im_S0,
 		&in_val_abs_S0, &in_val_arg_S0); //*/
-	
+
 		protection_elements.push_back(new OvercurrentProtection("ovcp(1)", 4.0f, 3.0f,   0u));
 		protection_elements.push_back(new OvercurrentProtection("ovcp(2)", 4.0f, 3.0f, 200u));
 		protection_elements.push_back(new ZSCurrentProtection  ("zccp(1)", 2.0f, 0.5f,   0u));
 		protection_elements.push_back(new ZSCurrentProtection  ("zccp(2)", 2.0f, 0.5f, 200u));
 }
 
-// По-хорошему нужен для динамического изменения ПО (заглушка)
-SR_auto_ctl::~SR_auto_ctl() {
-	for (auto obj :protection_elements)
+SR_auto_ctl::~SR_auto_ctl() 
+{
+	for (auto obj : protection_elements)
 		delete obj;
 }
 
@@ -490,14 +498,17 @@ void SR_auto_ctl::calc()
 //	ovcp[0]->overcurrent_protection(3.0f, 2.0f, 0);
 //	bool status_ovcp0 = ovcp[0]->get_status();
 
-	for (auto obj :protection_elements)
+	for (auto obj : protection_elements)
 		obj->detect();
-	
-	*out_val_start =protection_elements[0]->get_status();
+
+	for (size_t i = 0; i < 2; i++) {
+		*out_val_ovcp[i] = static_cast<float>(protection_elements[i]		->get_status());
+		*out_val_zscp[i] = static_cast<float>(protection_elements[i + 2]	->get_status());
+	}
 	
 	//! Отладка (не видно с других машин)
 	printf("\n\t%s in-values:\n", proc_name);
-	for (auto obj :protection_elements)
+	for (auto obj : protection_elements)
 		printf("result %s: %d\n", (obj->name).c_str(),  obj->get_status());
 
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -506,7 +517,7 @@ void SR_auto_ctl::calc()
 //	Запускается при старте расчётного модуля
 //	LIB_EXPORT - метка, котораЯ говорит, что мы экспортируем наружу имена переменных
 //	Выдаёт указатель на класс, имя файла (INI), по которому можно уставки прочитать
-LIB_EXPORT	SR_calc_proc* GetCalcClass(const char* block_name,char* file_name)	
+LIB_EXPORT	SR_calc_proc* GetCalcClass(const char* block_name, char* file_name)	
 {
 	// Создаётся экземпляр класса SR_calc_proc (приведение к родительскому классу!)
 	// Выделяется память под входы, выходы и константы, что важно в методе `SR_calc_proc::Reg_vars` при использовании векторов `const_name_list` и пр.

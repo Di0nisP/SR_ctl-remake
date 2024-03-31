@@ -157,7 +157,11 @@ private:
 	double *I_data[3], *U_data[3];		// Буферы для хранения точек режима
 
 public:
-	/// @brief Consructor
+	/**
+	 * @details Выполнятся объявляение входов и выходов
+	 * 
+	 * @param block_name 
+	 */
 	SR_auto_ctl(const char* block_name);
 
 	/// @brief Destructor
@@ -249,7 +253,7 @@ void SR_auto_ctl::calc()
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
-	// FIFO-цикл
+	// FIFO-цикл: осуществляется сдвиг расчётной выборки
 	for (uint8_t i = 0; i < 3; i++)
 		for (uint8_t j = 0; j < N - HBuffSize; j++) {
 			I_data[i][j] = I_data[i][j + HBuffSize];		
@@ -265,7 +269,7 @@ void SR_auto_ctl::calc()
 	}
 	// Запись токовых и напряженческих выходов
 	complex<double> result_I1[3] {}, result_U1[3] {};
-	static uint8_t step = 0u;
+	static uint8_t step {};
 	for (uint8_t i = 0; i < 3u; i++) {
 		result_I1[i] = hoertzel(I_data[i], sin_w, cos_w, step, NUM_CYCLE, N, k); // k = 1
 		*(out_val_re_I1 [i]) = static_cast<float>(result_I1[i].real());
@@ -310,40 +314,53 @@ void SR_auto_ctl::calc()
 		
 	//! Отладка (не видно с других машин)
 	static float time = 0.0f;
+	static size_t step_num {1}; //TODO Временно
 	printf("\n\t%s out-values:\n", proc_name);
-	printf("time = %.5f\tstep = %d\n", time, step);
+	printf("Time     = %10.5f seconds\n", time);
+	printf("Step_num = %4d\n", step_num);
+	printf("Step_idx = %4d\n", step);
+	printf("------------|--------------------------|-------------------------|\n");
+	printf("  Variable  |       Value (orto)       |       Value (exp)       |\n");
+	printf("------------|--------------------------|-------------------------|\n");
+	time += 1.0 / (NUM_CYCLE * FREQ_N);
+	++step_num;   ++step %= NUM_CYCLE;
 	for (uint8_t i = 0; i < 3u; i++) {
-		string print_name = "U_" + string(1, static_cast<char>('A' + i));
-		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		string print_name = "U1_" + string(1, static_cast<char>('A' + i));
+		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_U1 [i]), *(out_val_im_U1 [i]), 
 		*(out_val_abs_U1[i]), *(out_val_arg_U1[i]) * 180.0f * M_1_PI);
 	}
 	for (uint8_t i = 0; i < 3u; i++) {
-		string print_name = "I_" + string(1, static_cast<char>('A' + i));
-		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		string print_name = "I1_" + string(1, static_cast<char>('A' + i));
+		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_I1 [i]), *(out_val_im_I1 [i]), 
 		*(out_val_abs_I1[i]), *(out_val_arg_I1[i]) * 180.0f * M_1_PI);
 	}
 	{ //3U0
-		string print_name = "3U0";
-		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		string print_name = "3U0 ";
+		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_3U0), *(out_val_im_3U0), 
 		*(out_val_abs_3U0), *(out_val_arg_3U0) * 180.0f * M_1_PI);
 	}
 	{ //3I0
-		string print_name = "3I0";
-		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		string print_name = "3I0 ";
+		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_3I0), *(out_val_im_3I0), 
 		*(out_val_abs_3I0), *(out_val_arg_3I0) * 180.0f * M_1_PI);
 	}
+	for (uint8_t i = 0; i < 3u; i++) {
+		string print_name = "S1_" + string(1, static_cast<char>('A' + i));
+		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
+		*(out_val_re_S1 [i]), *(out_val_im_S1 [i]), 
+		*(out_val_abs_S1[i]), *(out_val_arg_S1[i]) * 180.0f * M_1_PI);
+	}
 	{ //S0
-		string print_name = "S0 ";
-		printf("%s = %10.3f + %10.3fj = %10.3f|_%10.3f\n", print_name.c_str(),
+		string print_name = "S0  ";
+		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_S0), *(out_val_im_S0), 
 		*(out_val_abs_S0), *(out_val_arg_S0) * 180.0f * M_1_PI);
 	}
-	time += 1 / (NUM_CYCLE * FREQ_N);
-	++step %= NUM_CYCLE;
+	printf("------------|--------------------------|-------------------------|\n");
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 

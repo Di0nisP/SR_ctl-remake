@@ -22,20 +22,48 @@ class SR_auto_ctl: public SR_calc_proc {
 private:
 	//*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
 	//! Объявление входов (данные, пришедшие извне)
-    // Токи
+	// Токи
 	float *in_val_I	[3][HBuffSize];
 	string in_name_I[3][HBuffSize];
 	// Напряжения
 	float *in_val_U	[3][HBuffSize];	
 	string in_name_U[3][HBuffSize];
+    //* Прямая последовательность
+	// Ортогональные составляющие тока и напряжения прямой последовательности
+	float *in_val_re_I1  [3], 	*in_val_im_I1  [3];
+	float *in_val_re_U1  [3], 	*in_val_im_U1  [3];
+	// Модуль и аргумент тока и напряжения прямой последовательности
+	float *in_val_abs_I1 [3], 	*in_val_arg_I1 [3];
+	float *in_val_abs_U1 [3], 	*in_val_arg_U1 [3];
+	// Ортогональные составляющие мощности прямой последовательности
+	float *in_val_re_S1  [3], 	*in_val_im_S1  [3];
+	// Модуль и аргумент мощности прямой последовательности
+	float *in_val_abs_S1 [3], 	*in_val_arg_S1 [3];
+	// Имена переменных
+	string in_name_re_I1 [3], 	 in_name_im_I1 [3];
+	string in_name_re_U1 [3], 	 in_name_im_U1 [3];
+	string in_name_re_S1 [3], 	 in_name_im_S1 [3];
+	string in_name_abs_I1[3], 	 in_name_arg_I1[3];
+	string in_name_abs_U1[3], 	 in_name_arg_U1[3];
+	string in_name_abs_S1[3], 	 in_name_arg_S1[3];
 
-    float *in_val_start;
-    string in_name_start;
+	//* Нулевая последовательность
+	// Ортогональные составляющие тока и напряжения нулевой последовательности
+	float *in_val_re_3I0, 		*in_val_im_3I0;
+	float *in_val_re_3U0, 		*in_val_im_3U0;
+	// Модуль и аргумент тока и напряжения прямой последовательности
+	float *in_val_abs_3I0, 		*in_val_arg_3I0;
+	float *in_val_abs_3U0, 		*in_val_arg_3U0;
+	// Имена переменных
+	string in_name_re_3I0,	 	 in_name_im_3I0;
+	string in_name_re_3U0,	 	 in_name_im_3U0;
+	string in_name_abs_3I0,  	 in_name_arg_3I0;
+	string in_name_abs_3U0,  	 in_name_arg_3U0;
 
-	//* Тестовый вход
-	float *in_val_test;
-    string in_name_test;
-
+	float *in_val_ovcp [2];
+	string in_name_ovcp[2];
+	float *in_val_zscp [2];
+	string in_name_zscp[2];
 	//! Объявление выходов (должны подключаться на входы другого алгоритма!)	
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
@@ -46,6 +74,11 @@ private:
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     
     std::deque<double> I_data[3], U_data[3];		// Буферы для хранения точек режима
+
+	std::ofstream file_osc; ///<
+	size_t step;
+	double time;
+	char delimiter;
 
 public:
 	/// @brief Consructor 
@@ -72,23 +105,80 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	//*++++++++++++++++++++++++++ Выделение памяти входов-выходов и настроек ++++++++++++++++++++++++++
 	// (Место для выделения пользовательских переменных алгоритма)
 	//! Входные переменные: алгорим запросит входные переменные у других алгоримов по именам, указанным в кавычках
-    for (uint8_t i = 0; i < 3; i++) 	// По фазам
-		for (uint8_t j = 0; j < HBuffSize; j++)	// По точкам
-		{
+    for (uint8_t i = 0; i < 3; i++)	// По фазам
+		for (uint8_t j = 0; j < HBuffSize; j++)	{	// По точкам
 			string suffix = string(1, static_cast<char>('A' + i));
 			
 			in_name_I[i][j] = "i" + suffix + "(" + std::to_string(j) + ")";		make_in(&(in_val_I[i][j]), in_name_I[i][j].c_str());
 			in_name_U[i][j] = "u" + suffix + "(" + std::to_string(j) + ")";		make_in(&(in_val_U[i][j]), in_name_U[i][j].c_str());
 		}
-
-    in_name_start = "start";	make_in(&in_val_start, in_name_start.c_str());
 	
-	in_name_test = "test";		make_in(&in_val_test, in_name_test.c_str());
+	for (uint8_t i = 0; i < 3; i++)	{
+		string suffix = string(1, static_cast<char>('A' + i));
+
+		in_name_re_I1 [i] = "re_I1_"  + suffix;		make_in(&(in_val_re_I1 [i]), in_name_re_I1 [i].c_str());
+		in_name_im_I1 [i] = "im_I1_"  + suffix;		make_in(&(in_val_im_I1 [i]), in_name_im_I1 [i].c_str());
+		in_name_abs_I1[i] = "abs_I1_" + suffix;		make_in(&(in_val_abs_I1[i]), in_name_abs_I1[i].c_str());
+		in_name_arg_I1[i] = "arg_I1_" + suffix;		make_in(&(in_val_arg_I1[i]), in_name_arg_I1[i].c_str());
+
+		in_name_re_U1 [i] = "re_U1_"  + suffix;		make_in(&(in_val_re_U1 [i]), in_name_re_U1 [i].c_str());
+		in_name_im_U1 [i] = "im_U1_"  + suffix;		make_in(&(in_val_im_U1 [i]), in_name_im_U1 [i].c_str());
+		in_name_abs_U1[i] = "abs_U1_" + suffix;		make_in(&(in_val_abs_U1[i]), in_name_abs_U1[i].c_str());
+		in_name_arg_U1[i] = "arg_U1_" + suffix;		make_in(&(in_val_arg_U1[i]), in_name_arg_U1[i].c_str());
+
+		in_name_re_S1 [i] = "re_S1_"  + suffix;		make_in(&(in_val_re_S1 [i]), in_name_re_S1 [i].c_str());
+		in_name_im_S1 [i] = "im_S1_"  + suffix;		make_in(&(in_val_im_S1 [i]), in_name_im_S1 [i].c_str());
+		in_name_abs_S1[i] = "abs_S1_" + suffix;		make_in(&(in_val_abs_S1[i]), in_name_abs_S1[i].c_str());
+		in_name_arg_S1[i] = "arg_S1_" + suffix;		make_in(&(in_val_arg_S1[i]), in_name_arg_S1[i].c_str());
+	}
+
+	in_name_re_3I0  = "re_3I0";			make_in(&in_val_re_3I0, in_name_re_3I0.c_str());
+	in_name_im_3I0  = "im_3I0";			make_in(&in_val_im_3I0, in_name_im_3I0.c_str());
+	in_name_abs_3I0 = "abs_3I0";		make_in(&in_val_abs_3I0, in_name_abs_3I0.c_str());
+	in_name_arg_3I0 = "arg_3I0";		make_in(&in_val_arg_3I0, in_name_arg_3I0.c_str());
+
+	in_name_re_3U0  = "re_3U0";			make_in(&in_val_re_3U0, in_name_re_3U0.c_str());
+	in_name_im_3U0  = "im_3U0";			make_in(&in_val_im_3U0, in_name_im_3U0.c_str());
+	in_name_abs_3U0 = "abs_3U0";		make_in(&in_val_abs_3U0, in_name_abs_3U0.c_str());
+	in_name_arg_3U0 = "arg_3U0";		make_in(&in_val_arg_3U0, in_name_arg_3U0.c_str());
+
+	for (size_t i = 0; i < 2; i++) {
+		in_name_ovcp[i] = "ovcp(" + to_string(i) + ")";	make_in(&in_val_ovcp[i], in_name_ovcp[i].c_str());
+		in_name_zscp[i] = "zscp(" + to_string(i) + ")";	make_in(&in_val_zscp[i], in_name_zscp[i].c_str());
+	}
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	// (Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))	
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	file_osc.open("osc/result/osc_result.csv", ios_base::out | ios_base::trunc);
+	delimiter = ',';
+	step = 0;
+	time = 0;
+	if (file_osc.is_open()) {
+		file_osc 
+				<< "step" 		<< delimiter
+				<< "time" 		<< delimiter
+				<< "U1_A" 		<< delimiter
+				<< "U1_B" 		<< delimiter
+				<< "U1_C" 		<< delimiter
+				<< "I1_A" 		<< delimiter
+				<< "I1_B" 		<< delimiter
+				<< "I1_C" 		<< delimiter
+				<< "abs(U1_A)"	<< delimiter
+				<< "abs(U1_B)"	<< delimiter
+				<< "abs(U1_C)"	<< delimiter
+				<< "abs(I1_A)"	<< delimiter
+				<< "abs(I1_B)"	<< delimiter
+				<< "abs(I1_C)"	<< delimiter
+				<< "abs(3U0)"   << delimiter
+				<< "abs(3I0)"   << delimiter
+				<< "ovcp(1)" 	<< delimiter
+				<< "ovcp(2)" 	<< delimiter
+				<< "zccp(1)" 	<< delimiter
+				<< "zccp(1)" 	<< endl;
+	}
 
     //* Выделение памяти вспомогательных переменных
 	for (uint8_t i = 0; i < 3; i++)	{
@@ -98,7 +188,10 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 }
 
 // По-хорошему нужен для динамического изменения ПО (заглушка)
-SR_auto_ctl::~SR_auto_ctl() {}
+SR_auto_ctl::~SR_auto_ctl() 
+{
+	if (file_osc.is_open()) file_osc.close();
+}
 
 void SR_auto_ctl::calc()
 {
@@ -106,7 +199,7 @@ void SR_auto_ctl::calc()
 	if(!ready_proc)	return; // `ready_proc` говорит о том, что все выходы подцеплены ко всем входам
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
-	for (uint8_t i = 0; i < 3; i++)	{
+	/*for (uint8_t i = 0; i < 3; i++)	{
         if (static_cast<bool>(*in_val_start))
             for (uint8_t j = 0; j < HBuffSize; j++)	// По точкам
             {   
@@ -121,7 +214,35 @@ void SR_auto_ctl::calc()
             }
 	}
     if (static_cast<bool>(*in_val_start))
-        printf("Hallo, World!");
+        printf("Hallo, World!");*/
+
+
+	if (file_osc.is_open()) {
+		for (size_t j = 0; j < HBuffSize; j++, step++, time += 1.0 / FREQ_S) {
+			file_osc 
+					<< step 				<< delimiter
+					<< time 				<< delimiter
+					<< *in_val_U[0][j]		<< delimiter
+					<< *in_val_U[1][j]		<< delimiter
+					<< *in_val_U[2][j]		<< delimiter
+					<< *in_val_I[0][j]		<< delimiter
+					<< *in_val_I[1][j]		<< delimiter
+					<< *in_val_I[1][j]		<< delimiter
+					<< *in_val_abs_U1[0]	<< delimiter
+					<< *in_val_abs_U1[1]	<< delimiter
+					<< *in_val_abs_U1[2]	<< delimiter
+					<< *in_val_abs_I1[0]	<< delimiter
+					<< *in_val_abs_I1[1]	<< delimiter
+					<< *in_val_abs_I1[2]	<< delimiter
+					<< *in_val_abs_3U0		<< delimiter
+					<< *in_val_abs_3I0  	<< delimiter
+					<< static_cast<int>(*in_val_ovcp[0]) << delimiter
+					<< static_cast<int>(*in_val_ovcp[1]) << delimiter
+					<< static_cast<int>(*in_val_zscp[0]) << delimiter
+					<< static_cast<int>(*in_val_zscp[1]) << endl;
+		}			
+	}
+	printf("\nHallo, World!\n");
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 

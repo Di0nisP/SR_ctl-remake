@@ -12,18 +12,20 @@
 #define PROC0_FLAG 0b00000001
 #define PROC1_FLAG 0b00000010
 #define PROC2_FLAG 0b00000100
-#define PROC_PRINT 0b00000111	//бит показывает какой процесс отображает данные
-#define NUM_STEP_TO_STOP 1000	///< Ограничение по шагам
+#define PROC_PRINT 0b00000111	///< Бит показывает, какой процесс отображает данные
+#define NUM_STEP_TO_STOP 200	///< Ограничение по шагам
 //* Defines end -------------------------------------------------------------------------
 
-SR_ctl_type::SR_ctl_type()	{}
+SR_ctl_type::SR_ctl_type() {}
 
-SR_ctl_type::~SR_ctl_type()	{
+SR_ctl_type::~SR_ctl_type()	
+{
     if (Settings != nullptr)
         delete Settings;
 }
 
-void SR_ctl_type::Init_local_calc() {
+void SR_ctl_type::Init_local_calc() 
+{
     FILE *fp; 
     fp = fopen("local_vars.txt", "a");	// Запись в файл ведётся в режиме добавления (append)
     fprintf(fp,"\n\tVARIABLES LIST\n");	// Запись строки в файл
@@ -96,7 +98,7 @@ void SR_ctl_type::Init_local_calc() {
     MPI_Comm_rank(MPI_COMM_WORLD, &world_rank);
 
     // `world_size-1`, так как собственная связь не нужна (только взаимные)
-    p_MPI_link = new Link_MPI*[world_size - 1]; // Ссылка на массив указателей на Link_MPI
+    p_MPI_link = world_size > 1 ? new Link_MPI*[world_size - 1] : nullptr; // Ссылка на массив указателей на Link_MPI
     size_t lnk_cnt = 0;
     for (int i = 0; i < world_size; i++) {
         if (i != world_rank) {
@@ -365,7 +367,8 @@ void SR_ctl_type::Init_local_calc() {
     fclose(fp);
 }
 
-void SR_ctl_type::Init() {
+void SR_ctl_type::Init() 
+{
         // Печать в консоль
         print_topic = 0;
         print_block = 0;
@@ -386,7 +389,8 @@ void SR_ctl_type::Init() {
         usleep(5 * 100 * 1000); //? было 100 * 1000
 }
 
-void SR_ctl_type::Work() { 
+void SR_ctl_type::Work() 
+{ 
     int world_size; // Число машин
     MPI_Comm_size(MPI_COMM_WORLD, &world_size); // Get the number of processes
     int world_rank; // Текущая машина

@@ -179,7 +179,6 @@ public:
     }
 };
 
-
 class SR_auto_ctl: public SR_calc_proc
 {
 private:
