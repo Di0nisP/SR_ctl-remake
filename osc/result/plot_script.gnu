@@ -13,9 +13,9 @@ plot_height = 300
 total_height = num_plots * plot_height
 
 # Установка параметров изображения
-#set terminal svg size 3000,total_height enhanced font "Arial,14"
+#set terminal svg size 9000,total_height enhanced font "Arial,14"
 #set output "image_result.svg"
-set terminal pngcairo size 3000,total_height enhanced font "Arial,14"
+set terminal pngcairo size 7000,total_height enhanced font "Arial,14"
 set output "image_result.png"
 
 # Установка параметров мультиплота групп сигналов
@@ -56,10 +56,20 @@ plot "osc_result.csv" using 2:13 with lines title "abs(I1_B)" lc rgb "green" lw 
 plot "osc_result.csv" using 2:14 with lines title "abs(I1_C)" lc rgb "red" lw 2
 
 # Дискретные сигналы ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-plot "osc_result.csv" using 2:17 with filledcurves y1=0 title "OVCP(1)" lc rgb "cyan"
-plot "osc_result.csv" using 2:18 with filledcurves y1=0 title "OVCP(2)" lc rgb "cyan"
-plot "osc_result.csv" using 2:19 with filledcurves y1=0 title "ZCCP(1)" lc rgb "cyan"
-plot "osc_result.csv" using 2:20 with filledcurves y1=0 title "ZCCP(2)" lc rgb "cyan"
+set ytics ("false" 0, "true" 1)
+
+set size 1, 0.01
+set origin 0,(1.0/num_plots*3.3 )
+plot "osc_result.csv" using 2:17 with lines title "OVCP(1)" lc rgb "cyan" lw 4
+set size 1, 0.01
+set origin 0,(1.0/num_plots*2.8 )
+plot "osc_result.csv" using 2:18 with lines title "OVCP(2)" lc rgb "cyan" lw 4
+set size 1, 0.01
+set origin 0,(1.0/num_plots*2.3 )
+plot "osc_result.csv" using 2:19 with lines title "ZCCP(1)" lc rgb "cyan" lw 4
+set size 1, 0.01
+set origin 0,(1.0/num_plots*1.8 )
+plot "osc_result.csv" using 2:20 with lines title "ZCCP(2)" lc rgb "cyan" lw 4
 # Дискретные сигналы ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Выход из режима мультиплота

@@ -469,7 +469,7 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 		&in_val_re_S0,  &in_val_im_S0,
 		&in_val_abs_S0, &in_val_arg_S0); //*/
 
-		protection_elements.push_back(new OvercurrentProtection("ovcp(1)", 4.0f, 3.0f,   0u));
+		protection_elements.push_back(new OvercurrentProtection("ovcp(1)", 0.8, 0.8*0.8,   0u));
 		protection_elements.push_back(new OvercurrentProtection("ovcp(2)", 4.0f, 3.0f, 200u));
 		protection_elements.push_back(new ZSCurrentProtection  ("zccp(1)", 2.0f, 0.5f,   0u));
 		protection_elements.push_back(new ZSCurrentProtection  ("zccp(2)", 2.0f, 0.5f, 200u));

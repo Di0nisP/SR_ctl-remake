@@ -20,7 +20,7 @@
 
 //* User defines begin ------------------------------------------------------------------
 #define  MEMS_PERIOD  5u		///< Период опроса датчиков, мс
-#define PRINT_PERIOD 20u		///< Период отображения, мс
+#define PRINT_PERIOD  200u		///< Период отображения, мс
 
 // Темы печати
 #define TOPIC_ALG_VARS 1		///<

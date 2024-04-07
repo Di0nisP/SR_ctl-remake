@@ -13,6 +13,7 @@
  */
 
 #include "alg_base.h"
+#include <iostream>
 
 //* User defines begin ------------------------------------------------------------------
 // Параметры входного сигнала
@@ -26,6 +27,14 @@
 
 //const uint8_t HBuffSize = FREQ_S / FREQ_N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
 //* User defines end --------------------------------------------------------------------
+
+//* User macros begin -----------------------------------------------------------------------------------
+/// @brief Формирование get-свойства для приватного поля
+#define GENERATE_GETTER(name) \
+    decltype(name) get_##name() const { \
+        return name; \
+    }
+//* User macros end -------------------------------------------------------------------------------------
 
 using namespace std;
 
@@ -80,8 +89,369 @@ public:
 	}
 };
 
+/// @brief Информация о частоте дискретизации
+struct _sampRateInfo {
+//    uint8_t n;                  ///< Номер частоты дискретизации в файле данных
+    double freqSamp;            ///< Заданная частота дискретизации, Гц. Обязательный параметр.
+    uint64_t endSamp;           ///< Номер последней выборки с заданной частотой дискретизации. Обязательный параметр.
+};
+
+/// @brief Информация об аналоговом канале
+struct _analogChannelsInfo {
+    uint32_t n;                 ///< Номер канала. Обязательный параметр.
+    std::string ch;             ///< Идентификатор (наименование) канала. Обязательный параметр.
+    std::string ph;             ///< Идентификатор (наименование) фазы. Необязательный параметр.
+    std::string ccbm;           ///< Контролируемый компонент схемы. Необязательный параметр.
+    std::string uu;             ///< Единицы измерения канала. Обязательный параметр.
+    double a;                   ///< Множитель канала. Обязательный параметр.
+    double b;                   ///< Смещение канала. Обязательный параметр.
+    double skew;                ///< Временное отклонение канала от начала периода выборки, мкс. Обязательный параметр.
+    double min;                 ///< Минимум диапазона данных. Обязательный параметр.
+    double max;                 ///< Максимум диапазона данных. Обязательный параметр.
+    double primary;             ///< Первичный фактор коэффициента трансформации. Обязательный параметр.
+    double secondary;           ///< Вторичный фактор коэффициента трансформации. Обязательный параметр.
+    char ps;                    ///< Идентификатор масштабирования данных: p (или P) - primary; s (или S) - secondary. Обязательный параметр.
+};
+
+/// @brief Информация о дискретном канале
+struct _digitalChannelsInfo {
+    uint32_t n;                 ///< Номер канала. Обязательный параметр.
+    std::string ch;             ///< Идентификатор (наименование) канала. Обязательный параметр.
+    std::string ph;             ///< Идентификатор (наименование) фазы. Необязательный параметр.
+    std::string ccbm;           ///< Контролируемый компонент схемы. Необязательный параметр.
+    bool y;                     ///< Нормальное состояние канала состояния (только для каналов состояния). Обязательный параметр.
+};
+
+/**
+ * @brief Класс для чтения COMTRADE-файлов
+ *
+ */
+class ComtradeDataReader {
+private:
+    //! Конфигурационные параметры (CFG)
+    //* Группа параметров a
+    std::string stationName;        ///< Имя станции. Обязательный параметр.
+    std::string recDevId;           ///< Идентификационный номер или название записывающего устройства. Обязательный параметр.
+    uint16_t revYear;               ///< Год ревизии стандарта COMTRADE. Обязательный параметр.
+
+    //* Группа параметров b
+    uint32_t numChannels;           ///< Общее число каналов. Обязательный параметр.
+    uint32_t numAnalogChannels;     ///< Число аналоговых каналов. Обязательный параметр.
+    uint32_t numDigitalChannels;    ///< Число дискртеных каналов. Обязательный параметр.
+
+    //* Группа параметров c
+    std::vector<_analogChannelsInfo> analogChannelsInfo;    ///< Контейннер для хранения информации о аналоговых каналах
+    std::vector<_digitalChannelsInfo> digitalChannelsInfo;  ///< Контейннер для хранения информации о дискретных каналах
+
+    //* Группа параметров d
+    double freqNetwork;             ///< Частота сети, Гц. Обязательный параметр.
+
+    //* Группа параметров e
+    uint16_t nRates;                ///< Количество частот дискретизации в файле данных. Обязательный параметр.
+    //TODO Каналы частот дискретизации требуют доработки (скорее всего, не работает с более чем 1 каналом)
+    std::vector<_sampRateInfo> sampRateInfo;        ///< Контейннер для хранения информации о частотах дискретизации
+
+    //! Данные (DAT)
+    std::vector<std::vector<double>> analogData;    ///< Контейнеры для хранения данных по аналоговым каналам
+    std::vector<std::vector<bool>> digitalData;     ///< Контейнеры для хранения данных по дискретным каналам
+
+private:
+    /**
+     * @brief Функция для считывания данных по каналам
+     *
+     * 1. Заполням рабочий контейнер нулевыми векторами, чтобы иметь возможность обращаться к ним; @n
+     * 2. Получаем строку; @n
+     * 3. Получаем значения по строке и добавляем их в выделенные вектора. @n
+     *
+     * Каналы заполняются равномерно: новая строка - новое значение для каждого канала.
+     * Время парсинга значительно сокращается.
+     *
+     * @tparam T Параметр выборки данных
+     * @param datFile Ссылка на поток для чтения с файла данных
+     * @param data Ссылка на контейннер для хранения информации о каналах (аналоговых или дискретных)
+     * @param numChannels Число каналов (аналоговых или дискретных)
+     * @param delimiter Разделитель данных
+     */
+    template<typename T>
+    void dataReader(std::ifstream& datFile,
+                    std::vector<std::vector<T>>& data,
+                    size_t numChannels,
+                    const char delimiter);
+public:
+    /**
+     * @brief Construct a new Comtrade Data Reader object
+     *
+     * @param comtradePath Путь к расположению COMTRADE-файлов
+     * @param delimiter Разделитель данных (по умолчанию принят ',')
+     */
+    ComtradeDataReader(const std::string& comtradePath, const char delimiter = ',');
+
+    //! Конфигурационные параметры (CFG)
+    //* Группа параметров a
+    GENERATE_GETTER(stationName)
+    GENERATE_GETTER(recDevId)
+    GENERATE_GETTER(revYear)
+
+    //* Группа параметров b
+    GENERATE_GETTER(numChannels)
+    GENERATE_GETTER(numAnalogChannels)
+    GENERATE_GETTER(numDigitalChannels)
+
+    //* Группа параметров c
+    GENERATE_GETTER(analogChannelsInfo)
+    decltype(analogChannelsInfo)* get_p_analogChannelsInfo() {
+        return &analogChannelsInfo;
+    }
+    GENERATE_GETTER(digitalChannelsInfo)
+    decltype(digitalChannelsInfo)* get_p_digitalChannelsInfo() {
+        return &digitalChannelsInfo;
+    }
+
+    //* Группа параметров d
+    GENERATE_GETTER(freqNetwork)
+
+    //* Группа параметров e
+    GENERATE_GETTER(nRates)
+    double get_freqSamp(size_t nRate) const {
+        return sampRateInfo[nRate].freqSamp;
+    }
+    uint32_t get_endSamp(size_t nRate) const {
+        return sampRateInfo[nRate].endSamp;
+    }
+
+    //! Данные (DAT)
+    GENERATE_GETTER(analogData)
+    const decltype(analogData)* get_p_analogData() const {
+        return &analogData;
+    }
+    GENERATE_GETTER(digitalData)
+    const decltype(digitalData)* get_p_digitalData() const {
+        return &digitalData;
+    }
+};
+
+template<typename T>
+void ComtradeDataReader::dataReader(std::ifstream& datFile,
+                std::vector<std::vector<T>>& data,
+                size_t numChannels,
+                const char delimiter)
+{
+    datFile.clear();
+    datFile.seekg(0); // Сбрасываем указатель строки
+
+    std::string lineData, str;
+
+    size_t idx0 {2u};   // Пропускаем два первых столбца (номер и время отсчёта)
+    if (std::is_same<T, bool>::value)
+        idx0 += this->numAnalogChannels;
+
+    data.resize(numChannels);
+
+    while (std::getline(datFile, lineData)) { // По строкам
+        std::istringstream iss(lineData);
+        T value;
+
+        for (size_t j = 0; j < idx0; j++) { // Пропускаем значения по строке
+            if (!std::getline(iss, str, delimiter)) {
+                std::string message = "Error reading ";
+                message += (std::is_same<T, bool>::value ? "digital" : "analog");
+                message += " data.\n";
+                throw std::runtime_error(message.c_str());
+            }
+        }
+
+        for (size_t i = 0; i < numChannels; i++) {
+            if (!std::getline(iss, str, delimiter)) {   // Получение подстроки
+                std::string message = "Error reading ";
+                message += (std::is_same<T, bool>::value ? "digital" : "analog");
+                message += " data.\n";
+                throw std::runtime_error(message.c_str());
+            }
+
+            // Получение значения
+            if (!std::is_same<T, bool>::value)
+                value = std::stod(str) * analogChannelsInfo[i].a + analogChannelsInfo[i].b;
+            else
+                value = static_cast<bool>(std::stoi(str));
+
+            data[i].push_back(value);
+        }
+    }
+}
+
+// Инициализация чтения COMTRADE-файлов
+ComtradeDataReader::ComtradeDataReader(const std::string& comtradePath, const char delimiter)
+{
+    std::string lineData;
+
+    //! Проверяем наличие обязательных (critical) CFG- и DAT-файлов
+    std::string cfgFileName = comtradePath + ".CFG";
+    std::string datFileName = comtradePath + ".DAT";
+
+    std::ifstream cfgFile(cfgFileName);
+    std::ifstream datFile(datFileName);
+
+    if (!cfgFile.is_open() || !datFile.is_open()) {
+        std::cerr << "Error: CFG or DAT file not found in the specified directory." << std::endl;
+        return;
+    }
+
+    //! Чтение CFG-файла
+    for (size_t i = 0; std::getline(cfgFile, lineData); i++) {
+        std::istringstream iss(lineData);
+        //* Группа параметров a
+        if (i == 0u) {
+            std::string stationName, recDevId, revYear;
+            if (std::getline(iss, stationName, delimiter) &&
+                std::getline(iss, recDevId, delimiter)) {
+                this->stationName = stationName;
+                this->recDevId = recDevId;
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+            //TODO подвязать логику для различных ревизий: добавить класс функционал для отдельных ревизий, передавать год в качестве аргумента
+            if (iss >> revYear)
+                this->revYear = std::stoi(revYear) >= 0 ? std::stoi(revYear) : 1991;
+            else
+                this->revYear = 1991;
+        }
+        //* Группа параметров b
+        else if (i == 1u) {
+            std::string numChannels, numAnalogChannels, numDigitalChannels;
+            if (std::getline(iss, numChannels, delimiter) &&
+                std::getline(iss, numAnalogChannels, delimiter) &&
+                std::getline(iss, numDigitalChannels, delimiter)) {
+                this->numChannels = std::stoi(numChannels);
+                this->numAnalogChannels = std::stoi(numAnalogChannels);
+                this->numDigitalChannels = std::stoi(numDigitalChannels);
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+        }
+        //* Группа параметров с
+        // Аналоговые каналы
+        else if (1u < i && i < 2u + this->numAnalogChannels) {
+            _analogChannelsInfo info;
+            std::string n, ch, ph, ccbm, uu, a, b, skew, min, max, primary, secondary, ps;
+            if (std::getline(iss,  n, delimiter) &&
+                std::getline(iss, ch, delimiter)) {
+                info.n = std::stod(n);
+                info.ch = ch;
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+            std::getline(iss, ph, delimiter);       info.ph = ph;
+            std::getline(iss, ccbm, delimiter);     info.ccbm = ccbm;
+            if (std::getline(iss,        uu, delimiter) &&
+                std::getline(iss,         a, delimiter) &&
+                std::getline(iss,         b, delimiter) &&
+                std::getline(iss,      skew, delimiter) &&
+                std::getline(iss,       min, delimiter) &&
+                std::getline(iss,       max, delimiter) &&
+                std::getline(iss,   primary, delimiter) &&
+                std::getline(iss, secondary, delimiter) &&
+                std::getline(iss,        ps, delimiter)) {
+                info.uu = uu;
+                info.a = std::stod(a);
+                info.b = std::stod(b);
+                info.skew = std::stod(skew);
+                info.min = std::stod(min);
+                info.max = std::stod(max);
+                info.primary = std::stod(primary);
+                info.secondary = std::stod(secondary);
+                info.ps = ps[0];
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+            this->analogChannelsInfo.push_back(info);
+        }
+        // Дискретные каналы
+        else if (2u + this->numAnalogChannels <= i && i < 2u + this->numChannels) {
+            _digitalChannelsInfo info;
+            std::string n, ch, ph, ccbm, y;
+            if (std::getline(iss,  n, delimiter) &&
+                std::getline(iss, ch, delimiter)) {
+                info.n = std::stod(n);
+                info.ch = ch;
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+            std::getline(iss, ph, delimiter);       info.ph = ph;
+            std::getline(iss, ccbm, delimiter);     info.ccbm = ccbm;
+            if (std::getline(iss, y, delimiter)) {
+                info.y = static_cast<bool>(std::stoi(y));
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+            this->digitalChannelsInfo.push_back(info);
+        }
+        //* Группа параметров d
+        else if (i == 2u + this->numChannels) {
+            std::string freqNetwork;
+            if (std::getline(iss, freqNetwork, delimiter)) {
+                this->freqNetwork = std::atof(freqNetwork.c_str());
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+        }
+        //* Группа параметров e
+        else if (i == 3u + this->numChannels) {
+            std::string nRates;
+            if (std::getline(iss, nRates, delimiter)) {
+                this->nRates =  std::stoi(nRates);
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+        }
+        //TODO Возможно, неправильно отработает с числом частот дискретизации, отличным от 1 (не было примера)
+        else if (3u + this->numChannels < i && i <= 3u + this->numChannels + this->nRates) {
+            _sampRateInfo info;
+            std::string freqSamp, endSamp;
+//                info.n = i - (3u + this->numChannels);
+            if (std::getline(iss, freqSamp, delimiter) &&
+                std::getline(iss, endSamp, delimiter)) {
+                info.freqSamp = std::atof(freqSamp.c_str());
+                info.endSamp = std::stoi(endSamp);
+            } else {
+                std::cerr << "Error: Critical data is missing." << " ErrIdx = " << i << std::endl;
+                return;
+            }
+            this->sampRateInfo.push_back(info);
+        }
+        // Прочие строки не обрабатываются
+        else continue;
+    }
+
+    cfgFile.close();
+
+    //! Чтение DAT-файла
+    //* Аналоговые каналы
+    dataReader<double>(datFile, this->analogData, this->numAnalogChannels, delimiter);
+
+    //* Дискретные каналы
+    dataReader<bool>(datFile, this->digitalData, this->numDigitalChannels, delimiter);
+
+    datFile.close();
+}
+
 /**
  * @brief Класс для хранения параметров состояния чтения из файла
+ * 
+ * Этот класс полезен, если нужно прочитать именованные данные в выбранном столбце.
+ * Например, данные такого вида: \n
+ * x,y,z \n
+ * 0,1,1 \n
+ * 1,0,2 \n
+ * 2,1,3 \n
+ * и т.д.
  * 
  * @tparam T Типа выходного массива функции чтения файла
  * @tparam HBuffSize количество читаемых позиций файла
@@ -201,6 +571,8 @@ private:
 	float *I_data[3], *U_data[3];		// Буферы для хранения точек режима
 	Opmode *gI[3], *gU[3];				// Объекты формируемого сигнала
 	FileReader<float, HBuffSize> rI[3], rU[3];
+	ComtradeDataReader *data;
+	std::vector<std::vector<double>> analogData;
 
 public:
 	/// @brief Consructor 
@@ -250,10 +622,17 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	// (Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+	string file_path = "./osc/input/K11-K1-K3/", file_name = "K11-K1-K3";
+	data = new ComtradeDataReader(file_path + file_name);
+	analogData = data->get_analogData();
 }
 
 // По-хорошему нужен для динамического изменения ПО (заглушка)
-SR_auto_ctl::~SR_auto_ctl() {}
+SR_auto_ctl::~SR_auto_ctl() 
+{
+	if (data != nullptr) delete data;
+}
 
 void SR_auto_ctl::calc()
 {
@@ -262,10 +641,18 @@ void SR_auto_ctl::calc()
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
+	static size_t step = 0;
+	for (size_t i = 0; i < 3; i++)
+		for (size_t j = 0; j < HBuffSize; j++) {
+			U_data[i][j] = static_cast<float>(data->get_p_analogData()->at(i	 ).at(j + step*HBuffSize));
+			I_data[i][j] = static_cast<float>(data->get_p_analogData()->at(i + 3u).at(j + step*HBuffSize));
+		}
+	++step;
+
+
 	//* Запись значений на выходы алгоритма
 	for (uint8_t i = 0; i < 3; i++) 	// По фазам
-		for (uint8_t j = 0; j < HBuffSize; j++)
-		{
+		for (uint8_t j = 0; j < HBuffSize; j++) {
 			*(out_val_I[i][j]) = I_data[i][j];		
 			*(out_val_U[i][j]) = U_data[i][j];	
 		}
@@ -285,13 +672,15 @@ void SR_auto_ctl::calc()
 //	std::string file_path = "../test_file_read/fault_1.csv"; //TODO Убрать 1000 или заменить на коэф. трансформации
 //	std::string file_path = "../test_file_read/folder/data_Ia.csv";
 	//TODO Возможно, стоит добавить в сигнатуру коэффициент трансформации
-	rU[0].read(file_path, "Ua", U_data[0], 1, ',');
+	/*rU[0].read(file_path, "Ua", U_data[0], 1, ',');
 	rU[1].read(file_path, "Ub", U_data[1], 1, ',');
 	rU[2].read(file_path, "Uc", U_data[2], 1, ',');
 	rI[0].read(file_path, "Ia", I_data[0], 1, ',');
 	rI[1].read(file_path, "Ib", I_data[1], 1, ',');
-	rI[2].read(file_path, "Ic", I_data[2], 1, ',');
+	rI[2].read(file_path, "Ic", I_data[2], 1, ',');*/
 	
+
+
 	//! Отладка (не видно с других машин)
 	printf("\n\t%s out-values:\n", proc_name);
 	for (uint8_t i = 0; i < 3; i++)	{

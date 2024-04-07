@@ -1,0 +1,180 @@
+[Russian_Comtrade_Edition Description] 
+PowerObjectCount=1
+Russian_Comtrade_Edition_Version=2017
+Russian_Comtrade_Edition_Revision=1.0
+
+[Russian_Comtrade_Edition Power_Object_#1] 
+Territory=
+Company_Name=
+Station_Name=Прософт-Системы
+RecordingDeviceCount=1
+
+[Russian_Comtrade_Edition Recording_Device_#1_#1] 
+Recording_Device_ID=ТПА-01 Денис
+Vendor=Prosoft-Systems
+Model=ТПА-01
+Serial_Number=tpa_rz87
+Hardware_Revision=3
+Software_Revision=7.5
+Comtrade_File_Name=
+EquipmentCount=1
+StatusChannelCount=0
+
+[Russian_Comtrade_Edition Analog_Channel_Equipment_#1_#1_#1] 
+Equipment_Type=Line
+Equipment_ID=Линия 110кВ
+Equipment_Short_Name=Линия 110кВ
+Voltage_Level_In_kV=110
+VT_ID=
+VT_Channel_Number=
+CT_ID=
+CT_Channel_Number=
+RP_Channel_Number=1,2,3,4,5,6,7
+RP_DChannel_Number=
+F_Channel_Number=
+ES_Channel_Number=
+OCS_Channel_Number=
+
+[Prosoft AnalogChannel#1] 
+ChannelType=Sine
+Type=U
+Physical=False
+Inversion=False
+PhysNum=1
+
+[Prosoft AnalogChannel#2] 
+ChannelType=Sine
+Type=U
+Physical=False
+Inversion=False
+PhysNum=2
+
+[Prosoft AnalogChannel#3] 
+ChannelType=Sine
+Type=U
+Physical=False
+Inversion=False
+PhysNum=3
+
+[Prosoft AnalogChannel#4] 
+ChannelType=Sine
+Type=I
+Physical=False
+Inversion=False
+PhysNum=4
+
+[Prosoft AnalogChannel#5] 
+ChannelType=Sine
+Type=I
+Physical=False
+Inversion=False
+PhysNum=5
+
+[Prosoft AnalogChannel#6] 
+ChannelType=Sine
+Type=I
+Physical=False
+Inversion=False
+PhysNum=6
+
+[Prosoft AnalogChannel#7] 
+ChannelType=Const
+Type=
+Physical=False
+Inversion=False
+PhysNum=7
+
+[Prosoft AnalogChannel#8] 
+ChannelType=Const
+Type=
+Physical=False
+Inversion=False
+PhysNum=8
+
+[Prosoft AnalogChannel#9] 
+ChannelType=Const
+Type=
+Physical=False
+Inversion=False
+PhysNum=9
+
+[Prosoft AnalogChannel#10] 
+ChannelType=Const
+Type=
+Physical=False
+Inversion=False
+PhysNum=10
+
+[Prosoft StatusChannel#1] 
+Physical=False
+Inversion=False
+PhysNum=1
+
+[Prosoft StatusChannel#2] 
+Physical=False
+Inversion=False
+PhysNum=2
+
+[Prosoft StatusChannel#3] 
+Physical=False
+Inversion=False
+PhysNum=3
+
+[Prosoft StatusChannel#4] 
+Physical=False
+Inversion=False
+PhysNum=4
+
+[Prosoft StatusChannel#5] 
+Physical=False
+Inversion=False
+PhysNum=5
+
+[Prosoft StatusChannel#6] 
+Physical=False
+Inversion=False
+PhysNum=6
+
+[Prosoft StatusChannel#7] 
+Physical=False
+Inversion=False
+PhysNum=7
+
+[Prosoft StatusChannel#8] 
+Physical=False
+Inversion=False
+PhysNum=8
+
+[Prosoft StatusChannel#9] 
+Physical=False
+Inversion=False
+PhysNum=9
+
+[Prosoft StatusChannel#10] 
+Physical=False
+Inversion=False
+PhysNum=10
+
+[Prosoft StatusChannel#11] 
+Physical=False
+Inversion=False
+PhysNum=11
+
+[Prosoft StatusChannel#12] 
+Physical=False
+Inversion=False
+PhysNum=12
+
+[Prosoft StatusChannel#13] 
+Physical=False
+Inversion=False
+PhysNum=13
+
+[Prosoft Fault#1] 
+Reason=Алгоритм "Пуск ОСЦ"
+BlockNum=400
+
+[Prosoft Fault#2] 
+Reason=Алгоритм "Пуск ОСЦ"
+BlockNum=3600
+

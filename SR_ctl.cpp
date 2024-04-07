@@ -13,7 +13,7 @@
 #define PROC1_FLAG 0b00000010
 #define PROC2_FLAG 0b00000100
 #define PROC_PRINT 0b00000111	///< Бит показывает, какой процесс отображает данные
-#define NUM_STEP_TO_STOP 200	///< Ограничение по шагам
+#define NUM_STEP_TO_STOP 600	///< Ограничение по шагам
 //* Defines end -------------------------------------------------------------------------
 
 SR_ctl_type::SR_ctl_type() {}

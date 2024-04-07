@@ -1,7 +1,7 @@
 /**
  * @file alg_triggers.cpp
  * @author Di0nisP ()
- * @brief Блок пусковых (измерительных) органов алгоритмов РЗА
+ * @brief Блок записи результатов работы
  * @version 0.1
  * @date 2024-02-17
  * 
@@ -227,7 +227,7 @@ void SR_auto_ctl::calc()
 					<< *in_val_U[2][j]		<< delimiter
 					<< *in_val_I[0][j]		<< delimiter
 					<< *in_val_I[1][j]		<< delimiter
-					<< *in_val_I[1][j]		<< delimiter
+					<< *in_val_I[2][j]		<< delimiter
 					<< *in_val_abs_U1[0]	<< delimiter
 					<< *in_val_abs_U1[1]	<< delimiter
 					<< *in_val_abs_U1[2]	<< delimiter
@@ -242,7 +242,6 @@ void SR_auto_ctl::calc()
 					<< static_cast<int>(*in_val_zscp[1]) << endl;
 		}			
 	}
-	printf("\nHallo, World!\n");
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
