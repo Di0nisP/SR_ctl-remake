@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Файл /home/changeme/Документы/SR_ctl-remake/alg_1_DSP.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Классы</a> &#124;
+<a href="#func-members">Функции</a> &#124;
+<a href="#var-members">Переменные</a>  </div>
+  <div class="headertitle"><div class="title">Файл /home/changeme/Документы/SR_ctl-remake/alg_1_DSP.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="alg__base_8h_source.html">alg_base.h</a>&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф включаемых заголовочных файлов для alg_1_DSP.cpp:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="alg__1___d_s_p_8cpp__incl.png" border="0" usemap="#a_2home_2changeme_2_xD0_x94_xD0_xBE_xD0_xBA_xD1_x83_xD0_xBC_xD0_xB5_xD0_xBD_xD1_x82_xD1_x8B_2_s_r__ctl-remake_2alg__1___d_s_p_8cpp" alt=""/></div>
+<map name="a_2home_2changeme_2_xD0_x94_xD0_xBE_xD0_xBA_xD1_x83_xD0_xBC_xD0_xB5_xD0_xBD_xD1_x82_xD1_x8B_2_s_r__ctl-remake_2alg__1___d_s_p_8cpp" id="a_2home_2changeme_2_xD0_x94_xD0_xBE_xD0_xBA_xD1_x83_xD0_xBC_xD0_xB5_xD0_xBD_xD1_x82_xD1_x8B_2_s_r__ctl-remake_2alg__1___d_s_p_8cpp">
+<area shape="rect" title=" " alt="" coords="307,5,526,45"/>
+<area shape="rect" href="alg__base_8h.html" title="Заголовочный файл с базовым функционалом алгоритмов" alt="" coords="371,93,463,119"/>
+<area shape="poly" title=" " alt="" coords="419,46,419,79,414,79,414,46"/>
+<area shape="rect" title=" " alt="" coords="5,167,73,192"/>
+<area shape="poly" title=" " alt="" coords="371,117,246,138,87,169,86,164,246,133,370,112"/>
+<area shape="rect" title=" " alt="" coords="97,167,176,192"/>
+<area shape="poly" title=" " alt="" coords="372,121,190,167,189,162,371,116"/>
+<area shape="rect" title=" " alt="" coords="201,167,267,192"/>
+<area shape="poly" title=" " alt="" coords="388,121,278,164,276,159,386,116"/>
+<area shape="rect" title=" " alt="" coords="292,167,363,192"/>
+<area shape="poly" title=" " alt="" coords="404,121,354,160,351,156,401,117"/>
+<area shape="rect" title=" " alt="" coords="387,167,446,192"/>
+<area shape="poly" title=" " alt="" coords="419,119,419,153,414,153,414,119"/>
+<area shape="rect" title=" " alt="" coords="471,167,544,192"/>
+<area shape="poly" title=" " alt="" coords="433,117,483,156,480,160,430,121"/>
+<area shape="rect" title=" " alt="" coords="569,167,643,192"/>
+<area shape="poly" title=" " alt="" coords="448,116,563,159,561,164,446,121"/>
+<area shape="rect" title=" " alt="" coords="667,167,758,192"/>
+<area shape="poly" title=" " alt="" coords="464,116,655,161,653,167,462,121"/>
+<area shape="rect" title=" " alt="" coords="783,167,845,192"/>
+<area shape="poly" title=" " alt="" coords="464,111,597,132,770,164,769,169,596,137,463,116"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Классы</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_r__auto__ctl.html">SR_auto_ctl</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Функции</h2></td></tr>
+<tr class="memitem:ad00a3a5504eba5744e31b67dde4486ce" id="r_ad00a3a5504eba5744e31b67dde4486ce"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad00a3a5504eba5744e31b67dde4486ce">hoertzel</a> (double *X, double <a class="el" href="#af10d9ea79f6f967112343a6932b8ac6d">sin_w</a>, double <a class="el" href="#a5363d1fa4b86cf1ae967e9514a4df73d">cos_w</a>, uint8_t step, uint8_t num_cycle, uint8_t <a class="el" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a>, uint8_t <a class="el" href="#adef6b5a0f85a1271571d982cd065d94f">k</a>=1u)</td></tr>
+<tr class="memdesc:ad00a3a5504eba5744e31b67dde4486ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Алгоритм Гёртцеля с коррекцией фазы на шаге  <br /></td></tr>
+<tr class="separator:ad00a3a5504eba5744e31b67dde4486ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3eb627be49629aeffaffee7185df8d67" id="r_a3eb627be49629aeffaffee7185df8d67"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3eb627be49629aeffaffee7185df8d67">power</a> (complex&lt; double &gt; I1ph0, complex&lt; double &gt; U1ph1, complex&lt; double &gt; U1ph2)</td></tr>
+<tr class="memdesc:a3eb627be49629aeffaffee7185df8d67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция расчёта мощности прямой последовательности  <br /></td></tr>
+<tr class="separator:a3eb627be49629aeffaffee7185df8d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3fcf46ff340d6b600565b8fac6ccba62" id="r_a3fcf46ff340d6b600565b8fac6ccba62"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3fcf46ff340d6b600565b8fac6ccba62">power</a> (complex&lt; double &gt; I0, complex&lt; double &gt; U0)</td></tr>
+<tr class="memdesc:a3fcf46ff340d6b600565b8fac6ccba62"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция расчёта мощности нулевой последовательности  <br /></td></tr>
+<tr class="separator:a3fcf46ff340d6b600565b8fac6ccba62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa79b465c8086e5664779931a248e8ab4" id="r_aa79b465c8086e5664779931a248e8ab4"><td class="memItemLeft" align="right" valign="top">complex&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa79b465c8086e5664779931a248e8ab4">distance</a> (complex&lt; double &gt; U1ph0, complex&lt; double &gt; U1ph1, complex&lt; double &gt; I1ph0, complex&lt; double &gt; I1ph1)</td></tr>
+<tr class="memdesc:aa79b465c8086e5664779931a248e8ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция расчёта междуфазного сопротивления  <br /></td></tr>
+<tr class="separator:aa79b465c8086e5664779931a248e8ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9a63d0d9515884c8341a5789c9b9238" id="r_ab9a63d0d9515884c8341a5789c9b9238"><td class="memItemLeft" align="right" valign="top"><a class="el" href="alg__base_8h.html#ab628e42bb29ed7b1ca25e8c54aeb77d3">LIB_EXPORT</a> <a class="el" href="class_s_r__calc__proc.html">SR_calc_proc</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab9a63d0d9515884c8341a5789c9b9238">GetCalcClass</a> (const char *block_name, char *file_name)</td></tr>
+<tr class="separator:ab9a63d0d9515884c8341a5789c9b9238"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Переменные</h2></td></tr>
+<tr class="memitem:adef6b5a0f85a1271571d982cd065d94f" id="r_adef6b5a0f85a1271571d982cd065d94f"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adef6b5a0f85a1271571d982cd065d94f">k</a> = 1</td></tr>
+<tr class="separator:adef6b5a0f85a1271571d982cd065d94f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af10d9ea79f6f967112343a6932b8ac6d" id="r_af10d9ea79f6f967112343a6932b8ac6d"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af10d9ea79f6f967112343a6932b8ac6d">sin_w</a> = sin(2.0 * M_PI * <a class="el" href="#adef6b5a0f85a1271571d982cd065d94f">k</a> / static_cast&lt;double&gt;(<a class="el" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a>))</td></tr>
+<tr class="separator:af10d9ea79f6f967112343a6932b8ac6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5363d1fa4b86cf1ae967e9514a4df73d" id="r_a5363d1fa4b86cf1ae967e9514a4df73d"><td class="memItemLeft" align="right" valign="top">const double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5363d1fa4b86cf1ae967e9514a4df73d">cos_w</a> = cos(2.0 * M_PI * <a class="el" href="#adef6b5a0f85a1271571d982cd065d94f">k</a> / static_cast&lt;double&gt;(<a class="el" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a>))</td></tr>
+<tr class="separator:a5363d1fa4b86cf1ae967e9514a4df73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Функции</h2>
+<a id="aa79b465c8086e5664779931a248e8ab4" name="aa79b465c8086e5664779931a248e8ab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa79b465c8086e5664779931a248e8ab4">&#9670;&#160;</a></span>distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">complex&lt; double &gt; distance </td>
+          <td>(</td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>U1ph0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>U1ph1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>I1ph0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>I1ph1</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция расчёта междуфазного сопротивления </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">U1ph0</td><td>Напряжение фазы #1 </td></tr>
+    <tr><td class="paramname">U1ph1</td><td>Напряжение фазы #2 </td></tr>
+    <tr><td class="paramname">I1ph0</td><td>Ток фазы #1 </td></tr>
+    <tr><td class="paramname">I1ph1</td><td>Ток фазы #2 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>complex&lt;double&gt; Междуфазное сопротивление </dd></dl>
+
+</div>
+</div>
+<a id="ab9a63d0d9515884c8341a5789c9b9238" name="ab9a63d0d9515884c8341a5789c9b9238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9a63d0d9515884c8341a5789c9b9238">&#9670;&#160;</a></span>GetCalcClass()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="alg__base_8h.html#ab628e42bb29ed7b1ca25e8c54aeb77d3">LIB_EXPORT</a> <a class="el" href="class_s_r__calc__proc.html">SR_calc_proc</a> * GetCalcClass </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>block_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>file_name</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad00a3a5504eba5744e31b67dde4486ce" name="ad00a3a5504eba5744e31b67dde4486ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad00a3a5504eba5744e31b67dde4486ce">&#9670;&#160;</a></span>hoertzel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">complex&lt; double &gt; hoertzel </td>
+          <td>(</td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>X</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>sin_w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>cos_w</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>step</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>num_cycle</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>N</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>k</em><span class="paramdefsep"> = </span><span class="paramdefval">1u</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Алгоритм Гёртцеля с коррекцией фазы на шаге </p>
+<p>Если величина шага кратна периоду, коррекция фазы не осуществляется.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td>Указатель на выборку (массив) дискретных значений </td></tr>
+    <tr><td class="paramname">sin_w</td><td>Коэффициент Im(W) </td></tr>
+    <tr><td class="paramname">cos_w</td><td>Коэффициент Re(W) </td></tr>
+    <tr><td class="paramname">step</td><td>Номер шага </td></tr>
+    <tr><td class="paramname">num_cycle</td><td>Кратность шага </td></tr>
+    <tr><td class="paramname">N</td><td>Размер выборки </td></tr>
+    <tr><td class="paramname">k</td><td>Спектральный отсчёт (искомая гармоническая составляющая сигнала) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>complex&lt;double&gt; Число в комплексной ортогональной форме </dd></dl>
+
+</div>
+</div>
+<a id="a3fcf46ff340d6b600565b8fac6ccba62" name="a3fcf46ff340d6b600565b8fac6ccba62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3fcf46ff340d6b600565b8fac6ccba62">&#9670;&#160;</a></span>power() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">complex&lt; double &gt; power </td>
+          <td>(</td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>I0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>U0</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция расчёта мощности нулевой последовательности </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I0</td><td>Ток нулевой последовательности </td></tr>
+    <tr><td class="paramname">U0</td><td>Напряжение нулевой последовательности </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>complex&lt;double&gt; Мощность нулевой последовательности </dd></dl>
+
+</div>
+</div>
+<a id="a3eb627be49629aeffaffee7185df8d67" name="a3eb627be49629aeffaffee7185df8d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3eb627be49629aeffaffee7185df8d67">&#9670;&#160;</a></span>power() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">complex&lt; double &gt; power </td>
+          <td>(</td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>I1ph0</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>U1ph1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">complex&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>U1ph2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция расчёта мощности прямой последовательности </p>
+<p>Чередование фаз принимается следующим: А - В - С. Фаза мощности соответсвует фазе тока.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">I1ph0</td><td>Ток фазы А (В, С) </td></tr>
+    <tr><td class="paramname">U1ph1</td><td>Напряжение фазы В (С, А) </td></tr>
+    <tr><td class="paramname">U1ph2</td><td>Напряжение фазы С (А, В) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>complex&lt;double&gt; Мощность фазы А (В, С) </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Переменные</h2>
+<a id="a5363d1fa4b86cf1ae967e9514a4df73d" name="a5363d1fa4b86cf1ae967e9514a4df73d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5363d1fa4b86cf1ae967e9514a4df73d">&#9670;&#160;</a></span>cos_w</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double cos_w = cos(2.0 * M_PI * <a class="el" href="#adef6b5a0f85a1271571d982cd065d94f">k</a> / static_cast&lt;double&gt;(<a class="el" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="adef6b5a0f85a1271571d982cd065d94f" name="adef6b5a0f85a1271571d982cd065d94f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adef6b5a0f85a1271571d982cd065d94f">&#9670;&#160;</a></span>k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint8_t k = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af10d9ea79f6f967112343a6932b8ac6d" name="af10d9ea79f6f967112343a6932b8ac6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af10d9ea79f6f967112343a6932b8ac6d">&#9670;&#160;</a></span>sin_w</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double sin_w = sin(2.0 * M_PI * <a class="el" href="#adef6b5a0f85a1271571d982cd065d94f">k</a> / static_cast&lt;double&gt;(<a class="el" href="alg__base_8h.html#a3a6afdc6c2effffb266aa6f4494122a9">N</a>))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

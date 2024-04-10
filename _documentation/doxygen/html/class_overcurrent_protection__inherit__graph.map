@@ -1,0 +1,5 @@
+<map id="OvercurrentProtection" name="OvercurrentProtection">
+<area shape="rect" id="Node000001" title="Пусковой орган МТЗ" alt="" coords="5,739,199,944"/>
+<area shape="rect" id="Node000002" href="$class_starting_elements.html" title="Пусковые органы" alt="" coords="21,5,183,691"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="105,704,105,739,99,739,99,704"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="StartingElements" name="StartingElements">
+<area shape="rect" id="Node000001" title="Пусковые органы" alt="" coords="127,5,288,691"/>
+<area shape="rect" id="Node000002" href="$class_overcurrent_protection.html" title="Пусковой орган МТЗ" alt="" coords="5,739,199,944"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,705,126,739,121,738,129,703"/>
+<area shape="rect" id="Node000003" href="$class_z_s_current_protection.html" title="Пусковой орган ТЗНП" alt="" coords="223,749,405,934"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="287,704,297,748,291,749,282,705"/>
+</map>

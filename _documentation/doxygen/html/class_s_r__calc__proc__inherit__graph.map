@@ -1,0 +1,8 @@
+<map id="SR_calc_proc" name="SR_calc_proc">
+<area shape="rect" id="Node000001" title="Класс&#45;продукт" alt="" coords="13,5,155,571"/>
+<area shape="rect" id="Node000002" href="$class_s_r__auto__ctl.html" title=" " alt="" coords="5,619,163,1304"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="60,584,60,619,54,618,55,584"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="78,584,78,619,72,618,72,584"/>
+<area shape="poly" id="edge3_Node000001_Node000002" title=" " alt="" coords="96,584,96,618,90,619,90,584"/>
+<area shape="poly" id="edge4_Node000001_Node000002" title=" " alt="" coords="113,584,114,618,108,619,108,584"/>
+</map>

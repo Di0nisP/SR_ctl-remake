@@ -1,0 +1,7 @@
+<map id="OvercurrentProtection" name="OvercurrentProtection">
+<area shape="rect" id="Node000001" title="Пусковой орган МТЗ" alt="" coords="67,753,260,939"/>
+<area shape="rect" id="Node000002" href="$class_starting_elements.html" title="Пусковые органы" alt="" coords="5,5,167,691"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="144,704,152,753,146,754,139,705"/>
+<area shape="rect" id="Node000003" href="$class_timers.html" title="Функционал таймеров" alt="" coords="191,235,293,461"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,462,183,738,178,737,222,461"/>
+</map>

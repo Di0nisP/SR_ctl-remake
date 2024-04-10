@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Структура _analogChannelsInfo</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="struct__analog_channels_info-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Структура _analogChannelsInfo</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Информация об аналоговом канале  
+ <a href="#details">Подробнее...</a></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф связей класса _analogChannelsInfo:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="struct__analog_channels_info__coll__graph.png" border="0" usemap="#a__analog_channels_info_coll__map" alt="Collaboration graph"/></div>
+<map name="a__analog_channels_info_coll__map" id="a__analog_channels_info_coll__map">
+<area shape="rect" title="Информация об аналоговом канале" alt="" coords="5,5,156,311"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:adc75e01b6f821059baf643885fb7ecfd" id="r_adc75e01b6f821059baf643885fb7ecfd"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc75e01b6f821059baf643885fb7ecfd">n</a></td></tr>
+<tr class="memdesc:adc75e01b6f821059baf643885fb7ecfd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Номер канала. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:adc75e01b6f821059baf643885fb7ecfd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a778b99e01e040250abd2a3072c7fffe6" id="r_a778b99e01e040250abd2a3072c7fffe6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a778b99e01e040250abd2a3072c7fffe6">ch</a></td></tr>
+<tr class="memdesc:a778b99e01e040250abd2a3072c7fffe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Идентификатор (наименование) канала. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a778b99e01e040250abd2a3072c7fffe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9bd456427fa6d1faecfbe45cb41d610" id="r_aa9bd456427fa6d1faecfbe45cb41d610"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa9bd456427fa6d1faecfbe45cb41d610">ph</a></td></tr>
+<tr class="memdesc:aa9bd456427fa6d1faecfbe45cb41d610"><td class="mdescLeft">&#160;</td><td class="mdescRight">Идентификатор (наименование) фазы. Необязательный параметр.  <br /></td></tr>
+<tr class="separator:aa9bd456427fa6d1faecfbe45cb41d610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a212e99ddd29907c838319b9811ec7994" id="r_a212e99ddd29907c838319b9811ec7994"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a212e99ddd29907c838319b9811ec7994">ccbm</a></td></tr>
+<tr class="memdesc:a212e99ddd29907c838319b9811ec7994"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контролируемый компонент схемы. Необязательный параметр.  <br /></td></tr>
+<tr class="separator:a212e99ddd29907c838319b9811ec7994"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5352385bed3d1bc5352d090d030a6105" id="r_a5352385bed3d1bc5352d090d030a6105"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5352385bed3d1bc5352d090d030a6105">uu</a></td></tr>
+<tr class="memdesc:a5352385bed3d1bc5352d090d030a6105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Единицы измерения канала. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a5352385bed3d1bc5352d090d030a6105"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4645a24536b5259e1fbab973ea957c7e" id="r_a4645a24536b5259e1fbab973ea957c7e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4645a24536b5259e1fbab973ea957c7e">a</a></td></tr>
+<tr class="memdesc:a4645a24536b5259e1fbab973ea957c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Множитель канала. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a4645a24536b5259e1fbab973ea957c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a022035cd2c8030101d134a3688554a91" id="r_a022035cd2c8030101d134a3688554a91"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a022035cd2c8030101d134a3688554a91">b</a></td></tr>
+<tr class="memdesc:a022035cd2c8030101d134a3688554a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Смещение канала. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a022035cd2c8030101d134a3688554a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a286c53e736c302f4b9c455d639e77ff0" id="r_a286c53e736c302f4b9c455d639e77ff0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a286c53e736c302f4b9c455d639e77ff0">skew</a></td></tr>
+<tr class="memdesc:a286c53e736c302f4b9c455d639e77ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Временное отклонение канала от начала периода выборки, мкс. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a286c53e736c302f4b9c455d639e77ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7d1cf72f939e913e1755f52cbc02f0a" id="r_ac7d1cf72f939e913e1755f52cbc02f0a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7d1cf72f939e913e1755f52cbc02f0a">min</a></td></tr>
+<tr class="memdesc:ac7d1cf72f939e913e1755f52cbc02f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Минимум диапазона данных. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:ac7d1cf72f939e913e1755f52cbc02f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a871d00d59236c3495335244a7eb3c197" id="r_a871d00d59236c3495335244a7eb3c197"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a871d00d59236c3495335244a7eb3c197">max</a></td></tr>
+<tr class="memdesc:a871d00d59236c3495335244a7eb3c197"><td class="mdescLeft">&#160;</td><td class="mdescRight">Максимум диапазона данных. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a871d00d59236c3495335244a7eb3c197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4682ff9842986aa85db07c0417438e" id="r_a2a4682ff9842986aa85db07c0417438e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2a4682ff9842986aa85db07c0417438e">primary</a></td></tr>
+<tr class="memdesc:a2a4682ff9842986aa85db07c0417438e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Первичный фактор коэффициента трансформации. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a2a4682ff9842986aa85db07c0417438e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3882f91037ff715618619afc6fd95ca" id="r_ab3882f91037ff715618619afc6fd95ca"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3882f91037ff715618619afc6fd95ca">secondary</a></td></tr>
+<tr class="memdesc:ab3882f91037ff715618619afc6fd95ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Вторичный фактор коэффициента трансформации. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:ab3882f91037ff715618619afc6fd95ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad745ed50c0b4a5129721214ab80d50ca" id="r_ad745ed50c0b4a5129721214ab80d50ca"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad745ed50c0b4a5129721214ab80d50ca">ps</a></td></tr>
+<tr class="memdesc:ad745ed50c0b4a5129721214ab80d50ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Идентификатор масштабирования данных: p (или P) - primary; s (или S) - secondary. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:ad745ed50c0b4a5129721214ab80d50ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Информация об аналоговом канале </p>
+</div><h2 class="groupheader">Данные класса</h2>
+<a id="a4645a24536b5259e1fbab973ea957c7e" name="a4645a24536b5259e1fbab973ea957c7e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4645a24536b5259e1fbab973ea957c7e">&#9670;&#160;</a></span>a</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _analogChannelsInfo::a</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Множитель канала. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a022035cd2c8030101d134a3688554a91" name="a022035cd2c8030101d134a3688554a91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a022035cd2c8030101d134a3688554a91">&#9670;&#160;</a></span>b</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _analogChannelsInfo::b</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Смещение канала. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a212e99ddd29907c838319b9811ec7994" name="a212e99ddd29907c838319b9811ec7994"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a212e99ddd29907c838319b9811ec7994">&#9670;&#160;</a></span>ccbm</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string _analogChannelsInfo::ccbm</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Контролируемый компонент схемы. Необязательный параметр. </p>
+
+</div>
+</div>
+<a id="a778b99e01e040250abd2a3072c7fffe6" name="a778b99e01e040250abd2a3072c7fffe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a778b99e01e040250abd2a3072c7fffe6">&#9670;&#160;</a></span>ch</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string _analogChannelsInfo::ch</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Идентификатор (наименование) канала. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a871d00d59236c3495335244a7eb3c197" name="a871d00d59236c3495335244a7eb3c197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a871d00d59236c3495335244a7eb3c197">&#9670;&#160;</a></span>max</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _analogChannelsInfo::max</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Максимум диапазона данных. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="ac7d1cf72f939e913e1755f52cbc02f0a" name="ac7d1cf72f939e913e1755f52cbc02f0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7d1cf72f939e913e1755f52cbc02f0a">&#9670;&#160;</a></span>min</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _analogChannelsInfo::min</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Минимум диапазона данных. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="adc75e01b6f821059baf643885fb7ecfd" name="adc75e01b6f821059baf643885fb7ecfd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc75e01b6f821059baf643885fb7ecfd">&#9670;&#160;</a></span>n</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t _analogChannelsInfo::n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Номер канала. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="aa9bd456427fa6d1faecfbe45cb41d610" name="aa9bd456427fa6d1faecfbe45cb41d610"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9bd456427fa6d1faecfbe45cb41d610">&#9670;&#160;</a></span>ph</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string _analogChannelsInfo::ph</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Идентификатор (наименование) фазы. Необязательный параметр. </p>
+
+</div>
+</div>
+<a id="a2a4682ff9842986aa85db07c0417438e" name="a2a4682ff9842986aa85db07c0417438e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4682ff9842986aa85db07c0417438e">&#9670;&#160;</a></span>primary</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _analogChannelsInfo::primary</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Первичный фактор коэффициента трансформации. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="ad745ed50c0b4a5129721214ab80d50ca" name="ad745ed50c0b4a5129721214ab80d50ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad745ed50c0b4a5129721214ab80d50ca">&#9670;&#160;</a></span>ps</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char _analogChannelsInfo::ps</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Идентификатор масштабирования данных: p (или P) - primary; s (или S) - secondary. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="ab3882f91037ff715618619afc6fd95ca" name="ab3882f91037ff715618619afc6fd95ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3882f91037ff715618619afc6fd95ca">&#9670;&#160;</a></span>secondary</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _analogChannelsInfo::secondary</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Вторичный фактор коэффициента трансформации. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a286c53e736c302f4b9c455d639e77ff0" name="a286c53e736c302f4b9c455d639e77ff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a286c53e736c302f4b9c455d639e77ff0">&#9670;&#160;</a></span>skew</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double _analogChannelsInfo::skew</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Временное отклонение канала от начала периода выборки, мкс. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a5352385bed3d1bc5352d090d030a6105" name="a5352385bed3d1bc5352d090d030a6105"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5352385bed3d1bc5352d090d030a6105">&#9670;&#160;</a></span>uu</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string _analogChannelsInfo::uu</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Единицы измерения канала. Обязательный параметр. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов структуры находятся в файле:<ul>
+<li>/home/changeme/Документы/SR_ctl-remake/<a class="el" href="alg__0___a_d_c_8cpp.html">alg_0_ADC.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

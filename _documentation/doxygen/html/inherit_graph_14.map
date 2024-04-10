@@ -1,0 +1,7 @@
+<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
+<area shape="rect" id="Node000000" href="$class_starting_elements.html" title="Пусковые органы" alt="" coords="5,31,140,56"/>
+<area shape="rect" id="Node000001" href="$class_overcurrent_protection.html" title="Пусковой орган МТЗ" alt="" coords="188,5,353,31"/>
+<area shape="poly" id="edge2_Node000000_Node000001" title=" " alt="" coords="153,30,187,26,188,31,154,36"/>
+<area shape="rect" id="Node000002" href="$class_z_s_current_protection.html" title="Пусковой орган ТЗНП" alt="" coords="194,55,347,80"/>
+<area shape="poly" id="edge3_Node000000_Node000002" title=" " alt="" coords="154,50,194,55,194,61,153,56"/>
+</map>

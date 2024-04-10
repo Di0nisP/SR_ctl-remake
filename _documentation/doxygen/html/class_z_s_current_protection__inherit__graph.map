@@ -1,0 +1,5 @@
+<map id="ZSCurrentProtection" name="ZSCurrentProtection">
+<area shape="rect" id="Node000001" title="Пусковой орган ТЗНП" alt="" coords="5,739,187,924"/>
+<area shape="rect" id="Node000002" href="$class_starting_elements.html" title="Пусковые органы" alt="" coords="15,5,177,691"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,705,99,739,93,739,93,705"/>
+</map>

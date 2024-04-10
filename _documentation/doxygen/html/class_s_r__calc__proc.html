@@ -1,0 +1,999 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Класс SR_calc_proc</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="class_s_r__calc__proc-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс SR_calc_proc<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс-продукт  
+ <a href="#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="alg__base_8h_source.html">alg_base.h</a>&gt;</code></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф наследования:SR_calc_proc:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__calc__proc__inherit__graph.png" border="0" usemap="#a_s_r__calc__proc_inherit__map" alt="Inheritance graph"/></div>
+<map name="a_s_r__calc__proc_inherit__map" id="a_s_r__calc__proc_inherit__map">
+<area shape="rect" title="Класс&#45;продукт" alt="" coords="13,5,155,571"/>
+<area shape="rect" href="class_s_r__auto__ctl.html" title=" " alt="" coords="5,619,163,1304"/>
+<area shape="poly" title=" " alt="" coords="60,584,60,619,54,618,55,584"/>
+<area shape="poly" title=" " alt="" coords="78,584,78,619,72,618,72,584"/>
+<area shape="poly" title=" " alt="" coords="96,584,96,618,90,619,90,584"/>
+<area shape="poly" title=" " alt="" coords="113,584,114,618,108,619,108,584"/>
+</map>
+</div>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф связей класса SR_calc_proc:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__calc__proc__coll__graph.png" border="0" usemap="#a_s_r__calc__proc_coll__map" alt="Collaboration graph"/></div>
+<map name="a_s_r__calc__proc_coll__map" id="a_s_r__calc__proc_coll__map">
+<area shape="rect" title="Класс&#45;продукт" alt="" coords="5,5,148,571"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:af8785ac6dc070a50e2febe101eaccc9e" id="r_af8785ac6dc070a50e2febe101eaccc9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8785ac6dc070a50e2febe101eaccc9e">SR_calc_proc</a> ()</td></tr>
+<tr class="separator:af8785ac6dc070a50e2febe101eaccc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a208fda0e4af9943e813bd3ca93916373" id="r_a208fda0e4af9943e813bd3ca93916373"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a208fda0e4af9943e813bd3ca93916373">~SR_calc_proc</a> ()</td></tr>
+<tr class="separator:a208fda0e4af9943e813bd3ca93916373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a934ae8c2b30447cb94bcfa24b5602e53" id="r_a934ae8c2b30447cb94bcfa24b5602e53"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a934ae8c2b30447cb94bcfa24b5602e53">get_ready</a> ()</td></tr>
+<tr class="memdesc:a934ae8c2b30447cb94bcfa24b5602e53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для проверки готовности алгоритма  <br /></td></tr>
+<tr class="separator:a934ae8c2b30447cb94bcfa24b5602e53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ff04b0308134ee3896d701e66ee2690" id="r_a4ff04b0308134ee3896d701e66ee2690"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ff04b0308134ee3896d701e66ee2690">reg_vars</a> (void *vars_of_block)</td></tr>
+<tr class="memdesc:a4ff04b0308134ee3896d701e66ee2690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод регистрации переменных алгоритма  <br /></td></tr>
+<tr class="separator:a4ff04b0308134ee3896d701e66ee2690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acccdf7fd2574bf5f3a46b107dedc945f" id="r_acccdf7fd2574bf5f3a46b107dedc945f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acccdf7fd2574bf5f3a46b107dedc945f">get_num_out</a> ()</td></tr>
+<tr class="memdesc:acccdf7fd2574bf5f3a46b107dedc945f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод получения числа выходов алгоритма  <br /></td></tr>
+<tr class="separator:acccdf7fd2574bf5f3a46b107dedc945f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68048302de021f1cb1ce35ec0ac538f6" id="r_a68048302de021f1cb1ce35ec0ac538f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68048302de021f1cb1ce35ec0ac538f6">get_num_in</a> ()</td></tr>
+<tr class="memdesc:a68048302de021f1cb1ce35ec0ac538f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод получения числа входов алгоритма  <br /></td></tr>
+<tr class="separator:a68048302de021f1cb1ce35ec0ac538f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ec76156b9b3d76ad40d0f1a00027940" id="r_a4ec76156b9b3d76ad40d0f1a00027940"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ec76156b9b3d76ad40d0f1a00027940">get_out_val</a> (<a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> idx)</td></tr>
+<tr class="memdesc:a4ec76156b9b3d76ad40d0f1a00027940"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для получения значения выходной переменной  <br /></td></tr>
+<tr class="separator:a4ec76156b9b3d76ad40d0f1a00027940"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0f4ee95c7d59084a02865a2aa047104" id="r_ae0f4ee95c7d59084a02865a2aa047104"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae0f4ee95c7d59084a02865a2aa047104">get_in_val</a> (<a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> idx)</td></tr>
+<tr class="memdesc:ae0f4ee95c7d59084a02865a2aa047104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для получения значения входной переменной  <br /></td></tr>
+<tr class="separator:ae0f4ee95c7d59084a02865a2aa047104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac52b68fbdb581f01a644458343c80f09" id="r_ac52b68fbdb581f01a644458343c80f09"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac52b68fbdb581f01a644458343c80f09">get_out_name</a> (<a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> idx)</td></tr>
+<tr class="memdesc:ac52b68fbdb581f01a644458343c80f09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для получения имени выходной переменной  <br /></td></tr>
+<tr class="separator:ac52b68fbdb581f01a644458343c80f09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab97abab7ba92b56476813499a711bd49" id="r_ab97abab7ba92b56476813499a711bd49"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab97abab7ba92b56476813499a711bd49">get_in_name</a> (<a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> idx)</td></tr>
+<tr class="memdesc:ab97abab7ba92b56476813499a711bd49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод для получения имени входной переменной  <br /></td></tr>
+<tr class="separator:ab97abab7ba92b56476813499a711bd49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af547eee10a8d43b4b08cc859427189f5" id="r_af547eee10a8d43b4b08cc859427189f5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af547eee10a8d43b4b08cc859427189f5">calc</a> ()=0</td></tr>
+<tr class="memdesc:af547eee10a8d43b4b08cc859427189f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод запуска вычислительной процедуры (алгоритма)  <br /></td></tr>
+<tr class="separator:af547eee10a8d43b4b08cc859427189f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a9f53f544c46f15c1e75ff404a47358c1" id="r_a9f53f544c46f15c1e75ff404a47358c1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f53f544c46f15c1e75ff404a47358c1">calc_period</a></td></tr>
+<tr class="memdesc:a9f53f544c46f15c1e75ff404a47358c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Период обсчета функции в мс  <br /></td></tr>
+<tr class="separator:a9f53f544c46f15c1e75ff404a47358c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2706cd8b80daffd02590edfab80ca9e5" id="r_a2706cd8b80daffd02590edfab80ca9e5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2706cd8b80daffd02590edfab80ca9e5">ready_proc</a></td></tr>
+<tr class="memdesc:a2706cd8b80daffd02590edfab80ca9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Переменная готовности алгоритма  <br /></td></tr>
+<tr class="separator:a2706cd8b80daffd02590edfab80ca9e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61712f803ea2d9fc22ed5a8f6f6adee" id="r_ab61712f803ea2d9fc22ed5a8f6f6adee"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab61712f803ea2d9fc22ed5a8f6f6adee">proc_name</a></td></tr>
+<tr class="memdesc:ab61712f803ea2d9fc22ed5a8f6f6adee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на имя функции  <br /></td></tr>
+<tr class="separator:ab61712f803ea2d9fc22ed5a8f6f6adee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05947716775717bf41ae128e3a1cf716" id="r_a05947716775717bf41ae128e3a1cf716"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05947716775717bf41ae128e3a1cf716">file_name</a> [256]</td></tr>
+<tr class="memdesc:a05947716775717bf41ae128e3a1cf716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Имя файла  <br /></td></tr>
+<tr class="separator:a05947716775717bf41ae128e3a1cf716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:a657f77ad93b7a41645eeda3fb79ab078" id="r_a657f77ad93b7a41645eeda3fb79ab078"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a657f77ad93b7a41645eeda3fb79ab078">make_const</a> (float **pp_val, const char *var_name, float init_val)</td></tr>
+<tr class="memdesc:a657f77ad93b7a41645eeda3fb79ab078"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод добавления информации о константах (или настройках) алгоритма  <br /></td></tr>
+<tr class="separator:a657f77ad93b7a41645eeda3fb79ab078"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f9429177612fc0e27af92f817d32367" id="r_a7f9429177612fc0e27af92f817d32367"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7f9429177612fc0e27af92f817d32367">make_in</a> (float **pp_val, const char *var_name)</td></tr>
+<tr class="memdesc:a7f9429177612fc0e27af92f817d32367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод добавления информации о входах алгоритма  <br /></td></tr>
+<tr class="separator:a7f9429177612fc0e27af92f817d32367"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61c12d41972bdd7069c44714e41dc541" id="r_a61c12d41972bdd7069c44714e41dc541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61c12d41972bdd7069c44714e41dc541">make_out</a> (float **pp_val, const char *var_name)</td></tr>
+<tr class="memdesc:a61c12d41972bdd7069c44714e41dc541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Метод добавления информации о выходах алгоритма  <br /></td></tr>
+<tr class="separator:a61c12d41972bdd7069c44714e41dc541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d4387fee5f17357c21dc2db27ab9246" id="r_a4d4387fee5f17357c21dc2db27ab9246"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4d4387fee5f17357c21dc2db27ab9246">make_in</a> (float **pp_val, const char *var_name_part1, const char *var_name_part2, const char *var_name_part3)</td></tr>
+<tr class="separator:a4d4387fee5f17357c21dc2db27ab9246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98d2e2ead4212eec0dfb913da8de3373" id="r_a98d2e2ead4212eec0dfb913da8de3373"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98d2e2ead4212eec0dfb913da8de3373">make_out</a> (float **pp_val, const char *var_name_part1, const char *var_name_part2, const char *var_name_part3)</td></tr>
+<tr class="separator:a98d2e2ead4212eec0dfb913da8de3373"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b71a01e684d0dd02b79d0a77a6cd47e" id="r_a1b71a01e684d0dd02b79d0a77a6cd47e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1b71a01e684d0dd02b79d0a77a6cd47e">make_out</a> (float **pp_val, const char *var_name_part1, const char *var_name_part2, const char *var_name_part3, const char *var_name_part4)</td></tr>
+<tr class="separator:a1b71a01e684d0dd02b79d0a77a6cd47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a7596532f56ec0683990c18f7c292e667" id="r_a7596532f56ec0683990c18f7c292e667"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7596532f56ec0683990c18f7c292e667">const_name_list</a></td></tr>
+<tr class="memdesc:a7596532f56ec0683990c18f7c292e667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на область памяти, связанной с хранимыми именами констант алгоритма  <br /></td></tr>
+<tr class="separator:a7596532f56ec0683990c18f7c292e667"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac44ce44e6a8f674d912ef09c6c38f55a" id="r_ac44ce44e6a8f674d912ef09c6c38f55a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac44ce44e6a8f674d912ef09c6c38f55a">const_val_ptr_list</a></td></tr>
+<tr class="memdesc:ac44ce44e6a8f674d912ef09c6c38f55a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на область памяти, связанной с хранимыми значениями констант алгоритма  <br /></td></tr>
+<tr class="separator:ac44ce44e6a8f674d912ef09c6c38f55a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a019fc41f1b3c2a6b3159519e7e0cacb9" id="r_a019fc41f1b3c2a6b3159519e7e0cacb9"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a019fc41f1b3c2a6b3159519e7e0cacb9">out_name_list</a></td></tr>
+<tr class="memdesc:a019fc41f1b3c2a6b3159519e7e0cacb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на область памяти, связанной с хранимыми именами выходов алгоритма  <br /></td></tr>
+<tr class="separator:a019fc41f1b3c2a6b3159519e7e0cacb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06900025fb6f283409076781577eade6" id="r_a06900025fb6f283409076781577eade6"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06900025fb6f283409076781577eade6">out_val_pp_list</a></td></tr>
+<tr class="memdesc:a06900025fb6f283409076781577eade6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма  <br /></td></tr>
+<tr class="separator:a06900025fb6f283409076781577eade6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2af3d02d4fe8cd575801f802edd13af" id="r_ad2af3d02d4fe8cd575801f802edd13af"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad2af3d02d4fe8cd575801f802edd13af">in_name_list</a></td></tr>
+<tr class="memdesc:ad2af3d02d4fe8cd575801f802edd13af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на область памяти, связанной с хранимыми именами входов алгоритма  <br /></td></tr>
+<tr class="separator:ad2af3d02d4fe8cd575801f802edd13af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaaeb15aafbcbe3f391a790a4345f722" id="r_aeaaeb15aafbcbe3f391a790a4345f722"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeaaeb15aafbcbe3f391a790a4345f722">in_val_pp_list</a></td></tr>
+<tr class="memdesc:aeaaeb15aafbcbe3f391a790a4345f722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма  <br /></td></tr>
+<tr class="separator:aeaaeb15aafbcbe3f391a790a4345f722"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс-продукт </p>
+<p>Определяет общий функционал объектов, которые может произвести создатель и его подклассы. </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="af8785ac6dc070a50e2febe101eaccc9e" name="af8785ac6dc070a50e2febe101eaccc9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8785ac6dc070a50e2febe101eaccc9e">&#9670;&#160;</a></span>SR_calc_proc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SR_calc_proc::SR_calc_proc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a208fda0e4af9943e813bd3ca93916373" name="a208fda0e4af9943e813bd3ca93916373"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a208fda0e4af9943e813bd3ca93916373">&#9670;&#160;</a></span>~SR_calc_proc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SR_calc_proc::~SR_calc_proc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="af547eee10a8d43b4b08cc859427189f5" name="af547eee10a8d43b4b08cc859427189f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af547eee10a8d43b4b08cc859427189f5">&#9670;&#160;</a></span>calc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void SR_calc_proc::calc </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод запуска вычислительной процедуры (алгоритма) </p>
+
+<p>Замещается в <a class="el" href="class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd">SR_auto_ctl</a>, <a class="el" href="class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd">SR_auto_ctl</a>, <a class="el" href="class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd">SR_auto_ctl</a> и <a class="el" href="class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd">SR_auto_ctl</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5_icgraph.png" border="0" usemap="#aclass_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5_icgraph" alt=""/></div>
+<map name="aclass_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5_icgraph" id="aclass_s_r__calc__proc_af547eee10a8d43b4b08cc859427189f5_icgraph">
+<area shape="rect" title="Метод запуска вычислительной процедуры (алгоритма)" alt="" coords="295,5,436,31"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a0d7e12a52d5d1849923941c6ae71727e" title="Главный метод запуска в работу" alt="" coords="108,5,247,31"/>
+<area shape="poly" title=" " alt="" coords="281,21,247,21,247,15,281,15"/>
+<area shape="rect" href="_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="94,21,60,21,60,15,94,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ab97abab7ba92b56476813499a711bd49" name="ab97abab7ba92b56476813499a711bd49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab97abab7ba92b56476813499a711bd49">&#9670;&#160;</a></span>get_in_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * SR_calc_proc::get_in_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a></td>          <td class="paramname"><span class="paramname"><em>idx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для получения имени входной переменной </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idx</td><td>Индекс переменной в списке входных переменных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>const char* Указатель на массив символов имени входной переменной </dd></dl>
+
+</div>
+</div>
+<a id="ae0f4ee95c7d59084a02865a2aa047104" name="ae0f4ee95c7d59084a02865a2aa047104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0f4ee95c7d59084a02865a2aa047104">&#9670;&#160;</a></span>get_in_val()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SR_calc_proc::get_in_val </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a></td>          <td class="paramname"><span class="paramname"><em>idx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для получения значения входной переменной </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idx</td><td>Индекс переменной в списке входных переменных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>float Значение входной переменной </dd></dl>
+
+</div>
+</div>
+<a id="a68048302de021f1cb1ce35ec0ac538f6" name="a68048302de021f1cb1ce35ec0ac538f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68048302de021f1cb1ce35ec0ac538f6">&#9670;&#160;</a></span>get_num_in()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> SR_calc_proc::get_num_in </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод получения числа входов алгоритма </p>
+<dl class="section return"><dt>Возвращает</dt><dd>size_t Число входов </dd></dl>
+
+</div>
+</div>
+<a id="acccdf7fd2574bf5f3a46b107dedc945f" name="acccdf7fd2574bf5f3a46b107dedc945f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acccdf7fd2574bf5f3a46b107dedc945f">&#9670;&#160;</a></span>get_num_out()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> SR_calc_proc::get_num_out </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод получения числа выходов алгоритма </p>
+<dl class="section return"><dt>Возвращает</dt><dd>size_t Число выходов </dd></dl>
+
+</div>
+</div>
+<a id="ac52b68fbdb581f01a644458343c80f09" name="ac52b68fbdb581f01a644458343c80f09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac52b68fbdb581f01a644458343c80f09">&#9670;&#160;</a></span>get_out_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char * SR_calc_proc::get_out_name </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a></td>          <td class="paramname"><span class="paramname"><em>idx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для получения имени выходной переменной </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idx</td><td>Индекс переменной в списке выходных переменных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>const char* Указатель на массив символов имени выходной переменной </dd></dl>
+
+</div>
+</div>
+<a id="a4ec76156b9b3d76ad40d0f1a00027940" name="a4ec76156b9b3d76ad40d0f1a00027940"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ec76156b9b3d76ad40d0f1a00027940">&#9670;&#160;</a></span>get_out_val()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float SR_calc_proc::get_out_val </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a></td>          <td class="paramname"><span class="paramname"><em>idx</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для получения значения выходной переменной </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">idx</td><td>Индекс переменной в списке выходных переменных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>float Значение выходной переменной </dd></dl>
+
+</div>
+</div>
+<a id="a934ae8c2b30447cb94bcfa24b5602e53" name="a934ae8c2b30447cb94bcfa24b5602e53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a934ae8c2b30447cb94bcfa24b5602e53">&#9670;&#160;</a></span>get_ready()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SR_calc_proc::get_ready </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод для проверки готовности алгоритма </p>
+<p>Алгоритм считается готовым, если все указатели на значения (входы и выходы), которые объявлены в алгоритме, не являются нулевыми, то есть все входы алгоритма подключены.</p>
+<dl class="section return"><dt>Возвращает</dt><dd>int Возвращает -1, если алгоритм не готов; возвращает 0, если алгоритм готов </dd></dl>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53_icgraph.png" border="0" usemap="#aclass_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53_icgraph" alt=""/></div>
+<map name="aclass_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53_icgraph" id="aclass_s_r__calc__proc_a934ae8c2b30447cb94bcfa24b5602e53_icgraph">
+<area shape="rect" title="Метод для проверки готовности алгоритма" alt="" coords="529,5,709,31"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="283,5,481,31"/>
+<area shape="poly" title=" " alt="" coords="516,21,482,21,482,15,516,15"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="108,5,235,31"/>
+<area shape="poly" title=" " alt="" coords="268,21,235,21,235,15,268,15"/>
+<area shape="rect" href="_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a657f77ad93b7a41645eeda3fb79ab078" name="a657f77ad93b7a41645eeda3fb79ab078"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a657f77ad93b7a41645eeda3fb79ab078">&#9670;&#160;</a></span>make_const()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_calc_proc::make_const </td>
+          <td>(</td>
+          <td class="paramtype">float **</td>          <td class="paramname"><span class="paramname"><em>pp_val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>init_val</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод добавления информации о константах (или настройках) алгоритма </p>
+<p>Константы используются внутри алгоритма. Константы могут быть заданы в INI-файле алгоритма. Если INI-файл отсутствует, то значение константы соответствует тому, которым она инициализирована.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pp_val</td><td>Адрес указателя на значение </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">var_name</td><td>Указатель на имя константы </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">init_val</td><td>Начальное значение константы </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7f9429177612fc0e27af92f817d32367" name="a7f9429177612fc0e27af92f817d32367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f9429177612fc0e27af92f817d32367">&#9670;&#160;</a></span>make_in() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_calc_proc::make_in </td>
+          <td>(</td>
+          <td class="paramtype">float **</td>          <td class="paramname"><span class="paramname"><em>pp_val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод добавления информации о входах алгоритма </p>
+<p>Если имена выхода одного алгоритма и входа другого совпадают, то указатели созданных выхода и входа указывают на общую память.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pp_val</td><td>Адрес указателя на значение </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">var_name</td><td>Указатель на имя входа </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4d4387fee5f17357c21dc2db27ab9246" name="a4d4387fee5f17357c21dc2db27ab9246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d4387fee5f17357c21dc2db27ab9246">&#9670;&#160;</a></span>make_in() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_calc_proc::make_in </td>
+          <td>(</td>
+          <td class="paramtype">float **</td>          <td class="paramname"><span class="paramname"><em>pp_val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part3</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a61c12d41972bdd7069c44714e41dc541" name="a61c12d41972bdd7069c44714e41dc541"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61c12d41972bdd7069c44714e41dc541">&#9670;&#160;</a></span>make_out() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_calc_proc::make_out </td>
+          <td>(</td>
+          <td class="paramtype">float **</td>          <td class="paramname"><span class="paramname"><em>pp_val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Метод добавления информации о выходах алгоритма </p>
+<p>Если имена выхода одного алгоритма и входа другого совпадают, то указатели созданных выхода и входа указывают на общую память.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">pp_val</td><td>Адрес указателя на значение </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">var_name</td><td>Указатель на имя выхода </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541_icgraph.png" border="0" usemap="#aclass_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541_icgraph" alt=""/></div>
+<map name="aclass_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541_icgraph" id="aclass_s_r__calc__proc_a61c12d41972bdd7069c44714e41dc541_icgraph">
+<area shape="rect" title="Метод добавления информации о выходах алгоритма" alt="" coords="236,5,415,31"/>
+<area shape="rect" href="class_s_r__auto__ctl.html#ad6e7badceaff136798426edd63483e8c" title=" " alt="" coords="5,5,188,31"/>
+<area shape="poly" title=" " alt="" coords="223,21,188,21,188,15,223,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a98d2e2ead4212eec0dfb913da8de3373" name="a98d2e2ead4212eec0dfb913da8de3373"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98d2e2ead4212eec0dfb913da8de3373">&#9670;&#160;</a></span>make_out() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_calc_proc::make_out </td>
+          <td>(</td>
+          <td class="paramtype">float **</td>          <td class="paramname"><span class="paramname"><em>pp_val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part3</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1b71a01e684d0dd02b79d0a77a6cd47e" name="a1b71a01e684d0dd02b79d0a77a6cd47e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b71a01e684d0dd02b79d0a77a6cd47e">&#9670;&#160;</a></span>make_out() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SR_calc_proc::make_out </td>
+          <td>(</td>
+          <td class="paramtype">float **</td>          <td class="paramname"><span class="paramname"><em>pp_val</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part1</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part2</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part3</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>var_name_part4</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a4ff04b0308134ee3896d701e66ee2690" name="a4ff04b0308134ee3896d701e66ee2690"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ff04b0308134ee3896d701e66ee2690">&#9670;&#160;</a></span>reg_vars()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SR_calc_proc::reg_vars </td>
+          <td>(</td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>vars_of_block</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Метод регистрации переменных алгоритма </p>
+<p>Метод предназначен для регистрации переменных (входов, выходов и констант) и их инициализации на основе данных из INI-файла.</p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">vars_of_block</td><td>Указатель на область памяти, куда будет сохранена информация о связях типа входы-выходы </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>int </dd></dl>
+<p>Регистрируем локальные входы и выходы <br  />
+</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_cgraph.png" border="0" usemap="#aclass_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_cgraph" alt=""/></div>
+<map name="aclass_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_cgraph" id="aclass_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_cgraph">
+<area shape="rect" title="Метод регистрации переменных алгоритма" alt="" coords="5,5,176,31"/>
+<area shape="rect" href="alg__base_8cpp.html#a70eb720011f04bab13494ce26e0280cb" title="Функция для получения значений констант из INI&#45;файлов" alt="" coords="224,5,311,31"/>
+<area shape="poly" title=" " alt="" coords="176,15,210,15,210,21,176,21"/>
+</map>
+</div>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_icgraph.png" border="0" usemap="#aclass_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_icgraph" alt=""/></div>
+<map name="aclass_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_icgraph" id="aclass_s_r__calc__proc_a4ff04b0308134ee3896d701e66ee2690_icgraph">
+<area shape="rect" title="Метод регистрации переменных алгоритма" alt="" coords="529,5,700,31"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a15aeb853304d28d278a2467752e5e3ef" title="Инициализация локальных алгоритмов" alt="" coords="283,5,481,31"/>
+<area shape="poly" title=" " alt="" coords="515,21,482,21,482,15,515,15"/>
+<area shape="rect" href="class_s_r__ctl__type.html#a5b6fc56ea96ee235d11155797f0ca7aa" title="Главный метод инициализации" alt="" coords="108,5,235,31"/>
+<area shape="poly" title=" " alt="" coords="268,21,235,21,235,15,268,15"/>
+<area shape="rect" href="_s_r__ctl_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,60,31"/>
+<area shape="poly" title=" " alt="" coords="95,21,60,21,60,15,95,15"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="a9f53f544c46f15c1e75ff404a47358c1" name="a9f53f544c46f15c1e75ff404a47358c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f53f544c46f15c1e75ff404a47358c1">&#9670;&#160;</a></span>calc_period</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int SR_calc_proc::calc_period</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Период обсчета функции в мс </p>
+
+</div>
+</div>
+<a id="a7596532f56ec0683990c18f7c292e667" name="a7596532f56ec0683990c18f7c292e667"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7596532f56ec0683990c18f7c292e667">&#9670;&#160;</a></span>const_name_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* SR_calc_proc::const_name_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Указатель на область памяти, связанной с хранимыми именами констант алгоритма </p>
+
+</div>
+</div>
+<a id="ac44ce44e6a8f674d912ef09c6c38f55a" name="ac44ce44e6a8f674d912ef09c6c38f55a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac44ce44e6a8f674d912ef09c6c38f55a">&#9670;&#160;</a></span>const_val_ptr_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* SR_calc_proc::const_val_ptr_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Указатель на область памяти, связанной с хранимыми значениями констант алгоритма </p>
+
+</div>
+</div>
+<a id="a05947716775717bf41ae128e3a1cf716" name="a05947716775717bf41ae128e3a1cf716"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05947716775717bf41ae128e3a1cf716">&#9670;&#160;</a></span>file_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char SR_calc_proc::file_name[256]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Имя файла </p>
+
+</div>
+</div>
+<a id="ad2af3d02d4fe8cd575801f802edd13af" name="ad2af3d02d4fe8cd575801f802edd13af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2af3d02d4fe8cd575801f802edd13af">&#9670;&#160;</a></span>in_name_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* SR_calc_proc::in_name_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Указатель на область памяти, связанной с хранимыми именами входов алгоритма </p>
+
+</div>
+</div>
+<a id="aeaaeb15aafbcbe3f391a790a4345f722" name="aeaaeb15aafbcbe3f391a790a4345f722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeaaeb15aafbcbe3f391a790a4345f722">&#9670;&#160;</a></span>in_val_pp_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* SR_calc_proc::in_val_pp_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма </p>
+
+</div>
+</div>
+<a id="a019fc41f1b3c2a6b3159519e7e0cacb9" name="a019fc41f1b3c2a6b3159519e7e0cacb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019fc41f1b3c2a6b3159519e7e0cacb9">&#9670;&#160;</a></span>out_name_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* SR_calc_proc::out_name_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Указатель на область памяти, связанной с хранимыми именами выходов алгоритма </p>
+
+</div>
+</div>
+<a id="a06900025fb6f283409076781577eade6" name="a06900025fb6f283409076781577eade6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06900025fb6f283409076781577eade6">&#9670;&#160;</a></span>out_val_pp_list</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* SR_calc_proc::out_val_pp_list</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Указатель на область памяти, связанной с хранимыми значениями выходов алгоритма </p>
+
+</div>
+</div>
+<a id="ab61712f803ea2d9fc22ed5a8f6f6adee" name="ab61712f803ea2d9fc22ed5a8f6f6adee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab61712f803ea2d9fc22ed5a8f6f6adee">&#9670;&#160;</a></span>proc_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* SR_calc_proc::proc_name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Указатель на имя функции </p>
+
+</div>
+</div>
+<a id="a2706cd8b80daffd02590edfab80ca9e5" name="a2706cd8b80daffd02590edfab80ca9e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2706cd8b80daffd02590edfab80ca9e5">&#9670;&#160;</a></span>ready_proc</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SR_calc_proc::ready_proc</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Переменная готовности алгоритма </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>/home/changeme/Документы/SR_ctl-remake/<a class="el" href="alg__base_8h_source.html">alg_base.h</a></li>
+<li>/home/changeme/Документы/SR_ctl-remake/<a class="el" href="alg__base_8cpp.html">alg_base.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

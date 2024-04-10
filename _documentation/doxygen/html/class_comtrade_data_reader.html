@@ -1,0 +1,795 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.10.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SR_ctl: Класс ComtradeDataReader</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">SR_ctl<span id="projectnumber">&#160;remake</span>
+   </div>
+   <div id="projectbrief">Фабрика алгоритмов РЗА</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.10.0 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Поиск');
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="class_comtrade_data_reader-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс ComtradeDataReader</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс для чтения COMTRADE-файлов  
+ <a href="#details">Подробнее...</a></p>
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Граф связей класса ComtradeDataReader:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_comtrade_data_reader__coll__graph.png" border="0" usemap="#a_comtrade_data_reader_coll__map" alt="Collaboration graph"/></div>
+<map name="a_comtrade_data_reader_coll__map" id="a_comtrade_data_reader_coll__map">
+<area shape="rect" title="Класс для чтения COMTRADE&#45;файлов" alt="" coords="5,5,216,451"/>
+</map>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a0053fe166b90525feab355c90051b807" id="r_a0053fe166b90525feab355c90051b807"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0053fe166b90525feab355c90051b807">ComtradeDataReader</a> (<a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> std::string &amp;<a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">comtradePath</a>, <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">char</a> delimiter=',')</td></tr>
+<tr class="memdesc:a0053fe166b90525feab355c90051b807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new Comtrade Data Reader object.  <br /></td></tr>
+<tr class="separator:a0053fe166b90525feab355c90051b807"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ed60343e39b31d49929abbaad6e5f8" id="r_a98ed60343e39b31d49929abbaad6e5f8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#aa92f6affa71316814fe186d25507b9a5">analogChannelsInfo</a>) *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98ed60343e39b31d49929abbaad6e5f8">get_p_analogChannelsInfo</a> ()</td></tr>
+<tr class="memdesc:a98ed60343e39b31d49929abbaad6e5f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурационные параметры (CFG)  <br /></td></tr>
+<tr class="separator:a98ed60343e39b31d49929abbaad6e5f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac52a628239649d922cd65a8e206edd4" id="r_aac52a628239649d922cd65a8e206edd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#a5e82878d61068127e7aab5ec081a4ad1">digitalChannelsInfo</a>) *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aac52a628239649d922cd65a8e206edd4">get_p_digitalChannelsInfo</a> ()</td></tr>
+<tr class="separator:aac52a628239649d922cd65a8e206edd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafe416c60717e8758967e6bb5197b948" id="r_aafe416c60717e8758967e6bb5197b948"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aafe416c60717e8758967e6bb5197b948">get_freqSamp</a> (<a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">nRate</a>) <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a></td></tr>
+<tr class="separator:aafe416c60717e8758967e6bb5197b948"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1196ac670d26a0ac5e678b685420d0a" id="r_ad1196ac670d26a0ac5e678b685420d0a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1196ac670d26a0ac5e678b685420d0a">get_endSamp</a> (<a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">nRate</a>) <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a></td></tr>
+<tr class="separator:ad1196ac670d26a0ac5e678b685420d0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c4afb4c6dd5deaae9d31021a8d82a40" id="r_a0c4afb4c6dd5deaae9d31021a8d82a40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#ab6d837a7ad086148ee4fed3bb40a02c1">analogData</a>) *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0c4afb4c6dd5deaae9d31021a8d82a40">get_p_analogData</a> () <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a></td></tr>
+<tr class="memdesc:a0c4afb4c6dd5deaae9d31021a8d82a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Данные (DAT)  <br /></td></tr>
+<tr class="separator:a0c4afb4c6dd5deaae9d31021a8d82a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae81424c7483a3bc70bae83b8c193e2e4" id="r_ae81424c7483a3bc70bae83b8c193e2e4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#a6903ba371e172d9e5bbe3df4c9cfb1fd">digitalData</a>) *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae81424c7483a3bc70bae83b8c193e2e4">get_p_digitalData</a> () <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a></td></tr>
+<tr class="separator:ae81424c7483a3bc70bae83b8c193e2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a97c1a257422c8ab50c2068f39018dce1" id="r_a97c1a257422c8ab50c2068f39018dce1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a97c1a257422c8ab50c2068f39018dce1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">dataReader</a> (std::ifstream &amp;datFile, std::vector&lt; std::vector&lt; T &gt; &gt; &amp;data, <a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a> <a class="el" href="#ad4170839fd11dc8bcca82dd1c3731d1e">numChannels</a>, const char delimiter)</td></tr>
+<tr class="memdesc:a97c1a257422c8ab50c2068f39018dce1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Функция для считывания данных по каналам  <br /></td></tr>
+<tr class="separator:a97c1a257422c8ab50c2068f39018dce1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:afdc922b792795faaf024776e586fae2b" id="r_afdc922b792795faaf024776e586fae2b"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afdc922b792795faaf024776e586fae2b">stationName</a></td></tr>
+<tr class="memdesc:afdc922b792795faaf024776e586fae2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Конфигурационные параметры (CFG)  <br /></td></tr>
+<tr class="separator:afdc922b792795faaf024776e586fae2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae82ec3c9986e73b39ba725a615be0155" id="r_ae82ec3c9986e73b39ba725a615be0155"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae82ec3c9986e73b39ba725a615be0155">recDevId</a></td></tr>
+<tr class="memdesc:ae82ec3c9986e73b39ba725a615be0155"><td class="mdescLeft">&#160;</td><td class="mdescRight">Идентификационный номер или название записывающего устройства. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:ae82ec3c9986e73b39ba725a615be0155"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e40bc209bfa820651475a1f430ac81f" id="r_a2e40bc209bfa820651475a1f430ac81f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e40bc209bfa820651475a1f430ac81f">revYear</a></td></tr>
+<tr class="memdesc:a2e40bc209bfa820651475a1f430ac81f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Год ревизии стандарта COMTRADE. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a2e40bc209bfa820651475a1f430ac81f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4170839fd11dc8bcca82dd1c3731d1e" id="r_ad4170839fd11dc8bcca82dd1c3731d1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4170839fd11dc8bcca82dd1c3731d1e">numChannels</a></td></tr>
+<tr class="memdesc:ad4170839fd11dc8bcca82dd1c3731d1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Общее число каналов. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:ad4170839fd11dc8bcca82dd1c3731d1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a379b13c5dca0edc5e03f5a7aa9debafb" id="r_a379b13c5dca0edc5e03f5a7aa9debafb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a379b13c5dca0edc5e03f5a7aa9debafb">numAnalogChannels</a></td></tr>
+<tr class="memdesc:a379b13c5dca0edc5e03f5a7aa9debafb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Число аналоговых каналов. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a379b13c5dca0edc5e03f5a7aa9debafb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bcbee6f4884b4e305bd5b5a433bb786" id="r_a3bcbee6f4884b4e305bd5b5a433bb786"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bcbee6f4884b4e305bd5b5a433bb786">numDigitalChannels</a></td></tr>
+<tr class="memdesc:a3bcbee6f4884b4e305bd5b5a433bb786"><td class="mdescLeft">&#160;</td><td class="mdescRight">Число дискртеных каналов. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:a3bcbee6f4884b4e305bd5b5a433bb786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa92f6affa71316814fe186d25507b9a5" id="r_aa92f6affa71316814fe186d25507b9a5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct__analog_channels_info.html">_analogChannelsInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa92f6affa71316814fe186d25507b9a5">analogChannelsInfo</a></td></tr>
+<tr class="memdesc:aa92f6affa71316814fe186d25507b9a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контейннер для хранения информации о аналоговых каналах  <br /></td></tr>
+<tr class="separator:aa92f6affa71316814fe186d25507b9a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e82878d61068127e7aab5ec081a4ad1" id="r_a5e82878d61068127e7aab5ec081a4ad1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct__digital_channels_info.html">_digitalChannelsInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5e82878d61068127e7aab5ec081a4ad1">digitalChannelsInfo</a></td></tr>
+<tr class="memdesc:a5e82878d61068127e7aab5ec081a4ad1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контейннер для хранения информации о дискретных каналах  <br /></td></tr>
+<tr class="separator:a5e82878d61068127e7aab5ec081a4ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae16b1c5c8532df0d5d9bcba3533533ca" id="r_ae16b1c5c8532df0d5d9bcba3533533ca"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae16b1c5c8532df0d5d9bcba3533533ca">freqNetwork</a></td></tr>
+<tr class="memdesc:ae16b1c5c8532df0d5d9bcba3533533ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Частота сети, Гц. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:ae16b1c5c8532df0d5d9bcba3533533ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2290ad135f0ecc03a6c6f918b32f16e" id="r_ac2290ad135f0ecc03a6c6f918b32f16e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint16_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2290ad135f0ecc03a6c6f918b32f16e">nRates</a></td></tr>
+<tr class="memdesc:ac2290ad135f0ecc03a6c6f918b32f16e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество частот дискретизации в файле данных. Обязательный параметр.  <br /></td></tr>
+<tr class="separator:ac2290ad135f0ecc03a6c6f918b32f16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0882240556da8e70b2107431bc16bc5b" id="r_a0882240556da8e70b2107431bc16bc5b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct__samp_rate_info.html">_sampRateInfo</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0882240556da8e70b2107431bc16bc5b">sampRateInfo</a></td></tr>
+<tr class="memdesc:a0882240556da8e70b2107431bc16bc5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контейннер для хранения информации о частотах дискретизации  <br /></td></tr>
+<tr class="separator:a0882240556da8e70b2107431bc16bc5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6d837a7ad086148ee4fed3bb40a02c1" id="r_ab6d837a7ad086148ee4fed3bb40a02c1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">double</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6d837a7ad086148ee4fed3bb40a02c1">analogData</a></td></tr>
+<tr class="memdesc:ab6d837a7ad086148ee4fed3bb40a02c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Данные (DAT)  <br /></td></tr>
+<tr class="separator:ab6d837a7ad086148ee4fed3bb40a02c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6903ba371e172d9e5bbe3df4c9cfb1fd" id="r_a6903ba371e172d9e5bbe3df4c9cfb1fd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">bool</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6903ba371e172d9e5bbe3df4c9cfb1fd">digitalData</a></td></tr>
+<tr class="memdesc:a6903ba371e172d9e5bbe3df4c9cfb1fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Контейнеры для хранения данных по дискретным каналам  <br /></td></tr>
+<tr class="separator:a6903ba371e172d9e5bbe3df4c9cfb1fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс для чтения COMTRADE-файлов </p>
+</div><h2 class="groupheader">Конструктор(ы)</h2>
+<a id="a0053fe166b90525feab355c90051b807" name="a0053fe166b90525feab355c90051b807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0053fe166b90525feab355c90051b807">&#9670;&#160;</a></span>ComtradeDataReader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComtradeDataReader::ComtradeDataReader </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>comtradePath</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">char</a></td>          <td class="paramname"><span class="paramname"><em>delimiter</em><span class="paramdefsep"> = </span><span class="paramdefval">','</span></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Construct a new Comtrade Data Reader object. </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">comtradePath</td><td>Путь к расположению COMTRADE-файлов </td></tr>
+    <tr><td class="paramname">delimiter</td><td>Разделитель данных (по умолчанию принят ',') </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Проверяем наличие обязательных (critical) CFG- и DAT-файлов</p>
+<p>Чтение CFG-файла</p>
+<p>Чтение DAT-файла</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Граф вызовов:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_comtrade_data_reader_a0053fe166b90525feab355c90051b807_cgraph.png" border="0" usemap="#aclass_comtrade_data_reader_a0053fe166b90525feab355c90051b807_cgraph" alt=""/></div>
+<map name="aclass_comtrade_data_reader_a0053fe166b90525feab355c90051b807_cgraph" id="aclass_comtrade_data_reader_a0053fe166b90525feab355c90051b807_cgraph">
+<area shape="rect" title="Construct a new Comtrade Data Reader object." alt="" coords="5,5,176,45"/>
+<area shape="rect" href="class_comtrade_data_reader.html#a97c1a257422c8ab50c2068f39018dce1" title="Функция для считывания данных по каналам" alt="" coords="224,5,387,45"/>
+<area shape="poly" title=" " alt="" coords="176,23,210,23,210,28,176,28"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a id="a97c1a257422c8ab50c2068f39018dce1" name="a97c1a257422c8ab50c2068f39018dce1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97c1a257422c8ab50c2068f39018dce1">&#9670;&#160;</a></span>dataReader()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ComtradeDataReader::dataReader </td>
+          <td>(</td>
+          <td class="paramtype">std::ifstream &amp;</td>          <td class="paramname"><span class="paramname"><em>datFile</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; T &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a></td>          <td class="paramname"><span class="paramname"><em>numChannels</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char</td>          <td class="paramname"><span class="paramname"><em>delimiter</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Функция для считывания данных по каналам </p>
+<ol type="1">
+<li>Заполням рабочий контейнер нулевыми векторами, чтобы иметь возможность обращаться к ним; <br  />
+</li>
+<li>Получаем строку; <br  />
+</li>
+<li>Получаем значения по строке и добавляем их в выделенные вектора. <br  />
+ Каналы заполняются равномерно: новая строка - новое значение для каждого канала. Время парсинга значительно сокращается.</li>
+</ol>
+<dl class="tparams"><dt>Параметры шаблона</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>Параметр выборки данных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">datFile</td><td>Ссылка на поток для чтения с файла данных </td></tr>
+    <tr><td class="paramname">data</td><td>Ссылка на контейннер для хранения информации о каналах (аналоговых или дискретных) </td></tr>
+    <tr><td class="paramname">numChannels</td><td>Число каналов (аналоговых или дискретных) </td></tr>
+    <tr><td class="paramname">delimiter</td><td>Разделитель данных </td></tr>
+  </table>
+  </dd>
+</dl>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_comtrade_data_reader_a97c1a257422c8ab50c2068f39018dce1_icgraph.png" border="0" usemap="#aclass_comtrade_data_reader_a97c1a257422c8ab50c2068f39018dce1_icgraph" alt=""/></div>
+<map name="aclass_comtrade_data_reader_a97c1a257422c8ab50c2068f39018dce1_icgraph" id="aclass_comtrade_data_reader_a97c1a257422c8ab50c2068f39018dce1_icgraph">
+<area shape="rect" title="Функция для считывания данных по каналам" alt="" coords="224,5,387,45"/>
+<area shape="rect" href="class_comtrade_data_reader.html#a0053fe166b90525feab355c90051b807" title="Construct a new Comtrade Data Reader object." alt="" coords="5,5,176,45"/>
+<area shape="poly" title=" " alt="" coords="210,28,176,28,176,23,210,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ad1196ac670d26a0ac5e678b685420d0a" name="ad1196ac670d26a0ac5e678b685420d0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1196ac670d26a0ac5e678b685420d0a">&#9670;&#160;</a></span>get_endSamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a> ComtradeDataReader::get_endSamp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a></td>          <td class="paramname"><span class="paramname"><em>nRate</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aafe416c60717e8758967e6bb5197b948" name="aafe416c60717e8758967e6bb5197b948"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafe416c60717e8758967e6bb5197b948">&#9670;&#160;</a></span>get_freqSamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">double</a> ComtradeDataReader::get_freqSamp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="err_8txt.html#ae43e1afb4123c6ddee091cf03ec10266">size_t</a></td>          <td class="paramname"><span class="paramname"><em>nRate</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98ed60343e39b31d49929abbaad6e5f8" name="a98ed60343e39b31d49929abbaad6e5f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ed60343e39b31d49929abbaad6e5f8">&#9670;&#160;</a></span>get_p_analogChannelsInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#aa92f6affa71316814fe186d25507b9a5">analogChannelsInfo</a>) * ComtradeDataReader::get_p_analogChannelsInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конфигурационные параметры (CFG) </p>
+
+</div>
+</div>
+<a id="a0c4afb4c6dd5deaae9d31021a8d82a40" name="a0c4afb4c6dd5deaae9d31021a8d82a40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c4afb4c6dd5deaae9d31021a8d82a40">&#9670;&#160;</a></span>get_p_analogData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#ab6d837a7ad086148ee4fed3bb40a02c1">analogData</a>) * ComtradeDataReader::get_p_analogData </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Данные (DAT) </p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_comtrade_data_reader_a0c4afb4c6dd5deaae9d31021a8d82a40_icgraph.png" border="0" usemap="#aclass_comtrade_data_reader_a0c4afb4c6dd5deaae9d31021a8d82a40_icgraph" alt=""/></div>
+<map name="aclass_comtrade_data_reader_a0c4afb4c6dd5deaae9d31021a8d82a40_icgraph" id="aclass_comtrade_data_reader_a0c4afb4c6dd5deaae9d31021a8d82a40_icgraph">
+<area shape="rect" title="Данные (DAT)" alt="" coords="185,5,348,45"/>
+<area shape="rect" href="class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd" title="Основной метод алгоритма" alt="" coords="5,13,137,38"/>
+<area shape="poly" title=" " alt="" coords="172,28,138,28,138,23,172,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aac52a628239649d922cd65a8e206edd4" name="aac52a628239649d922cd65a8e206edd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac52a628239649d922cd65a8e206edd4">&#9670;&#160;</a></span>get_p_digitalChannelsInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#a5e82878d61068127e7aab5ec081a4ad1">digitalChannelsInfo</a>) * ComtradeDataReader::get_p_digitalChannelsInfo </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae81424c7483a3bc70bae83b8c193e2e4" name="ae81424c7483a3bc70bae83b8c193e2e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae81424c7483a3bc70bae83b8c193e2e4">&#9670;&#160;</a></span>get_p_digitalData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">const</a> <a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">decltype</a>(<a class="el" href="#a6903ba371e172d9e5bbe3df4c9cfb1fd">digitalData</a>) * ComtradeDataReader::get_p_digitalData </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="closed.png" alt="+"/> Граф вызова функции:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="class_comtrade_data_reader_ae81424c7483a3bc70bae83b8c193e2e4_icgraph.png" border="0" usemap="#aclass_comtrade_data_reader_ae81424c7483a3bc70bae83b8c193e2e4_icgraph" alt=""/></div>
+<map name="aclass_comtrade_data_reader_ae81424c7483a3bc70bae83b8c193e2e4_icgraph" id="aclass_comtrade_data_reader_ae81424c7483a3bc70bae83b8c193e2e4_icgraph">
+<area shape="rect" title=" " alt="" coords="185,5,348,45"/>
+<area shape="rect" href="class_s_r__auto__ctl.html#a0927cec96e8f6950ed7b97641aed16fd" title="Основной метод алгоритма" alt="" coords="5,13,137,38"/>
+<area shape="poly" title=" " alt="" coords="172,28,138,28,138,23,172,23"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a id="aa92f6affa71316814fe186d25507b9a5" name="aa92f6affa71316814fe186d25507b9a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa92f6affa71316814fe186d25507b9a5">&#9670;&#160;</a></span>analogChannelsInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct__analog_channels_info.html">_analogChannelsInfo</a>&gt; ComtradeDataReader::analogChannelsInfo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Контейннер для хранения информации о аналоговых каналах </p>
+
+</div>
+</div>
+<a id="ab6d837a7ad086148ee4fed3bb40a02c1" name="ab6d837a7ad086148ee4fed3bb40a02c1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d837a7ad086148ee4fed3bb40a02c1">&#9670;&#160;</a></span>analogData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">double</a>&gt; &gt; ComtradeDataReader::analogData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Данные (DAT) </p>
+<p>Контейнеры для хранения данных по аналоговым каналам </p>
+
+</div>
+</div>
+<a id="a5e82878d61068127e7aab5ec081a4ad1" name="a5e82878d61068127e7aab5ec081a4ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e82878d61068127e7aab5ec081a4ad1">&#9670;&#160;</a></span>digitalChannelsInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct__digital_channels_info.html">_digitalChannelsInfo</a>&gt; ComtradeDataReader::digitalChannelsInfo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Контейннер для хранения информации о дискретных каналах </p>
+
+</div>
+</div>
+<a id="a6903ba371e172d9e5bbe3df4c9cfb1fd" name="a6903ba371e172d9e5bbe3df4c9cfb1fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6903ba371e172d9e5bbe3df4c9cfb1fd">&#9670;&#160;</a></span>digitalData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::vector&lt;<a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">bool</a>&gt; &gt; ComtradeDataReader::digitalData</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Контейнеры для хранения данных по дискретным каналам </p>
+
+</div>
+</div>
+<a id="ae16b1c5c8532df0d5d9bcba3533533ca" name="ae16b1c5c8532df0d5d9bcba3533533ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae16b1c5c8532df0d5d9bcba3533533ca">&#9670;&#160;</a></span>freqNetwork</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">double</a> ComtradeDataReader::freqNetwork</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Частота сети, Гц. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="ac2290ad135f0ecc03a6c6f918b32f16e" name="ac2290ad135f0ecc03a6c6f918b32f16e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2290ad135f0ecc03a6c6f918b32f16e">&#9670;&#160;</a></span>nRates</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint16_t</a> ComtradeDataReader::nRates</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Количество частот дискретизации в файле данных. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a379b13c5dca0edc5e03f5a7aa9debafb" name="a379b13c5dca0edc5e03f5a7aa9debafb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a379b13c5dca0edc5e03f5a7aa9debafb">&#9670;&#160;</a></span>numAnalogChannels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a> ComtradeDataReader::numAnalogChannels</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Число аналоговых каналов. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="ad4170839fd11dc8bcca82dd1c3731d1e" name="ad4170839fd11dc8bcca82dd1c3731d1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4170839fd11dc8bcca82dd1c3731d1e">&#9670;&#160;</a></span>numChannels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a> ComtradeDataReader::numChannels</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Общее число каналов. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a3bcbee6f4884b4e305bd5b5a433bb786" name="a3bcbee6f4884b4e305bd5b5a433bb786"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bcbee6f4884b4e305bd5b5a433bb786">&#9670;&#160;</a></span>numDigitalChannels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint32_t</a> ComtradeDataReader::numDigitalChannels</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Число дискртеных каналов. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="ae82ec3c9986e73b39ba725a615be0155" name="ae82ec3c9986e73b39ba725a615be0155"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae82ec3c9986e73b39ba725a615be0155">&#9670;&#160;</a></span>recDevId</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ComtradeDataReader::recDevId</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Идентификационный номер или название записывающего устройства. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a2e40bc209bfa820651475a1f430ac81f" name="a2e40bc209bfa820651475a1f430ac81f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e40bc209bfa820651475a1f430ac81f">&#9670;&#160;</a></span>revYear</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="#a97c1a257422c8ab50c2068f39018dce1">uint16_t</a> ComtradeDataReader::revYear</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Год ревизии стандарта COMTRADE. Обязательный параметр. </p>
+
+</div>
+</div>
+<a id="a0882240556da8e70b2107431bc16bc5b" name="a0882240556da8e70b2107431bc16bc5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0882240556da8e70b2107431bc16bc5b">&#9670;&#160;</a></span>sampRateInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="struct__samp_rate_info.html">_sampRateInfo</a>&gt; ComtradeDataReader::sampRateInfo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Контейннер для хранения информации о частотах дискретизации </p>
+
+</div>
+</div>
+<a id="afdc922b792795faaf024776e586fae2b" name="afdc922b792795faaf024776e586fae2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afdc922b792795faaf024776e586fae2b">&#9670;&#160;</a></span>stationName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string ComtradeDataReader::stationName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Конфигурационные параметры (CFG) </p>
+<p>Имя станции. Обязательный параметр. </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>/home/changeme/Документы/SR_ctl-remake/<a class="el" href="alg__0___a_d_c_8cpp.html">alg_0_ADC.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0
+</small></address>
+</body>
+</html>

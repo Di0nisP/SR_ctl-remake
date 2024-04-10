@@ -1,0 +1,7 @@
+<map id="SR_auto_ctl::calc" name="SR_auto_ctl::calc">
+<area shape="rect" id="Node000001" title="Основной метод алгоритма" alt="" coords="5,45,137,70"/>
+<area shape="rect" id="Node000002" href="$class_comtrade_data_reader.html#a0c4afb4c6dd5deaae9d31021a8d82a40" title="Данные (DAT)" alt="" coords="185,5,348,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="137,44,171,38,172,44,138,49"/>
+<area shape="rect" id="Node000003" href="$class_comtrade_data_reader.html#ae81424c7483a3bc70bae83b8c193e2e4" title=" " alt="" coords="185,69,348,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="138,65,172,71,171,76,137,71"/>
+</map>
