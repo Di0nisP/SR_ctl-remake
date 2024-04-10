@@ -1,0 +1,29 @@
+@startuml simple+mpi
+skinparam groupInheritance 4
+
+class "Коммуникатор" as Link_MPI
+struct "Описание\nкоммутируемой\nпеременной" as link_var_discriptor
+struct "Описание \nпеременной" as SR_var_descriptor
+class "Посредник" as SR_var_list
+class "Настройки" as SR_Settings 
+abstract "Алгоритм" as SR_calc_proc 
+note right of SR_calc_proc : Базовый \nфункционал \nалгоритмов
+class "Алгоритм" as SR_auto_ctl
+note right of SR_auto_ctl : Расширенный \nфункционал \nалгоритмов
+class "Создатель" as SR_ctl_type
+note "<color:white>Точка входа —</color>\n<font:monospaced><color:white>Создатель</color></font>" as N0 #7030a0
+
+SR_ctl_type o-up- "0..*" Link_MPI
+Link_MPI ..> link_var_discriptor
+SR_var_list .right.> SR_var_descriptor
+SR_ctl_type *-right-> "1" SR_Settings
+SR_Settings *-up-> "1" SR_var_list
+SR_Settings ..> SR_calc_proc : Поиск \nалгоритмов
+SR_ctl_type o--> "0..*" SR_calc_proc : Агрегация \nалгоритмов
+SR_var_list <.. SR_calc_proc : Регистрация \nпеременных
+
+SR_calc_proc <|-- SR_auto_ctl
+SR_calc_proc <|-- SR_auto_ctl
+SR_calc_proc <|-- SR_auto_ctl
+
+@enduml
