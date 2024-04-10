@@ -1,0 +1,36 @@
+@startuml alg
+skinparam BackgroundColor transparent
+skinparam componentStyle rectangle
+
+note "Быстрые алгоритмы запускаются каждые 1/200 с" as N0
+
+component "Эмулятор АЦП" as alg_0_ADC {
+    component "Чтение \nосциллограмм" as FileReader
+}
+component "ЦОС" as alg_1_DSP
+component "ПО+ЛО" as alg_2_triggers {
+    component "Таймеры" as Timers
+    component "ПО" as StartingElements {
+        component "МТЗ" as OvercurrentProtection
+        component "ТЗНП" as ZSCurrentProtection
+    }
+}
+
+component "Формирователь\nпротокола" as alg_2_log
+note "Это медленный алгоритм:\nзапускается каждые 1/2 с" as N1
+N1 ... alg_2_log
+
+
+Timers -- StartingElements
+
+(Файл\nвходных\nданных) -r-> FileReader
+note bottom of (Файл\nвходных\nданных) : Дискретизированные\nвыборки\nтоков и напряжений
+alg_0_ADC --> alg_1_DSP
+alg_0_ADC --> alg_2_log
+alg_1_DSP --> alg_2_triggers
+alg_2_triggers --> alg_2_log
+
+alg_2_log -> (Файл\nвыходных\nданных)
+note top of (Файл\nвыходных\nданных) : Дискретизированные\nвыборки\nтоков и напряжений\n+ параметры работы\nалгоритмов
+
+@enduml
