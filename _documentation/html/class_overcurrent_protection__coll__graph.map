@@ -1,7 +1,0 @@
-<map id="OvercurrentProtection" name="OvercurrentProtection">
-<area shape="rect" id="Node000001" title=" " alt="" coords="67,753,260,919"/>
-<area shape="rect" id="Node000002" href="$class_starting_elements.html" title=" " alt="" coords="5,5,167,691"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,704,153,753,148,753,140,705"/>
-<area shape="rect" id="Node000003" href="$class_timers.html" title=" " alt="" coords="191,235,293,461"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="227,461,182,737,177,737,221,460"/>
-</map>

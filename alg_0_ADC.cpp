@@ -483,7 +483,6 @@ public:
         std::string line;
 
         if (file.is_open()) {
-
             if (last_filename != filename) { // Проверка имени файла
                 last_column_name = "\0";
                 last_filename = filename;
@@ -553,32 +552,38 @@ class SR_auto_ctl: public SR_calc_proc
 {
 private:
 	//*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
-	//! Объявление входов (данные, пришедшие извне)
+	//! Объявление входов (данные, пришедшие извне; должны подключаться к выходам других алгоритмов)
 	//? Входы отсутствуют
 
-	//! Объявление выходов (должны подключаться на входы другого алгоритма!)	
-	float* out_val_I[3][HBuffSize];		///< Массивы указателей на токовые выходы
-	string out_name_I[3][HBuffSize]; 	///< Массивы имён токовых выходов алгоритма
+	//! Объявление выходов (могут подключаться на входы другого алгоритма)		
+	float *out_val_I [3][HBuffSize];        ///< Массивы указателей на токовые выходы
+	string out_name_I[3][HBuffSize];        ///< Массивы имён токовых выходов алгоритма
 
-	float* out_val_U[3][HBuffSize];		///< Массивы указателей на напряженческие выходы
-	string out_name_U[3][HBuffSize]; 	///< Массивы имён напряженческих выходов алгоритма
+	float *out_val_U [3][HBuffSize];        ///< Массивы указателей на напряженческие выходы
+	string out_name_U[3][HBuffSize];        ///< Массивы имён напряженческих выходов алгоритма
+
+    // Нужно при чтении данных из COMTRADE
+	float *out_val_ovcp_ref [2][HBuffSize]; ///< Массивы указателей на референсные страбатывания 1 и 2 ступеней МТЗ
+	string out_name_ovcp_ref[2][HBuffSize];
+    float *out_val_zscp_ref [2][HBuffSize]; ///< Массивы указателей на референсные страбатывания 1 и 2 ступеней ТЗНП
+	string out_name_zscp_ref[2][HBuffSize]; 
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
-	
+    //? Уставки отсутствуют
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 	//* Объявляение вспомогательных переменных алгоритма
-	float *I_data[3], *U_data[3];		// Буферы для хранения точек режима
-	Opmode *gI[3], *gU[3];				// Объекты формируемого сигнала
-	FileReader<float, HBuffSize> rI[3], rU[3];
-	ComtradeDataReader *data;
-	std::vector<std::vector<double>> analogData;
+	float   I_data[3][HBuffSize]{},         ///< Буферы для хранения расчётной выборки токовых каналов
+            U_data[3][HBuffSize]{};         ///< Буферы для хранения расчётной выборки напряженческих каналов
+	Opmode *gI    [3],                      ///< Указатели на объекты для генерации расчётной выборки токовых каналов
+           *gU    [3];			            ///< Указатели на объекты для генерации расчётной выборки напряженческих каналов        
+	FileReader<float, HBuffSize> 
+            rI    [3],                      ///< Объекты читаемой из файла выборки токовых каналов
+            rU    [3];                      ///< Объекты читаемой из файла выборки напряженческих каналов
+	ComtradeDataReader *data;               ///< Указатель на объект класса для чтения данных из COMTRADE
 
 public:
-	/// @brief Consructor 
 	SR_auto_ctl(const char* block_name);
-
-	/// @brief Destructor
 	~SR_auto_ctl();
 	
 	/**
@@ -591,7 +596,7 @@ public:
 	void calc();
 };
 
-SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл входного аргумента ???
+SR_auto_ctl::SR_auto_ctl(const char* block_name) 
 {
 	proc_name = "alg_ADC";		// Имя алгоритма (дальше это имя и видно в системе)
 	calc_period = MEMS_PERIOD;	// Период обсчета функции в миллисекундах (MEMS_PERIOD - алгорим обсчитывается часто)
@@ -600,9 +605,11 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	for (uint8_t i = 0; i < 3; i++)
 	{
 		// Массивы расчётных данных инициализированы нулями
-		I_data[i] = new float[HBuffSize] {};		U_data[i] = new float[HBuffSize] {};
-		gI[i] = new Opmode(HBuffSize);				gU[i] = new Opmode(HBuffSize); //TODO Cтроки нужны при получении режима с помощью класса Opmode.
+		gI[i] = new Opmode(HBuffSize);    gU[i] = new Opmode(HBuffSize); //TODO Cтроки нужны при получении режима с помощью класса Opmode
 	}
+
+    string file_path = "./osc/input/K11-K1-K3/", file_name = "K11-K1-K3";
+	data = new ComtradeDataReader(file_path + file_name);
 
 	//*++++++++++++++++++++++++++ Выделение памяти входов-выходов и настроек ++++++++++++++++++++++++++
 	// (Место для выделения пользовательских переменных алгоритма)
@@ -611,27 +618,30 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) //TODO В чём смысл в�
 	//! Выходные переменные: по именам, указанным в кавычках, переменные видны вне алгоритма
 	//? Если не работает - чистить INI-файлы
 	for (uint8_t i = 0; i < 3; i++) 	// По фазам
-		for (uint8_t j = 0; j < HBuffSize; j++)	// По точкам
-		{
+		for (uint8_t j = 0; j < HBuffSize; j++)	{	// По точкам
 			string suffix = string(1, static_cast<char>('A' + i));
 			
-			out_name_I[i][j] = "i" + suffix + "(" + std::to_string(j) + ")";		make_out(&(out_val_I[i][j]), out_name_I[i][j].c_str());
-			out_name_U[i][j] = "u" + suffix + "(" + std::to_string(j) + ")";		make_out(&(out_val_U[i][j]), out_name_U[i][j].c_str());
+			out_name_I[i][j] = "i" + suffix + "(" + std::to_string(j) + ")";    make_out(&(out_val_I[i][j]), out_name_I[i][j].c_str());
+			out_name_U[i][j] = "u" + suffix + "(" + std::to_string(j) + ")";    make_out(&(out_val_U[i][j]), out_name_U[i][j].c_str());
 		}
+
+    for (uint8_t i = 0; i < 2; i++)
+        for (uint8_t j = 0; j < HBuffSize; j++)	{
+            out_name_ovcp_ref[i][j] = "ref_ovcp(" + to_string(i) + ")_" + std::to_string(j);   make_out(&(out_val_ovcp_ref[i][j]), out_name_ovcp_ref[i][j].c_str());
+            out_name_zscp_ref[i][j] = "ref_zscp(" + to_string(i) + ")_" + std::to_string(j);   make_out(&(out_val_zscp_ref[i][j]), out_name_zscp_ref[i][j].c_str());
+        }
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	// (Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-	string file_path = "./osc/input/K11-K1-K3/", file_name = "K11-K1-K3";
-	data = new ComtradeDataReader(file_path + file_name);
-	analogData = data->get_analogData();
 }
 
 // По-хорошему нужен для динамического изменения ПО (заглушка)
 SR_auto_ctl::~SR_auto_ctl() 
 {
 	if (data != nullptr) delete data;
+    for (auto ptr : gI)
+        if (ptr != nullptr) delete ptr;
 }
 
 void SR_auto_ctl::calc()
@@ -641,61 +651,69 @@ void SR_auto_ctl::calc()
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
-	static size_t step = 0;
-	for (size_t i = 0; i < 3; i++)
-		for (size_t j = 0; j < HBuffSize; j++) {
+    //* Формирование расчётных данных из COMTRADE - по референсным значениям
+	static size_t step = 0; // Предполагается, что вместимости типа хватит для обработки данных
+	for (uint8_t i = 0; i < 3; ++i)
+		for (uint8_t j = 0; j < HBuffSize; ++j) {
 			U_data[i][j] = static_cast<float>(data->get_p_analogData()->at(i	 ).at(j + step*HBuffSize));
 			I_data[i][j] = static_cast<float>(data->get_p_analogData()->at(i + 3u).at(j + step*HBuffSize));
 		}
+ 	for (uint8_t j = 0; j < HBuffSize; ++j) {
+		*out_val_ovcp_ref[0][j] = static_cast<int>(data->get_p_digitalData()->at( 1).at(j + step*HBuffSize));
+        *out_val_ovcp_ref[1][j] = static_cast<int>(data->get_p_digitalData()->at( 6).at(j + step*HBuffSize));
+        *out_val_zscp_ref[0][j] = static_cast<int>(data->get_p_digitalData()->at(11).at(j + step*HBuffSize));
+        *out_val_zscp_ref[1][j] = static_cast<int>(data->get_p_digitalData()->at(12).at(j + step*HBuffSize));
+	}
 	++step;
 
-
 	//* Запись значений на выходы алгоритма
-	for (uint8_t i = 0; i < 3; i++) 	// По фазам
-		for (uint8_t j = 0; j < HBuffSize; j++) {
+	for (uint8_t i = 0; i < 3; ++i) 	// По фазам
+		for (uint8_t j = 0; j < HBuffSize; ++j) {
 			*(out_val_I[i][j]) = I_data[i][j];		
 			*(out_val_U[i][j]) = U_data[i][j];	
 		}
-	//* Генерация режима вручную
-/*	I_data[0] = gI[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
-	I_data[1] = gI[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
-	I_data[2] = gI[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
+    
+    //* Формирование расчётных данных на основе синтезированного режима
+    //? Чтение из файла или генерация выполняется после записи выходов для имитации задержки АЦП
+    {
+        //* Генерация режима вручную 
+    /*	I_data[0] = gI[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
+        I_data[1] = gI[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
+        I_data[2] = gI[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C);
 
-	U_data[0] = gU[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
-	U_data[1] = gU[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
-	U_data[2] = gU[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C); //*/
+        U_data[0] = gU[0]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_A, 100.0f, PHASE_A);
+        U_data[1] = gU[1]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_B, 100.0f, PHASE_B);
+        U_data[2] = gU[2]->function_opmode_example(HBuffSize, *set_val_Fn, FAULT_TIME, 10.0f, PHASE_C, 100.0f, PHASE_C); //*/
 
-	//* Чтение режима из файла
-	//? Чтение из файла выполняется после записи выходов для инитации задержки АЦП
-	std::string file_path = "./op_mode/data_K1.csv";
-//	std::string file_path = "./op_mode/data_K3.csv";
-//	std::string file_path = "../test_file_read/fault_1.csv"; //TODO Убрать 1000 или заменить на коэф. трансформации
-//	std::string file_path = "../test_file_read/folder/data_Ia.csv";
-	//TODO Возможно, стоит добавить в сигнатуру коэффициент трансформации
-	/*rU[0].read(file_path, "Ua", U_data[0], 1, ',');
-	rU[1].read(file_path, "Ub", U_data[1], 1, ',');
-	rU[2].read(file_path, "Uc", U_data[2], 1, ',');
-	rI[0].read(file_path, "Ia", I_data[0], 1, ',');
-	rI[1].read(file_path, "Ib", I_data[1], 1, ',');
-	rI[2].read(file_path, "Ic", I_data[2], 1, ',');*/
+        //* Чтение режима из файла
+        std::string file_path = "./op_mode/data_K1.csv";
+    //	std::string file_path = "./op_mode/data_K3.csv";
+    //	std::string file_path = "../test_file_read/fault_1.csv"; //TODO Убрать 1000 или заменить на коэф. трансформации
+    //	std::string file_path = "../test_file_read/folder/data_Ia.csv";
+        //TODO Возможно, стоит добавить в сигнатуру коэффициент трансформации
+    /*  rU[0].read(file_path, "Ua", U_data[0], 1, ',');
+        rU[1].read(file_path, "Ub", U_data[1], 1, ',');
+        rU[2].read(file_path, "Uc", U_data[2], 1, ',');
+        rI[0].read(file_path, "Ia", I_data[0], 1, ',');
+        rI[1].read(file_path, "Ib", I_data[1], 1, ',');
+        rI[2].read(file_path, "Ic", I_data[2], 1, ','); //*/
+    } 
 	
-
-
 	//! Отладка (не видно с других машин)
 	printf("\n\t%s out-values:\n", proc_name);
-	for (uint8_t i = 0; i < 3; i++)	{
+	for (uint8_t i = 0; i < 3; ++i)	{
 		string suffix = string(1, static_cast<char>('A' + i));
 		string name = "U_" + suffix;
 		printf("%s:\n", name.c_str());
-		for (uint8_t j = 0; j < HBuffSize; j++)
+		for (uint8_t j = 0; j < HBuffSize; ++j)
 			printf("%6.3f ", *(out_val_U[i][j]));
 		printf("\n");
 	}
-	for (uint8_t i = 0; i < 3; i++)	{
+	for (uint8_t i = 0; i < 3; ++i)	{
 		string suffix = string(1, static_cast<char>('A' + i));
 		string name = "I_" + suffix;
 		printf("%s:\n", name.c_str());
-		for (uint8_t j = 0; j < HBuffSize; j++)
+		for (uint8_t j = 0; j < HBuffSize; ++j)
 			printf("%6.3f ", *(out_val_I[i][j]));
 		printf("\n");
 	}
@@ -703,13 +721,13 @@ void SR_auto_ctl::calc()
 }
 
 //	Запускается при старте расчётного модуля
-//	LIB_EXPORT - метка, котораЯ говорит, что мы экспортируем наружу имена переменных
+//	LIB_EXPORT - метка, которая говорит, что мы экспортируем наружу имена переменных
 //	Выдаёт указатель на класс, имя файла (INI), по которому можно уставки прочитать
-LIB_EXPORT	SR_calc_proc* GetCalcClass(const char* block_name,char* file_name)	
+LIB_EXPORT	SR_calc_proc* GetCalcClass(const char* block_name, char* file_name)	
 {
 	// Создаётся экземпляр класса SR_calc_proc (приведение к родительскому классу!)
 	// Выделяется память под входы, выходы и константы, что важно в методе `SR_calc_proc::Reg_vars` при использовании векторов `const_name_list` и пр.
-	SR_calc_proc*	p_Class = (SR_calc_proc*)(new SR_auto_ctl(block_name));
+	SR_calc_proc *p_Class = dynamic_cast<SR_calc_proc*>(new SR_auto_ctl(block_name));
 	// Убирает тип (.so) из имени файла
 	int ext_index = (int)(strstr(file_name, ".so") - file_name); // Сохранение позиции подстроки ".so" (если таковая найдена)
 	p_Class->file_name[0] = 0; // Первый символ строки `file_name` устанавливается `0`, что указывает на конец троки в C/C++,

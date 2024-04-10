@@ -1,7 +1,0 @@
-<map id="ZSCurrentProtection::detect" name="ZSCurrentProtection::detect">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,159,63"/>
-<area shape="rect" id="Node000002" href="$class_timers.html#a44a235abc212f493e0468ff0c4faaa74" title="Метод для получения значения выхода" alt="" coords="207,5,320,31"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="159,30,193,25,193,30,159,35"/>
-<area shape="rect" id="Node000003" href="$class_timers.html#ad3d041ec64c9195a47f199949b0ab858" title="Таймер задержки фронта" alt="" coords="215,55,311,80"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="159,51,202,57,201,62,159,56"/>
-</map>

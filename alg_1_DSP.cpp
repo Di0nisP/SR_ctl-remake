@@ -25,7 +25,7 @@ using namespace std;
 /**
  * @brief Алгоритм Гёртцеля с коррекцией фазы на шаге
  * 
- * При установке параметра step в ноль коррекция фазы не осуществляется.
+ * Если величина шага кратна периоду, коррекция фазы не осуществляется.
  * 
  * @param X Указатель на выборку (массив) дискретных значений
  * @param sin_w Коэффициент Im(W)
@@ -36,14 +36,13 @@ using namespace std;
  * @param k Спектральный отсчёт (искомая гармоническая составляющая сигнала)
  * @return complex<double> Число в комплексной ортогональной форме
  */
-complex<double> hoertzel(double* X, double sin_w, double cos_w, uint8_t step, uint8_t num_cycle, uint8_t N, uint8_t k = 1u)
+complex<double> inline hoertzel(double* X, double sin_w, double cos_w, uint8_t step, uint8_t num_cycle, uint8_t N, uint8_t k = 1u)
 {
-	double u0, u1 = 0.0, u2 = 0.0; // Начальные приближения
+	double u0{}, u1{}, u2{}; // Начальные приближения
 
-	complex<double> Y;
+	complex<double> Y{};
 
-	for (uint8_t n = 0; n < N; n++) 
-	{
+	for (uint8_t n = 0; n < N; n++) {
 		u0 = X[n] + 2.0 * cos_w * u1 - u2;
 	 	u2 = u1;
 	 	u1 = u0;
@@ -51,10 +50,10 @@ complex<double> hoertzel(double* X, double sin_w, double cos_w, uint8_t step, ui
 
 	if (k == 0) 
 		Y = complex<double>((cos_w * u1 - u2), (sin_w * u1));
-	else
+	else // С учётом сдвига ДПФ
 		Y = complex<double>(-2.0 * (sin_w * u1), 2.0 * (cos_w * u1 - u2));
 
-	Y /= static_cast<double>(N);
+	Y /= static_cast<double>(N);	// Корректировка результата ДПФ по амплитуде
 	Y *= std::exp(-1.0i * M_PI * 2.0 * static_cast<double>(step) / static_cast<double>(num_cycle));
 	
 	return Y;
@@ -70,7 +69,8 @@ complex<double> hoertzel(double* X, double sin_w, double cos_w, uint8_t step, ui
  * @param U1ph2 Напряжение фазы С (А, В)
  * @return complex<double> Мощность фазы А (В, С)
  */
-inline complex<double> power(complex<double> I1ph0, complex<double> U1ph1, complex<double> U1ph2) {
+inline complex<double> power(complex<double> I1ph0, complex<double> U1ph1, complex<double> U1ph2) 
+{
     return (U1ph1 - U1ph2) * 1.0i * conj(I1ph0); // S1ph0
 }
 
@@ -81,7 +81,8 @@ inline complex<double> power(complex<double> I1ph0, complex<double> U1ph1, compl
  * @param U0 Напряжение нулевой последовательности
  * @return complex<double> Мощность нулевой последовательности
  */
-inline complex<double> power(complex<double> I0, complex<double> U0) {
+inline complex<double> power(complex<double> I0, complex<double> U0) 
+{
 	return U0 * conj(I0); // S0
 }
 
@@ -95,15 +96,17 @@ inline complex<double> power(complex<double> I0, complex<double> U0) {
  * @return complex<double> Междуфазное сопротивление
  */
 inline complex<double> distance(complex<double> U1ph0, complex<double> U1ph1, 
-								complex<double> I1ph0, complex<double> I1ph1) {
+								complex<double> I1ph0, complex<double> I1ph1) 
+{
     return (U1ph0 - U1ph1) / (I1ph0 - I1ph1); // Z1ph0ph1
 }
 //* Functions end ----------------------------------------------------------------------------------
 
-class SR_auto_ctl : public SR_calc_proc {
+class SR_auto_ctl : public SR_calc_proc 
+{
 private:
 	///*++++++++++++++++++++++++++ Объявление основных переменных алгоритма ++++++++++++++++++++++
-	//! Объявление входов (данные, пришедшие извне)
+	//! Объявление входов (данные, пришедшие извне; должны подключаться к выходам других алгоритмов)
 	// Токи
 	float *in_val_I	[3][HBuffSize];
 	string in_name_I[3][HBuffSize];
@@ -111,17 +114,17 @@ private:
 	float *in_val_U	[3][HBuffSize];	
 	string in_name_U[3][HBuffSize];
 
-	//! Объявление выходов (должны подключаться на входы другого алгоритма!)
+	//! Объявление выходов (могут подключаться на входы другого алгоритма)	
 	//* Прямая последовательность
-	// Ортогональные составляющие тока и напряжения прямой последовательности
+	// Ортогональные составляющие тока и напряжения
 	float *out_val_re_I1  [3], 	*out_val_im_I1  [3];
 	float *out_val_re_U1  [3], 	*out_val_im_U1  [3];
-	// Модуль и аргумент тока и напряжения прямой последовательности
+	// Модуль и аргумент тока и напряжения
 	float *out_val_abs_I1 [3], 	*out_val_arg_I1 [3];
 	float *out_val_abs_U1 [3], 	*out_val_arg_U1 [3];
-	// Ортогональные составляющие мощности прямой последовательности
+	// Ортогональные составляющие мощности 
 	float *out_val_re_S1  [3], 	*out_val_im_S1  [3];
-	// Модуль и аргумент мощности прямой последовательности
+	// Модуль и аргумент мощности 
 	float *out_val_abs_S1 [3], 	*out_val_arg_S1 [3];
 	// Имена переменных
 	string out_name_re_I1 [3], 	 out_name_im_I1 [3];
@@ -132,39 +135,33 @@ private:
 	string out_name_abs_S1[3], 	 out_name_arg_S1[3];
 
 	//* Нулевая последовательность
-	// Ортогональные составляющие тока и напряжения нулевой последовательности
+	// Ортогональные составляющие тока и напряжения
 	float *out_val_re_3I0, 		*out_val_im_3I0;
 	float *out_val_re_3U0, 		*out_val_im_3U0;
-	// Модуль и аргумент тока и напряжения прямой последовательности
+	// Модуль и аргумент тока и напряжения 
 	float *out_val_abs_3I0, 	*out_val_arg_3I0;
 	float *out_val_abs_3U0, 	*out_val_arg_3U0;
+	// Мощность
+	float *out_val_re_S0, 		*out_val_im_S0;
+	float *out_val_abs_S0, 		*out_val_arg_S0;
 	// Имена переменных
 	string out_name_re_3I0,	 	 out_name_im_3I0;
 	string out_name_re_3U0,	 	 out_name_im_3U0;
 	string out_name_abs_3I0,  	 out_name_arg_3I0;
 	string out_name_abs_3U0,  	 out_name_arg_3U0;
-	// Мощность нулевой последовательности
-	float *out_val_re_S0, 		*out_val_im_S0;
-	float *out_val_abs_S0, 		*out_val_arg_S0;
 	string out_name_re_S0, 	 	 out_name_im_S0;
 	string out_name_abs_S0, 	 out_name_arg_S0;
 
 	//! Объявление настроек (уставки, используемые внутри этого алгоритма)
-
+	//? Уставки отсутствуют
 	//*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 	//* Объявляение вспомогательных переменных алгоритма 
-	double *I_data[3], *U_data[3];		// Буферы для хранения точек режима
+	double 	I_data[3][N]{}, 	///< Буферы для хранения токовых точек режима
+			U_data[3][N]{};		///< Буферы для хранения напряженческих точек режима
 
 public:
-	/**
-	 * @details Выполнятся объявляение входов и выходов
-	 * 
-	 * @param block_name 
-	 */
 	SR_auto_ctl(const char* block_name);
-
-	/// @brief Destructor
 	~SR_auto_ctl();
 
 	/**
@@ -177,21 +174,16 @@ public:
 	void calc();
 };
 
-SR_auto_ctl::SR_auto_ctl(const char* block_name) {
+SR_auto_ctl::SR_auto_ctl(const char* block_name) 
+{
 	proc_name = "alg_DSP";		// Имя алгоритма (дальше это имя и видно в системе)
 	calc_period = MEMS_PERIOD;	// Период обсчета функции в миллисекундах (PRINT_PERIOD - алгорим редко обсчитывается)
 	
-	//* Выделение памяти вспомогательных переменных
-	for (uint8_t i = 0; i < 3; i++) {
-		I_data[i] = new double[N] {};	U_data[i] = new double[N] {};
-	}
-
 	//*++++++++++++++++++++++++++ Выделение памяти входов-выходов и настроек ++++++++++++++++++++++++++
 	//(Место для выделения пользовательских переменных алгоритма)
 	//! Входные переменные: алгорим запросит входные переменные у других алгоримов по именам, указанным в кавычках
 	for (uint8_t i = 0; i < 3; i++) 	// По фазам
-		for (uint8_t j = 0; j < HBuffSize; j++)	// По точкам
-		{
+		for (uint8_t j = 0; j < HBuffSize; j++)	{	// По точкам
 			string suffix = string(1, static_cast<char>('A' + i));
 			
 			in_name_I[i][j] = "i" + suffix + "(" + std::to_string(j) + ")";		make_in(&(in_val_I[i][j]), in_name_I[i][j].c_str());
@@ -202,49 +194,43 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name) {
 	for (uint8_t i = 0; i < 3; i++)	{
 		string suffix = string(1, static_cast<char>('A' + i));
 
-		out_name_re_I1 [i] = "re_I1_"  + suffix;		make_out(&(out_val_re_I1 [i]), out_name_re_I1 [i].c_str());
-		out_name_im_I1 [i] = "im_I1_"  + suffix;		make_out(&(out_val_im_I1 [i]), out_name_im_I1 [i].c_str());
-		out_name_abs_I1[i] = "abs_I1_" + suffix;		make_out(&(out_val_abs_I1[i]), out_name_abs_I1[i].c_str());
-		out_name_arg_I1[i] = "arg_I1_" + suffix;		make_out(&(out_val_arg_I1[i]), out_name_arg_I1[i].c_str());
+		out_name_re_I1 [i] = "re_I1_"  + suffix;	make_out(&(out_val_re_I1 [i]), out_name_re_I1 [i].c_str());
+		out_name_im_I1 [i] = "im_I1_"  + suffix;	make_out(&(out_val_im_I1 [i]), out_name_im_I1 [i].c_str());
+		out_name_abs_I1[i] = "abs_I1_" + suffix;	make_out(&(out_val_abs_I1[i]), out_name_abs_I1[i].c_str());
+		out_name_arg_I1[i] = "arg_I1_" + suffix;	make_out(&(out_val_arg_I1[i]), out_name_arg_I1[i].c_str());
 
-		out_name_re_U1 [i] = "re_U1_"  + suffix;		make_out(&(out_val_re_U1 [i]), out_name_re_U1 [i].c_str());
-		out_name_im_U1 [i] = "im_U1_"  + suffix;		make_out(&(out_val_im_U1 [i]), out_name_im_U1 [i].c_str());
-		out_name_abs_U1[i] = "abs_U1_" + suffix;		make_out(&(out_val_abs_U1[i]), out_name_abs_U1[i].c_str());
-		out_name_arg_U1[i] = "arg_U1_" + suffix;		make_out(&(out_val_arg_U1[i]), out_name_arg_U1[i].c_str());
+		out_name_re_U1 [i] = "re_U1_"  + suffix;	make_out(&(out_val_re_U1 [i]), out_name_re_U1 [i].c_str());
+		out_name_im_U1 [i] = "im_U1_"  + suffix;	make_out(&(out_val_im_U1 [i]), out_name_im_U1 [i].c_str());
+		out_name_abs_U1[i] = "abs_U1_" + suffix;	make_out(&(out_val_abs_U1[i]), out_name_abs_U1[i].c_str());
+		out_name_arg_U1[i] = "arg_U1_" + suffix;	make_out(&(out_val_arg_U1[i]), out_name_arg_U1[i].c_str());
 
-		out_name_re_S1 [i] = "re_S1_"  + suffix;		make_out(&(out_val_re_S1 [i]), out_name_re_S1 [i].c_str());
-		out_name_im_S1 [i] = "im_S1_"  + suffix;		make_out(&(out_val_im_S1 [i]), out_name_im_S1 [i].c_str());
-		out_name_abs_S1[i] = "abs_S1_" + suffix;		make_out(&(out_val_abs_S1[i]), out_name_abs_S1[i].c_str());
-		out_name_arg_S1[i] = "arg_S1_" + suffix;		make_out(&(out_val_arg_S1[i]), out_name_arg_S1[i].c_str());
+		out_name_re_S1 [i] = "re_S1_"  + suffix;	make_out(&(out_val_re_S1 [i]), out_name_re_S1 [i].c_str());
+		out_name_im_S1 [i] = "im_S1_"  + suffix;	make_out(&(out_val_im_S1 [i]), out_name_im_S1 [i].c_str());
+		out_name_abs_S1[i] = "abs_S1_" + suffix;	make_out(&(out_val_abs_S1[i]), out_name_abs_S1[i].c_str());
+		out_name_arg_S1[i] = "arg_S1_" + suffix;	make_out(&(out_val_arg_S1[i]), out_name_arg_S1[i].c_str());
 	}
 
-	out_name_re_3I0  = "re_3I0";		make_out(&out_val_re_3I0, out_name_re_3I0.c_str());
-	out_name_im_3I0  = "im_3I0";		make_out(&out_val_im_3I0, out_name_im_3I0.c_str());
-	out_name_abs_3I0 = "abs_3I0";		make_out(&out_val_abs_3I0, out_name_abs_3I0.c_str());
-	out_name_arg_3I0 = "arg_3I0";		make_out(&out_val_arg_3I0, out_name_arg_3I0.c_str());
+	out_name_re_3I0  = "re_3I0";	make_out(&out_val_re_3I0, out_name_re_3I0.c_str());
+	out_name_im_3I0  = "im_3I0";	make_out(&out_val_im_3I0, out_name_im_3I0.c_str());
+	out_name_abs_3I0 = "abs_3I0";	make_out(&out_val_abs_3I0, out_name_abs_3I0.c_str());
+	out_name_arg_3I0 = "arg_3I0";	make_out(&out_val_arg_3I0, out_name_arg_3I0.c_str());
 
-	out_name_re_3U0  = "re_3U0";		make_out(&out_val_re_3U0, out_name_re_3U0.c_str());
-	out_name_im_3U0  = "im_3U0";		make_out(&out_val_im_3U0, out_name_im_3U0.c_str());
-	out_name_abs_3U0 = "abs_3U0";		make_out(&out_val_abs_3U0, out_name_abs_3U0.c_str());
-	out_name_arg_3U0 = "arg_3U0";		make_out(&out_val_arg_3U0, out_name_arg_3U0.c_str());
+	out_name_re_3U0  = "re_3U0";	make_out(&out_val_re_3U0, out_name_re_3U0.c_str());
+	out_name_im_3U0  = "im_3U0";	make_out(&out_val_im_3U0, out_name_im_3U0.c_str());
+	out_name_abs_3U0 = "abs_3U0";	make_out(&out_val_abs_3U0, out_name_abs_3U0.c_str());
+	out_name_arg_3U0 = "arg_3U0";	make_out(&out_val_arg_3U0, out_name_arg_3U0.c_str());
 
-	out_name_re_S0  = "re_S0";			make_out(&out_val_re_S0, out_name_re_S0.c_str());
-	out_name_im_S0  = "im_S0";			make_out(&out_val_im_S0, out_name_im_S0.c_str());
-	out_name_abs_S0 = "abs_S0";			make_out(&out_val_abs_S0, out_name_abs_S0.c_str());
-	out_name_arg_S0 = "arg_S0";			make_out(&out_val_arg_S0, out_name_arg_S0.c_str());
+	out_name_re_S0  = "re_S0";		make_out(&out_val_re_S0, out_name_re_S0.c_str());
+	out_name_im_S0  = "im_S0";		make_out(&out_val_im_S0, out_name_im_S0.c_str());
+	out_name_abs_S0 = "abs_S0";		make_out(&out_val_abs_S0, out_name_abs_S0.c_str());
+	out_name_arg_S0 = "arg_S0";		make_out(&out_val_arg_S0, out_name_arg_S0.c_str());
 
 	//! Настройки: по именам, указанным в кавычках, значения вычитываются из файла настроек; цифрой задается значение по умолчанию, если такого файла нет		
 	//(Сигнатура: имя внутри алгоритма - внешнее имя - уставка по умолчанию (пользовательская задаётся в INI-файле))
 	//*++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
-SR_auto_ctl::~SR_auto_ctl() {
-	//TODO Проверить правильность
-	for (auto ptr : I_data)
-		delete ptr;
-	for (auto ptr : U_data)
-		delete ptr;
-}
+SR_auto_ctl::~SR_auto_ctl() {}
 
 void SR_auto_ctl::calc()
 {
@@ -254,8 +240,8 @@ void SR_auto_ctl::calc()
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
 	// FIFO-цикл: осуществляется сдвиг расчётной выборки
-	for (uint8_t i = 0; i < 3; i++)
-		for (uint8_t j = 0; j < N - HBuffSize; j++) {
+	for (uint8_t i = 0; i < 3; ++i)
+		for (uint8_t j = 0; j < N - HBuffSize; ++j) {
 			I_data[i][j] = I_data[i][j + HBuffSize];		
 			U_data[i][j] = U_data[i][j + HBuffSize];
 		}
@@ -267,10 +253,12 @@ void SR_auto_ctl::calc()
 			U_data[i][j] = *(in_val_U[i][j - j0]);
 		}
 	}
+
+	//* Формирование сравниваемых величин
 	// Запись токовых и напряженческих выходов
 	complex<double> result_I1[3] {}, result_U1[3] {};
 	static uint8_t step {};
-	for (uint8_t i = 0; i < 3u; i++) {
+	for (uint8_t i = 0; i < 3u; ++i) {
 		result_I1[i] = hoertzel(I_data[i], sin_w, cos_w, step, NUM_CYCLE, N, k); // k = 1
 		*(out_val_re_I1 [i]) = static_cast<float>(result_I1[i].real());
 		*(out_val_im_I1 [i]) = static_cast<float>(result_I1[i].imag());
@@ -299,7 +287,7 @@ void SR_auto_ctl::calc()
 	
 	// Запись выходов мощности
 	complex<double> result_S1, result_S0;
-	for (uint8_t i = 0; i < 3u; i++) {
+	for (uint8_t i = 0; i < 3u; ++i) {
 		result_S1 = power(result_I1[i], result_U1[(i+1)%3], result_U1[(i+2)%3]);
 		*(out_val_re_S1 [i]) = static_cast<float>(result_S1.real());
 		*(out_val_im_S1 [i]) = static_cast<float>(result_S1.imag());
@@ -324,13 +312,13 @@ void SR_auto_ctl::calc()
 	printf("------------|--------------------------|-------------------------|\n");
 	time += 1.0 / (NUM_CYCLE * FREQ_N);
 	++step_num;   ++step %= NUM_CYCLE;
-	for (uint8_t i = 0; i < 3u; i++) {
+	for (uint8_t i = 0; i < 3u; ++i) {
 		string print_name = "U1_" + string(1, static_cast<char>('A' + i));
 		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_U1 [i]), *(out_val_im_U1 [i]), 
 		*(out_val_abs_U1[i]), *(out_val_arg_U1[i]) * 180.0f * M_1_PI);
 	}
-	for (uint8_t i = 0; i < 3u; i++) {
+	for (uint8_t i = 0; i < 3u; ++i) {
 		string print_name = "I1_" + string(1, static_cast<char>('A' + i));
 		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_I1 [i]), *(out_val_im_I1 [i]), 
@@ -348,7 +336,7 @@ void SR_auto_ctl::calc()
 		*(out_val_re_3I0), *(out_val_im_3I0), 
 		*(out_val_abs_3I0), *(out_val_arg_3I0) * 180.0f * M_1_PI);
 	}
-	for (uint8_t i = 0; i < 3u; i++) {
+	for (uint8_t i = 0; i < 3u; ++i) {
 		string print_name = "S1_" + string(1, static_cast<char>('A' + i));
 		printf("%s        | %10.3f + %10.3fj | %10.3f|_%10.3f\u00B0 |\n", print_name.c_str(),
 		*(out_val_re_S1 [i]), *(out_val_im_S1 [i]), 
@@ -365,16 +353,16 @@ void SR_auto_ctl::calc()
 }
 
 //	Запускается при старте расчётного модуля
-//	LIB_EXPORT - метка, котораЯ говорит, что мы экспортируем наружу имена переменных
+//	LIB_EXPORT - метка, которая говорит, что мы экспортируем наружу имена переменных
 //	Выдаёт указатель на класс, имя файла (INI), по которому можно уставки прочитать
-LIB_EXPORT	SR_calc_proc* GetCalcClass(const char* block_name,char* file_name)	
+LIB_EXPORT	SR_calc_proc* GetCalcClass(const char* block_name, char* file_name)	
 {
 	// Создаётся экземпляр класса SR_calc_proc (приведение к родительскому классу!)
 	// Выделяется память под входы, выходы и константы, что важно в методе `SR_calc_proc::Reg_vars` при использовании векторов `const_name_list` и пр.
-	SR_calc_proc*	p_Class = (SR_calc_proc*)(new SR_auto_ctl(block_name));
+	SR_calc_proc *p_Class = dynamic_cast<SR_calc_proc*>(new SR_auto_ctl(block_name));
 	// Убирает тип (.so) из имени файла
 	int ext_index = (int)(strstr(file_name, ".so") - file_name); // Сохранение позиции подстроки ".so" (если таковая найдена)
-	p_Class->file_name[0] = 0; // Первый символ строки `file_name` устанавливается `0`, то указывает на конец троки в C/C++,
+	p_Class->file_name[0] = 0; // Первый символ строки `file_name` устанавливается `0`, что указывает на конец троки в C/C++,
 	// т.о. выполняется очистка `p_Class->file_name` (подстраховка)
 	strncat(p_Class->file_name, file_name, ext_index); // Запись имени файла без типа (.so) в `p_Class->file_name`
 	strcat(p_Class->file_name, ".ini"); // Добавление ".ini" с конца строки `p_Class->file_name`
