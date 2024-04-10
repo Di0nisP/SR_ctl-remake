@@ -1,4 +1,5 @@
 # SR_ctl
+
 ## Description
 Distributed control system framework for robotics
 
@@ -12,5 +13,15 @@ Different .so algorithms are linked by variables transmission. Each algorithm ha
 Output value form one algorithm transmits to another algorithm input if names of the input and output correspond one to each other.
 
 Algorithms work with constant period on each device. Algorithms work one after other.
+
+## Описание
+Платформа распределенной системы управления для робототехники
+
+SR_ctl - это платформа для распределенной системы управления для робототехники.
+
+Платформа позволяет собирать системы управления из множества конечных устройств, объединенных сетью Ethernet.
+Система управления основана на интерфейсе передачи сообщений (MPI).
+Алгоритмы системы управления реализованы в виде файлов .so, которые компилируются из файлов C++, созданных по специальному шаблону.
+
 ## Решение возможных проблем
-В случае возникновения "непонятных" ошибок следует удалить INI-файлы. 
+В случае возникновения ошибок при добавлении или изменении алгоритмов следует удалить INI-файлы. 
