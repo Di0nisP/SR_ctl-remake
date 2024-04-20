@@ -18,6 +18,10 @@ component "ПО+ЛО" as alg_2_triggers {
 
 component "Формирователь\nпротокола" as alg_3_log
 
+component "Осциллограф" as alg_4_osc
+note "Это медленный алгоритм:\nзапускается каждые 1/2 с" as N1
+N1 ... alg_4_osc
+
 Timers -- StartingElements
 
 (Файл\nвходных\nданных) -r-> FileReader
@@ -29,5 +33,7 @@ alg_2_triggers --> alg_3_log
 
 alg_3_log -> (Файл\nвыходных\nданных)
 note top of (Файл\nвыходных\nданных) : Дискретизированные\nвыборки\nтоков и напряжений\n+ параметры работы\nалгоритмов
+
+(Файл\nвыходных\nданных) .> alg_4_osc 
 
 @enduml
