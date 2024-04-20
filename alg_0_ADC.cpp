@@ -1,12 +1,20 @@
 ﻿/**
  * @file alg_ADC.cpp
- * @author Di0nisP ()
+ * @author Di0nisP (GitHub)
  * @brief Блок-эмулятор АЦП
  * @version 0.1
  * @date 2024-02-17
  * 
- * Данный алгоритм позволяет генерировать или считывать из CSV-файла предварительно сгенерированный режим
- * и затем передавать пакеты данных на вход алгоритма ЦОС
+ * Данный алгоритм позволяет:
+ * 1. Генерировать синусоидальные выборки с помощью класса \c Opmode ; \n
+ * 2. Считывать из текстового файла предварительно сгенерированный режим
+ * с помощью класса \c FileReader ; \n
+ * 3. Считывать из COMTRADE-файлов данные по аналоговым и дискретным каналам
+ * с помощью класса \c ComtradeDataReader . \n
+ * 
+ * Считываемые или генерируемые данные формируют пакеты данных, 
+ * которые затем будут переданы входы других алгоритмов 
+ * (алгоритма ЦОС, в частности)
  * 
  * @copyright Copyright (c) 2024
  * 
@@ -17,15 +25,11 @@
 
 //* User defines begin ------------------------------------------------------------------
 // Параметры входного сигнала
-//#define FREQ_S 			4000.0f ///< Частота дискретизации АЦП
-//#define FREQ_N 			50.1f 	///< Номинальная частота сети
-//#define NUM_CYCLE 		4u		///< Число тактов расчёта МУРЗ на периоде номинальной частоты
+//? Для генерации режима
 #define PHASE_A 		0.0f	///< Угол фазы А, рад
 #define PHASE_B  		2.0943951023931954923084289221863
 #define PHASE_C 	   -2.0943951023931954923084289221863
 #define FAULT_TIME 		2.0f	///< Время изменения режима, с
-
-//const uint8_t HBuffSize = FREQ_S / FREQ_N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
 //* User defines end --------------------------------------------------------------------
 
 //* User macros begin -----------------------------------------------------------------------------------
@@ -67,15 +71,14 @@ public:
 	* Данная функция позволяет получить синусоидальный сигнал,
 	* сдвинутый по фазе, с фиксированным изменением амлитуды в момент времени аварии.
 	* 
-	* @param fault_time Время аварии
-	* @param phase Фаза сигнала
+	* @param [in] fault_time Время аварии
+	* @param [in] phase Фаза сигнала
 	* @return float* Указатель на массив значений на такте
  	*/
 	float* function_opmode_example(uint8_t HBuffSize, float F, float fault_time, 
 	float magnitude_1, float phase_1, float magnitude_2, float phase_2)
 	{
-		for (uint8_t i = 0; i < HBuffSize; i++)
-		{
+		for (uint8_t i = 0; i < HBuffSize; i++) {
 			if (time < fault_time)
 				out_array[i] = magnitude_1 * sin(2.0 * M_PI * F * time + phase_1);
 			////	out_array[i] = 10.0f + time < 11.0f ? 10.0f + time : 11.0f;
@@ -602,12 +605,12 @@ SR_auto_ctl::SR_auto_ctl(const char* block_name)
 	calc_period = MEMS_PERIOD;	// Период обсчета функции в миллисекундах (MEMS_PERIOD - алгорим обсчитывается часто)
 
 	//* Выделение памяти вспомогательных переменных
-	for (uint8_t i = 0; i < 3; i++)
-	{
+    //? Цикл для получении режима с помощью класса Opmode
+	/*for (uint8_t i = 0; i < 3; i++)	{
 		// Массивы расчётных данных инициализированы нулями
-		gI[i] = new Opmode(HBuffSize);    gU[i] = new Opmode(HBuffSize); //TODO Cтроки нужны при получении режима с помощью класса Opmode
-	}
-
+		gI[i] = new Opmode(HBuffSize);    gU[i] = new Opmode(HBuffSize); 
+	}//*/
+    
     string file_path = "./osc/input/K11-K1-K3/", file_name = "K11-K1-K3";
 	data = new ComtradeDataReader(file_path + file_name);
 
@@ -647,7 +650,7 @@ SR_auto_ctl::~SR_auto_ctl()
 void SR_auto_ctl::calc()
 {
 	//! Алгоритмы не работают, если нет полного подключения выходы-входы
-	if(!ready_proc)	return; // `ready_proc` говорит о том, что все выходы подцеплены ко всем входам
+	if(!ready_proc)	return; // `ready_proc` говорит о том, что все входы алгоритма подцеплены выходам
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	//! Формирование выходных значений
@@ -688,9 +691,9 @@ void SR_auto_ctl::calc()
         //* Чтение режима из файла
         std::string file_path = "./op_mode/data_K1.csv";
     //	std::string file_path = "./op_mode/data_K3.csv";
-    //	std::string file_path = "../test_file_read/fault_1.csv"; //TODO Убрать 1000 или заменить на коэф. трансформации
+    //	std::string file_path = "../test_file_read/fault_1.csv";
     //	std::string file_path = "../test_file_read/folder/data_Ia.csv";
-        //TODO Возможно, стоит добавить в сигнатуру коэффициент трансформации
+        //TODO Стоит добавить в сигнатуру коэффициент трансформации
     /*  rU[0].read(file_path, "Ua", U_data[0], 1, ',');
         rU[1].read(file_path, "Ub", U_data[1], 1, ',');
         rU[2].read(file_path, "Uc", U_data[2], 1, ',');

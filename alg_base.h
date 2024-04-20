@@ -81,13 +81,15 @@
 #endif
 //* User macros end ---------------------------------------------------------------------
 
-const uint8_t N = FREQ_S / FREQ_N;
+const uint8_t N = FREQ_S / FREQ_N;			///< Число точек периоде (Fn = 50, Fs = 4000)
 const uint8_t HBuffSize = N / NUM_CYCLE; 	///< Число точек на такте расчёта (Fn = 50, Fs = 4000)
 	
 /**
  * @brief Класс-продукт
  * 
- * Определяет общий функционал объектов, которые может произвести создатель и его подклассы.
+ * Определяет общий функционал объектов, 
+ * которые может произвести Создатель \c SR_ctl_type 
+ * и его подклассы (если они имеются).
  * 
  */
 class SR_calc_proc {
@@ -143,10 +145,33 @@ protected:
 	 */
 	void make_out  (float** pp_val, const char* var_name);
 	
-	// Расширенный (не реализованный) функционал, предполагающий возможность использования составных имён
+	/**
+	 * @brief Метод добавления информации о входах алгоритма
+	 * @warning Не реализованный функционал
+	 * 
+	 * Расширенный функционал, 
+	 * предполагающий возможность использования составных имён.
+	 * 
+	 * @param [in] pp_val Адрес указателя на значение
+	 * @param [in] var_name_part1 
+	 * @param [in] var_name_part2 
+	 * @param [in] var_name_part3 
+	 */
 	void make_in   (float** pp_val, const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
+
+	/**
+	 * @brief Метод добавления информации о выходах алгоритма
+	 * @warning Не реализованный функционал
+	 * 
+	 * Расширенный функционал, 
+	 * предполагающий возможность использования составных имён.
+	 * 
+	 * @param [in] pp_val Адрес указателя на значение
+	 * @param [in] var_name_part1 
+	 * @param [in] var_name_part2 
+	 * @param [in] var_name_part3 
+	 */
 	void make_out  (float** pp_val, const char* var_name_part1,const char* var_name_part2,const char* var_name_part3);
-	void make_out  (float** pp_val, const char* var_name_part1,const char* var_name_part2,const char* var_name_part3,const char* var_name_part4);	
 
 public:
 	 SR_calc_proc();

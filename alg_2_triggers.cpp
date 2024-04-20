@@ -1,6 +1,6 @@
 ﻿/**
  * @file alg_triggers.cpp
- * @author Di0nisP ()
+ * @author Di0nisP (GitHub)
  * @brief Блок пусковых (измерительных) органов алгоритмов РЗА
  * @version 0.1
  * @date 2024-02-17
@@ -534,7 +534,7 @@ SR_auto_ctl::~SR_auto_ctl()
 void SR_auto_ctl::calc()
 {
 	//! Алгоритмы не работают, если нет полного подключения выходы-входы
-	if(!ready_proc)	return; // `ready_proc` говорит о том, что все выходы подцеплены ко всем входам
+	if(!ready_proc)	return; // `ready_proc` говорит о том, что все входы алгоритма подцеплены выходам
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
 	for (auto obj : protection_elements)

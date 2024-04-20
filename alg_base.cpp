@@ -130,7 +130,7 @@ void SR_calc_proc::make_in(float** pp_val, const char* var_name) {
 void SR_calc_proc::make_in(float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3) {
 	string* p_var_str = new string("");	*p_var_str+=var_name_part1;	*p_var_str+=var_name_part2;	*p_var_str+=var_name_part3;
 	const char* var_name=(*p_var_str).c_str();
-	*pp_val = nullptr;	
+	*pp_val=NULL;	
 	vector<const char*> *p_in_name		= (vector<const char*> *)	in_name_list;	(*p_in_name).push_back(var_name);
 	vector<float**>      *p_in_val_p	= (vector<float**> *)		in_val_pp_list;	(*p_in_val_p).push_back(pp_val);
 }
@@ -145,15 +145,6 @@ void SR_calc_proc::make_out(float** pp_val,const char* var_name_part1,const char
 	string* p_var_str = new string("");	*p_var_str+=var_name_part1;	*p_var_str+=var_name_part2;	*p_var_str+=var_name_part3;
 	const char* var_name=(*p_var_str).c_str();
 	*pp_val=NULL;
-	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//имя выхода 
-	vector<float**>      *p_out_val_p	= (vector<float**> *)		out_val_pp_list;	(*p_out_val_p).push_back(pp_val);	
-}
-
-void SR_calc_proc::make_out(float** pp_val,const char* var_name_part1,const char* var_name_part2,const char* var_name_part3,const char* var_name_part4)
-{
-	string* p_var_str = new string("");	*p_var_str+=var_name_part1;	*p_var_str+=var_name_part2;	*p_var_str+=var_name_part3;	*p_var_str+=var_name_part4;
-	const char* var_name=(*p_var_str).c_str();
-	*pp_val=NULL;	
 	vector<const char*> *p_out_name		= (vector<const char*> *)	out_name_list;		(*p_out_name).push_back(var_name);	//имя выхода 
 	vector<float**>      *p_out_val_p	= (vector<float**> *)		out_val_pp_list;	(*p_out_val_p).push_back(pp_val);	
 }

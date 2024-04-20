@@ -7,7 +7,7 @@ d_plots = 5
 num_plots    = a_plots + d_plots                            # Число графиков на листе
 plot_height  = 300                                          # Устанавливаем высоту одного графика
 total_height = num_plots * plot_height                      # Рассчитываем общую высоту изображения
-total_width  = 6000                                         # Задаём ширину изображения
+total_width  = 6600                                         # Задаём ширину изображения
 
 # Установка параметров отображения
 # set terminal svg
@@ -70,7 +70,7 @@ start_mlt = d_plots - 0.7
 
 set size 1, 0.01
 set origin 0,(1.0/num_plots*(start_mlt - delta*0) )
-plot 'osc_result.csv' using 2:17 with lines title 'MEANDER' lc rgb 'cyan' lw 2
+plot 'osc_result.csv' using 2:17 with lines title '    MEANDER' lc rgb 'cyan' lw 2
 
 set size 1, 0.01
 set origin 0,(1.0/num_plots*(start_mlt - delta*1) )
