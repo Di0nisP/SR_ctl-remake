@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>SR_ctl: Файл C:/Users/yaami/Documents/GitHub/SR_ctl-remake/README.md</title>
+<title>SR_ctl: SR_ctl</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -71,11 +71,28 @@ $(function() {
 </div>
 
 </div><!-- top -->
-<div class="header">
-  <div class="headertitle"><div class="title">Файл C:/Users/yaami/Documents/GitHub/SR_ctl-remake/README.md</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">SR_ctl</div></div>
 </div><!--header-->
 <div class="contents">
-</div><!-- contents -->
+<div class="textblock"><p><a class="anchor" id="autotoc_md0"></a> </p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Description</h1>
+<p>Distributed control system framework for robotics</p>
+<p>SR_ctl is framework for distributed control system for robotics.</p>
+<p>The framework allows to assemble control systems from many end devices are joined by Ethernet network. The control system is based on Message Passing Interface (MPI). Control system algorithms are realized as .so files that compiled from C++ files produced by special template.</p>
+<p>Different .so algorithms are linked by variables transmission. Each algorithm has inputs and outputs. Output value form one algorithm transmits to another algorithm input if names of the input and output correspond one to each other.</p>
+<p>Algorithms work with constant period on each device. Algorithms work one after other.</p>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Описание</h1>
+<p>Платформа распределенной системы управления для робототехники</p>
+<p>SR_ctl - это платформа для распределенной системы управления для робототехники.</p>
+<p>Платформа позволяет собирать системы управления из множества конечных устройств, объединенных сетью Ethernet. Система управления основана на интерфейсе передачи сообщений (MPI). Алгоритмы системы управления реализованы в виде файлов .so, которые компилируются из файлов C++, созданных по специальному шаблону.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Решение возможных проблем</h1>
+<p>В случае возникновения ошибок при добавлении или изменении алгоритмов следует удалить INI-файлы. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.10.0

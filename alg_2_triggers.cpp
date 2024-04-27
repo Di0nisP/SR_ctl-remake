@@ -1,5 +1,5 @@
 ﻿/**
- * @file alg_triggers.cpp
+ * @file alg_2_triggers.cpp
  * @author Di0nisP (GitHub)
  * @brief Блок пусковых (измерительных) органов алгоритмов РЗА
  * @version 0.1
@@ -537,7 +537,7 @@ void SR_auto_ctl::calc()
 	if(!ready_proc)	return; // `ready_proc` говорит о том, что все входы алгоритма подцеплены выходам
 
 	//*++++++++++++++++++++++++ Место для пользовательского кода алгоритма +++++++++++++++++++++++++++
-	for (auto obj : protection_elements)
+	for (auto& obj : protection_elements)
 		obj->detect();	// Запуск в порядке агрегирования
 
 	for (size_t i = 0; i < 2; i++) {

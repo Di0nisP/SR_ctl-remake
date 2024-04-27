@@ -1,113 +1,59 @@
 @startuml simple_plus
 skinparam groupInheritance 4
 
-struct "Описание\nкоммутируемой\nпеременной" as link_var_discriptor {
-    +Индекс_в_буфере
-    +Значение_связи
+package node <<Node>> $node {
+    package SR_config <<Rectangle>> $SR_config {
+        struct "Описание\nкоммутируемой\nпеременной" as link_var_discriptor {
+
+        }
+        
+        class "Коммуникатор" as Link_MPI $Link_MPI {
+
+        }
+        
+        struct "Описание \nпеременной" as SR_var_descriptor $SR_var_descriptor {
+
+        }
+        
+        class "Посредник" as SR_var_list {
+
+        }
+        
+        class "Настройки" as SR_Settings $SR_Settings {
+
+        }
+    }
+
+    package alg_base <<Rectangle>> $alg_base {
+        abstract "Алгоритм" as SR_calc_proc $SR_calc_proc {
+
+        }
+    }
+
+    package SR_ctl <<Rectangle>> $SR_ctl {
+        class "Создатель" as SR_ctl_type $SR_ctl_type {
+
+        }
+    }
+
+    class "Алгоритм" as SR_auto_ctl $SR_auto_ctl {
+
+    }
 }
 
-class "Коммуникатор" as Link_MPI {
-    -Список_на_передачу
-    -Список_на_приём
-    +Буфер_на_передачу
-    +Буфер_на_приём
-    __
-    +Конструктор(...)
-    .. Прочие функции ..
-}
+SR_ctl_type o--> "0..*" Link_MPI
+SR_ctl_type *--> "1" SR_Settings
+SR_ctl_type o-r-> "0..*" SR_calc_proc : Агрегация\nалгоритмов
 
-struct "Описание \nпеременной" as SR_var_descriptor {
-    +Имя_переменной
-    +Имя_алгоритма
-    +Счётчик_использований
-    +Значение_связи
-}
+Link_MPI ..> link_var_discriptor
 
-class "Посредник" as SR_var_list {
-    -Список_входов
-    -Список_выходов
-    -Массив_значений_связей
-    +Конструктор()
-    +Деструктор()
-    +Регистрация_входов(...)
-    +Регистрация_выходов(...)
-    +Создание_связей(...)
-}
-note left of SR_var_list : Посредник заведует\nпортами и связями\nвсех алгоритмов
+SR_var_list ..> SR_var_descriptor
 
-class "Настройки" as SR_Settings {
-    +Список_переменных : Посредник*
-    +Конструктор()
-    +Деструктор()
-    +Поиск_алгоритмов(...)
-}
+SR_Settings *--> "1" SR_var_list
+SR_Settings .....> SR_calc_proc : Поиск\nалгоритмов
 
-abstract "Алгоритм" as SR_calc_proc {
-    #Список_входов
-    #Список_выходов
-    #Список_уставок
-    +Период_расчёта
-    +Имя_алгоритма
-    #Добавление_входа(...)
-    #Добавление_выхода(...)
-    #Добавление_уставки(...)
-    +Конструктор()
-    +Деструктор()
-    +Регистрация_переменных(...)
-    +{abstract}Расчёт()
-}
-note right of SR_calc_proc : Базовый \nфункционал \nалгоритмов
-note left of SR_calc_proc::Период_расчёта
-    Быстрый/медленный
-end note
+SR_var_list <.. SR_calc_proc : Регистрация\nпеременных
 
-class "Алгоритм" as SR_auto_ctl {
-    -Вход_1
-    -Вход_I
-    -Выход_1
-    -Выход_O
-    +Конструктор()
-    +Деструктор()
-    +{abstract}Расчёт()
-}
-note left of SR_auto_ctl::Конструктор()
-    Добавление входов, выходов и уставок
-end note
-note left of SR_auto_ctl::Расчёт()
-    Реализация расчётной процедуры
-end note
-note right of SR_auto_ctl : Расширенный \nфункционал \nалгоритмов
-
-class "Создатель" as SR_ctl_type {
-    +Настройки : Настройки*
-    +Список_алгоритмов
-    +Число_алгоритмов
-    +Конструктор()
-    +Деструктор()
-    +Инициализация()
-    +Работа()
-}
-note left of SR_ctl_type::Инициализация()
-    Регистрация переменных алгоритмов 
-    и создание связей
-end note
-note left of SR_ctl_type::Работа()
-    Запуск алгоритмов на выполнение
-    в порядке агрегации
-end note
-
-SR_ctl_type o-down- "0..*" Link_MPI
-Link_MPI .left.> link_var_discriptor
-
-SR_var_list .right.> SR_var_descriptor
-SR_ctl_type *-right-> "1" SR_Settings
-SR_Settings *-up-> "1" SR_var_list
-SR_Settings ..> SR_calc_proc : Поиск \nалгоритмов
-SR_ctl_type o--> "0..*" SR_calc_proc : Агрегация \nалгоритмов
-SR_var_list <.. SR_calc_proc : Регистрация \nпеременных
-
-SR_calc_proc <|-- SR_auto_ctl
-SR_calc_proc <|-- SR_auto_ctl
-SR_calc_proc <|-- SR_auto_ctl
+SR_calc_proc "0..*" <|-- SR_auto_ctl : Подключение\nпользовательских\nалгоритмов
 
 @enduml

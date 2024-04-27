@@ -1,13 +1,13 @@
 @startuml full_s
 
-package node <<Node>> {
-    package SR_config <<Rectangle>> {
+package node <<Node>> $node {
+    package SR_config <<Rectangle>> $SR_config {
         struct "Описание\nкоммутируемой\nпеременной" as link_var_discriptor {
-            + индекс_в_буфере
-            + значение_связи
+            + индекс_в_буфере : size_t
+            + значение_связи : float*
         }
         
-        class "Коммуникатор" as Link_MPI {
+        class "Коммуникатор" as Link_MPI $Link_MPI {
             - номер_узла : int
             - список_на_передачу : 
             std::vector<Описание коммутируемой переменной>*
@@ -20,11 +20,23 @@ package node <<Node>> {
             __
             + Конструктор(номер_узла : int)
             + Деструктор()
-
-            .. Прочие служебные функции ..
+            + получение_номера_узла() : int
+            + добавление_в_список_на_передачу(переменная : float*,
+            индекс_в_буфере : size_t) : void
+            + добавление_в_список_на_приём(переменная : float*,
+            индекс_в_буфере : size_t) : void
+            + установка_локального_порядка_выдачи() : void
+            + заполнение_буфера_на_передачу() : void
+            + заполнение_буфера_на_приём() : void
+            + выделение_буфера_на_передачу() : void
+            + выделение_буфера_на_приём() : void
         }
+        note right of Link_MPI::установка_локального_порядка_выдачи
+            Сортировка в порядке
+            возрастания индексов
+        end note
         
-        struct "Описание \nпеременной" as SR_var_descriptor {
+        struct "Описание \nпеременной" as SR_var_descriptor $SR_var_descriptor {
             + имя_переменной : const char*
             + имя_алгоритма : const char*
             + счётчик_использований : size_t
@@ -52,23 +64,23 @@ package node <<Node>> {
             + создание_связей() : void
         }
         note bottom of SR_var_list : Посредник заведует\nпортами и связями\nвсех алгоритмов
-        note left of SR_var_list::создание_связей
+        note right of SR_var_list::создание_связей
             Выделение памяти 
             под выходные переменные
             и связывание со входными
         end note
         
-        class "Настройки" as SR_Settings {
+        class "Настройки" as SR_Settings $SR_Settings {
             + список_локальных_переменных : Посредник*
-
+            __
             + Конструктор()
             + Деструктор()
             + поиск_алгоритмов(список_алгоритмов : Алгоритм***) : size_t
         }
     }
 
-    package alg_base <<Rectangle>> {
-        abstract "Алгоритм" as SR_calc_proc {
+    package alg_base <<Rectangle>> $alg_base {
+        abstract "Алгоритм" as SR_calc_proc $SR_calc_proc {
             # список_имён_уставок : std::vector<const char*>*
             # список_уставок : std::vector<float**>*
             # список_имён_входов : std::vector<const char*>*
@@ -87,9 +99,9 @@ package node <<Node>> {
             имя : const char*) : void
             + Конструктор()
             + Деструктор()
-            + регистрация_переменных(посредник : Посредник*) : int
-            .. Прочие функции для взаимодействия с алгоритмами ..
+            + регистрация_переменных(посредник : Посредник*) : int         
             + {abstract} расчёт() : void
+            .. Прочие функции для взаимодействия с алгоритмами ..
         }
         note right of SR_calc_proc : Базовый \nфункционал \nалгоритмов
         note left of SR_calc_proc::Конструктор()
@@ -106,14 +118,14 @@ package node <<Node>> {
         end note
     }
 
-    package SR_ctl <<Rectangle>> {
-        class "Создатель" as SR_ctl_type {
+    package SR_ctl <<Rectangle>> $SR_ctl {
+        class "Создатель" as SR_ctl_type $SR_ctl_type {
             - связи_MPI : Коммуникатор**
             - настройки : Настройки*
             - список_алгоритмов : Алгоритм**
             - фактическое_время_такта : double
             - число_найденных_алгоритмов : size_t
-
+            __
             + Конструктор()
             + Деструктор()
             + инициализация() : void
@@ -130,41 +142,56 @@ package node <<Node>> {
         end note
     }
 
-    class "Алгоритм" as SR_auto_ctl {
-        -Вход_1
-        -Вход_I
-        -Выход_1
-        -Выход_O
-        +Конструктор()
-        +Деструктор()
-        +{abstract}Расчёт()
+    class "Алгоритм" as SR_auto_ctl $SR_auto_ctl {
+        .. Входные переменные ..
+        - вход_0 : float*
+        - имя_входа_0 : const char*
+        ...
+        - вход_i : float*
+        - имя_входа_i : const char*
+        .. Выходные переменные ..
+        - выход_0 : float*
+        - имя_выхода_0 : const char*
+        ...
+        - выход_o : float*
+        - имя_выхода_o : const char*
+        .. Уставки ..
+        - уставка_0 : float*
+        - имя_уставки_0 : const char*
+        - начальное_значение_0 : float
+        ...
+        - уставка_s : float*
+        - имя_уставки_s : const char*
+        - начальное_значение_s : float
+        .. Пользовательские поля ..
+        __
+        + Конструктор()
+        + Деструктор()
+        + {abstract} расчёт() : void
+        .. Пользовательские функции ..
     }
+    note right of SR_auto_ctl : Расширенный \nфункционал \nалгоритмов
     note left of SR_auto_ctl::Конструктор()
         Добавление входов, выходов и уставок
     end note
     note left of SR_auto_ctl::расчёт()
         Реализация расчётной процедуры
     end note
-    note right of SR_auto_ctl : Расширенный \nфункционал \nалгоритмов
 }
-
-
-
 
 SR_ctl_type::связи_MPI o--> "0..*" Link_MPI
 SR_ctl_type::настройки *--> "1" SR_Settings
 SR_ctl_type::список_алгоритмов o--> "0..*" SR_calc_proc : Агрегация \nалгоритмов
 
 Link_MPI ..> link_var_discriptor
+
 SR_var_list ..> SR_var_descriptor
 
 SR_Settings *--> "1" SR_var_list
-SR_Settings::поиск_алгоритмов ..> SR_calc_proc : Поиск \nалгоритмов
+SR_Settings::поиск_алгоритмов .....> SR_calc_proc : Поиск \nалгоритмов
 
 SR_var_list <.. SR_calc_proc::регистрация_переменных : Регистрация \nпеременных
 
-SR_calc_proc <|-- SR_auto_ctl
-SR_calc_proc <|-- SR_auto_ctl
-SR_calc_proc <|-- SR_auto_ctl
+SR_calc_proc "0..*" <|-- SR_auto_ctl : Подключение пользовательских алгоритмов
 
 @enduml

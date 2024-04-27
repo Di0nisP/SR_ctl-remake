@@ -26,7 +26,7 @@ var searchData=
   ['skew_23',['skew',['../struct__analog_channels_info.html#a286c53e736c302f4b9c455d639e77ff0',1,'_analogChannelsInfo']]],
   ['sr_5fauto_5fctl_24',['SR_auto_ctl',['../class_s_r__auto__ctl.html',1,'SR_auto_ctl'],['../class_s_r__auto__ctl.html#ad6e7badceaff136798426edd63483e8c',1,'SR_auto_ctl::SR_auto_ctl(const char *block_name)'],['../class_s_r__auto__ctl.html#ad6e7badceaff136798426edd63483e8c',1,'SR_auto_ctl::SR_auto_ctl(const char *block_name)'],['../class_s_r__auto__ctl.html#ad6e7badceaff136798426edd63483e8c',1,'SR_auto_ctl::SR_auto_ctl(const char *block_name)'],['../class_s_r__auto__ctl.html#ad6e7badceaff136798426edd63483e8c',1,'SR_auto_ctl::SR_auto_ctl(const char *block_name)']]],
   ['sr_5fcalc_5fproc_25',['SR_calc_proc',['../class_s_r__calc__proc.html',1,'SR_calc_proc'],['../class_s_r__calc__proc.html#af8785ac6dc070a50e2febe101eaccc9e',1,'SR_calc_proc::SR_calc_proc()']]],
-  ['sr_5fctl_26',['SR_ctl',['../md__2home_2changeme_2_x_d0_x94_x_d0_x_b_e_x_d0_x_b_a_x_d1_x83_x_d0_x_b_c_x_d0_x_b5_x_d0_x_b_d_x_29f2e704d237d89e74444b239dacf615.html',1,'']]],
+  ['sr_5fctl_26',['SR_ctl',['../md__c_1_2_users_2yaami_2_documents_2_git_hub_2_s_r__ctl-remake_2_r_e_a_d_m_e.html',1,'']]],
   ['sr_5fctl_2ecpp_27',['SR_ctl.cpp',['../_s_r__ctl_8cpp.html',1,'']]],
   ['sr_5fctl_2eh_28',['SR_ctl.h',['../_s_r__ctl_8h.html',1,'']]],
   ['sr_5fctl_5fhosts_2etxt_29',['SR_ctl_hosts.txt',['../_s_r__ctl__hosts_8txt.html',1,'']]],

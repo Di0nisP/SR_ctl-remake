@@ -1,0 +1,116 @@
+@startuml alg_p
+skinparam BackgroundColor transparent
+skinparam componentStyle rectangle
+skinparam groupInheritance 2
+
+note "Быстрые алгоритмы запускаются каждые 1/200 с" as N0 $remove
+
+component "Эмулятор АЦП" as alg_0_ADC {
+    component "Чтение \nCSV" as FileReader $remove
+    component "Чтение \nCOMTRADE" as ComtradeDataReader
+    component "Генерация режима" as Opmode $remove
+
+    portout "I[3][20]"        as 0.out_val_I
+    portout "ovcp_ref[2][20]" as 0.out_val_ovcp_ref
+    portout "zscp_ref[2][20]" as 0.out_val_zscp_ref
+}
+
+ComtradeDataReader <-l- (Файл\nвходных\nданных)
+note left of (Файл\nвходных\nданных) : Дискретизированные выборки токов и напряжений\nи референтные значения состояний ПО
+
+0.out_val_I        <-- ComtradeDataReader
+0.out_val_ovcp_ref <-- ComtradeDataReader
+0.out_val_zscp_ref <-- ComtradeDataReader
+
+component "ЦОС" as alg_1_DSP {
+    component "Алгоритм Гёрцеля" as hoertzel
+    component "ФСВ" as compv
+
+    portin  "I[3][20]"    as 1.in_val_I
+
+    portout "re_I1[3]"    as 1.out_val_re_I1
+    portout "im_I1[3]"    as 1.out_val_im_I1
+    portout "abs_I1[3]"   as 1.out_val_abs_I1
+    portout "arg_I1[3]"   as 1.out_val_arg_I1
+    portout "re_I0"       as 1.out_val_re_I0
+    portout "im_I0"       as 1.out_val_im_I0
+    portout "abs_I0"      as 1.out_val_abs_I0
+    portout "arg_I0"      as 1.out_val_arg_I0
+}
+
+1.in_val_I <-u- 0.out_val_I
+
+hoertzel <-- 1.in_val_I
+
+compv <-r- hoertzel
+
+1.out_val_re_I1  <-- hoertzel
+1.out_val_im_I1  <-- hoertzel
+1.out_val_abs_I1 <-- hoertzel
+1.out_val_arg_I1 <-- hoertzel
+1.out_val_re_I0  <-- compv
+1.out_val_im_I0  <-- compv
+1.out_val_abs_I0 <-- compv
+1.out_val_arg_I0 <-- compv
+
+component "ПО+ЛО" as alg_2_triggers {
+    component "Таймеры" as Timers
+    component "ПО" as StartingElements {
+        component "МТЗ" as OvercurrentProtection
+        component "ТЗНП" as ZSCurrentProtection
+    }
+
+    portin  "re_I1[3]"    as 2.in_val_re_I1
+    portin  "im_I1[3]"    as 2.in_val_im_I1
+    portin  "abs_I1[3]"   as 2.in_val_abs_I1
+    portin  "arg_I1[3]"   as 2.in_val_arg_I1
+    portin  "re_I0"       as 2.in_val_re_I0
+    portin  "im_I0"       as 2.in_val_im_I0
+    portin  "abs_I0"      as 2.in_val_abs_I0
+    portin  "arg_I0"      as 2.in_val_arg_I0
+
+    portout "ovcp[2]"     as 2.out_val_ovcp
+    portout "zscp[2]"     as 2.out_val_zscp
+}
+
+2.in_val_re_I1  <-u- 1.out_val_re_I1 
+2.in_val_im_I1  <-u- 1.out_val_im_I1 
+2.in_val_abs_I1 <-u- 1.out_val_abs_I1
+2.in_val_arg_I1 <-u- 1.out_val_arg_I1
+2.in_val_re_I0  <-u- 1.out_val_re_I0 
+2.in_val_im_I0  <-u- 1.out_val_im_I0 
+2.in_val_abs_I0 <-u- 1.out_val_abs_I0
+2.in_val_arg_I0 <-u- 1.out_val_arg_I0
+
+StartingElements <-l- Timers
+
+OvercurrentProtection <-- 2.in_val_abs_I1
+ZSCurrentProtection <-- 2.in_val_abs_I0
+
+2.out_val_ovcp <-- OvercurrentProtection
+2.out_val_zscp <-- ZSCurrentProtection
+
+component "Формирователь\nпротокола" as alg_3_log {
+    portin  "I[3][20]"      as 3.in_val_I
+    portin  "abs_I1[3]"     as 3.in_val_abs_I1
+    portin  "abs_I0"        as 3.in_val_abs_I0
+    portin  "ovcp[2]"       as 3.in_val_ovcp
+    portin  "ovcp_ref[2]"   as 3.in_val_ovcp_ref
+    portin  "zscp[2]"       as 3.in_val_zscp
+    portin  "zscp_ref[2]"   as 3.in_val_zscp_ref
+}
+
+3.in_val_I        <-u- 0.out_val_I       
+3.in_val_abs_I1   <-u- 1.out_val_abs_I1  
+3.in_val_abs_I0   <-u- 1.out_val_abs_I0  
+3.in_val_ovcp     <-u- 2.out_val_ovcp    
+3.in_val_ovcp_ref <-u- 0.out_val_ovcp_ref
+3.in_val_zscp     <-u- 2.out_val_zscp    
+3.in_val_zscp_ref <-u- 0.out_val_zscp_ref
+
+(Файл\nвыходных\nданных) <-l- alg_3_log
+note top of (Файл\nвыходных\nданных) : Дискретизированные\nвыборки\nтоков и напряжений\n+ параметры работы\nалгоритмов
+
+remove $remove
+
+@enduml

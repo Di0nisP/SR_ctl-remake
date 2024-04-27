@@ -1,4 +1,5 @@
 @startuml simple+mpi
+skinparam BackgroundColor transparent
 skinparam groupInheritance 4
 
 class "Коммуникатор" as Link_MPI
@@ -11,7 +12,6 @@ note right of SR_calc_proc : Базовый \nфункционал \nалгор�
 class "Алгоритм" as SR_auto_ctl
 note right of SR_auto_ctl : Расширенный \nфункционал \nалгоритмов
 class "Создатель" as SR_ctl_type
-note "<color:white>Точка входа —</color>\n<font:monospaced><color:white>Создатель</color></font>" as N0 #7030a0
 
 SR_ctl_type o-up- "0..*" Link_MPI
 Link_MPI ..> link_var_discriptor

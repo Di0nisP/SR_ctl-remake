@@ -1,23 +1,23 @@
-<map id="/home/changeme/Документы/SR_ctl&#45;remake/alg_2_triggers.cpp" name="/home/changeme/Документы/SR_ctl&#45;remake/alg_2_triggers.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="295,5,538,45"/>
-<area shape="rect" id="Node000002" href="$alg__base_8h.html" title="Заголовочный файл с базовым функционалом алгоритмов" alt="" coords="371,93,463,119"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="419,46,419,79,414,79,414,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,167,73,192"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="371,117,246,138,87,169,86,164,246,133,370,112"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="97,167,176,192"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="372,121,190,167,189,162,371,116"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="201,167,267,192"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="388,121,278,164,276,159,386,116"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="292,167,363,192"/>
-<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="404,121,354,160,351,156,401,117"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="387,167,446,192"/>
-<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="419,119,419,153,414,153,414,119"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="471,167,544,192"/>
-<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="433,117,483,156,480,160,430,121"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="569,167,643,192"/>
-<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="448,116,563,159,561,164,446,121"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="667,167,758,192"/>
-<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="464,116,655,161,653,167,462,121"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="783,167,845,192"/>
-<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="464,111,597,132,770,164,769,169,596,137,463,116"/>
+<map id="C:/Users/yaami/Documents/GitHub/SR_ctl&#45;remake/alg_2_triggers.cpp" name="C:/Users/yaami/Documents/GitHub/SR_ctl&#45;remake/alg_2_triggers.cpp">
+<area shape="rect" id="Node000001" title="Блок пусковых (измерительных) органов алгоритмов РЗА" alt="" coords="293,5,475,64"/>
+<area shape="rect" id="Node000002" href="$alg__base_8h.html" title="Заголовочный файл с базовым функционалом алгоритмов" alt="" coords="342,112,426,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="387,64,387,96,381,96,381,64"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,187,67,213"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="342,137,228,158,82,189,81,183,227,152,341,131"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="90,187,161,213"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="342,141,176,187,175,182,341,136"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="185,187,245,213"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="356,142,259,183,257,178,353,137"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="269,187,334,213"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="371,141,329,178,325,174,368,137"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="357,187,411,213"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="387,139,387,171,381,171,381,139"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="435,187,499,213"/>
+<area shape="poly" id="edge7_Node000002_Node000008" title=" " alt="" coords="400,137,443,174,439,178,397,141"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="523,187,592,213"/>
+<area shape="poly" id="edge8_Node000002_Node000009" title=" " alt="" coords="415,137,514,178,512,183,413,142"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="616,187,696,213"/>
+<area shape="poly" id="edge9_Node000002_Node000010" title=" " alt="" coords="427,135,602,182,600,187,426,140"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="720,187,776,213"/>
+<area shape="poly" id="edge10_Node000002_Node000011" title=" " alt="" coords="427,130,549,151,706,184,705,189,548,156,426,136"/>
 </map>
