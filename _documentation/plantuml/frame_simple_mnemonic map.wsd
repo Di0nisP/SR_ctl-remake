@@ -1,4 +1,4 @@
-@startuml simple+mpi
+@startuml frame_simple_mnemonic map
 skinparam BackgroundColor transparent
 skinparam groupInheritance 4
 

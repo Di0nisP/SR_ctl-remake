@@ -1,4 +1,4 @@
-@startuml simple
+@startuml frame_simple_mnemonic map noMPI
 skinparam groupInheritance 4
 
 struct "Описание \nпеременной" as SR_var_descriptor

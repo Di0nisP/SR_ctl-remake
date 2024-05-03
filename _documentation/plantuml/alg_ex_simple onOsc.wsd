@@ -1,4 +1,4 @@
-@startuml alg
+@startuml alg_ex_simple onOsc
 skinparam BackgroundColor transparent
 skinparam componentStyle rectangle
 

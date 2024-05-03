@@ -1,4 +1,4 @@
-@startuml simple_plus
+@startuml frame_simple_mnemonic node
 skinparam groupInheritance 4
 
 package node <<Node>> $node {

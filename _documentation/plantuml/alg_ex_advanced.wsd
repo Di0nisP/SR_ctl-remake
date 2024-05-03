@@ -1,4 +1,4 @@
-@startuml alg_p
+@startuml alg_ex_advanced
 skinparam BackgroundColor transparent
 skinparam componentStyle rectangle
 skinparam groupInheritance 2

@@ -1,4 +1,4 @@
-@startuml full_s
+@startuml frame_full_mnemonic
 
 package node <<Node>> $node {
     package SR_config <<Rectangle>> $SR_config {
